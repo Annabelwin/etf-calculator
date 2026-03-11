@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ETF Investment Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+font-family:Arial;
+background:#f5f5f5;
+text-align:center;
+padding:40px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:400px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input{
+width:90%;
+padding:10px;
+margin:10px 0;
+}
+
+button{
+padding:10px 20px;
+background:#0070f3;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+.result{
+margin-top:20px;
+font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>ETF Investment Calculator</h2>
+
+<input id="monthly" type="number" placeholder="Monthly Investment ($)">
+
+<input id="years" type="number" placeholder="Years">
+
+<input id="rate" type="number" placeholder="Annual Return %">
+
+<br>
+
+<button onclick="calculate()">Calculate</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+function calculate(){
+
+let monthly = document.getElementById("monthly").value;
+let years = document.getElementById("years").value;
+let rate = document.getElementById("rate").value/100/12;
+
+let months = years*12;
+let total = 0;
+
+for(let i=0;i<months;i++){
+total = (total + Number(monthly))*(1+rate);
+}
+
+document.getElementById("result").innerHTML =
+"Future Value: $" + total.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
