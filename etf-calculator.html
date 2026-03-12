@@ -1,156 +1,177 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>ETF Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ETF Calculator</title>
+  <style>
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:#f5f5f7;
+      text-align:center;
+      padding:50px;
+      color:#1d1d1f;
+    }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    .container{
+      background:white;
+      max-width:700px;
+      margin:auto;
+      padding:30px;
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
 
-<style>
+    h1{
+      margin-bottom:25px;
+    }
 
-body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-background:#f5f5f7;
-text-align:center;
-padding:50px;
-}
+    .form-box{
+      max-width:420px;
+      margin:0 auto;
+    }
 
-.container{
-background:white;
-max-width:420px;
-margin:auto;
-padding:30px;
-border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
+    input{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border-radius:8px;
+      border:1px solid #ddd;
+      font-size:16px;
+      box-sizing:border-box;
+    }
 
-h1{
-margin-bottom:25px;
-}
+    button{
+      width:100%;
+      padding:12px;
+      background:#0071e3;
+      color:white;
+      border:none;
+      border-radius:10px;
+      font-size:16px;
+      cursor:pointer;
+      margin-top:10px;
+    }
 
-input{
-width:100%;
-padding:10px;
-margin:10px 0;
-border-radius:8px;
-border:1px solid #ddd;
-font-size:16px;
-}
+    button:hover{
+      background:#0058b0;
+    }
 
-button{
-width:100%;
-padding:12px;
-background:#0071e3;
-color:white;
-border:none;
-border-radius:10px;
-font-size:16px;
-cursor:pointer;
-margin-top:10px;
-}
+    .result{
+      margin-top:25px;
+      font-size:20px;
+      font-weight:600;
+    }
 
-button:hover{
-background:#0058b0;
-}
+    .chart-wrap{
+      margin-top:35px;
+    }
 
-.result{
-margin-top:25px;
-font-size:20px;
-font-weight:600;
-}
-
-.back{
-margin-top:25px;
-display:block;
-}
-
-</style>
-
+    .back{
+      margin-top:25px;
+      display:block;
+      color:#0071e3;
+      text-decoration:none;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <div class="container">
 
-<h1>ETF Calculator</h1>
+    <h1>ETF Calculator</h1>
 
-<input id="initial" placeholder="Initial Investment ($)">
-<input id="monthly" placeholder="Monthly Investment ($)">
-<input id="years" placeholder="Years">
-<input id="rate" placeholder="Annual Return (%)">
+    <div class="form-box">
+      <input id="initial" placeholder="Initial Investment ($)">
+      <input id="monthly" placeholder="Monthly Investment ($)">
+      <input id="years" placeholder="Years">
+      <input id="rate" placeholder="Annual Return (%)">
 
-<button onclick="calculate()">Calculate</button>
+      <button onclick="calculate()">Calculate</button>
 
-<div class="result" id="result"></div>
+      <div class="result" id="result"></div>
+    </div>
 
-<a class="back" href=" ">← Back to Home</a >
+    <div class="chart-wrap">
+      <canvas id="chart"></canvas>
+    </div>
 
-</div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <a class="back" href=" ">← Back to Home</a >
 
-<canvas id="chart" style="margin-top:40px;"></canvas>
+  </div>
 
-<script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-function drawChart(data){
+  <script>
+    let growthChart = null;
 
-const ctx=document.getElementById('chart');
+    function drawChart(data){
+      const ctx = document.getElementById("chart");
 
-new Chart(ctx,{
-type:'line',
-data:{
-labels:data.labels,
-datasets:[{
-label:'Investment Growth',
-data:data.values,
-borderColor:'#0071e3',
-fill:false,
-tension:0.3
-}]
-}
-});
+      if (growthChart) {
+        growthChart.destroy();
+      }
 
-}
+      growthChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: data.labels,
+          datasets: [{
+            label: "Investment Growth",
+            data: data.values,
+            borderColor: "#0071e3",
+            backgroundColor: "rgba(0,113,227,0.08)",
+            fill: true,
+            tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    }
 
-</script>
-<script>
-function calculate(){
+    function calculate(){
+      let initial = parseFloat(document.getElementById("initial").value) || 0;
+      let monthly = parseFloat(document.getElementById("monthly").value) || 0;
+      let years = parseFloat(document.getElementById("years").value) || 0;
+      let rate = (parseFloat(document.getElementById("rate").value) || 0) / 100;
 
-let initial=parseFloat(document.getElementById("initial").value)||0;
-let monthly=parseFloat(document.getElementById("monthly").value)||0;
-let years=parseFloat(document.getElementById("years").value)||0;
-let rate=parseFloat(document.getElementById("rate").value)/100||0;
+      let months = years * 12;
+      let total = initial;
 
-let months=years*12;
+      let values = [];
+      let labels = [];
 
-let total=initial;
+      for(let i = 0; i < months; i++){
+        total = total * (1 + rate / 12) + monthly;
 
-let values=[];
-let labels=[];
+        if ((i + 1) % 12 === 0) {
+          values.push(total.toFixed(2));
+          labels.push("Year " + ((i + 1) / 12));
+        }
+      }
 
-for(let i=0;i<months;i++){
+      document.getElementById("result").innerHTML =
+        "Future Value: $" + total.toFixed(2);
 
-total=total*(1+rate/12)+monthly;
+      drawChart({
+        labels: labels,
+        values: values
+      });
+    }
+  </script>
 
-if(i%12===0){
-values.push(total.toFixed(2));
-labels.push("Year "+Math.floor(i/12+1));
-}
-
-}
-
-document.getElementById("result").innerHTML=
-"Future Value: $"+total.toFixed(2);
-
-drawChart({
-labels:labels,
-values:values
-});
-
-}
-
-});
-
-}
-
-</script>
+</body>
+</html>
