@@ -187,3 +187,191 @@
 <body>
 
   <div class="container">
+
+    <h1>ETF Calculator</h1>
+    <div class="sub">Estimate long-term ETF growth with a clean, professional view.</div>
+
+    <div class="form-box">
+      <input id="initial" placeholder="Initial Investment ($)" value="10000">
+      <input id="monthly" placeholder="Monthly Investment ($)" value="500">
+      <input id="years" placeholder="Years" value="20">
+      <input id="rate" placeholder="Annual Return (%)" value="8">
+
+      <div class="button-group">
+        <button class="primary-btn" onclick="calculate()">Calculate</button>
+        <button class="secondary-btn" onclick="tryExample()">Try Example</button>
+        <button class="secondary-btn" onclick="resetForm()">Reset</button>
+      </div>
+    </div>
+
+    <div class="result-grid">
+      <div class="stat">
+        <div class="stat-label">Final Value</div>
+        <div class="stat-value" id="finalValue">—</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-label">Total Contributions</div>
+        <div class="stat-value" id="contributions">—</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-label">Total Growth</div>
+        <div class="stat-value" id="growth">—</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Investment Growth Over Time</div>
+      <canvas id="chart"></canvas>
+    </div>
+
+    <a class="back" href=" ">← Back to Home</a >
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    let growthChart = null;
+
+    function money(n){
+      return "$" + Number(n).toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    function drawChart(data){
+      const ctx = document.getElementById("chart");
+
+      if (growthChart) {
+        growthChart.destroy();
+      }
+
+      growthChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: data.labels,
+          datasets: [
+            {
+              label: "Total Value",
+              data: data.totalValues,
+              borderColor: "#3b82f6",
+              backgroundColor: "rgba(59,130,246,0.08)",
+              fill: false,
+              tension: 0.32,
+              borderWidth: 3,
+              pointRadius: 2
+            },
+            {
+              label: "Contributions",
+              data: data.contributionValues,
+              borderColor: "#94a3b8",
+              backgroundColor: "rgba(148,163,184,0.06)",
+              fill: false,
+              tension: 0.2,
+              borderWidth: 2,
+              pointRadius: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              labels: {
+                color: "#374151"
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#6b7280"
+              },
+              grid: {
+                color: "rgba(148,163,184,0.12)"
+              }
+            },
+            y: {
+              beginAtZero: true,
+              ticks: {
+                color: "#6b7280"
+              },
+              grid: {
+                color: "rgba(148,163,184,0.12)"
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function calculate(){
+      let initial = parseFloat(document.getElementById("initial").value) || 0;
+      let monthly = parseFloat(document.getElementById("monthly").value) || 0;
+      let years = parseFloat(document.getElementById("years").value) || 0;
+      let rate = (parseFloat(document.getElementById("rate").value) || 0) / 100;
+
+      let months = years * 12;
+      let total = initial;
+      let contributionTotal = initial;
+
+      let labels = [];
+      let totalValues = [];
+      let contributionValues = [];
+
+      for(let i = 0; i < months; i++){
+        total = total * (1 + rate / 12) + monthly;
+        contributionTotal += monthly;
+
+        if ((i + 1) % 12 === 0) {
+          labels.push("Year " + ((i + 1) / 12));
+          totalValues.push(Number(total.toFixed(2)));
+          contributionValues.push(Number(contributionTotal.toFixed(2)));
+        }
+      }
+
+      let growthValue = total - contributionTotal;
+
+      document.getElementById("finalValue").innerHTML = money(total);
+      document.getElementById("contributions").innerHTML = money(contributionTotal);
+      document.getElementById("growth").innerHTML = money(growthValue);
+
+      drawChart({
+        labels: labels,
+        totalValues: totalValues,
+        contributionValues: contributionValues
+      });
+    }
+
+    function tryExample(){
+      document.getElementById("initial").value = 1000;
+      document.getElementById("monthly").value = 500;
+      document.getElementById("years").value = 30;
+      document.getElementById("rate").value = 8;
+      calculate();
+    }
+
+    function resetForm(){
+      document.getElementById("initial").value = "";
+      document.getElementById("monthly").value = "";
+      document.getElementById("years").value = "";
+      document.getElementById("rate").value = "";
+
+      document.getElementById("finalValue").innerHTML = "—";
+      document.getElementById("contributions").innerHTML = "—";
+      document.getElementById("growth").innerHTML = "—";
+
+      if (growthChart) {
+        growthChart.destroy();
+        growthChart = null;
+      }
+    }
+
+    calculate();
+  </script>
+
+</body>
+</html>
