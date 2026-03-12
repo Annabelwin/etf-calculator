@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <title>ETF Calculator Tools | ETF, VOO & Compound Interest Calculators</title>
-<meta name="description" content="Free ETF calculator tools for long-term investors. Estimate ETF growth, VOO returns, and compound interest with simple, visual calculators.">
+
+<meta name="description" content="Free ETF calculator tools for long-term investors. Estimate ETF growth, VOO returns, and compound interest with simple visual charts.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,10 +12,10 @@
 
 body{
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-background:#f5f5f7;
+background:#f5f7fa;
 text-align:center;
 padding:60px;
-color:#1d1d1f;
+color:#111;
 }
 
 h1{
@@ -21,15 +23,15 @@ font-size:42px;
 margin-bottom:10px;
 }
 
-p{
-color:#6e6e73;
+.subtitle{
+color:#666;
 margin-bottom:50px;
 }
 
-.tools{
+.container{
 display:flex;
 justify-content:center;
-gap:30px;
+gap:40px;
 flex-wrap:wrap;
 }
 
@@ -38,36 +40,50 @@ background:white;
 padding:30px;
 border-radius:16px;
 width:260px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-transition:0.2s;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:all 0.25s;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-5px);
+box-shadow:0 14px 35px rgba(0,0,0,0.12);
 }
 
-a{
+.card h2{
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+font-size:14px;
+margin-bottom:20px;
+}
+
+.card a{
 text-decoration:none;
-color:#0071e3;
+color:#2f6df6;
 font-weight:600;
 }
 
 .footer{
-margin-top:80px;
-font-size:14px;
-color:#86868b;
+margin-top:60px;
+color:#999;
+font-size:13px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <h1>ETF Calculator Tools</h1>
 
-<p>Simple tools for smarter long-term investing</p >
+<div class="subtitle">
+Simple tools for smarter long-term investing
+</div>
 
-<div class="tools">
+<div class="container">
 
 <div class="card">
 <h2>ETF Calculator</h2>
@@ -94,4 +110,5 @@ etfcalculator.net
 </div>
 
 </body>
+
 </html>
