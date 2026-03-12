@@ -86,9 +86,34 @@ display:block;
 <a class="back" href=" ">← Back to Home</a >
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<canvas id="chart" style="margin-top:40px;"></canvas>
 
 <script>
 
+function drawChart(data){
+
+const ctx=document.getElementById('chart');
+
+new Chart(ctx,{
+type:'line',
+data:{
+labels:data.labels,
+datasets:[{
+label:'Investment Growth',
+data:data.values,
+borderColor:'#0071e3',
+fill:false,
+tension:0.3
+}]
+}
+});
+
+}
+
+</script>
+<script>
 function calculate(){
 
 let initial=parseFloat(document.getElementById("initial").value)||0;
@@ -100,16 +125,32 @@ let months=years*12;
 
 let total=initial;
 
+let values=[];
+let labels=[];
+
 for(let i=0;i<months;i++){
+
 total=total*(1+rate/12)+monthly;
+
+if(i%12===0){
+values.push(total.toFixed(2));
+labels.push("Year "+Math.floor(i/12+1));
+}
+
 }
 
 document.getElementById("result").innerHTML=
 "Future Value: $"+total.toFixed(2);
 
+drawChart({
+labels:labels,
+values:values
+});
+
+}
+
+});
+
 }
 
 </script>
-
-</body>
-</html>
