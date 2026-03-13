@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VOO Calculator | Vanguard S&P 500 ETF Investment Calculator</title>
-  <meta name="description" content="Free VOO calculator to estimate Vanguard S&P 500 ETF investment growth with monthly contributions, visual charts, FAQ, and compound returns.">
+  <meta name="description" content="Estimate long-term VOO investment growth with custom contribution frequency, expense ratio, dividend yield, reinvestment, and visual charts.">
 
   <style>
     :root{
@@ -13,16 +13,11 @@
       --muted:#6e6e73;
       --text:#1d1d1f;
       --line:#e5e7eb;
-      --soft:#f7f8fa;
-      --soft-2:#f3f4f6;
-      --accent:#2f3b52;
       --link:#4f46e5;
       --shadow:0 20px 50px rgba(15,23,42,0.08);
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{ box-sizing:border-box; }
 
     body{
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
@@ -39,7 +34,7 @@
     }
 
     .container{
-      background:rgba(255,255,255,0.9);
+      background:rgba(255,255,255,0.92);
       backdrop-filter:blur(10px);
       border:1px solid rgba(255,255,255,0.7);
       border-radius:28px;
@@ -110,12 +105,31 @@
       text-align:right;
       color:#111827;
       outline:none;
-      transition:all 0.18s ease;
     }
 
     .form-row input:focus{
       border-color:#aab4c2;
       box-shadow:0 0 0 4px rgba(148,163,184,0.12);
+    }
+
+    .checkbox-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding-top:6px;
+      margin-bottom:10px;
+    }
+
+    .checkbox-row label{
+      font-size:15px;
+      color:#374151;
+    }
+
+    .checkbox-row input[type="checkbox"]{
+      width:18px;
+      height:18px;
+      accent-color:#2f3b52;
     }
 
     .buttons{
@@ -153,7 +167,7 @@
       max-width:560px;
       margin:0 auto 30px;
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:14px;
     }
 
@@ -174,10 +188,11 @@
     }
 
     .result-value{
-      font-size:24px;
+      font-size:22px;
       font-weight:700;
       color:#111827;
       letter-spacing:-0.02em;
+      word-break:break-word;
     }
 
     .section-card{
@@ -187,7 +202,7 @@
       border:1px solid #edf0f3;
       border-radius:22px;
       padding:22px;
-      box-shadow:0 10px 26px rgba(15,23,42,0.04);
+      box-shadow:0 8px 20px rgba(15,23,42,0.03);
     }
 
     .chart-wrap{
@@ -216,66 +231,42 @@
       margin-bottom:18px;
     }
 
-    .guide-box{
+    .insight-box{
       max-width:620px;
       margin:40px auto 0;
       text-align:left;
     }
 
-    .guide-box strong{
-      display:block;
-      font-size:22px;
-      letter-spacing:-0.02em;
-      margin-bottom:8px;
-      color:#111827;
-    }
-
-    .guide-box p{
-      margin:0 0 14px;
-      color:#4b5563;
-      font-size:15px;
-    }
-
-    .guide-box a{
-      color:var(--link);
-      font-weight:600;
-      text-decoration:none;
-    }
-
-    .faq{
-      max-width:620px;
-      margin:40px auto 0;
-      text-align:left;
-    }
-
-    .faq h2{
+    .insight-box h2{
+      margin:0 0 10px;
       font-size:28px;
-      margin:0 0 18px;
       letter-spacing:-0.02em;
-      color:#111827;
     }
 
-    .faq-item{
-      padding:18px 0;
-      border-top:1px solid #eceff3;
-    }
-
-    .faq-item:first-of-type{
-      border-top:none;
-      padding-top:0;
-    }
-
-    .faq h3{
-      font-size:19px;
-      margin:0 0 8px;
-      color:#111827;
-      letter-spacing:-0.01em;
-    }
-
-    .faq p{
+    .insight-box p{
+      margin:0 0 12px;
+      color:#4b5563;
       font-size:16px;
-      color:#374151;
-      margin:0;
+    }
+
+    .related{
+      max-width:620px;
+      margin:40px auto 0;
+      text-align:left;
+    }
+
+    .related h2{
+      margin:0 0 10px;
+      font-size:28px;
+      letter-spacing:-0.02em;
+    }
+
+    .related a{
+      display:block;
+      color:var(--link);
+      text-decoration:none;
+      font-weight:600;
+      margin:10px 0;
     }
 
     .footer{
@@ -291,92 +282,77 @@
     }
 
     @media (max-width:768px){
-      .container{
-        padding:28px 18px 24px;
-      }
-
-      h1{
-        font-size:32px;
-      }
-
-      .sub{
-        font-size:16px;
-      }
-
-      .form-card{
-        padding:18px 16px;
-      }
-
-      .form-row{
-        grid-template-columns:1fr;
-        gap:8px;
-      }
-
-      .results{
-        grid-template-columns:1fr;
-      }
-
-      .result-value{
-        font-size:22px;
-      }
-
-      .chart-title{
-        font-size:22px;
-      }
-
-      .guide-box strong{
-        font-size:20px;
-      }
-
-      .faq h2{
-        font-size:24px;
-      }
+      .container{ padding:28px 18px 24px; }
+      h1{ font-size:32px; }
+      .sub{ font-size:16px; }
+      .form-card{ padding:18px 16px; }
+      .form-row{ grid-template-columns:1fr; gap:8px; }
+      .results{ grid-template-columns:1fr 1fr; }
+      .result-value{ font-size:20px; }
+      .chart-title{ font-size:22px; }
     }
   </style>
 </head>
 
 <body>
-
 <div class="page">
   <div class="container">
 
     <div class="hero">
       <h1>VOO Calculator</h1>
       <div class="sub">
-        Estimate long-term growth investing in Vanguard S&amp;P 500 ETF with monthly contributions and compound returns.
+        Estimate long-term growth investing in Vanguard S&amp;P 500 ETF with realistic settings for contribution timing, fees, and dividends.
       </div>
       <div class="info">
-        VOO tracks the S&amp;P 500 index and is one of the most popular long-term investment ETFs.
+        This version includes custom contribution frequency, expense ratio, dividend yield, and dividend reinvestment to better reflect real ETF investing.
       </div>
     </div>
 
     <div class="form-card">
-      <div class="form-box">
-        <div class="form-row">
-          <label for="initial">Initial Investment ($)</label>
-          <input id="initial" type="number">
-        </div>
+      <div class="form-row">
+        <label for="initial">Initial Investment ($)</label>
+        <input id="initial" type="number">
+      </div>
 
-        <div class="form-row">
-          <label for="monthly">Monthly Contribution ($)</label>
-          <input id="monthly" type="number">
-        </div>
+      <div class="form-row">
+        <label for="contribution">Contribution Amount ($)</label>
+        <input id="contribution" type="number">
+      </div>
 
-        <div class="form-row">
-          <label for="years">Years</label>
-          <input id="years" type="number">
-        </div>
+      <div class="form-row">
+        <label for="frequency">Invest Every (months)</label>
+        <input id="frequency" type="number" min="1">
+      </div>
 
-        <div class="form-row">
-          <label for="rate">Annual Return (%)</label>
-          <input id="rate" type="number">
-        </div>
+      <div class="form-row">
+        <label for="years">Investment Period (years)</label>
+        <input id="years" type="number">
+      </div>
 
-        <div class="buttons">
-          <button class="calculate" onclick="calculate()">Calculate</button>
-          <button class="example" onclick="exampleData()">Try Example</button>
-          <button class="reset" onclick="resetCalc()">Reset</button>
-        </div>
+      <div class="form-row">
+        <label for="returnRate">Expected Annual Return (%)</label>
+        <input id="returnRate" type="number" step="0.01">
+      </div>
+
+      <div class="form-row">
+        <label for="expenseRatio">Expense Ratio (%)</label>
+        <input id="expenseRatio" type="number" step="0.01">
+      </div>
+
+      <div class="form-row">
+        <label for="dividendYield">Dividend Yield (%)</label>
+        <input id="dividendYield" type="number" step="0.01">
+      </div>
+
+      <div class="checkbox-row">
+        <label for="reinvestDividends">Reinvest Dividends</label>
+        <input id="reinvestDividends" type="checkbox" checked>
+      </div>
+
+      <div class="buttons">
+        <button class="calculate" onclick="calculate()">Calculate</button>
+        <button class="example" onclick="exampleData()">Try Example</button>
+        <button class="reset" onclick="resetCalc()">Reset</button>
       </div>
     </div>
 
@@ -392,48 +368,35 @@
       </div>
 
       <div class="result-box">
-        <div class="result-label">Total Growth</div>
+        <div class="result-label">Total Gain</div>
         <div class="result-value" id="growth">$0</div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-label">Estimated Fees Paid</div>
+        <div class="result-value" id="fees">$0</div>
       </div>
     </div>
 
     <div class="section-card chart-wrap">
       <div class="eyebrow">Projection</div>
       <div class="chart-title">VOO Growth Over Time</div>
-      <div class="chart-sub">A visual view of your projected portfolio value and contributions over the years.</div>
+      <div class="chart-sub">Projected portfolio value vs total contributions over the investment period.</div>
       <canvas id="growthChart"></canvas>
     </div>
 
-    <div class="section-card guide-box">
-      <strong>New to VOO?</strong>
-      <p>
-        Read our beginner guide explaining how Vanguard S&amp;P 500 ETF works and why many investors choose it for long-term investing.
-      </p >
-      <a href=" ">Read the VOO Investment Guide →</a >
+    <div class="section-card insight-box">
+      <h2>Investment Insights</h2>
+      <p id="insight1">Enter your numbers to see how time, compounding, fees, and dividends may affect your portfolio.</p >
+      <p id="insight2">Consistent investing matters. Even small recurring contributions can compound meaningfully over long periods.</p >
     </div>
 
-    <div class="section-card faq">
-      <h2>VOO Calculator FAQ</h2>
-
-      <div class="faq-item">
-        <h3>What is VOO?</h3>
-        <p>VOO is the Vanguard S&amp;P 500 ETF. It tracks the S&amp;P 500 index and gives investors exposure to many of the largest companies in the United States.</p >
-      </div>
-
-      <div class="faq-item">
-        <h3>What is the average return of VOO?</h3>
-        <p>Historically, the S&amp;P 500 has returned around 8% to 10% annually over the long term, though actual returns vary from year to year.</p >
-      </div>
-
-      <div class="faq-item">
-        <h3>Is VOO a good long-term investment?</h3>
-        <p>Many investors consider VOO a strong long-term investment because it is diversified, simple, and widely used for passive investing.</p >
-      </div>
-
-      <div class="faq-item">
-        <h3>How does this VOO calculator work?</h3>
-        <p>This calculator estimates how your investment could grow using compound returns and regular monthly contributions over time.</p >
-      </div>
+    <div class="section-card related">
+      <h2>Related comparisons</h2>
+      <a href=" ">VOO vs SPY →</a >
+      <a href="https://etfcalculator.net/voo-vs-qqq.html">VOO vs QQQ →</a >
+      <a href="https://etfcalculator.net/voo-vs-vti.html">VOO vs VTI →</a >
+      <a href="https://etfcalculator.net/etf-comparison.html">ETF Comparison Center →</a >
     </div>
 
     <div class="footer">
@@ -456,36 +419,67 @@
   }
 
   function calculate(){
-    let initial = parseFloat(document.getElementById("initial").value) || 0;
-    let monthly = parseFloat(document.getElementById("monthly").value) || 0;
-    let years = parseFloat(document.getElementById("years").value) || 0;
-    let rate = (parseFloat(document.getElementById("rate").value) || 0) / 100;
+    const initial = parseFloat(document.getElementById("initial").value) || 0;
+    const contribution = parseFloat(document.getElementById("contribution").value) || 0;
+    const frequency = Math.max(1, parseFloat(document.getElementById("frequency").value) || 1);
+    const years = parseFloat(document.getElementById("years").value) || 0;
+    const returnRate = (parseFloat(document.getElementById("returnRate").value) || 0) / 100;
+    const expenseRatio = (parseFloat(document.getElementById("expenseRatio").value) || 0) / 100;
+    const dividendYield = (parseFloat(document.getElementById("dividendYield").value) || 0) / 100;
+    const reinvestDividends = document.getElementById("reinvestDividends").checked;
 
-    let months = years * 12;
+    const months = Math.round(years * 12);
     let balance = initial;
     let contributionTotal = initial;
+    let totalFeesPaid = 0;
 
-    let labels = [];
-    let balanceData = [];
-    let contributionData = [];
+    const labels = [];
+    const balanceData = [];
+    const contributionData = [];
 
-    for(let i = 1; i <= months; i++){
-      balance += monthly;
-      balance *= (1 + rate / 12);
-      contributionTotal += monthly;
+    const monthlyGrowthRate = returnRate / 12;
+    const monthlyExpenseRate = expenseRatio / 12;
+    const monthlyDividendRate = dividendYield / 12;
 
-      if(i % 12 === 0){
-        labels.push("Year " + (i / 12));
+    for(let month = 1; month <= months; month++){
+      if((month - 1) % frequency === 0){
+        balance += contribution;
+        contributionTotal += contribution;
+      }
+
+      const grossGrowth = balance * monthlyGrowthRate;
+      const monthlyFee = balance * monthlyExpenseRate;
+      const monthlyDividend = balance * monthlyDividendRate;
+
+      balance += grossGrowth;
+      balance -= monthlyFee;
+      totalFeesPaid += monthlyFee;
+
+      if(reinvestDividends){
+        balance += monthlyDividend;
+      }
+
+      if(month % 12 === 0){
+        labels.push("Year " + (month / 12));
         balanceData.push(Number(balance.toFixed(2)));
         contributionData.push(Number(contributionTotal.toFixed(2)));
       }
     }
 
-    let growth = balance - contributionTotal;
+    const gain = balance - contributionTotal;
 
     document.getElementById("final").innerText = formatMoney(balance);
     document.getElementById("contributions").innerText = formatMoney(contributionTotal);
-    document.getElementById("growth").innerText = formatMoney(growth);
+    document.getElementById("growth").innerText = formatMoney(gain);
+    document.getElementById("fees").innerText = formatMoney(totalFeesPaid);
+
+    document.getElementById("insight1").innerText =
+      "If you invest " + formatMoney(contribution) + " every " + frequency + " month(s) for " +
+      years + " years, your portfolio could grow to about " + formatMoney(balance) + ".";
+
+    document.getElementById("insight2").innerText =
+      "Estimated fees paid over the period: " + formatMoney(totalFeesPaid) +
+      ". Reinvesting dividends can further improve long-term compounding.";
 
     drawChart(labels, balanceData, contributionData);
   }
@@ -503,7 +497,7 @@
         labels: labels,
         datasets: [
           {
-            label: "Total Value",
+            label: "Portfolio Value",
             data: balanceData,
             borderColor: "#2563eb",
             backgroundColor: "rgba(37,99,235,0.08)",
@@ -526,27 +520,17 @@
         responsive: true,
         plugins: {
           legend: {
-            labels: {
-              color: "#374151"
-            }
+            labels: { color: "#374151" }
           }
         },
         scales: {
           x: {
-            ticks: {
-              color: "#6b7280"
-            },
-            grid: {
-              color: "rgba(0,0,0,0.05)"
-            }
+            ticks: { color: "#6b7280" },
+            grid: { color: "rgba(0,0,0,0.05)" }
           },
           y: {
-            ticks: {
-              color: "#6b7280"
-            },
-            grid: {
-              color: "rgba(0,0,0,0.05)"
-            }
+            ticks: { color: "#6b7280" },
+            grid: { color: "rgba(0,0,0,0.05)" }
           }
         }
       }
@@ -555,21 +539,32 @@
 
   function exampleData(){
     document.getElementById("initial").value = 10000;
-    document.getElementById("monthly").value = 500;
+    document.getElementById("contribution").value = 1500;
+    document.getElementById("frequency").value = 3;
     document.getElementById("years").value = 20;
-    document.getElementById("rate").value = 10;
+    document.getElementById("returnRate").value = 8;
+    document.getElementById("expenseRatio").value = 0.03;
+    document.getElementById("dividendYield").value = 1.4;
+    document.getElementById("reinvestDividends").checked = true;
     calculate();
   }
 
   function resetCalc(){
     document.getElementById("initial").value = "";
-    document.getElementById("monthly").value = "";
+    document.getElementById("contribution").value = "";
+    document.getElementById("frequency").value = "";
     document.getElementById("years").value = "";
-    document.getElementById("rate").value = "";
+    document.getElementById("returnRate").value = "";
+    document.getElementById("expenseRatio").value = "";
+    document.getElementById("dividendYield").value = "";
+    document.getElementById("reinvestDividends").checked = true;
 
     document.getElementById("final").innerText = "$0";
     document.getElementById("contributions").innerText = "$0";
     document.getElementById("growth").innerText = "$0";
+    document.getElementById("fees").innerText = "$0";
+    document.getElementById("insight1").innerText = "Enter your numbers to see how time, compounding, fees, and dividends may affect your portfolio.";
+    document.getElementById("insight2").innerText = "Consistent investing matters. Even small recurring contributions can compound meaningfully over long periods.";
 
     if(chartInstance){
       chartInstance.destroy();
