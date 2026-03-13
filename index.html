@@ -69,7 +69,7 @@
 
     .hero{
       text-align:center;
-      padding:48px 20px 36px;
+      padding:36px 20px 24px;
     }
 
     .eyebrow{
@@ -159,7 +159,7 @@
       border-radius:20px;
       padding:22px 20px;
       text-align:left;
-      box-shadow:0 8px 20px rgba(15,23,42,0.04);
+      box-shadow:0 6px 16px rgba(15,23,42,0.04);
     }
 
     .mini-card .kicker{
@@ -228,7 +228,7 @@
       border:1px solid #edf0f3;
       border-radius:22px;
       padding:24px;
-      box-shadow:0 10px 26px rgba(15,23,42,0.04);
+      box-shadow:0 6px 16px rgba(15,23,42,0.04);
     }
 
     .tool-card .kicker{
@@ -264,6 +264,51 @@
       font-size:15px;
     }
 
+    .learn-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      max-width:900px;
+      margin:28px auto 0;
+    }
+
+    .learn-card{
+      display:block;
+      background:linear-gradient(180deg,#ffffff 0%, #fafbfd 100%);
+      border:1px solid #edf0f3;
+      border-radius:22px;
+      padding:24px;
+      text-decoration:none;
+      color:#111827;
+      box-shadow:0 6px 16px rgba(15,23,42,0.04);
+      transition:transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .learn-card:hover{
+      transform:translateY(-2px);
+      opacity:0.97;
+    }
+
+    .learn-card .kicker{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      color:#9ca3af;
+      margin-bottom:10px;
+    }
+
+    .learn-card h3{
+      margin:0 0 10px;
+      font-size:24px;
+      letter-spacing:-0.02em;
+    }
+
+    .learn-card p{
+      margin:0;
+      color:#4b5563;
+      font-size:15px;
+    }
+
     .content-card{
       max-width:760px;
       margin:0 auto;
@@ -271,7 +316,7 @@
       border:1px solid #edf0f3;
       border-radius:24px;
       padding:28px;
-      box-shadow:0 10px 26px rgba(15,23,42,0.04);
+      box-shadow:0 6px 16px rgba(15,23,42,0.04);
     }
 
     .content-card h3{
@@ -322,7 +367,7 @@
       border:1px solid #edf0f3;
       border-radius:20px;
       padding:20px 22px;
-      box-shadow:0 10px 26px rgba(15,23,42,0.04);
+      box-shadow:0 6px 16px rgba(15,23,42,0.04);
       margin-bottom:14px;
     }
 
@@ -358,7 +403,8 @@
 
       .hero-grid,
       .tools-grid,
-      .feature-grid{
+      .feature-grid,
+      .learn-grid{
         grid-template-columns:1fr;
       }
     }
@@ -492,18 +538,24 @@
   <div class="section">
     <div class="section-head">
       <div class="eyebrow">Learn</div>
-      <h2>Not just tools. A growing investing knowledge layer.</h2>
+      <h2>Learn about ETF investing</h2>
       <p>
-        We are building calculators and simple educational pages together, so users can learn and act in one place.
+        Simple educational pages that help users understand investing concepts and compare ETF choices with confidence.
       </p >
     </div>
 
-    <div class="content-card">
-      <h3>What is VOO? A Beginner’s Guide</h3>
-      <p>
-        Learn what VOO is, how it works, how it compares to SPY, and why many long-term investors use it as a simple core holding.
-      </p >
-      <a class="btn btn-secondary" href="https://etfcalculator.net/voo-investment-guide.html">Open the Guide</a >
+    <div class="learn-grid">
+      <a class="learn-card" href="https://etfcalculator.net/voo-investment-guide.html">
+        <div class="kicker">Guide</div>
+        <h3>What is VOO? A Beginner’s Guide</h3>
+        <p>Learn how the Vanguard S&amp;P 500 ETF works and why many long-term investors build portfolios around it.</p >
+      </a >
+
+      <a class="learn-card" href="https://etfcalculator.net/voo-vs-spy.html">
+        <div class="kicker">Comparison</div>
+        <h3>VOO vs SPY</h3>
+        <p>Compare two of the most popular S&amp;P 500 ETFs and understand which may fit better for long-term investors.</p >
+      </a >
     </div>
   </div>
 
