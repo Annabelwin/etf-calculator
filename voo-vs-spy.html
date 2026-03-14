@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VOO vs SPY | Which S&P 500 ETF Is Better for Long-Term Investors?</title>
-  <meta name="description" content="Compare VOO vs SPY from a real long-term investor perspective. Learn the differences in fees, trading style, structure and which ETF may fit buy-and-hold investing better.">
+  <meta name="description" content="Compare VOO vs SPY from a real long-term investor perspective. Learn the differences in fees, trading style and which ETF may fit buy-and-hold investing better.">
 
   <style>
     :root{
@@ -28,32 +28,32 @@
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       background:var(--bg);
       color:var(--text);
-      padding:42px 20px 76px;
+      padding:44px 20px 80px;
       line-height:1.82;
     }
 
     .container{
-      max-width:680px;
+      max-width:700px;
       margin:0 auto;
     }
 
     .hero{
-      margin-bottom:34px;
+      margin-bottom:40px;
     }
 
     h1{
-      font-size:35px;
-      line-height:1.1;
+      font-size:36px;
+      line-height:1.08;
       letter-spacing:-0.03em;
-      margin:0 0 14px;
+      margin:0 0 16px;
       color:var(--text);
     }
 
     h2{
-      font-size:20px;
-      line-height:1.35;
+      font-size:22px;
+      line-height:1.3;
       letter-spacing:-0.02em;
-      margin:0 0 16px;
+      margin:0 0 14px;
       color:var(--text);
     }
 
@@ -66,43 +66,24 @@
     }
 
     .subtitle{
-      max-width:500px;
+      max-width:560px;
       font-size:18px;
-      line-height:1.9;
+      line-height:1.95;
       color:var(--muted);
       margin:0;
     }
 
-    .intro-wrap{
-  max-width:560px;
-  margin-left:14px;
-    }
-
-    .first-reading-card{
-  padding-top:34px;
-    }
-    
     .card{
-      background:rgba(255,255,255,0.95);
+      background:rgba(255,255,255,0.96);
       border:1px solid var(--line);
       border-radius:24px;
-      padding:30px 30px;
-      margin-top:24px;
+      padding:30px 32px;
+      margin-top:28px;
       box-shadow:var(--shadow);
     }
 
-    .card p,
-    .faq-item p{
-      max-width:52ch;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-      margin:0 0 14px;
-    }
-
-    .card p:last-child,
-    .faq-item p:last-child{
-      margin-bottom:0;
+    .overview-card{
+      margin-top:0;
     }
 
     table{
@@ -124,20 +105,38 @@
       color:var(--muted);
     }
 
+    .reading-section{
+      max-width:560px;
+      margin:58px auto 0;
+    }
+
+    .reading-section h2{
+      margin-bottom:16px;
+    }
+
+    .reading-section p{
+      max-width:52ch;
+      font-size:17px;
+      line-height:1.95;
+      color:#4b5563;
+      margin:0 0 18px;
+    }
+
     .cta-card{
       text-align:center;
-      padding:34px 30px;
+      padding:34px 32px;
     }
 
     .cta-card p{
-      margin-left:auto;
-      margin-right:auto;
       max-width:46ch;
+      margin:0 auto 16px;
+      font-size:16px;
+      line-height:1.9;
+      color:#4b5563;
     }
 
     .cta-button{
       display:inline-block;
-      margin-top:12px;
       background:linear-gradient(180deg,var(--button-top) 0%, var(--button-bottom) 100%);
       color:#ffffff !important;
       text-decoration:none;
@@ -148,11 +147,16 @@
     }
 
     .faq-card{
-      padding-top:38px;
+      padding-top:34px;
     }
 
     .faq-title{
       margin-bottom:22px;
+    }
+
+    .faq-wrap{
+      max-width:560px;
+      margin:0 auto;
     }
 
     .faq-item{
@@ -170,9 +174,17 @@
       margin:0 0 10px;
     }
 
+    .faq-item p{
+      max-width:52ch;
+      font-size:16px;
+      line-height:1.9;
+      color:#4b5563;
+      margin:0;
+    }
+
     .nav-card{
       text-align:center;
-      padding:30px 30px;
+      padding:30px 32px;
     }
 
     .nav-card h2{
@@ -194,13 +206,15 @@
 
     .community-card{
       text-align:center;
-      padding:32px 30px;
+      padding:32px 32px;
     }
 
     .community-card p{
-      margin-left:auto;
-      margin-right:auto;
       max-width:48ch;
+      margin:0 auto 14px;
+      font-size:16px;
+      line-height:1.9;
+      color:#4b5563;
     }
 
     .community-list{
@@ -250,7 +264,7 @@
 
     .back-wrap{
       text-align:left;
-      margin-top:28px;
+      margin-top:30px;
     }
 
     .back{
@@ -262,7 +276,7 @@
 
     @media (max-width:640px){
       body{
-        padding:28px 16px 60px;
+        padding:30px 16px 60px;
       }
 
       .container{
@@ -270,27 +284,32 @@
       }
 
       h1{
-        font-size:30px;
+        font-size:31px;
       }
 
       h2{
-        font-size:19px;
+        font-size:20px;
       }
 
       .subtitle{
         max-width:100%;
         font-size:16px;
-        line-height:1.86;
+        line-height:1.88;
       }
 
       .card{
-        padding:30px 32px;
         border-radius:18px;
+        padding:24px 20px;
       }
 
-      .card p,
-      .faq-item p,
-      .faq-item h3{
+      .reading-section{
+        margin-top:48px;
+        max-width:100%;
+      }
+
+      .reading-section p,
+      .faq-item h3,
+      .faq-item p{
         max-width:100%;
       }
 
@@ -311,16 +330,13 @@
   <div class="container">
 
     <div class="hero">
-  <h1>VOO vs SPY</h1>
+      <h1>VOO vs SPY</h1>
+      <p class="subtitle">
+        VOO and SPY both track the S&amp;P 500, so at first glance they look almost identical. But investors still compare them because cost, trading style and long-term use case are not exactly the same.
+      </p>
+    </div>
 
-  <div class="intro-wrap">
-    <p class="subtitle">
-      VOO and SPY both track the S&P 500, so at first glance they look almost identical. But investors still compare them because cost, trading style and long-term use case are not exactly the same.
-    </p >
-  </div>
-</div>
-
-    <div class="card">
+    <div class="card overview-card">
       <h2>ETF Overview</h2>
 
       <table>
@@ -352,12 +368,11 @@
       </table>
     </div>
 
-    <div class="card first-reading-card">
-  <div class="content-col">
-    <h2>What Most Investors Really Want to Know</h2>
+    <section class="reading-section">
+      <h2>What Actually Matters for Long-Term Investors</h2>
 
       <p>
-        If both funds hold the same index, why does anyone even compare them?
+        If both funds track the same index, why does anyone even compare them?
       </p>
 
       <p>
@@ -367,42 +382,18 @@
       <p>
         That is why these two ETFs keep showing up in the same conversation. They offer the same market exposure, but they are often used by different types of investors.
       </p>
-    </div>
-
-    <div class="card">
-      <h2>Why Long-Term Investors Often Prefer VOO</h2>
 
       <p>
-        VOO is commonly chosen by buy-and-hold investors because it offers low-cost S&amp;P 500 exposure in a very simple package.
+        VOO is commonly chosen by buy-and-hold investors because it offers low-cost S&amp;P 500 exposure in a very simple package. If your plan is to keep buying every month or every quarter for many years, then an ongoing fee difference may matter more than small structural details.
       </p>
 
       <p>
-        If your plan is to keep buying every month or every quarter for many years, then an ongoing fee difference may matter more than small structural details.
+        SPY, on the other hand, remains one of the most heavily traded ETFs in the world. That matters a lot to traders, institutions and investors who care about liquidity, tight spreads and quick execution.
       </p>
+    </section>
 
-      <p>
-        In real life, many long-term investors are not looking for the most tradeable ETF. They are looking for the one they can hold calmly for 10 to 20 years.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Why SPY Is Still Extremely Popular</h2>
-
-      <p>
-        SPY remains one of the most heavily traded ETFs in the world. That matters a lot to traders, institutions and investors who care about liquidity, tight spreads and quick execution.
-      </p>
-
-      <p>
-        So SPY is not “bad.” It simply solves a slightly different problem.
-      </p>
-
-      <p>
-        If you trade often, SPY may make more sense. If you mainly build wealth slowly over time, many investors lean toward VOO.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>A Practical Investor View</h2>
+    <section class="reading-section">
+      <h2>Which One Fits Your Investing Style?</h2>
 
       <p>
         If you are a beginner and want one straightforward answer, VOO is often the easier choice for long-term investing.
@@ -413,9 +404,9 @@
       </p>
 
       <p>
-        The important thing is not choosing the “perfect” ETF. The important thing is choosing one that fits how you actually invest.
+        The important thing is not choosing the “perfect” ETF. The important thing is choosing one that fits how you actually invest and can keep holding calmly through market cycles.
       </p>
-    </div>
+    </section>
 
     <div class="card cta-card">
       <h2>Try the VOO Calculator</h2>
@@ -426,49 +417,44 @@
     </div>
 
     <div class="card faq-card">
-      <div class="content-col">
-      <h2 class="faq-title">VOO vs SPY FAQ</h2>
+      <div class="faq-wrap">
+        <h2 class="faq-title">VOO vs SPY FAQ</h2>
 
-      <div class="faq-item">
-        <h3>Do VOO and SPY track the same index?</h3>
-        <p>Yes. Both ETFs track the S&amp;P 500 Index.</p>
-      </div>
+        <div class="faq-item">
+          <h3>Do VOO and SPY track the same index?</h3>
+          <p>Yes. Both ETFs track the S&amp;P 500 Index.</p>
+        </div>
 
-      <div class="faq-item">
-        <h3>Why do long-term investors compare VOO and SPY?</h3>
-        <p>They compare them because both offer similar market exposure, but may differ in cost, trading style and long-term preference.</p>
-      </div>
+        <div class="faq-item">
+          <h3>Why do long-term investors compare VOO and SPY?</h3>
+          <p>They compare them because both offer similar market exposure, but may differ in cost, trading style and long-term preference.</p>
+        </div>
 
-      <div class="faq-item">
-        <h3>Is VOO cheaper than SPY?</h3>
-        <p>Yes. VOO is commonly known for having a lower expense ratio, which is one reason many long-term investors prefer it.</p>
-      </div>
+        <div class="faq-item">
+          <h3>Is VOO cheaper than SPY?</h3>
+          <p>Yes. VOO is commonly known for having a lower expense ratio, which is one reason many long-term investors prefer it.</p>
+        </div>
 
-      <div class="faq-item">
-        <h3>Which is better for buy-and-hold investing?</h3>
-        <p>Many buy-and-hold investors lean toward VOO because of its lower ongoing cost and long-term investing appeal.</p>
+        <div class="faq-item">
+          <h3>Which is better for buy-and-hold investing?</h3>
+          <p>Many buy-and-hold investors lean toward VOO because of its lower ongoing cost and long-term investing appeal.</p>
+        </div>
       </div>
     </div>
 
     <div class="card nav-card">
-      <h2>Related ETF Comparisons</h2>
+      <h2>Keep Exploring</h2>
       <div class="nav-links">
         <a href="/voo-vs-vti.html">VOO vs VTI</a>
         <a href="/voo-vs-ivv.html">VOO vs IVV</a>
         <a href="/voo-vs-vug.html">VOO vs VUG</a>
         <a href="/voo-vs-qqq.html">VOO vs QQQ</a>
-      </div>
-    </div>
-
-    <div class="card nav-card">
-      <h2>Explore All ETF Comparisons</h2>
-      <div class="nav-links">
         <a href="/etf-comparison.html">Explore all ETF comparisons →</a>
       </div>
     </div>
 
     <div class="card community-card">
-      <h2>Join the ETF Investor Community</h2>
+      <h2>Help Us Improve the Tools</h2>
 
       <p>
         Share ideas, suggest improvements and help us build better ETF tools for long-term investors.
