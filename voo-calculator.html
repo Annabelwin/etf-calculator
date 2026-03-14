@@ -236,10 +236,9 @@ let contribution=Number(document.getElementById("contribution").value)
 let freq=Number(document.getElementById("frequency").value)
 let years=Number(document.getElementById("years").value)
 
-let r=Number(return.value)/100
-let fee=Number(fee.value)/100
-let inflation=Number(inflation.value)/100
-
+let r = Number(document.getElementById("return").value) / 100
+let fee = Number(document.getElementById("fee").value) / 100
+let inflation = Number(document.getElementById("inflation").value) / 100
 let months=years*12
 
 let balance=initial
