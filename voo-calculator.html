@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VOO Calculator | Vanguard S&P 500 ETF Investment Calculator</title>
-<meta name="description" content="Estimate long-term VOO investment growth with custom contribution frequency, expense ratio, dividend yield, dividend reinvestment, inflation, and visual charts.">
+<meta name="description" content="Estimate long-term VOO investment growth with contribution frequency, expense ratio, dividend reinvestment, inflation, and scenario comparison.">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -15,15 +15,12 @@
   --text:#1d1d1f;
   --muted:#6e6e73;
   --line:#e5e7eb;
-  --soft:#f8fafc;
   --link:#4f46e5;
   --shadow:0 14px 34px rgba(15,23,42,0.05);
   --shadow-soft:0 8px 20px rgba(15,23,42,0.04);
 }
 
-*{
-  box-sizing:border-box;
-}
+*{ box-sizing:border-box; }
 
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -82,10 +79,10 @@ h1{
 }
 
 .section-eyebrow{
-  font-size:12px;
+  font-size:11px;
   text-transform:uppercase;
-  letter-spacing:0.08em;
-  color:#8b93a1;
+  letter-spacing:0.1em;
+  color:#98a1ad;
   margin-bottom:6px;
 }
 
@@ -118,7 +115,7 @@ label{
   letter-spacing:-0.01em;
 }
 
-input{
+input, select{
   width:100%;
   padding:11px 14px;
   border-radius:12px;
@@ -131,7 +128,7 @@ input{
   transition:all 0.18s ease;
 }
 
-input:focus{
+input:focus, select:focus{
   border-color:#bcc5d1;
   box-shadow:0 0 0 4px rgba(10,132,255,0.08);
   background:#ffffff;
@@ -169,8 +166,8 @@ input:focus{
 button{
   border:none;
   border-radius:12px;
-  padding:11px 18px;
-  font-size:14px;
+  padding:12px 22px;
+  font-size:15px;
   font-weight:600;
   cursor:pointer;
   transition:all 0.18s ease;
@@ -184,7 +181,7 @@ button:hover{
 .btn-primary{
   background:linear-gradient(180deg,#2997ff 0%, #0071e3 100%);
   color:#fff;
-  box-shadow:0 8px 18px rgba(0,113,227,0.18);
+  box-shadow:0 10px 22px rgba(0,113,227,0.20);
 }
 
 .btn-secondary{
@@ -199,10 +196,10 @@ button:hover{
 }
 
 .big-result-value{
-  font-size:54px;
+  font-size:60px;
   line-height:1;
-  font-weight:750;
-  letter-spacing:-0.04em;
+  font-weight:800;
+  letter-spacing:-0.045em;
   color:#111827;
   margin-bottom:22px;
   word-break:break-word;
@@ -252,7 +249,7 @@ button:hover{
 
 .chart-canvas-wrap{
   width:100%;
-  height:280px;
+  height:290px;
 }
 
 .chart-canvas-wrap canvas{
@@ -261,7 +258,8 @@ button:hover{
 }
 
 .insight-title,
-.related-title{
+.related-title,
+.compare-title{
   font-size:24px;
   font-weight:700;
   letter-spacing:-0.02em;
@@ -273,6 +271,32 @@ button:hover{
   margin:0 0 12px;
   color:#4b5563;
   font-size:16px;
+}
+
+.compare-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.compare-box{
+  background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
+  border:1px solid #edf0f3;
+  border-radius:16px;
+  padding:16px 14px;
+}
+
+.compare-box .small-label{
+  font-size:13px;
+  color:#6b7280;
+  margin-bottom:8px;
+}
+
+.compare-box .small-value{
+  font-size:24px;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  color:#111827;
 }
 
 .related a{
@@ -295,43 +319,15 @@ button:hover{
 }
 
 @media (max-width:768px){
-  body{
-    padding:28px 14px 56px;
-  }
-
-  h1{
-    font-size:32px;
-  }
-
-  .subtitle{
-    font-size:16px;
-  }
-
-  .section-card{
-    padding:22px 18px;
-    border-radius:20px;
-  }
-
-  .form-row{
-    grid-template-columns:1fr;
-    gap:8px;
-  }
-
-  .big-result-value{
-    font-size:44px;
-  }
-
-  .result-grid{
-    grid-template-columns:1fr;
-  }
-
-  .result-box-value{
-    font-size:24px;
-  }
-
-  .chart-canvas-wrap{
-    height:240px;
-  }
+  body{ padding:28px 14px 56px; }
+  h1{ font-size:32px; }
+  .subtitle{ font-size:16px; }
+  .section-card{ padding:22px 18px; border-radius:20px; }
+  .form-row{ grid-template-columns:1fr; gap:8px; }
+  .big-result-value{ font-size:48px; }
+  .result-grid, .compare-grid{ grid-template-columns:1fr; }
+  .result-box-value{ font-size:24px; }
+  .chart-canvas-wrap{ height:240px; }
 }
 </style>
 </head>
@@ -345,7 +341,7 @@ button:hover{
       Estimate long-term growth investing in Vanguard S&amp;P 500 ETF with realistic settings for contribution timing, fees, dividends, and inflation.
     </div>
     <div class="info-pill">
-      This version includes custom contribution frequency, expense ratio, dividend yield, dividend reinvestment, and inflation adjustment to better reflect real ETF investing.
+      This version includes custom contribution frequency, expense ratio, dividend yield, reinvestment, inflation adjustment, and scenario comparison.
     </div>
   </div>
 
@@ -447,6 +443,26 @@ button:hover{
   </div>
 
   <div class="section-card">
+    <div class="section-eyebrow">Scenario Comparison</div>
+    <div class="compare-title">Monthly vs your current plan</div>
+    <div class="section-sub">
+      Compare your selected contribution schedule with a monthly investing scenario using the same contribution amount.
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-box">
+        <div class="small-label">Your current plan</div>
+        <div class="small-value" id="scenarioCurrent">$0</div>
+      </div>
+
+      <div class="compare-box">
+        <div class="small-label">Monthly investing</div>
+        <div class="small-value" id="scenarioMonthly">$0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
     <div class="insight-title">Investment Insights</div>
     <p class="insight-text" id="insight1">Enter your numbers to see how time, compounding, fees, dividends, and inflation may affect your portfolio.</p>
     <p class="insight-text" id="insight2">Long-term investing becomes much more powerful when contributions stay consistent and costs stay low.</p>
@@ -473,23 +489,11 @@ function formatMoney(value){
   return "$" + Math.round(value).toLocaleString("en-US");
 }
 
-function calculate(){
-  const initial = Number(document.getElementById("initial").value) || 0;
-  const contribution = Number(document.getElementById("contribution").value) || 0;
-  const frequency = Math.max(1, Number(document.getElementById("frequency").value) || 1);
-  const years = Number(document.getElementById("years").value) || 0;
-  const annualReturn = (Number(document.getElementById("return").value) || 0) / 100;
-  const feeRate = (Number(document.getElementById("fee").value) || 0) / 100;
-  const dividendYield = (Number(document.getElementById("dividend").value) || 0) / 100;
-  const inflationRate = (Number(document.getElementById("inflation").value) || 0) / 100;
-  const reinvest = document.getElementById("reinvest").checked;
-
+function simulatePlan(initial, contribution, frequency, years, annualReturn, feeRate, dividendYield, inflationRate, reinvest){
   const totalMonths = years * 12;
-
   let balance = initial;
   let contributions = initial;
   let feesPaid = 0;
-  let dividendAdded = 0;
 
   const portfolioValues = [];
   const contributionValues = [];
@@ -500,7 +504,6 @@ function calculate(){
   const monthlyDividendRate = dividendYield / 12;
 
   for(let month = 1; month <= totalMonths; month++){
-
     if(month % frequency === 0){
       balance += contribution;
       contributions += contribution;
@@ -516,7 +519,6 @@ function calculate(){
     const monthlyDividend = balance * monthlyDividendRate;
     if(reinvest){
       balance += monthlyDividend;
-      dividendAdded += monthlyDividend;
     }
 
     if(month % 12 === 0){
@@ -529,23 +531,61 @@ function calculate(){
   const totalGain = balance - contributions;
   const realValue = balance / Math.pow(1 + inflationRate, years);
 
-  document.getElementById("finalValue").innerText = formatMoney(balance);
-  document.getElementById("totalContributions").innerText = formatMoney(contributions);
-  document.getElementById("totalGain").innerText = formatMoney(totalGain);
-  document.getElementById("totalFees").innerText = formatMoney(feesPaid);
-  document.getElementById("realValue").innerText = formatMoney(realValue);
+  return {
+    balance,
+    contributions,
+    feesPaid,
+    totalGain,
+    realValue,
+    labels,
+    portfolioValues,
+    contributionValues
+  };
+}
+
+function calculate(){
+  const initial = Number(document.getElementById("initial").value) || 0;
+  const contribution = Number(document.getElementById("contribution").value) || 0;
+  const frequency = Math.max(1, Number(document.getElementById("frequency").value) || 1);
+  const years = Number(document.getElementById("years").value) || 0;
+  const annualReturn = (Number(document.getElementById("return").value) || 0) / 100;
+  const feeRate = (Number(document.getElementById("fee").value) || 0) / 100;
+  const dividendYield = (Number(document.getElementById("dividend").value) || 0) / 100;
+  const inflationRate = (Number(document.getElementById("inflation").value) || 0) / 100;
+  const reinvest = document.getElementById("reinvest").checked;
+
+  const currentPlan = simulatePlan(
+    initial, contribution, frequency, years,
+    annualReturn, feeRate, dividendYield, inflationRate, reinvest
+  );
+
+  const monthlyPlan = simulatePlan(
+    initial, contribution, 1, years,
+    annualReturn, feeRate, dividendYield, inflationRate, reinvest
+  );
+
+  document.getElementById("finalValue").innerText = formatMoney(currentPlan.balance);
+  document.getElementById("totalContributions").innerText = formatMoney(currentPlan.contributions);
+  document.getElementById("totalGain").innerText = formatMoney(currentPlan.totalGain);
+  document.getElementById("totalFees").innerText = formatMoney(currentPlan.feesPaid);
+  document.getElementById("realValue").innerText = formatMoney(currentPlan.realValue);
+
+  document.getElementById("scenarioCurrent").innerText = formatMoney(currentPlan.balance);
+  document.getElementById("scenarioMonthly").innerText = formatMoney(monthlyPlan.balance);
+
+  const difference = monthlyPlan.balance - currentPlan.balance;
 
   document.getElementById("insight1").innerText =
     "If you invest " + formatMoney(contribution) + " every " + frequency + " month(s) for " + years +
-    " years, your portfolio could grow to about " + formatMoney(balance) + ".";
+    " years, your portfolio could grow to about " + formatMoney(currentPlan.balance) + ".";
 
   document.getElementById("insight2").innerText =
-    "You would contribute " + formatMoney(contributions) +
-    ", while compounding could add about " + formatMoney(totalGain) +
-    ". Estimated fees paid over the period would be about " + formatMoney(feesPaid) +
-    (reinvest ? ", and reinvested dividends add another layer of long-term compounding." : ".");
+    "You would contribute " + formatMoney(currentPlan.contributions) +
+    ", while compounding could add about " + formatMoney(currentPlan.totalGain) +
+    ". Estimated fees paid over the period would be about " + formatMoney(currentPlan.feesPaid) +
+    ". Compared with monthly investing, the difference is about " + formatMoney(Math.abs(difference)) + ".";
 
-  renderChart(labels, portfolioValues, contributionValues);
+  renderChart(currentPlan.labels, currentPlan.portfolioValues, currentPlan.contributionValues);
 }
 
 function renderChart(labels, portfolioValues, contributionValues){
@@ -682,6 +722,8 @@ function resetCalculator(){
   document.getElementById("totalGain").innerText = "$0";
   document.getElementById("totalFees").innerText = "$0";
   document.getElementById("realValue").innerText = "$0";
+  document.getElementById("scenarioCurrent").innerText = "$0";
+  document.getElementById("scenarioMonthly").innerText = "$0";
   document.getElementById("insight1").innerText = "Enter your numbers to see how time, compounding, fees, dividends, and inflation may affect your portfolio.";
   document.getElementById("insight2").innerText = "Long-term investing becomes much more powerful when contributions stay consistent and costs stay low.";
 
