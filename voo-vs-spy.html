@@ -33,7 +33,7 @@
     }
 
     .container{
-      max-width:620px;
+      max-width:660px;
       margin:0 auto;
     }
 
@@ -46,7 +46,7 @@
     }
 
     h2{
-      font-size:19px;
+      font-size:20px;
       line-height:1.35;
       letter-spacing:-0.02em;
       margin:0 0 14px;
@@ -62,25 +62,26 @@
     }
 
     .subtitle{
-      max-width:520px;
+      width:100%;
+      max-width:none;
       font-size:17px;
-      line-height:1.9;
+      line-height:1.88;
       color:var(--muted);
-      margin:0 auto 34px;
+      margin:0 0 34px;
     }
 
     .card{
-      background:rgba(255,255,255,0.92);
+      background:rgba(255,255,255,0.94);
       border:1px solid var(--line);
       border-radius:22px;
-      padding:26px 24px;
+      padding:28px 28px;
       margin-top:24px;
       box-shadow:var(--shadow);
     }
 
     .card p,
     .faq-item p{
-      max-width:54ch;
+      max-width:56ch;
       font-size:16px;
       line-height:1.88;
       color:#4b5563;
@@ -125,6 +126,15 @@
       border-bottom:none;
     }
 
+    .links-card{
+      padding-top:26px;
+      padding-bottom:26px;
+    }
+
+    .links-card h2{
+      margin-bottom:16px;
+    }
+
     .links-card a,
     .card a{
       color:var(--link);
@@ -134,17 +144,18 @@
 
     .links-card a{
       display:block;
-      margin:10px 0;
+      margin:12px 0;
     }
 
     .cta-card{
       text-align:center;
-      padding:30px 24px;
+      padding:32px 28px;
     }
 
     .cta-card p{
       margin-left:auto;
       margin-right:auto;
+      max-width:46ch;
     }
 
     .cta-button{
@@ -159,9 +170,65 @@
       box-shadow:0 10px 22px rgba(38,51,79,0.22);
     }
 
+    .community-card{
+      text-align:center;
+      padding:30px 28px;
+    }
+
+    .community-card p{
+      margin-left:auto;
+      margin-right:auto;
+      max-width:48ch;
+    }
+
+    .community-list{
+      list-style:none;
+      padding:0;
+      margin:18px 0 22px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .community-list li{
+      margin:8px 0;
+    }
+
+    .community-actions{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+
+    .community-button{
+      display:inline-block;
+      background:linear-gradient(180deg,var(--button-top) 0%, var(--button-bottom) 100%);
+      color:#fff !important;
+      text-decoration:none;
+      font-weight:600;
+      padding:12px 22px;
+      border-radius:12px;
+      box-shadow:0 10px 22px rgba(38,51,79,0.22);
+    }
+
+    .community-link{
+      display:inline-block;
+      color:var(--link);
+      text-decoration:none;
+      font-weight:500;
+      padding:12px 4px;
+    }
+
+    .community-note{
+      margin-top:12px;
+      font-size:14px;
+      color:#9ca3af;
+    }
+
     .back{
       display:inline-block;
-      margin-top:28px;
+      margin-top:30px;
       color:#6366f1;
       text-decoration:none;
       font-weight:500;
@@ -180,18 +247,28 @@
         font-size:30px;
       }
 
+      h2{
+        font-size:19px;
+      }
+
       .subtitle{
         font-size:16px;
+        line-height:1.84;
       }
 
       .card{
-        padding:22px 18px;
+        padding:24px 20px;
         border-radius:18px;
       }
 
       td{
         padding:12px 4px;
         font-size:14px;
+      }
+
+      .community-actions{
+        flex-direction:column;
+        align-items:center;
       }
     }
   </style>
@@ -203,8 +280,7 @@
     <h1>VOO vs SPY</h1>
 
     <p class="subtitle">
-      VOO and SPY both track the S&amp;P 500, so at first glance they look almost identical.  
-      But investors still compare them because cost, trading style and long-term use case are not exactly the same.
+      VOO and SPY both track the S&amp;P 500, so at first glance they look almost identical. But investors still compare them because cost, trading style and long-term use case are not exactly the same.
     </p>
 
     <div class="card">
@@ -348,6 +424,27 @@
       <h2>Explore All ETF Comparisons</h2>
 
       <a href="/etf-comparison.html">Explore all ETF comparisons →</a>
+    </div>
+
+    <div class="card community-card">
+      <h2>Join the ETF Investor Community</h2>
+
+      <p>
+        Share ideas, suggest improvements and help us build better ETF tools for long-term investors.
+      </p>
+
+      <ul class="community-list">
+        <li>Discuss ETF investing</li>
+        <li>Suggest new features</li>
+        <li>Report calculation issues</li>
+      </ul>
+
+      <div class="community-actions">
+        <a class="community-button" href="mailto:feedback@etfcalculator.net?subject=ETF%20Calculator%20Feedback">Send feedback</a>
+        <a class="community-link" href="YOUR_COMMUNITY_LINK">Join the discussion</a>
+      </div>
+
+      <div class="community-note">We read every message.</div>
     </div>
 
     <a class="back" href="/">← Back to Home</a>
