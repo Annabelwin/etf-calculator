@@ -28,20 +28,24 @@
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       background:var(--bg);
       color:var(--text);
-      padding:40px 20px 72px;
+      padding:42px 20px 76px;
       line-height:1.82;
     }
 
     .container{
-      max-width:660px;
+      max-width:680px;
       margin:0 auto;
     }
 
+    .hero{
+      margin-bottom:34px;
+    }
+
     h1{
-      font-size:34px;
-      line-height:1.12;
+      font-size:35px;
+      line-height:1.1;
       letter-spacing:-0.03em;
-      margin:0 0 16px;
+      margin:0 0 14px;
       color:var(--text);
     }
 
@@ -49,7 +53,7 @@
       font-size:20px;
       line-height:1.35;
       letter-spacing:-0.02em;
-      margin:0 0 14px;
+      margin:0 0 16px;
       color:var(--text);
     }
 
@@ -62,28 +66,27 @@
     }
 
     .subtitle{
-      width:100%;
-      max-width:none;
+      max-width:620px;
       font-size:17px;
-      line-height:1.88;
+      line-height:1.92;
       color:var(--muted);
-      margin:0 0 34px;
+      margin:0;
     }
 
     .card{
-      background:rgba(255,255,255,0.94);
+      background:rgba(255,255,255,0.95);
       border:1px solid var(--line);
-      border-radius:22px;
-      padding:28px 28px;
+      border-radius:24px;
+      padding:30px 30px;
       margin-top:24px;
       box-shadow:var(--shadow);
     }
 
     .card p,
     .faq-item p{
-      max-width:56ch;
+      max-width:58ch;
       font-size:16px;
-      line-height:1.88;
+      line-height:1.9;
       color:#4b5563;
       margin:0 0 14px;
     }
@@ -96,7 +99,7 @@
     table{
       width:100%;
       border-collapse:collapse;
-      margin-top:8px;
+      margin-top:10px;
       font-size:15px;
     }
 
@@ -112,44 +115,9 @@
       color:var(--muted);
     }
 
-    .faq-section{
-      margin-top:34px;
-      padding-top:6px;
-    }
-
-    .faq-item{
-      padding:18px 0;
-      border-bottom:1px solid #eef1f4;
-    }
-
-    .faq-item:last-child{
-      border-bottom:none;
-    }
-
-    .links-card{
-      padding-top:26px;
-      padding-bottom:26px;
-    }
-
-    .links-card h2{
-      margin-bottom:16px;
-    }
-
-    .links-card a,
-    .card a{
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-    }
-
-    .links-card a{
-      display:block;
-      margin:12px 0;
-    }
-
     .cta-card{
       text-align:center;
-      padding:32px 28px;
+      padding:34px 30px;
     }
 
     .cta-card p{
@@ -170,9 +138,49 @@
       box-shadow:0 10px 22px rgba(38,51,79,0.22);
     }
 
+    .faq-card{
+      padding-top:34px;
+    }
+
+    .faq-title{
+      margin-bottom:20px;
+    }
+
+    .faq-item{
+      padding:18px 0;
+      border-bottom:1px solid #eef1f4;
+    }
+
+    .faq-item:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
+
+    .nav-card{
+      text-align:center;
+      padding:30px 30px;
+    }
+
+    .nav-card h2{
+      margin-bottom:18px;
+    }
+
+    .nav-links{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      color:var(--link);
+      text-decoration:none;
+      font-weight:500;
+    }
+
     .community-card{
       text-align:center;
-      padding:30px 28px;
+      padding:32px 30px;
     }
 
     .community-card p{
@@ -203,7 +211,7 @@
 
     .community-button{
       display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%, var(--button-bottom) 100%);
+      background:linear-gradient(180deg,var(--button-top) 0%,var(--button-bottom) 100%);
       color:#fff !important;
       text-decoration:none;
       font-weight:600;
@@ -226,9 +234,13 @@
       color:#9ca3af;
     }
 
+    .back-wrap{
+      text-align:left;
+      margin-top:28px;
+    }
+
     .back{
       display:inline-block;
-      margin-top:30px;
       color:#6366f1;
       text-decoration:none;
       font-weight:500;
@@ -253,7 +265,7 @@
 
       .subtitle{
         font-size:16px;
-        line-height:1.84;
+        line-height:1.86;
       }
 
       .card{
@@ -277,11 +289,12 @@
 <body>
   <div class="container">
 
-    <h1>VOO vs SPY</h1>
-
-    <p class="subtitle">
-      VOO and SPY both track the S&amp;P 500, so at first glance they look almost identical. But investors still compare them because cost, trading style and long-term use case are not exactly the same.
-    </p>
+    <div class="hero">
+      <h1>VOO vs SPY</h1>
+      <p class="subtitle">
+        VOO and SPY both track the S&amp;P 500, so at first glance they look almost identical. But investors still compare them because cost, trading style and long-term use case are not exactly the same.
+      </p>
+    </div>
 
     <div class="card">
       <h2>ETF Overview</h2>
@@ -387,8 +400,8 @@
       <a class="cta-button" href="/voo-calculator.html">Open VOO Calculator</a>
     </div>
 
-    <div class="card faq-section">
-      <h2>VOO vs SPY FAQ</h2>
+    <div class="card faq-card">
+      <h2 class="faq-title">VOO vs SPY FAQ</h2>
 
       <div class="faq-item">
         <h3>Do VOO and SPY track the same index?</h3>
@@ -411,19 +424,21 @@
       </div>
     </div>
 
-    <div class="card links-card">
+    <div class="card nav-card">
       <h2>Related ETF Comparisons</h2>
-
-      <a href="/voo-vs-vti.html">VOO vs VTI</a>
-      <a href="/voo-vs-ivv.html">VOO vs IVV</a>
-      <a href="/voo-vs-vug.html">VOO vs VUG</a>
-      <a href="/voo-vs-qqq.html">VOO vs QQQ</a>
+      <div class="nav-links">
+        <a href="/voo-vs-vti.html">VOO vs VTI</a>
+        <a href="/voo-vs-ivv.html">VOO vs IVV</a>
+        <a href="/voo-vs-vug.html">VOO vs VUG</a>
+        <a href="/voo-vs-qqq.html">VOO vs QQQ</a>
+      </div>
     </div>
 
-    <div class="card links-card">
+    <div class="card nav-card">
       <h2>Explore All ETF Comparisons</h2>
-
-      <a href="/etf-comparison.html">Explore all ETF comparisons →</a>
+      <div class="nav-links">
+        <a href="/etf-comparison.html">Explore all ETF comparisons →</a>
+      </div>
     </div>
 
     <div class="card community-card">
@@ -447,7 +462,9 @@
       <div class="community-note">We read every message.</div>
     </div>
 
-    <a class="back" href="/">← Back to Home</a>
+    <div class="back-wrap">
+      <a class="back" href="/">← Back to Home</a>
+    </div>
 
   </div>
 </body>
