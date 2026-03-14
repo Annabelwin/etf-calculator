@@ -612,6 +612,47 @@ function calculate(){
     ". Compared with monthly investing, the difference is about " + formatMoney(Math.abs(difference)) + ".";
 
   renderChart(currentPlan.labels, currentPlan.portfolioValues, currentPlan.contributionValues);
+  // Fee impact simulation
+
+const lowFee = simulatePlan(
+initial,
+contribution,
+frequency,
+years,
+annualReturn,
+0.0003,
+dividendYield,
+inflationRate,
+reinvest
+)
+
+const midFee = simulatePlan(
+initial,
+contribution,
+frequency,
+years,
+annualReturn,
+0.005,
+dividendYield,
+inflationRate,
+reinvest
+)
+
+const highFee = simulatePlan(
+initial,
+contribution,
+frequency,
+years,
+annualReturn,
+0.01,
+dividendYield,
+inflationRate,
+reinvest
+)
+
+document.getElementById("feeLow").innerText = formatMoney(lowFee.balance)
+document.getElementById("feeMid").innerText = formatMoney(midFee.balance)
+document.getElementById("feeHigh").innerText = formatMoney(highFee.balance)
 }
 
 function renderChart(labels, portfolioValues, contributionValues){
