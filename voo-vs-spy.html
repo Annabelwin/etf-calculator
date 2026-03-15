@@ -84,37 +84,52 @@ h3{
 }
 
 .overview-card{
-  margin-top:0;
+  max-width:640px;
+  margin:0 auto;
   text-align:center;
+  padding:26px 28px;
 }
 
 .overview-card h2{
-  margin-bottom:22px;
+  margin-bottom:18px;
 }
 
 .overview-table-wrap{
-  max-width:480px;
+  max-width:100%;
   margin:0 auto;
 }
 
-table{
+.overview-card table{
   width:100%;
   border-collapse:collapse;
+  table-layout:fixed;
   margin-top:0;
   font-size:15px;
 }
 
-td{
-  padding:12px 10px;
+.overview-card td{
+  padding:12px 6px;
   border-bottom:1px solid #eef1f4;
-  vertical-align:top;
+  vertical-align:middle;
   color:#374151;
   text-align:left;
 }
 
-td:first-child{
-  width:32%;
+.overview-card tr:last-child td{
+  border-bottom:none;
+}
+
+.overview-card td:first-child{
+  width:25%;
   color:var(--muted);
+}
+
+.overview-card td:nth-child(2){
+  width:37.5%;
+}
+
+.overview-card td:nth-child(3){
+  width:37.5%;
 }
 
 .reading-section{
