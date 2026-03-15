@@ -1,180 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETF Comparisons | Compare VOO, SPY, VTI, QQQ, SCHD and More</title>
+  <meta name="description" content="Compare popular ETFs like VOO, SPY, VTI, QQQ, SCHD, IVV, VUG, and SPLG. Explore practical ETF comparisons for long-term investors.">
 
-<title>ETF Comparison Center | Compare Popular ETFs</title>
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --page:#ffffff;
+      --card:#ffffff;
+      --card-soft:#f3f4f6;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#eceff3;
+      --link:#4338ca;
+      --shadow:0 20px 60px rgba(15,23,42,0.06);
+      --button-top:#37456a;
+      --button-bottom:#26334f;
+    }
 
-<meta name="description"
-content="Compare popular ETFs including VOO, SPY, IVV, VTI, QQQ, SCHD, VYM, SCHB and more. Explore side-by-side ETF comparisons for long-term investors.">
+    *{
+      box-sizing:border-box;
+    }
 
-<style>
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  background:#f6f7fb;
-  max-width:640px;
-  margin:auto;
-  padding:40px 24px 70px;
-  color:#1d1d1f;
-  line-height:1.75;
-}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      padding:40px 20px 72px;
+      line-height:1.82;
+    }
 
-h1{
-  font-size:34px;
-  letter-spacing:-0.02em;
-  margin-bottom:14px;
-}
+    .page-wrap{
+      max-width:700px;
+      margin:0 auto;
+      padding:56px 40px 48px;
+      background:var(--page);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+    }
 
-.subtitle{
-  color:#6e6e73;
-  font-size:17px;
-  margin-bottom:36px;
-}
+    .container{
+      max-width:680px;
+      margin:0 auto;
+    }
 
-.card{
-  background:white;
-  padding:24px 22px;
-  border-radius:18px;
-  margin-top:28px;
-  box-shadow:0 12px 28px rgba(0,0,0,0.05);
-}
+    .hero{
+      max-width:560px;
+      margin:0 auto 42px;
+      text-align:left;
+    }
 
-h2{
-  margin-top:0;
-  font-size:22px;
-  margin-bottom:12px;
-}
+    h1{
+      font-size:42px;
+      line-height:1.06;
+      letter-spacing:-0.04em;
+      margin:0 0 16px;
+      color:var(--text);
+    }
 
-p{
-  margin:0 0 14px;
-}
+    h2{
+      font-size:30px;
+      line-height:1.16;
+      letter-spacing:-0.03em;
+      margin:0 0 14px;
+      color:var(--text);
+    }
 
-.group-title{
-  font-size:12px;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:#8b8b90;
-  margin-bottom:10px;
-}
+    h3{
+      font-size:20px;
+      line-height:1.28;
+      letter-spacing:-0.02em;
+      margin:0 0 10px;
+      color:var(--text);
+    }
 
-.link-list a{
-  display:block;
-  color:#3b5cff;
-  text-decoration:none;
-  font-weight:500;
-  padding:8px 0;
-}
+    .subtitle{
+      max-width:540px;
+      font-size:19px;
+      line-height:1.9;
+      color:var(--muted);
+      margin:0 0 18px;
+    }
 
-.link-list a:hover{
-  opacity:0.8;
-}
+    .intro{
+      max-width:560px;
+      font-size:17px;
+      line-height:1.95;
+      color:#4b5563;
+      margin:0;
+    }
 
-.footer{
-  margin-top:40px;
-  font-size:15px;
-}
+    .section{
+      max-width:560px;
+      margin:64px auto 0;
+    }
 
-</style>
+    .section p{
+      max-width:520px;
+      font-size:17px;
+      line-height:1.95;
+      color:#4b5563;
+      margin:0 0 18px;
+    }
+
+    .group-card,
+    .cta-card,
+    .links-card{
+      max-width:620px;
+      margin:26px auto 0;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:0 10px 28px rgba(15,23,42,0.04);
+    }
+
+    .group-card{
+      padding:28px 28px 24px;
+      text-align:center;
+    }
+
+    .group-card p{
+      max-width:500px;
+      margin:0 auto 16px;
+      font-size:16px;
+      line-height:1.9;
+      color:#4b5563;
+    }
+
+    .links-list{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:center;
+      margin-top:8px;
+    }
+
+    .links-list a{
+      color:var(--link);
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    .cta-card{
+      padding:34px 32px;
+      text-align:center;
+      background:var(--card-soft);
+    }
+
+    .cta-card p{
+      max-width:46ch;
+      margin:0 auto 16px;
+      font-size:16px;
+      line-height:1.9;
+      color:#4b5563;
+    }
+
+    .cta-button{
+      display:inline-block;
+      background:linear-gradient(180deg,var(--button-top) 0%, var(--button-bottom) 100%);
+      color:#ffffff !important;
+      text-decoration:none;
+      font-weight:600;
+      padding:13px 24px;
+      border-radius:14px;
+      box-shadow:0 10px 22px rgba(38,51,79,0.22);
+    }
+
+    .links-card{
+      padding:28px 30px;
+      text-align:center;
+    }
+
+    .back-wrap{
+      max-width:560px;
+      margin:34px auto 0;
+      text-align:left;
+    }
+
+    .back{
+      display:inline-block;
+      color:#6366f1;
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    @media (max-width:700px){
+      body{
+        padding:20px 12px 44px;
+      }
+
+      .page-wrap{
+        padding:30px 18px 28px;
+        border-radius:20px;
+      }
+
+      h1{
+        font-size:34px;
+      }
+
+      h2{
+        font-size:26px;
+      }
+
+      h3{
+        font-size:18px;
+      }
+
+      .subtitle{
+        max-width:100%;
+        font-size:17px;
+        line-height:1.8;
+      }
+
+      .intro,
+      .section p{
+        max-width:100%;
+        font-size:16px;
+        line-height:1.88;
+      }
+
+      .group-card,
+      .cta-card,
+      .links-card{
+        max-width:100%;
+        border-radius:18px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page-wrap">
+    <div class="container">
 
-<h1>ETF Comparison Center</h1>
+      <section class="hero">
+        <h1>ETF Comparisons</h1>
+        <p class="subtitle">
+          Compare popular ETFs like VOO, SPY, VTI, QQQ, SCHD, IVV, VUG, and SPLG to understand the real differences in cost, diversification, and long-term investing style.
+        </p>
+        <p class="intro">
+          Choosing between ETFs can feel confusing because many funds look similar on the surface. Some track the S&amp;P 500, some cover the total U.S. stock market, and others focus on growth or dividend income. This page helps you quickly find the ETF comparison that matches the question you actually care about.
+        </p>
+      </section>
 
-<p class="subtitle">
-Explore side-by-side ETF comparisons built for long-term investors.  
-This page helps you quickly find the most relevant comparison whether you are choosing between S&amp;P 500 funds, growth ETFs, dividend ETFs, or broad market ETFs.
-</p>
+      <section class="section">
+        <h2>How to Use This Page</h2>
+        <p>
+          Many investors ask the same practical questions: should I buy VOO or VTI? Is QQQ better than VOO for growth? Is SPY better than VOO for trading? Does SCHD make more sense if I want dividends?
+        </p>
+        <p>
+          This page brings those comparisons into one place, so you can go straight to the ETF comparison that matches your investing goal.
+        </p>
+      </section>
 
-<div class="card">
-  <h2>How to Use This Page</h2>
-  <p>
-    Many investors ask the same practical questions:
-  </p>
-  <p>
-    Should I buy VOO or VTI?  
-    Is QQQ better than VOO for growth?  
-    Is SPY better than IVV for long-term investing?  
-    Does SCHD make more sense if I want dividends?
-  </p>
-  <p>
-    This comparison center brings all of those decisions into one place, so you can find the page that matches the question you actually care about.
-  </p>
-</div>
+      <section class="section">
+        <h2>S&amp;P 500 ETF Comparisons</h2>
+        <div class="group-card">
+          <p>
+            These ETFs all track the S&amp;P 500 or closely related large-cap U.S. exposure, but differ in cost, liquidity, and fund structure.
+          </p>
+          <div class="links-list">
+            <a href="/voo-vs-spy.html">VOO vs SPY</a>
+            <a href="/voo-vs-ivv.html">VOO vs IVV</a>
+            <a href="/voo-vs-splg.html">VOO vs SPLG</a>
+            <a href="/voo-vs-dia.html">VOO vs DIA</a>
+          </div>
+        </div>
+      </section>
 
-<div class="card">
-  <div class="group-title">S&amp;P 500 ETF Comparisons</div>
-  <div class="link-list">
-    <a href="/voo-vs-spy.html">VOO vs SPY</a>
-    <a href="/voo-vs-ivv.html">VOO vs IVV</a>
-    <a href="/voo-vs-splg.html">VOO vs SPLG</a>
-    <a href="/voo-vs-ivv-vs-spy.html">VOO vs IVV vs SPY</a>
+      <section class="section">
+        <h2>Total Market ETF Comparisons</h2>
+        <div class="group-card">
+          <p>
+            These comparisons help you understand the difference between owning the S&amp;P 500 and owning the broader U.S. stock market.
+          </p>
+          <div class="links-list">
+            <a href="/voo-vs-vti.html">VOO vs VTI</a>
+            <a href="/voo-vs-schb.html">VOO vs SCHB</a>
+            <a href="/voo-vs-vym.html">VOO vs VYM</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Growth ETF Comparisons</h2>
+        <div class="group-card">
+          <p>
+            Growth ETFs tend to concentrate more heavily in technology and high-growth companies. They can be powerful, but they also bring a different risk profile.
+          </p>
+          <div class="links-list">
+            <a href="/voo-vs-qqq.html">VOO vs QQQ</a>
+            <a href="/voo-vs-qqqm.html">VOO vs QQQM</a>
+            <a href="/voo-vs-vug.html">VOO vs VUG</a>
+            <a href="/voo-vs-vgt.html">VOO vs VGT</a>
+            <a href="/voo-vs-schg.html">VOO vs SCHG</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Dividend ETF Comparisons</h2>
+        <div class="group-card">
+          <p>
+            Dividend ETFs may appeal to investors who care more about income, stability, and cash flow than maximum growth.
+          </p>
+          <div class="links-list">
+            <a href="/voo-vs-schd.html">VOO vs SCHD</a>
+            <a href="/voo-vs-vym.html">VOO vs VYM</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Why Investors Compare ETFs</h2>
+        <p>
+          Most ETF comparisons are really about four things: cost, diversification, growth potential, and income.
+        </p>
+        <p>
+          That is why the pages on this site focus on real investor decisions instead of simply listing fund facts. The goal is to help you understand which ETF fits your style, not just which one looks best on paper.
+        </p>
+      </section>
+
+      <div class="cta-card">
+        <h2>Try the ETF Calculator</h2>
+        <p>
+          Estimate how long-term ETF investing could grow with regular contributions, compounding, and time.
+        </p>
+        <a class="cta-button" href="/etf-calculator.html">Open ETF Calculator</a>
+      </div>
+
+      <div class="links-card">
+        <h3>Related Guides</h3>
+        <div class="links-list">
+          <a href="/best-etfs.html">Best ETFs</a>
+          <a href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs</a>
+          <a href="/best-etfs-long-term.html">Best ETFs for Long-Term Investing</a>
+        </div>
+      </div>
+
+      <div class="back-wrap">
+        <a class="back" href="/">← Back to Home</a>
+      </div>
+
+    </div>
   </div>
-</div>
-
-<div class="card">
-  <div class="group-title">Broad Market ETF Comparisons</div>
-  <div class="link-list">
-    <a href="/voo-vs-vti.html">VOO vs VTI</a>
-    <a href="/voo-vs-schb.html">VOO vs SCHB</a>
-  </div>
-</div>
-
-<div class="card">
-  <div class="group-title">Growth ETF Comparisons</div>
-  <div class="link-list">
-    <a href="/voo-vs-qqq.html">VOO vs QQQ</a>
-    <a href="/voo-vs-qqqm.html">VOO vs QQQM</a>
-    <a href="/voo-vs-vug.html">VOO vs VUG</a>
-    <a href="/voo-vs-vgt.html">VOO vs VGT</a>
-    <a href="/voo-vs-schg.html">VOO vs SCHG</a>
-  </div>
-</div>
-
-<div class="card">
-  <div class="group-title">Dividend ETF Comparisons</div>
-  <div class="link-list">
-    <a href="/voo-vs-schd.html">VOO vs SCHD</a>
-    <a href="/voo-vs-vym.html">VOO vs VYM</a>
-  </div>
-</div>
-
-<div class="card">
-  <div class="group-title">Other Popular ETF Comparisons</div>
-  <div class="link-list">
-    <a href="/voo-vs-dia.html">VOO vs DIA</a>
-  </div>
-</div>
-
-<div class="card">
-  <h2>Use the VOO Calculator</h2>
-  <p>
-    If you are comparing ETFs because you want to invest consistently over many years, our calculator can help you estimate long-term growth, fee impact, inflation-adjusted value, and contribution timing.
-  </p>
-  <a href="/voo-calculator.html">Open VOO Calculator →</a>
-</div>
-
-<div class="card">
-  <h2>What Most Long-Term Investors Actually Care About</h2>
-  <p>
-    In real life, investors usually care about four things:
-  </p>
-  <p>
-    1. Fees  
-    2. Diversification  
-    3. Growth potential  
-    4. Dividend income
-  </p>
-  <p>
-    That is why most ETF comparisons on this site are written in plain language, not just filled with technical fund data. The goal is to help investors make a decision they can actually stick with for years.
-  </p>
-</div>
-
-<div class="footer">
-  <a href="/">← Back to Home</a>
-</div>
-
 </body>
 </html>
