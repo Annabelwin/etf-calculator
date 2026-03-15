@@ -1,189 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETF Investment Tools | ETF Calculator, VOO Calculator and Comparisons</title>
+  <meta name="description" content="Simple ETF investment tools to calculate long-term growth, compare ETFs like VOO vs SPY, and understand long-term investing outcomes.">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --page:#ffffff;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#eceff3;
+      --link:#4338ca;
+      --shadow:0 20px 60px rgba(15,23,42,0.06);
+      --button-top:#37456a;
+      --button-bottom:#26334f;
+      --button-shadow:0 10px 22px rgba(38,51,79,0.22);
+    }
 
-<title>ETF Calculator | Estimate Your Investment Growth</title>
+    *{
+      box-sizing:border-box;
+    }
 
-<meta name="description" content="Estimate ETF investment growth with compound returns and monthly contributions. Compare popular ETFs like VOO, SPY, QQQ and more.">
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      padding:40px 20px 72px;
+      line-height:1.75;
+    }
 
-<style>
+    .page-wrap{
+      max-width:960px;
+      margin:0 auto;
+      background:var(--page);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:56px 40px 44px;
+    }
 
-body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-background:#f5f7fa;
-color:#1d1d1f;
-margin:0;
-padding:60px 20px;
-}
+    .hero{
+      max-width:700px;
+      margin:0 auto;
+      text-align:center;
+    }
 
-.container{
-max-width:760px;
-margin:auto;
-}
+    h1{
+      font-size:46px;
+      line-height:1.05;
+      letter-spacing:-0.04em;
+      margin:0 0 18px;
+      color:var(--text);
+    }
 
-h1{
-font-size:42px;
-text-align:center;
-margin-bottom:10px;
-}
+    .hero-subtitle{
+      max-width:640px;
+      margin:0 auto;
+      font-size:19px;
+      line-height:1.9;
+      color:var(--muted);
+    }
 
-.sub{
-text-align:center;
-color:#6e6e73;
-font-size:20px;
-margin-bottom:60px;
-}
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
 
-.section{
-margin-top:60px;
-}
+    .primary-button,
+    .secondary-button{
+      display:inline-block;
+      text-decoration:none;
+      font-weight:600;
+      border-radius:14px;
+      padding:14px 22px;
+      transition:transform 0.15s ease;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:1fr;
-gap:22px;
-}
+    .primary-button{
+      background:linear-gradient(180deg,var(--button-top) 0%, var(--button-bottom) 100%);
+      color:#ffffff;
+      box-shadow:var(--button-shadow);
+    }
 
-.card{
-background:white;
-border-radius:18px;
-padding:30px;
-box-shadow:0 20px 40px rgba(0,0,0,0.06);
-}
+    .secondary-button{
+      background:#f3f4f6;
+      color:var(--text);
+      border:1px solid var(--line);
+    }
 
-.card h2{
-margin-top:0;
-}
+    .primary-button:hover,
+    .secondary-button:hover{
+      transform:translateY(-1px);
+    }
 
-.card p{
-color:#4b5563;
-}
+    .section{
+      max-width:760px;
+      margin:72px auto 0;
+    }
 
-.card a{
-display:inline-block;
-margin-top:8px;
-color:#4f46e5;
-text-decoration:none;
-font-weight:600;
-}
+    .section-header{
+      max-width:560px;
+      margin:0 auto 26px;
+      text-align:center;
+    }
 
-.footer{
-margin-top:80px;
-text-align:center;
-color:#6e6e73;
-font-size:15px;
-}
+    .section-header h2{
+      font-size:30px;
+      line-height:1.15;
+      letter-spacing:-0.03em;
+      margin:0 0 12px;
+    }
 
-</style>
+    .section-header p{
+      margin:0;
+      font-size:17px;
+      line-height:1.9;
+      color:var(--muted);
+    }
 
+    .tools-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .tool-card,
+    .mini-card,
+    .community-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:24px 22px;
+      box-shadow:0 10px 28px rgba(15,23,42,0.04);
+    }
+
+    .tool-card h3,
+    .mini-card h3,
+    .community-card h3{
+      font-size:20px;
+      line-height:1.25;
+      letter-spacing:-0.02em;
+      margin:0 0 12px;
+      color:var(--text);
+    }
+
+    .tool-card p,
+    .mini-card p,
+    .community-card p{
+      font-size:15px;
+      line-height:1.85;
+      color:#4b5563;
+      margin:0 0 16px;
+    }
+
+    .tool-link,
+    .mini-link,
+    .text-link{
+      color:var(--link);
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    .comparison-wrap,
+    .guides-wrap{
+      max-width:620px;
+      margin:0 auto;
+    }
+
+    .mini-card{
+      margin-top:14px;
+      text-align:center;
+      padding:22px 24px;
+    }
+
+    .mini-links{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:center;
+      margin-top:10px;
+    }
+
+    .community-card{
+      max-width:620px;
+      margin:0 auto;
+      text-align:center;
+      padding:30px 28px;
+      background:#f3f4f6;
+    }
+
+    .community-list{
+      list-style:none;
+      padding:0;
+      margin:18px 0 22px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .community-list li{
+      margin:8px 0;
+    }
+
+    .community-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+
+    .footer-note{
+      margin-top:14px;
+      font-size:14px;
+      color:#9ca3af;
+    }
+
+    @media (max-width:860px){
+      .tools-grid{
+        grid-template-columns:1fr;
+        max-width:620px;
+      }
+
+      .page-wrap{
+        padding:40px 24px 32px;
+      }
+
+      h1{
+        font-size:38px;
+      }
+    }
+
+    @media (max-width:640px){
+      body{
+        padding:20px 12px 44px;
+      }
+
+      .page-wrap{
+        padding:30px 18px 26px;
+        border-radius:20px;
+      }
+
+      h1{
+        font-size:32px;
+      }
+
+      .hero-subtitle,
+      .section-header p{
+        font-size:16px;
+        line-height:1.8;
+      }
+
+      .section{
+        margin-top:56px;
+      }
+
+      .section-header h2{
+        font-size:25px;
+      }
+
+      .tool-card,
+      .mini-card,
+      .community-card{
+        border-radius:18px;
+      }
+
+      .community-actions{
+        flex-direction:column;
+        align-items:center;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page-wrap">
 
-<div class="container">
+    <section class="hero">
+      <h1>ETF Investment Tools</h1>
 
-<h1>ETF Investment Tools</h1>
+      <p class="hero-subtitle">
+        Simple tools to estimate ETF growth, compare funds, and understand long-term investing outcomes without getting lost in financial jargon.
+      </p>
 
-<div class="sub">
-Estimate ETF investment growth and compare popular index funds used by long-term investors.
-</div>
+      <div class="hero-actions">
+        <a class="primary-button" href="/etf-calculator.html">Open ETF Calculator</a>
+        <a class="secondary-button" href="/voo-calculator.html">Open VOO Calculator</a>
+      </div>
+    </section>
 
-<!-- Tools -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Popular Tools</h2>
+        <p>
+          Start with the tools investors actually use: estimate growth, compare long-term outcomes, and understand what regular investing could look like over time.
+        </p>
+      </div>
 
-<div class="section">
+      <div class="tools-grid">
+        <div class="tool-card">
+          <h3>ETF Calculator</h3>
+          <p>
+            Estimate long-term ETF investment growth with regular contributions, compounding, and time.
+          </p>
+          <a class="tool-link" href="/etf-calculator.html">Open tool →</a>
+        </div>
 
-<h2>Investment Calculators</h2>
+        <div class="tool-card">
+          <h3>VOO Calculator</h3>
+          <p>
+            Model long-term VOO investing with contribution timing, fee impact, and realistic growth scenarios.
+          </p>
+          <a class="tool-link" href="/voo-calculator.html">Open tool →</a>
+        </div>
 
-<div class="grid">
+        <div class="tool-card">
+          <h3>Compound Interest Calculator</h3>
+          <p>
+            Understand how time, contributions, and compounding work together to build long-term results.
+          </p>
+          <a class="tool-link" href="/compound-interest-calculator.html">Open tool →</a>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-<h2>VOO Calculator</h2>
-<p>Estimate long-term portfolio growth when investing in the Vanguard S&P 500 ETF.</p >
-<a href="https://etfcalculator.net/voo-calculator.html">Open Tool →</a >
-</div>
+    <section class="section">
+      <div class="section-header">
+        <h2>ETF Comparisons</h2>
+        <p>
+          Compare popular ETFs like VOO, SPY, VTI, QQQ, and SCHD to understand the real differences in cost, diversification, and long-term investing style.
+        </p>
+      </div>
 
-<div class="card">
-<h2>ETF Calculator</h2>
-<p>Estimate ETF investment growth with compound returns and regular contributions.</p >
-<a href="https://etfcalculator.net/etf-calculator.html">Open Tool →</a >
-</div>
+      <div class="comparison-wrap">
+        <div class="mini-card">
+          <h3>Most Popular Comparisons</h3>
+          <div class="mini-links">
+            <a class="mini-link" href="/voo-vs-spy.html">VOO vs SPY</a>
+            <a class="mini-link" href="/voo-vs-vti.html">VOO vs VTI</a>
+            <a class="mini-link" href="/voo-vs-qqq.html">VOO vs QQQ</a>
+            <a class="mini-link" href="/voo-vs-schd.html">VOO vs SCHD</a>
+            <a class="mini-link" href="/etf-comparisons.html">Explore all ETF comparisons →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-<h2>Compound Interest Calculator</h2>
-<p>Calculate how compound interest grows your investments over time.</p >
-<a href="https://etfcalculator.net/compound-interest-calculator.html">Open Tool →</a >
-</div>
+    <section class="section">
+      <div class="section-header">
+        <h2>ETF Guides</h2>
+        <p>
+          Learn how long-term investors think about ETF choices, index exposure, and practical portfolio decisions.
+        </p>
+      </div>
 
-</div>
+      <div class="guides-wrap">
+        <div class="mini-card">
+          <h3>Featured Guides</h3>
+          <div class="mini-links">
+            <a class="mini-link" href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs</a>
+            <a class="mini-link" href="/best-etfs-long-term.html">Best ETFs for Long-Term Investing</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section class="section">
+      <div class="section-header">
+        <h2>Help Us Improve the Tools</h2>
+        <p>
+          Share ideas, suggest new features, and help us build better ETF tools for long-term investors.
+        </p>
+      </div>
 
-<!-- Popular Comparisons -->
+      <div class="community-card">
+        <h3>Community and Feedback</h3>
+        <p>
+          We want this site to be practical, simple, and genuinely useful for real investors.
+        </p>
 
-<div class="section">
+        <ul class="community-list">
+          <li>Suggest new calculators</li>
+          <li>Report issues or bugs</li>
+          <li>Share ideas for ETF comparisons</li>
+        </ul>
 
-<h2>Popular ETF Comparisons</h2>
+        <div class="community-actions">
+          <a class="primary-button" href="mailto:feedback@etfcalculator.net?subject=ETF%20Calculator%20Feedback">Send feedback</a>
+          <a class="secondary-button" href="YOUR_COMMUNITY_LINK">Join discussion</a>
+        </div>
 
-<div class="grid">
+        <div class="footer-note">We read every message.</div>
+      </div>
+    </section>
 
-<div class="card">
-<h2>VOO vs SPY</h2>
-<p>Compare two of the most popular S&P 500 ETFs.</p >
-<a href="https://etfcalculator.net/voo-vs-spy.html">Read comparison →</a >
-</div>
-
-<div class="card">
-<h2>VOO vs QQQ</h2>
-<p>Compare broad market exposure with the Nasdaq-100.</p >
-<a href="https://etfcalculator.net/voo-vs-qqq.html">Read comparison →</a >
-</div>
-
-<div class="card">
-<h2>VOO vs VTI</h2>
-<p>Compare the S&P 500 with the total U.S. stock market.</p >
-<a href="https://etfcalculator.net/voo-vs-vti.html">Read comparison →</a >
-</div>
-
-<div class="card">
-<h2>VOO vs SCHD</h2>
-<p>Compare growth investing with dividend investing.</p >
-<a href="https://etfcalculator.net/voo-vs-schd.html">Read comparison →</a >
-</div>
-
-</div>
-
-</div>
-
-<!-- Learn -->
-
-<div class="section">
-
-<div class="card">
-
-<h2>ETF Comparison Center</h2>
-
-<p>
-Explore detailed comparisons between popular ETFs including VOO, SPY, QQQ, VTI, SCHD and more.
-</p >
-
-<a href="https://etfcalculator.net/etf-comparison.html">
-Explore all comparisons →
-</a >
-
-</div>
-
-</div>
-
-<div class="footer">
-
-ETF Calculator • Built for long-term investors
-
-</div>
-
-</div>
-
+  </div>
 </body>
 </html>
