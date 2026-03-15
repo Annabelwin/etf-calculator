@@ -2,105 +2,173 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VOO vs SPLG | ETF Comparison</title>
+<title>VOO vs SPLG | Which S&P 500 ETF Is Better for Long-Term Investors?</title>
 
-<meta name="description"
-content="Compare VOO vs SPLG ETF including expense ratio, index exposure, fund size, and which S&P 500 ETF may be better for long-term investors.">
+<meta name="description" content="Compare VOO vs SPLG for long-term investing. Both track the S&P 500, but differ slightly in fees, size, and investor preference.">
 
 <style>
 
+:root{
+--bg:#f5f7fb;
+--page:#ffffff;
+--card:#ffffff;
+--card-soft:#f3f4f6;
+--text:#111827;
+--muted:#6b7280;
+--line:#eceff3;
+--link:#4338ca;
+--shadow:0 20px 60px rgba(15,23,42,0.06);
+--button-top:#37456a;
+--button-bottom:#26334f;
+}
+
 body{
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-background:#f6f7fb;
-max-width:640px;
-margin:auto;
-padding:40px 24px 70px;
-color:#1d1d1f;
-line-height:1.75;
+background:var(--bg);
+color:var(--text);
+margin:0;
+padding:40px 20px 70px;
+line-height:1.8;
+}
+
+.page-wrap{
+max-width:720px;
+margin:0 auto;
+background:var(--page);
+padding:48px 40px 40px;
+border-radius:28px;
+box-shadow:var(--shadow);
 }
 
 h1{
-font-size:34px;
-letter-spacing:-0.02em;
-margin-bottom:10px;
-}
-
-.subtitle{
-color:#6e6e73;
-font-size:17px;
-margin-bottom:34px;
-}
-
-.card{
-background:white;
-padding:24px 22px;
-border-radius:18px;
-margin-top:22px;
-box-shadow:0 12px 28px rgba(0,0,0,0.05);
+font-size:28px;
+margin-bottom:16px;
+letter-spacing:-0.01em;
 }
 
 h2{
-margin-top:0;
-font-size:22px;
+font-size:20px;
+margin-top:40px;
+}
+
+.subtitle{
+color:var(--muted);
+font-size:16px;
+line-height:1.8;
+}
+
+.card{
+margin:28px 0;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:20px;
+padding:26px 28px;
 }
 
 table{
 width:100%;
 border-collapse:collapse;
-margin-top:10px;
-}
-
-td{
-padding:12px 6px;
-border-bottom:1px solid #eee;
-}
-
-a{
-color:#3b5cff;
-text-decoration:none;
-font-weight:500;
-}
-
-.footer{
-margin-top:40px;
 font-size:15px;
 }
 
-</style>
+.overview-table{
+margin-top:18px;
+}
 
+.overview-table th{
+text-align:left;
+font-weight:600;
+padding:14px 0;
+border-bottom:1px solid var(--line);
+}
+
+.overview-table td{
+padding:14px 0;
+border-bottom:1px solid var(--line);
+color:var(--muted);
+}
+
+.overview-table td:first-child{
+font-weight:500;
+color:var(--text);
+width:30%;
+}
+
+.reading-section p{
+margin:14px 0;
+}
+
+.cta-card{
+text-align:center;
+background:var(--card-soft);
+}
+
+.cta-button{
+display:inline-block;
+margin-top:14px;
+background:linear-gradient(180deg,var(--button-top) 0%,var(--button-bottom) 100%);
+color:#fff;
+text-decoration:none;
+padding:12px 22px;
+border-radius:10px;
+font-weight:600;
+box-shadow:0 10px 22px rgba(38,51,79,0.22);
+}
+
+.nav-card a{
+display:block;
+margin:8px 0;
+color:var(--link);
+text-decoration:none;
+}
+
+.back{
+display:inline-block;
+margin-top:28px;
+color:var(--link);
+text-decoration:none;
+}
+
+</style>
 </head>
 
-
 <body>
+
+<div class="page-wrap">
 
 <h1>VOO vs SPLG</h1>
 
 <p class="subtitle">
-VOO and SPLG are both low-cost ETFs that track the S&amp;P 500.  
-Because they follow the same index, many investors compare them when choosing a simple long-term core holding.
-</p >
+VOO and SPLG both track the S&P 500, so at first glance they look almost identical. 
+But investors still compare them because of fees, fund size, and long-term investing preferences.
+</p>
 
 
 <div class="card">
 
 <h2>ETF Overview</h2>
 
-<table>
+<table class="overview-table">
 
 <tr>
-<td>ETF</td>
-<td>VOO</td>
-<td>SPLG</td>
+<th>Category</th>
+<th>VOO</th>
+<th>SPLG</th>
 </tr>
 
 <tr>
 <td>Full Name</td>
-<td>Vanguard S&amp;P 500 ETF</td>
-<td>SPDR Portfolio S&amp;P 500 ETF</td>
+<td>Vanguard S&P 500 ETF</td>
+<td>SPDR Portfolio S&P 500 ETF</td>
+</tr>
+
+<tr>
+<td>Provider</td>
+<td>Vanguard</td>
+<td>State Street</td>
 </tr>
 
 <tr>
@@ -110,15 +178,9 @@ Because they follow the same index, many investors compare them when choosing a 
 </tr>
 
 <tr>
-<td>Index</td>
-<td>S&amp;P 500</td>
-<td>S&amp;P 500</td>
-</tr>
-
-<tr>
-<td>Focus</td>
-<td>Large US companies</td>
-<td>Large US companies</td>
+<td>Tracks</td>
+<td>S&P 500</td>
+<td>S&P 500</td>
 </tr>
 
 </table>
@@ -126,72 +188,95 @@ Because they follow the same index, many investors compare them when choosing a 
 </div>
 
 
+<section class="reading-section">
 
-<div class="card">
-
-<h2>Key Differences</h2>
-
-<p>
-VOO and SPLG are extremely similar because both track the same S&amp;P 500 index.
-
-The main differences are fund provider, expense ratio, and size. VOO is issued by Vanguard and is one of the most popular ETFs in the world. SPLG is issued by State Street and often has a slightly lower expense ratio.
-
-For many long-term investors, the differences are small enough that either ETF may work well as a core position.
-</p >
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Which ETF Is Better?</h2>
+<h2>What Actually Matters for Long-Term Investors</h2>
 
 <p>
-VOO may be more attractive for investors who prefer Vanguard and want one of the largest and most widely used S&amp;P 500 ETFs.
-
-SPLG may appeal to investors who want a very low-cost option and are comfortable using a smaller, though still highly established, fund.
-
-For most long-term investors, consistency matters more than the small differences between these two ETFs.
-</p >
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Use Our VOO Calculator</h2>
+Since both ETFs track the same S&P 500 index, their holdings and long-term performance are usually extremely similar.
+</p>
 
 <p>
-Estimate long-term investment growth using our interactive VOO calculator.
-</p >
+The difference most investors notice first is the expense ratio. SPLG is slightly cheaper than VOO, although the difference is very small for long-term investors.
+</p>
 
-<a href="voo-calculator.html">
-Open VOO Calculator →
-</a >
+<p>
+VOO, however, is one of the most widely held ETFs in the world. Many investors prefer it simply because it is familiar, highly liquid, and widely trusted.
+</p>
+
+<p>
+For long-term investing, the real decision usually comes down to personal preference rather than a major structural difference.
+</p>
+
+</section>
+
+
+<section class="reading-section">
+
+<h2>Which One Fits Your Investing Style?</h2>
+
+<p>
+If you want one of the most widely used S&P 500 ETFs with very strong liquidity and recognition, VOO is often the easier choice.
+</p>
+
+<p>
+If your goal is minimizing expense ratios as much as possible, SPLG may appeal because of its slightly lower cost.
+</p>
+
+<p>
+In practice, both funds provide nearly identical exposure to the S&P 500, which means either ETF can work well as a long-term core holding.
+</p>
+
+</section>
+
+
+<div class="card cta-card">
+
+<h2>Try the ETF Calculator</h2>
+
+<p>
+Estimate how long-term ETF investing could grow with regular contributions, compounding, and time.
+</p>
+
+<a class="cta-button" href="/etf-calculator.html">Open ETF Calculator</a>
 
 </div>
-
 
 
 <div class="card">
 
-<h2>Related Comparisons</h2>
+<h2>VOO vs SPLG FAQ</h2>
 
-<a href="/voo-vs-spy.html">VOO vs SPY</a ><br>
-<a href="/voo-vs-vti.html">VOO vs VTI</a ><br>
-<a href="/voo-vs-ivv.html">VOO vs IVV</a ><br>
-<a href="/voo-vs-vym.html">VOO vs VYM</a >
+<p><strong>Do VOO and SPLG track the same index?</strong><br>
+Yes. Both ETFs track the S&P 500, which includes 500 of the largest companies in the United States.</p>
+
+<p><strong>Is SPLG cheaper than VOO?</strong><br>
+Yes. SPLG has a slightly lower expense ratio, although the difference is small for most long-term investors.</p>
+
+<p><strong>Why do investors compare VOO and SPLG?</strong><br>
+Because both funds track the same index, investors want to know whether the fee difference or fund structure matters.</p>
+
+<p><strong>Which ETF is better for long-term investing?</strong><br>
+For most investors, either ETF works well. The decision often depends on personal preference or brokerage availability.</p>
 
 </div>
 
 
+<div class="card nav-card">
 
-<div class="footer">
-<a href="/">← Back to Home</a >
+<h2>Keep Exploring</h2>
+
+<a href="/voo-vs-spy.html">VOO vs SPY</a>
+<a href="/voo-vs-ivv.html">VOO vs IVV</a>
+<a href="/voo-vs-vti.html">VOO vs VTI</a>
+<a href="/spy-vs-vti.html">SPY vs VTI</a>
+<a href="/etf-comparisons.html">Explore all ETF comparisons →</a>
+
+</div>
+
+<a class="back" href="/">← Back to Home</a>
+
 </div>
 
 </body>
-
 </html>
