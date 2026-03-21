@@ -486,7 +486,7 @@
       </div>
     </section>
 
-   <section class="feedback-section">
+  <section class="feedback-section">
   <h2>Help Improve This Tool</h2>
   <p>
     Share ideas, report issues, or suggest improvements to help us build better ETF tools for long-term investors.
@@ -498,35 +498,44 @@
       We want this site to be practical, simple, and genuinely useful for real investors.
     </p>
 
-    <form
-      action="YOUR_FORM_ENDPOINT"
-      method="POST"
-      class="feedback-form"
-    >
+    <form action="YOUR_FORM_ENDPOINT" method="POST" class="feedback-form">
       <div class="feedback-form-row">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your name"
-          class="feedback-input"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your email"
-          class="feedback-input"
-          required
-        />
+        <div class="feedback-field">
+          <label for="feedback-name">Name</label>
+          <input
+            id="feedback-name"
+            type="text"
+            name="name"
+            placeholder="Your name"
+            class="feedback-input"
+            required
+          />
+        </div>
+
+        <div class="feedback-field">
+          <label for="feedback-email">Email</label>
+          <input
+            id="feedback-email"
+            type="email"
+            name="email"
+            placeholder="Your email"
+            class="feedback-input"
+            required
+          />
+        </div>
       </div>
 
-      <textarea
-        name="message"
-        placeholder="Share your feedback, bug report, or feature idea..."
-        class="feedback-textarea"
-        rows="6"
-        required
-      ></textarea>
+      <div class="feedback-field">
+        <label for="feedback-message">Message</label>
+        <textarea
+          id="feedback-message"
+          name="message"
+          placeholder="Share your feedback, bug report, or feature idea..."
+          class="feedback-textarea"
+          rows="6"
+          required
+        ></textarea>
+      </div>
 
       <input type="hidden" name="_subject" value="ETF Tool Feedback" />
 
