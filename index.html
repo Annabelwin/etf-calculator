@@ -625,6 +625,16 @@ We’re building tools for real investors. Every suggestion helps us improve acc
         </div>
 
         <div class="feedback-field">
+  <label for="feedback-type">Feedback type</label>
+  <select id="feedback-type" name="feedback_type" class="feedback-input" required>
+    <option value="">Select one</option>
+    <option value="Bug Report">Bug Report</option>
+    <option value="Feature Request">Feature Request</option>
+    <option value="Content Suggestion">Content Suggestion</option>
+    <option value="General Feedback">General Feedback</option>
+  </select>
+</div>
+        <div class="feedback-field">
           <label for="feedback-email">Email</label>
           <input
             id="feedback-email"
