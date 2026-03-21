@@ -201,33 +201,129 @@
       margin-top:10px;
     }
 
-    .community-card{
-      max-width:620px;
-      margin:0 auto;
-      text-align:center;
-      padding:30px 28px;
-      background:#f3f4f6;
-    }
+   .feedback-section {
+  text-align: center;
+  margin: 60px 0;
+}
 
-    .community-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 22px;
-      color:var(--muted);
-      font-size:15px;
-    }
+.feedback-section h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
 
-    .community-list li{
-      margin:8px 0;
-    }
+.feedback-section > p {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: #64748b;
+}
 
-    .community-actions{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:4px;
-    }
+.feedback-card {
+  max-width: 740px;
+  margin: 0 auto;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.feedback-card h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.feedback-card p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #475569;
+  margin-bottom: 20px;
+}
+
+.feedback-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+}
+
+.feedback-list li {
+  font-size: 1rem;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.feedback-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.feedback-btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.primary-btn {
+  background: #2f4b8f;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(47, 75, 143, 0.18);
+}
+
+.primary-btn:hover {
+  background: #253d74;
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e5e7eb;
+}
+
+.secondary-btn:hover {
+  background: #f1f5f9;
+}
+
+.feedback-note {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .feedback-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .feedback-card {
+    padding: 28px 20px;
+  }
+
+  .feedback-card h3 {
+    font-size: 1.35rem;
+  }
+
+  .feedback-buttons {
+    flex-direction: column;
+  }
+
+  .feedback-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
 
     .footer-note{
       margin-top:14px;
