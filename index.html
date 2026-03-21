@@ -486,10 +486,10 @@
       </div>
     </section>
 
-    <section class="feedback-section">
+   <section class="feedback-section">
   <h2>Help Improve This Tool</h2>
   <p>
-    Share ideas, suggest improvements, and help us build better ETF tools for long-term investors.
+    Share ideas, report issues, or suggest improvements to help us build better ETF tools for long-term investors.
   </p>
 
   <div class="feedback-card">
@@ -498,24 +498,48 @@
       We want this site to be practical, simple, and genuinely useful for real investors.
     </p>
 
-    <ul class="feedback-list">
-      <li>Suggest new calculators</li>
-      <li>Report issues or bugs</li>
-      <li>Share ideas for ETF comparisons</li>
-    </ul>
+    <form
+      action="YOUR_FORM_ENDPOINT"
+      method="POST"
+      class="feedback-form"
+    >
+      <div class="feedback-form-row">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your name"
+          class="feedback-input"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your email"
+          class="feedback-input"
+          required
+        />
+      </div>
 
-    <div class="feedback-buttons">
-      <a
-        href="mailto:feedback@etfcalculator.net?subject=ETF%20Tool%20Feedback&body=What%20can%20we%20improve%3F%0A%0A1.%20Feature%20request%3A%0A2.%20Issue%20found%3A%0A3.%20Suggestion%3A"
-        class="feedback-btn primary-btn"
-      >
-        Send Feedback
-      </a>
+      <textarea
+        name="message"
+        placeholder="Share your feedback, bug report, or feature idea..."
+        class="feedback-textarea"
+        rows="6"
+        required
+      ></textarea>
 
-      <a href="/etf-comparisons.html" class="feedback-btn secondary-btn">
-        Explore More Tools
-      </a>
-    </div>
+      <input type="hidden" name="_subject" value="ETF Tool Feedback" />
+
+      <div class="feedback-buttons">
+        <button type="submit" class="feedback-btn primary-btn">
+          Submit Feedback
+        </button>
+
+        <a href="/etf-comparisons.html" class="feedback-btn secondary-btn">
+          Explore ETF Comparisons
+        </a>
+      </div>
+    </form>
 
     <p class="feedback-note">We read every message.</p>
   </div>
