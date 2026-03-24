@@ -866,21 +866,28 @@
           },
           scales: {
             x: {
-              ticks: {
-                display: false
-              },
-              title: {
-                display: true,
-                text: "Year",
-                color: "#6b7280",
-                font: {
-                  size: 12
-                }
-              },
-              grid: {
-                display: false
-              }
-            },
+  ticks: {
+    color: "#6b7280",
+    callback: function(value, index) {
+      const label = this.getLabelForValue(value);
+      const yearNumber = index + 1;
+      return [1, 5, 10, 15, 20].includes(yearNumber) ? yearNumber : "";
+    },
+    maxRotation: 0,
+    autoSkip: false
+  },
+  title: {
+    display: true,
+    text: "Year",
+    color: "#6b7280",
+    font: {
+      size: 12
+    }
+  },
+  grid: {
+    display: false
+  }
+},
             y: {
               ticks: {
                 color: "#6b7280",
