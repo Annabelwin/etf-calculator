@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ETF Calculator | Estimate Long-Term ETF Investment Growth</title>
-  <meta name="description" content="Free ETF calculator to estimate long-term ETF investment growth with monthly contributions, visual charts, portfolio insights, and compound return projections.">
+  <meta name="description" content="Free ETF calculator to estimate long-term ETF investment growth with monthly contributions, expense ratio, visual charts, portfolio insights, and compound return projections.">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJLXTFDGCE"></script>
@@ -23,7 +23,6 @@
       --text:#1d1d1f;
       --line:#e5e7eb;
       --accent:#2f3b52;
-      --accent-soft:#eef2f7;
       --link:#4f46e5;
       --shadow:0 20px 50px rgba(15,23,42,0.08);
     }
@@ -47,7 +46,7 @@
     }
 
     .container{
-      background:rgba(255,255,255,0.9);
+      background:rgba(255,255,255,0.92);
       backdrop-filter:blur(10px);
       border:1px solid rgba(255,255,255,0.7);
       border-radius:28px;
@@ -193,7 +192,7 @@
     }
 
     .result-value{
-      font-size:24px;
+      font-size:28px;
       font-weight:700;
       color:#111827;
       letter-spacing:-0.02em;
@@ -401,7 +400,7 @@
       }
 
       .result-value{
-        font-size:22px;
+        font-size:24px;
       }
 
       .chart-title,
@@ -427,10 +426,10 @@
       <div class="hero">
         <h1>ETF Calculator</h1>
         <div class="sub">
-          Estimate long-term ETF investment growth with monthly contributions and compound returns.
+          Estimate long-term ETF investment growth with monthly contributions, compounding, and fund fees.
         </div>
         <div class="info">
-          Use this calculator to model how a diversified ETF investment could grow over time with regular contributions.
+          Use this calculator to model how a diversified ETF investment could grow over time with regular contributions and an annual expense ratio.
         </div>
       </div>
 
@@ -451,18 +450,23 @@
         </div>
 
         <div class="form-row">
-          <label for="rate">Annual Return (%)</label>
+          <label for="rate">Expected Annual Return (%)</label>
           <input id="rate" type="number" step="0.1" min="0">
         </div>
 
+        <div class="form-row">
+          <label for="fee">ETF Expense Ratio (%)</label>
+          <input id="fee" type="number" step="0.01" min="0">
+        </div>
+
         <div class="buttons">
-          <button class="calculate" onclick="calculate()">Calculate</button>
-          <button class="example" onclick="exampleData()">Try Example</button>
-          <button class="reset" onclick="resetCalc()">Reset</button>
+          <button type="button" class="calculate" id="calculateBtn">Calculate</button>
+          <button type="button" class="example" id="exampleBtn">Try Example</button>
+          <button type="button" class="reset" id="resetBtn">Reset</button>
         </div>
 
         <div class="assumption-note">
-          Assumption: This projection uses a fixed annual return and regular monthly contributions. Real ETF returns vary over time and are not guaranteed.
+          Assumption: This projection uses a fixed annual return, a fixed annual ETF fee, and regular monthly contributions. Real ETF returns vary over time and are not guaranteed.
         </div>
       </div>
 
@@ -491,15 +495,15 @@
         </div>
 
         <div class="insight-box">
-          <div class="insight-label">Growth Share</div>
-          <div class="insight-value" id="growthShare">0%</div>
-          <div class="insight-desc">How much of your final portfolio comes from investment growth instead of capital contributed.</div>
+          <div class="insight-label">Net Return</div>
+          <div class="insight-value" id="netReturn">0.0%</div>
+          <div class="insight-desc">Your expected annual return after subtracting the ETF expense ratio.</div>
         </div>
 
         <div class="insight-box">
-          <div class="insight-label">Monthly Pace</div>
-          <div class="insight-value" id="monthlyPace">$0</div>
-          <div class="insight-desc">Your monthly contribution habit is one of the main drivers of long-term ETF results.</div>
+          <div class="insight-label">Growth Share</div>
+          <div class="insight-value" id="growthShare">0.0%</div>
+          <div class="insight-desc">How much of your final portfolio comes from investment growth instead of capital contributed.</div>
         </div>
       </div>
 
@@ -509,7 +513,7 @@
         <div class="chart-sub">
           A visual view of projected portfolio value and total contributions over the years.
         </div>
-        <canvas id="growthChart"></canvas>
+        <canvas id="growthChart" height="220"></canvas>
       </div>
 
       <div class="section-card text-card">
@@ -521,7 +525,7 @@
         <ul class="diagnosis-list" id="diagnosisList">
           <li>Time horizon: Long enough for compounding to become meaningful.</li>
           <li>Contribution style: Regular monthly investing builds discipline.</li>
-          <li>Return assumption: Reasonable for long-term ETF planning, but not guaranteed.</li>
+          <li>Fee level: Lower-cost ETFs usually keep more of your return working for you.</li>
         </ul>
       </div>
 
@@ -529,7 +533,7 @@
         <div class="eyebrow">What This Means</div>
         <h2>How to read your result</h2>
         <p id="meaningText">
-          Your projected final value is driven by three forces: your starting balance, your monthly contributions, and the compounding effect of investment returns over time.
+          Your projected final value is driven by four forces: your starting balance, your monthly contributions, the compounding effect of investment returns, and the drag caused by ETF fees.
         </p>
       </div>
 
@@ -538,7 +542,7 @@
         <h2>What a rational investor might do</h2>
         <ul class="suggestion-list" id="suggestionList">
           <li>Keep investing regularly instead of reacting to short-term volatility.</li>
-          <li>Increase contributions over time if your income grows.</li>
+          <li>Prefer low-cost ETFs when the underlying strategy is similar.</li>
           <li>Use this projection as a planning tool, not a guarantee of future returns.</li>
         </ul>
       </div>
@@ -546,7 +550,7 @@
       <div class="section-card guide-box">
         <strong>New to ETF investing?</strong>
         <p>
-          Start with our VOO guide to understand how low-cost ETF investing works and why many long-term investors build around index funds.
+          Start with our ETF guide to understand how low-cost investing works and why expense ratios matter over the long run.
         </p>
         <a href="/best-etfs.html">Read the ETF / VOO Guide →</a>
       </div>
@@ -555,13 +559,13 @@
         <h2>ETF Calculator FAQ</h2>
 
         <div class="faq-item">
-          <h3>What is an ETF?</h3>
-          <p>An ETF, or exchange-traded fund, is a fund that holds multiple investments and trades on an exchange like a stock.</p>
+          <h3>What is an ETF expense ratio?</h3>
+          <p>The expense ratio is the annual fee charged by the ETF. Even small fees can reduce long-term returns because they compound against you over time.</p>
         </div>
 
         <div class="faq-item">
           <h3>How does this ETF calculator work?</h3>
-          <p>This calculator estimates future portfolio value using your starting balance, monthly contributions, expected return, and investment period.</p>
+          <p>This calculator estimates future portfolio value using your starting balance, monthly contributions, expected return, ETF fee, and investment period.</p>
         </div>
 
         <div class="faq-item">
@@ -570,8 +574,8 @@
         </div>
 
         <div class="faq-item">
-          <h3>Why model ETF growth over time?</h3>
-          <p>It helps you understand how consistency, compounding, and time can affect long-term investment outcomes.</p>
+          <h3>Why include ETF fees?</h3>
+          <p>Because fees are one of the few investing variables you can actually control. Lower fees can lead to meaningfully higher ending wealth over long periods.</p>
         </div>
       </div>
 
@@ -601,7 +605,7 @@
       }) + "%";
     }
 
-    function getProfileType(years, monthly, initial){
+    function getProfileType(years, monthly){
       if(years >= 15 && monthly > 0){
         return {
           title: "Long-Term Builder",
@@ -626,43 +630,49 @@
       };
     }
 
-    function buildDiagnosis(years, monthly, rate){
-      let horizonText = years >= 15
+    function buildDiagnosis(years, monthly, grossRate, feeRate){
+      const netRate = grossRate - feeRate;
+
+      const horizonText = years >= 15
         ? "Time horizon: Long enough for compounding to become a major force."
         : years >= 8
         ? "Time horizon: Medium-term, where both contributions and returns matter."
         : "Time horizon: Shorter-term, so contributions matter more than compounding.";
 
-      let contributionText = monthly > 0
+      const contributionText = monthly > 0
         ? "Contribution style: Regular monthly investing builds discipline and reduces reliance on perfect timing."
-        : "Contribution style: No monthly investing selected, so the outcome depends mainly on your starting balance and market return.";
+        : "Contribution style: No monthly investing selected, so the outcome depends mainly on your starting balance and net return.";
 
-      let rateText = rate >= 0.10
-        ? "Return assumption: Ambitious. Useful for scenarios, but compare with a more conservative estimate too."
-        : rate >= 0.06
-        ? "Return assumption: Reasonable for long-term planning, though real market returns will vary."
-        : "Return assumption: Conservative, which can be helpful when planning cautiously.";
+      const feeText = feeRate <= 0.10
+        ? "Fee level: Very low, which is usually a strength for long-term ETF investing."
+        : feeRate <= 0.30
+        ? "Fee level: Reasonable, but still worth comparing with lower-cost alternatives."
+        : "Fee level: On the higher side. Over long periods, this can meaningfully reduce compounding.";
 
-      return [horizonText, contributionText, rateText];
+      return [horizonText, contributionText, feeText];
     }
 
-    function buildMeaning(balance, contributionTotal, growth, years){
+    function buildMeaning(balance, contributionTotal, growth, years, feeRate){
       if(balance <= 0){
-        return "Enter your investment assumptions above to see how time, contributions, and compounding may shape a long-term ETF portfolio.";
+        return "Enter your assumptions above to see how contributions, compounding, and ETF fees may shape a long-term portfolio.";
+      }
+
+      if(feeRate >= 0.50){
+        return "This projection includes a relatively high ETF fee. Even when returns look acceptable, higher costs can quietly drag on wealth over time.";
       }
 
       if(growth > contributionTotal){
-        return "In this scenario, investment growth becomes larger than the money you contributed. That is the classic compounding effect: time starts working harder than your own cash input.";
+        return "In this scenario, investment growth becomes larger than the money you contributed. That is where compounding starts doing the heavy lifting, especially when fees stay low.";
       }
 
       if(years >= 15){
-        return "Your projection shows a long compounding runway. Even if the early years feel slow, the curve usually becomes steeper later as returns start earning returns.";
+        return "Your projection shows a long compounding runway. In long-term ETF investing, lower fees and steady contributions can matter more than trying to perfectly time the market.";
       }
 
       return "This result is driven mostly by disciplined contributions plus moderate compounding. Extending the time horizon or increasing monthly contributions would have a meaningful impact.";
     }
 
-    function buildSuggestions(years, monthly, rate){
+    function buildSuggestions(years, monthly, grossRate, feeRate){
       const suggestions = [];
 
       if(monthly > 0){
@@ -671,16 +681,16 @@
         suggestions.push("Consider adding a monthly contribution if you want compounding to accelerate over time.");
       }
 
-      if(years < 10){
-        suggestions.push("If your goal is long-term wealth building, extending the investment horizon may matter more than chasing higher returns.");
+      if(feeRate > 0.20){
+        suggestions.push("Compare this ETF with lower-cost alternatives if they offer similar exposure.");
       } else {
-        suggestions.push("Stay focused on long-term consistency. The later years are often where ETF compounding becomes most visible.");
+        suggestions.push("Keeping fees low helps more of your return stay invested and compound.");
       }
 
-      if(rate >= 0.10){
-        suggestions.push("Run a second scenario with a lower annual return assumption so your planning stays realistic.");
+      if(years < 10){
+        suggestions.push("If your goal is long-term wealth building, extending the investment horizon may matter more than chasing a higher return assumption.");
       } else {
-        suggestions.push("Use this projection as a planning tool, not a guarantee of future returns.");
+        suggestions.push("Stay focused on long-term consistency. The later years are often where ETF compounding becomes most visible.");
       }
 
       return suggestions;
@@ -688,11 +698,40 @@
 
     function renderList(targetId, items){
       const target = document.getElementById(targetId);
-      target.innerHTML = items.map(item => <li>${item}</li>).join("");
+      target.innerHTML = items.map(function(item){
+        return "<li>" + item + "</li>";
+      }).join("");
+    }
+
+    function updateInsights(years, monthly, grossRate, feeRate, balance, contributionTotal, growth){
+      const profile = getProfileType(years, monthly);
+      const netRate = Math.max(grossRate - feeRate, 0);
+      const growthShare = balance > 0 ? (growth / balance) * 100 : 0;
+
+      document.getElementById("profileType").textContent = profile.title;
+      document.getElementById("profileDesc").textContent = profile.desc;
+      document.getElementById("netReturn").textContent = formatPercent(netRate);
+      document.getElementById("growthShare").textContent = formatPercent(Math.max(growthShare, 0));
+
+      const diagnosisItems = buildDiagnosis(years, monthly, grossRate, feeRate);
+      renderList("diagnosisList", diagnosisItems);
+
+      document.getElementById("diagnosisIntro").textContent =
+        years >= 15
+          ? "Based on your current inputs, this looks like a long-term investing plan where consistency, low costs, and time matter more than short-term market timing."
+          : years >= 8
+          ? "Based on your current inputs, this looks like a medium-term investment plan where contributions, realistic return assumptions, and fees all matter."
+          : "Based on your current inputs, this looks like an early-stage plan where saving discipline and keeping costs low are especially important.";
+
+      document.getElementById("meaningText").textContent = buildMeaning(balance, contributionTotal, growth, years, feeRate);
+
+      const suggestions = buildSuggestions(years, monthly, grossRate, feeRate);
+      renderList("suggestionList", suggestions);
     }
 
     function drawChart(labels, balanceData, contributionData){
-      const ctx = document.getElementById("growthChart").getContext("2d");
+      const canvas = document.getElementById("growthChart");
+      const ctx = canvas.getContext("2d");
 
       if(chartInstance){
         chartInstance.destroy();
@@ -770,38 +809,18 @@
       });
     }
 
-    function updateInsights(initial, monthly, years, rate, balance, contributionTotal, growth){
-      const profile = getProfileType(years, monthly, initial);
-      const growthShare = balance > 0 ? (growth / balance) * 100 : 0;
-
-      document.getElementById("profileType").innerText = profile.title;
-      document.getElementById("profileDesc").innerText = profile.desc;
-      document.getElementById("growthShare").innerText = formatPercent(Math.max(growthShare, 0));
-      document.getElementById("monthlyPace").innerText = formatMoney(monthly);
-
-      const diagnosisItems = buildDiagnosis(years, monthly, rate);
-      renderList("diagnosisList", diagnosisItems);
-
-      document.getElementById("diagnosisIntro").innerText =
-        years >= 15
-          ? "Based on your current inputs, this looks like a long-term investing plan where consistency and time matter more than short-term market timing."
-          : years >= 8
-          ? "Based on your current inputs, this looks like a medium-term investment plan where both steady contributions and realistic return assumptions matter."
-          : "Based on your current inputs, this looks like an early-stage plan where saving discipline matters at least as much as the return estimate.";
-
-      document.getElementById("meaningText").innerText = buildMeaning(balance, contributionTotal, growth, years);
-
-      const suggestions = buildSuggestions(years, monthly, rate);
-      renderList("suggestionList", suggestions);
-    }
-
     function calculate(){
       const initial = parseFloat(document.getElementById("initial").value) || 0;
       const monthly = parseFloat(document.getElementById("monthly").value) || 0;
       const years = parseFloat(document.getElementById("years").value) || 0;
-      const rate = (parseFloat(document.getElementById("rate").value) || 0) / 100;
+      const grossRatePercent = parseFloat(document.getElementById("rate").value) || 0;
+      const feePercent = parseFloat(document.getElementById("fee").value) || 0;
 
-      const months = years * 12;
+      const grossRate = grossRatePercent / 100;
+      const feeRate = feePercent / 100;
+      const netAnnualRate = Math.max(grossRate - feeRate, 0);
+
+      const months = Math.max(Math.round(years * 12), 0);
       let balance = initial;
       let contributionTotal = initial;
 
@@ -811,8 +830,8 @@
 
       for(let i = 1; i <= months; i++){
         balance += monthly;
-        balance *= (1 + rate / 12);
         contributionTotal += monthly;
+        balance *= (1 + netAnnualRate / 12);
 
         if(i % 12 === 0){
           labels.push("Year " + (i / 12));
@@ -823,19 +842,20 @@
 
       const growth = balance - contributionTotal;
 
-      document.getElementById("final").innerText = formatMoney(balance);
-      document.getElementById("contributions").innerText = formatMoney(contributionTotal);
-      document.getElementById("growth").innerText = formatMoney(growth);
+      document.getElementById("final").textContent = formatMoney(balance);
+      document.getElementById("contributions").textContent = formatMoney(contributionTotal);
+      document.getElementById("growth").textContent = formatMoney(growth);
 
-      updateInsights(initial, monthly, years, rate, balance, contributionTotal, growth);
+      updateInsights(years, monthly, grossRatePercent, feePercent, balance, contributionTotal, growth);
       drawChart(labels, balanceData, contributionData);
     }
 
     function exampleData(){
-      document.getElementById("initial").value = 10000;
-      document.getElementById("monthly").value = 500;
-      document.getElementById("years").value = 20;
-      document.getElementById("rate").value = 8;
+      document.getElementById("initial").value = "10000";
+      document.getElementById("monthly").value = "500";
+      document.getElementById("years").value = "20";
+      document.getElementById("rate").value = "8";
+      document.getElementById("fee").value = "0.03";
       calculate();
     }
 
@@ -844,31 +864,32 @@
       document.getElementById("monthly").value = "";
       document.getElementById("years").value = "";
       document.getElementById("rate").value = "";
+      document.getElementById("fee").value = "";
 
-      document.getElementById("final").innerText = "$0.00";
-      document.getElementById("contributions").innerText = "$0.00";
-      document.getElementById("growth").innerText = "$0.00";
+      document.getElementById("final").textContent = "$0.00";
+      document.getElementById("contributions").textContent = "$0.00";
+      document.getElementById("growth").textContent = "$0.00";
 
-      document.getElementById("profileType").innerText = "Long-Term Builder";
-      document.getElementById("profileDesc").innerText = "A steady plan with time on your side can let compounding do most of the heavy lifting.";
-      document.getElementById("growthShare").innerText = "0.0%";
-      document.getElementById("monthlyPace").innerText = "$0.00";
+      document.getElementById("profileType").textContent = "Long-Term Builder";
+      document.getElementById("profileDesc").textContent = "A steady plan with time on your side can let compounding do most of the heavy lifting.";
+      document.getElementById("netReturn").textContent = "0.0%";
+      document.getElementById("growthShare").textContent = "0.0%";
 
-      document.getElementById("diagnosisIntro").innerText =
-        "Based on your current inputs, this looks like a long-term investing plan where consistency and time matter more than short-term market timing.";
+      document.getElementById("diagnosisIntro").textContent =
+        "Based on your current inputs, this looks like a long-term investing plan where consistency, low costs, and time matter more than short-term market timing.";
 
       renderList("diagnosisList", [
         "Time horizon: Long enough for compounding to become meaningful.",
         "Contribution style: Regular monthly investing builds discipline.",
-        "Return assumption: Reasonable for long-term ETF planning, but not guaranteed."
+        "Fee level: Lower-cost ETFs usually keep more of your return working for you."
       ]);
 
-      document.getElementById("meaningText").innerText =
-        "Enter your investment assumptions above to see how time, contributions, and compounding may shape a long-term ETF portfolio.";
+      document.getElementById("meaningText").textContent =
+        "Your projected final value is driven by four forces: your starting balance, your monthly contributions, the compounding effect of investment returns, and the drag caused by ETF fees.";
 
       renderList("suggestionList", [
         "Keep investing regularly instead of reacting to short-term volatility.",
-        "Increase contributions over time if your income grows.",
+        "Prefer low-cost ETFs when the underlying strategy is similar.",
         "Use this projection as a planning tool, not a guarantee of future returns."
       ]);
 
@@ -876,9 +897,18 @@
         chartInstance.destroy();
         chartInstance = null;
       }
+
+      const canvas = document.getElementById("growthChart");
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    exampleData();
+    document.addEventListener("DOMContentLoaded", function(){
+      document.getElementById("calculateBtn").addEventListener("click", calculate);
+      document.getElementById("exampleBtn").addEventListener("click", exampleData);
+      document.getElementById("resetBtn").addEventListener("click", resetCalc);
+      exampleData();
+    });
   </script>
 </body>
 </html>
