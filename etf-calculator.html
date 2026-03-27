@@ -465,15 +465,28 @@
         font-size:24px;
       }
     }
-  .related-links {
+ .related-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px 20px;
+  gap: 14px;
   margin-top: 18px;
 }
 
-.related-links a:hover {
-  color: #3f5fa8;
+.tool-chip {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(63, 95, 168, 0.08);
+  border: 1px solid rgba(63, 95, 168, 0.15);
+  color: #2a3a58;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.tool-chip:hover {
+  background: rgba(63, 95, 168, 0.15);
+  transform: translateY(-1px);
 }
   </style>
 </head>
