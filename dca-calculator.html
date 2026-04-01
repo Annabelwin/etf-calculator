@@ -1160,6 +1160,8 @@
       document.getElementById("mainRiskDesc").textContent = "The biggest risk for many DCA plans is not market noise — it is stopping the plan when markets feel uncomfortable.";
 
       document.getElementById("decisionSummary").textContent = "For most long-term investors, a simple DCA plan is usually a strong default choice — especially when the goal is to build a repeatable investing habit instead of trying to time the market.";
+      document.getElementById("planVerdict").innerHTML = "<strong>Plan Verdict:</strong> This DCA plan looks reasonable for a long-term investor.";
+document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> Keep the plan simple enough that you can continue it during uncomfortable markets.";
       document.getElementById("decisionLine").textContent = "A steady investment habit can be more valuable than trying to predict short-term market moves.";
 document.getElementById("planVerdict").innerHTML = "<strong>" + buildPlanVerdict(years, feePercent, grossRatePercent).split(":")[0] + ":</strong>" + buildPlanVerdict(years, feePercent, grossRatePercent).substring(buildPlanVerdict(years, feePercent, grossRatePercent).indexOf(":") + 1);
 
