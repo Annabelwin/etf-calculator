@@ -1161,7 +1161,9 @@
 
       document.getElementById("decisionSummary").textContent = "For most long-term investors, a simple DCA plan is usually a strong default choice — especially when the goal is to build a repeatable investing habit instead of trying to time the market.";
       document.getElementById("decisionLine").textContent = "A steady investment habit can be more valuable than trying to predict short-term market moves.";
+document.getElementById("planVerdict").innerHTML = "<strong>" + buildPlanVerdict(years, feePercent, grossRatePercent).split(":")[0] + ":</strong>" + buildPlanVerdict(years, feePercent, grossRatePercent).substring(buildPlanVerdict(years, feePercent, grossRatePercent).indexOf(":") + 1);
 
+document.getElementById("improveFirst").innerHTML = "<strong>" + buildImproveFirst(years, monthly, feePercent, grossRatePercent).split(":")[0] + ":</strong>" + buildImproveFirst(years, monthly, feePercent, grossRatePercent).substring(buildImproveFirst(years, monthly, feePercent, grossRatePercent).indexOf(":") + 1);
       document.getElementById("scenarioBody").innerHTML = `
         <tr>
           <td>Conservative</td>
