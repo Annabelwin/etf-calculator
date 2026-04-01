@@ -1215,6 +1215,37 @@
 
       exampleData();
     });
+    function buildPlanVerdict(years, feePercent, ratePercent){
+  if(feePercent > 0.30){
+    return "Plan Verdict: The investing habit is good, but the ETF fee is too high for an efficient long-term DCA plan.";
+  }
+  if(ratePercent >= 11){
+    return "Plan Verdict: The structure is reasonable, but your expected return assumption may be too optimistic.";
+  }
+  if(years < 5){
+    return "Plan Verdict: This plan can still build discipline, but the time horizon is short for DCA to show its full compounding strength.";
+  }
+  if(years >= 10){
+    return "Plan Verdict: This DCA plan looks reasonable for a long-term investor.";
+  }
+  return "Plan Verdict: This is a workable habit-building plan, but consistency matters more than compounding at this stage.";
+}
+
+function buildImproveFirst(years, monthly, feePercent, ratePercent){
+  if(feePercent > 0.30){
+    return "What to improve first: Lower ETF fees. Small annual cost differences matter more over long holding periods.";
+  }
+  if(ratePercent >= 11){
+    return "What to improve first: Use a more conservative expected return so your plan still works under less optimistic conditions.";
+  }
+  if(monthly < 200){
+    return "What to improve first: Increase your monthly contribution if possible. At this stage, contribution size matters more than fine-tuning projections.";
+  }
+  if(years < 8){
+    return "What to improve first: Extend your time horizon if your real goal is long-term compounding, not just short-term habit building.";
+  }
+  return "What to improve first: Keep the plan simple enough that you can continue it during uncomfortable markets.";
+}
   </script>
 </body>
 </html>
