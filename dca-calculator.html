@@ -379,39 +379,45 @@
     }
 
     .next-step-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin-top:16px;
-    }
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-top:16px;
+}
 
-    .next-step-card{
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      border-radius:18px;
-      padding:18px 16px;
-      box-shadow:0 6px 16px rgba(15,23,42,0.04);
-    }
+.next-step-card{
+  background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
+  border:1px solid #edf0f3;
+  border-radius:18px;
+  padding:18px 16px;
+  box-shadow:0 6px 16px rgba(15,23,42,0.04);
+}
 
-    .next-step-card h3{
-      font-size:18px;
-      margin:0 0 8px;
-      letter-spacing:-0.02em;
-      color:#111827;
-    }
+.next-step-card h3{
+  font-size:18px;
+  margin:0 0 8px;
+  letter-spacing:-0.02em;
+  color:#111827;
+}
 
-    .next-step-card p{
-      margin:0 0 12px;
-      color:#4b5563;
-      font-size:14px;
-      line-height:1.6;
-    }
+.next-step-card p{
+  margin:0 0 12px;
+  color:#4b5563;
+  font-size:14px;
+  line-height:1.6;
+}
 
-    .next-step-card a{
-      color:var(--link);
-      font-weight:600;
-      text-decoration:none;
-    }
+.next-step-card a{
+  color:#4f46e5;
+  font-weight:600;
+  text-decoration:none;
+}
+
+@media (max-width:768px){
+  .next-step-grid{
+    grid-template-columns:1fr;
+  }
+}
 
     .faq{
   max-width:560px;
