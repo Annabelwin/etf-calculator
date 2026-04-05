@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Which ETF Should I Buy? | A Beginner-Friendly Decision Guide</title>
+  <meta name="description" content="Not sure which ETF to buy? Use this beginner-friendly guide to understand broad-market, growth, dividend, and simple core ETF choices — then build your plan with our ETF calculators." />
+  <link rel="canonical" href="https://etfcalculator.net/which-etf-should-i-buy.html" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --bg-2:#edf2f7;
+      --card:#ffffff;
+      --card-soft:#f8fafc;
+      --text:#1f2937;
+      --title:#111827;
+      --muted:#667085;
+      --line:#e5e7eb;
+      --line-2:#dbe4ee;
+      --accent:#6d7f98;
+      --accent-dark:#56677b;
+      --shadow:0 14px 40px rgba(15,23,42,0.06);
+      --shadow-soft:0 8px 24px rgba(15,23,42,0.04);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:18px;
+      --max:1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.95), rgba(255,255,255,0) 34%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      color:var(--text);
+      line-height:1.72;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{
+      color:var(--accent-dark);
+      text-decoration:none;
+    }
+
+    a:hover{ text-decoration:underline; }
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      padding:20px 0 10px;
+    }
+
+    .topbar a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .page{
+      padding-bottom:42px;
+    }
+
+    .hero{
+      padding:14px 0 24px;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(248,250,252,0.95) 100%);
+      border:1px solid rgba(219,228,238,0.95);
+      border-radius:32px;
+      box-shadow:var(--shadow);
+      padding:56px 24px 40px;
+      text-align:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:16px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+
+    h1,h2,h3{
+      margin:0;
+      color:var(--title);
+      letter-spacing:-0.03em;
+      text-wrap:balance;
+    }
+
+    h1{
+      max-width:760px;
+      margin:0 auto 16px;
+      font-size:clamp(34px, 5vw, 56px);
+      line-height:1.04;
+    }
+
+    h2{
+      font-size:clamp(28px, 3.4vw, 38px);
+      line-height:1.12;
+    }
+
+    h3{
+      font-size:20px;
+      line-height:1.18;
+    }
+
+    .hero-sub{
+      max-width:700px;
+      margin:0 auto;
+      font-size:18px;
+      color:#344054;
+      line-height:1.65;
+    }
+
+    .hero-note{
+      max-width:620px;
+      margin:18px auto 0;
+      font-size:15px;
+      color:var(--muted);
+    }
+
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-size:14px;
+      font-weight:800;
+      transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+      text-decoration:none !important;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-primary{
+      color:#fff;
+      background:linear-gradient(180deg,#72839a 0%, #5b6b81 100%);
+      box-shadow:0 10px 22px rgba(91,107,129,0.18);
+    }
+
+    .btn-primary:hover{
+      background:linear-gradient(180deg,#6b7c92 0%, #536378 100%);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      border-color:var(--line-2);
+      color:var(--accent-dark);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .btn-secondary:hover{
+      background:#fafcff;
+    }
+
+    .inline-links{
+      margin-top:12px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:8px 12px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .inline-links a{
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .section{
+      padding:24px 0;
+    }
+
+    .section-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(249,250,251,0.96) 100%);
+      border:1px solid rgba(225,231,238,0.95);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:32px 18px;
+    }
+
+    .section-header{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 22px;
+    }
+
+    .section-header p{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .reading{
+      max-width:680px;
+      margin:0 auto;
+    }
+
+    .reading p{
+      margin:0 0 15px;
+      color:#374151;
+      font-size:16px;
+      line-height:1.82;
+    }
+
+    .quick-grid{
+      max-width:860px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .quick-card{
+      background:linear-gradient(180deg,#ffffff 0%, #fafcff 100%);
+      border:1px solid #e7edf4;
+      border-radius:22px;
+      box-shadow:var(--shadow-soft);
+      padding:22px 18px;
+    }
+
+    .quick-card h3{
+      margin-bottom:10px;
+    }
+
+    .quick-card p{
+      margin:0;
+      font-size:15px;
+      color:#4b5563;
+      line-height:1.75;
+    }
+
+    .etf-grid{
+      max-width:900px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .etf-card{
+      background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border:1px solid #e7edf4;
+      border-radius:24px;
+      box-shadow:var(--shadow-soft);
+      padding:24px 18px 20px;
+    }
+
+    .rank{
+      display:inline-block;
+      margin-bottom:10px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+
+    .etf-card h3{
+      margin-bottom:8px;
+    }
+
+    .etf-fit{
+      margin-bottom:12px;
+      font-size:14px;
+      color:#566273;
+      font-weight:700;
+    }
+
+    .etf-card p{
+      margin:0 0 12px;
+      font-size:15px;
+      color:#475467;
+      line-height:1.74;
+    }
+
+    .mini-list{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .mini-list li{
+      margin-bottom:7px;
+      font-size:14px;
+      color:#374151;
+    }
+
+    .decision-box{
+      max-width:760px;
+      margin:0 auto;
+      border:1px solid #e4ebf2;
+      background:linear-gradient(180deg,#f8fafc 0%, #f3f6f9 100%);
+      border-radius:18px;
+      padding:16px 18px;
+      text-align:center;
+      font-size:15px;
+      color:#334155;
+    }
+
+    .split-grid{
+      max-width:860px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .split-card{
+      background:linear-gradient(180deg,#ffffff 0%, #fafcff 100%);
+      border:1px solid #e7edf4;
+      border-radius:22px;
+      box-shadow:var(--shadow-soft);
+      padding:22px 18px;
+    }
+
+    .split-card h3{
+      margin-bottom:12px;
+    }
+
+    .split-card ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .split-card li{
+      margin-bottom:9px;
+      font-size:15px;
+      color:#374151;
+    }
+
+    .tools-grid{
+      max-width:920px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+
+    .tool-card{
+      background:linear-gradient(180deg,#ffffff 0%, #f8fafc 100%);
+      border:1px solid #e7edf4;
+      border-radius:24px;
+      box-shadow:var(--shadow-soft);
+      padding:24px 18px;
+    }
+
+    .tool-card h3{
+      margin-bottom:10px;
+      font-size:21px;
+    }
+
+    .tool-card p{
+      margin:0 0 14px;
+      font-size:15px;
+      color:#4b5563;
+      line-height:1.72;
+    }
+
+    .tool-link{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:15px;
+      font-weight:800;
+      color:var(--accent-dark);
+    }
+
+    .statement{
+      max-width:640px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .statement p{
+      margin:0;
+      font-size:22px;
+      line-height:1.5;
+      letter-spacing:-0.015em;
+      color:#1f2937;
+    }
+
+    .statement .small{
+      margin-top:10px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .faq{
+      max-width:760px;
+      margin:0 auto;
+      display:grid;
+      gap:14px;
+    }
+
+    .faq-item{
+      background:#fff;
+      border:1px solid #e7edf4;
+      border-radius:18px;
+      box-shadow:var(--shadow-soft);
+      padding:18px 16px;
+    }
+
+    .faq-item h3{
+      font-size:17px;
+      margin-bottom:8px;
+    }
+
+    .faq-item p{
+      margin:0;
+      font-size:15px;
+      color:#4b5563;
+      line-height:1.74;
+    }
+
+    .cta-panel{
+      max-width:860px;
+      margin:0 auto;
+      background:linear-gradient(180deg, rgba(249,251,253,0.98) 0%, rgba(240,245,249,0.96) 100%);
+      border:1px solid #e2e9f1;
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      padding:30px 22px;
+      text-align:center;
+    }
+
+    .cta-panel h2{
+      margin-bottom:12px;
+    }
+
+    .cta-panel p{
+      max-width:660px;
+      margin:0 auto 16px;
+      font-size:15px;
+      color:#4b5563;
+      line-height:1.78;
+    }
+
+    .decision-final{
+      max-width:700px;
+      margin:20px auto 0;
+      padding:15px 16px;
+      border-radius:18px;
+      border:1px solid #e5ebf2;
+      background:linear-gradient(180deg,#fafbfc 0%, #f3f6f9 100%);
+      font-size:14px;
+      color:#475467;
+      text-align:center;
+    }
+
+    .related-links{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px 16px;
+    }
+
+    .related-links a{
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    @media (max-width: 900px){
+      .tools-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 760px){
+      .quick-grid,
+      .etf-grid,
+      .split-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .container{
+        width:min(var(--max), calc(100% - 20px));
+      }
+
+      .hero-card{
+        padding:40px 16px 30px;
+        border-radius:26px;
+      }
+
+      .section-card{
+        padding:26px 14px;
+      }
+
+      .statement p{
+        font-size:20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="container topbar">
+      <a href="/index.html">← Back to home</a>
+    </div>
+
+    <header class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="eyebrow">ETF Decision Guide</div>
+          <h1>Which ETF Should I Buy?</h1>
+          <p class="hero-sub">
+            Most investors do not need the most exciting ETF. They need one that is simple enough to understand, strong enough to hold, and practical enough to keep buying over time.
+          </p>
+          <p class="hero-note">
+            This guide helps you understand the main beginner-friendly ETF paths — and what each one is really good for.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/etf-calculator.html">Build your ETF plan →</a>
+            <a class="btn btn-secondary" href="/investment-principles.html">See the investment principles →</a>
+          </div>
+
+          <div class="inline-links">
+            <a href="/voo-calculator.html">Explore the VOO path</a>
+            <a href="/dca-calculator.html">Build a DCA strategy</a>
+            <a href="/etf-comparisons.html">Compare ETF options</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>Start with the question behind the question</h2>
+              <p>
+                Most people asking “Which ETF should I buy?” are really asking something deeper: what is the safest, clearest, most reasonable place to begin?
+              </p>
+            </div>
+
+            <div class="reading">
+              <p>
+                That is why this page does not begin with performance tables. A good first ETF choice is not about chasing the ETF with the hottest recent return. It is about choosing a path you can understand, trust, and continue with.
+              </p>
+              <p>
+                For most beginners, the best starting point is usually one of four directions: a simple S&amp;P 500 ETF, a broader total market ETF, a growth-focused ETF, or a dividend-focused ETF. Each one can make sense — but not for the same reason.
+              </p>
+              <p>
+                The real goal is not to pick the most impressive ETF on paper. It is to pick the one that fits your mindset, your time horizon, and the kind of plan you can actually follow.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>Quick answer for most beginners</h2>
+              <p>
+                If you want the shortest decision path, start here.
+              </p>
+            </div>
+
+            <div class="quick-grid">
+              <div class="quick-card">
+                <h3>If you want the simplest beginner ETF</h3>
+                <p><strong>Start with VOO.</strong> It is often the clearest first choice for a long-term beginner who wants broad U.S. large-cap exposure without unnecessary complexity.</p>
+              </div>
+
+              <div class="quick-card">
+                <h3>If you want the broadest beginner ETF</h3>
+                <p><strong>Look at VTI.</strong> It gives you exposure to the entire U.S. stock market, not just the largest companies.</p>
+              </div>
+
+              <div class="quick-card">
+                <h3>If you want more growth and can handle more swings</h3>
+                <p><strong>Look at QQQ.</strong> It can offer stronger upside in growth-heavy periods, but it is less calm and less broad.</p>
+              </div>
+
+              <div class="quick-card">
+                <h3>If dividends matter more to you</h3>
+                <p><strong>Look at SCHD.</strong> It is often attractive for investors who value dividend quality and a steadier income-oriented angle.</p>
+              </div>
+            </div>
+
+            <div class="decision-box" style="margin-top:20px;">
+              For most beginners, this is not really about finding a perfect ETF. It is about choosing a strong first direction and starting with clarity.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>Four beginner-friendly ETF paths</h2>
+              <p>
+                These are not the only ETFs that exist. They are four useful starting paths that represent different styles of investing.
+              </p>
+            </div>
+
+            <div class="etf-grid">
+              <article class="etf-card">
+                <div class="rank">1. VOO</div>
+                <h3>The simple core path</h3>
+                <div class="etf-fit">Best for many beginners who want clarity and a strong long-term default</div>
+                <p>
+                  VOO tracks the S&amp;P 500. That means you own many of the largest public companies in the United States through one low-cost ETF.
+                </p>
+                <p>
+                  For a beginner, its biggest advantage is not that it is “the best” in every situation. Its biggest advantage is that it is easy to understand and easy to keep holding.
+                </p>
+                <ul class="mini-list">
+                  <li>Simple to explain and simple to follow</li>
+                  <li>Broad exposure to major U.S. companies</li>
+                  <li>Strong default choice for long-term investing</li>
+                </ul>
+              </article>
+
+              <article class="etf-card">
+                <div class="rank">2. VTI</div>
+                <h3>The broader market path</h3>
+                <div class="etf-fit">Best if you want exposure to the whole U.S. market, not just large caps</div>
+                <p>
+                  VTI includes large, mid, and small U.S. companies. It gives a fuller view of the U.S. stock market than VOO.
+                </p>
+                <p>
+                  In practice, the difference between VOO and VTI is often smaller than beginners expect. But if you like the idea of owning more of the market in one ETF, VTI is a strong choice.
+                </p>
+                <ul class="mini-list">
+                  <li>Broader than VOO</li>
+                  <li>Still simple and diversified</li>
+                  <li>Useful if “own more of the market” appeals to you</li>
+                </ul>
+              </article>
+
+              <article class="etf-card">
+                <div class="rank">3. QQQ</div>
+                <h3>The growth-focused path</h3>
+                <div class="etf-fit">Best for investors who want stronger growth potential and can accept more volatility</div>
+                <p>
+                  QQQ gives heavier exposure to large technology and growth-oriented companies. That can feel exciting, especially after strong performance periods.
+                </p>
+                <p>
+                  But this is usually not the calmest first ETF for a beginner. It can be a good fit if you truly understand that higher growth focus usually comes with more concentration and bigger swings.
+                </p>
+                <ul class="mini-list">
+                  <li>More growth-oriented than VOO or VTI</li>
+                  <li>Higher concentration and higher volatility</li>
+                  <li>Better for beginners who already accept stronger ups and downs</li>
+                </ul>
+              </article>
+
+              <article class="etf-card">
+                <div class="rank">4. SCHD</div>
+                <h3>The dividend-quality path</h3>
+                <div class="etf-fit">Best for investors who care about dividends, quality screens, and a steadier income-oriented feel</div>
+                <p>
+                  SCHD appeals to many investors because it combines dividend focus with a quality-oriented selection approach.
+                </p>
+                <p>
+                  It is not the same thing as a broad-market ETF, and it is not a pure growth ETF either. It is a different style, which is exactly why some beginners connect with it.
+                </p>
+                <ul class="mini-list">
+                  <li>Dividend-oriented and quality-focused</li>
+                  <li>Different feel from VOO, VTI, or QQQ</li>
+                  <li>Can fit investors who value cash flow and discipline</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-card">
+            <div class="reading">
+              <p>
+                You do not need to memorize every ETF category before you begin. In most real-life cases, the first good choice matters more than finding a perfect one. A simple, low-cost ETF that you can keep buying is often more valuable than a “better” ETF that keeps you uncertain.
+              </p>
+              <p>
+                This is where many beginners get stuck: they think the first ETF must solve everything. It does not. It only needs to be strong enough to support a sensible long-term plan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>How beginners should actually decide</h2>
+              <p>
+                A useful decision framework is usually better than endless comparison.
+              </p>
+            </div>
+
+            <div class="split-grid">
+              <div class="split-card">
+                <h3>Start here if you want the simplest path</h3>
+                <ul>
+                  <li>Choose VOO if you want a clear, strong, long-term default</li>
+                  <li>Choose VTI if you like broader market coverage</li>
+                  <li>Choose QQQ only if you understand and accept more volatility</li>
+                  <li>Choose SCHD if dividends and quality screens matter to you</li>
+                </ul>
+              </div>
+
+              <div class="split-card">
+                <h3>Questions that help more than “Which one is best?”</h3>
+                <ul>
+                  <li>Can I understand what this ETF is actually giving me?</li>
+                  <li>Can I stay invested when performance gets uncomfortable?</li>
+                  <li>Does this fit my long-term plan, not just today’s mood?</li>
+                  <li>Will I keep buying this ETF consistently over time?</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="decision-box" style="margin-top:20px;">
+              The best beginner ETF is often the one you can understand clearly and keep holding calmly.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>Turn ETF choice into a real plan</h2>
+              <p>
+                Choosing an ETF is only the beginning. A calculator helps you turn that choice into something practical.
+              </p>
+            </div>
+
+            <div class="tools-grid">
+              <article class="tool-card">
+                <h3>ETF Calculator</h3>
+                <p>
+                  Use this when you want to estimate how contributions, compounding, fees, and time can shape your long-term ETF results.
+                </p>
+                <a class="tool-link" href="/etf-calculator.html">See your long-term growth →</a>
+              </article>
+
+              <article class="tool-card">
+                <h3>VOO Calculator</h3>
+                <p>
+                  Use this when you want to explore what a simple long-term VOO path can look like in practice.
+                </p>
+                <a class="tool-link" href="/voo-calculator.html">Build a simple VOO plan →</a>
+              </article>
+
+              <article class="tool-card">
+                <h3>DCA Calculator</h3>
+                <p>
+                  Use this when you want to build a steady investing process without relying on perfect timing.
+                </p>
+                <a class="tool-link" href="/dca-calculator.html">Create a consistent investing plan →</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-card">
+            <div class="statement">
+              <p>
+                A good first ETF does not need to solve everything. It needs to be strong enough for you to start, clear enough for you to trust, and simple enough for you to keep going.
+              </p>
+              <p class="small">
+                That is the standard we care about on this platform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>FAQ for first-time ETF buyers</h2>
+              <p>
+                These are the questions many beginners are really asking underneath the surface.
+              </p>
+            </div>
+
+            <div class="faq">
+              <div class="faq-item">
+                <h3>What if I still feel unsure?</h3>
+                <p>
+                  That is normal. Most beginners do not need a perfect answer. They need a clear enough answer to begin with a sensible plan. In many cases, starting with a simple broad ETF is stronger than waiting too long for certainty.
+                </p>
+              </div>
+
+              <div class="faq-item">
+                <h3>Is VTI better than VOO for beginners?</h3>
+                <p>
+                  Not automatically. VTI is broader, which some investors prefer. But the difference is usually smaller than beginners expect. For many people, VOO is simpler to understand, and that matters.
+                </p>
+              </div>
+
+              <div class="faq-item">
+                <h3>Is QQQ too risky for beginners?</h3>
+                <p>
+                  It can be, especially if the investor is drawn in by recent performance without understanding concentration risk and larger drawdowns. It is not “bad,” but it is usually not the calmest first choice.
+                </p>
+              </div>
+
+              <div class="faq-item">
+                <h3>Is SCHD only for dividend investors?</h3>
+                <p>
+                  It is most naturally attractive to investors who value dividends and a quality-oriented approach. It can still fit a beginner, but it represents a different style from a broad-market default.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-bottom:18px;">
+        <div class="container">
+          <div class="cta-panel">
+            <div class="eyebrow">Next Step</div>
+            <h2>Start with a plan you can actually follow</h2>
+            <p>
+              You do not need the perfect ETF to begin. You need a clear direction, a sensible plan, and a tool that helps you keep going.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="/etf-calculator.html">Build your plan now →</a>
+              <a class="btn btn-secondary" href="/voo-calculator.html">Start simple with VOO →</a>
+              <a class="btn btn-secondary" href="/dca-calculator.html">Start with DCA →</a>
+            </div>
+
+            <div class="decision-final">
+              The right first step is not the most exciting one. It is the one you can understand, trust, and keep following.
+            </div>
+
+            <div class="related-links">
+              <a href="/investment-principles.html">Investment Principles</a>
+              <a href="/etf-comparisons.html">ETF Comparisons</a>
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for Long-Term Investing</a>
+              <a href="/voo-vs-vti.html">VOO vs VTI</a>
+              <a href="/voo-vs-qqq.html">VOO vs QQQ</a>
+              <a href="/schd-vs-vym.html">SCHD vs VYM</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
