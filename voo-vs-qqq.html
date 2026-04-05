@@ -3,462 +3,597 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VOO vs QQQ | Which ETF Should You Choose?</title>
-  <meta name="description" content="Compare VOO vs QQQ across diversification, concentration, cost, and investing logic. A decision-first guide to help investors choose the ETF that fits their strategy.">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJLXTFDGCE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SJLXTFDGCE');
-  </script>
-
+  <title>VOO vs QQQ: Which ETF Fits Your Strategy Better? | ETF Calculator</title>
+  <meta
+    name="description"
+    content="Compare VOO vs QQQ across diversification, concentration, cost, volatility, and long-term investing logic. See which ETF better fits your strategy."
+  />
   <style>
     :root{
-      --bg:#f5f7fa;
-      --card:#ffffff;
-      --muted:#6e6e73;
-      --text:#1d1d1f;
-      --line:#e5e7eb;
-      --link:#4f46e5;
-      --shadow:0 20px 50px rgba(15,23,42,0.08);
+      --bg:#f3f4f7;
+      --card:#fbfbfc;
+      --card-2:#f7f8fa;
+      --text:#181c23;
+      --muted:#667085;
+      --line:#e7e9ee;
+      --line-soft:#eef1f4;
+      --accent:#425b84;
+      --accent-soft:#eef3fb;
+      --shadow:0 10px 30px rgba(15,23,42,0.05);
+      --radius-xl:24px;
+      --radius-lg:18px;
+      --radius-md:14px;
+      --max:760px;
+      --reading:560px;
     }
 
-    *{
-      box-sizing:border-box;
+    *{box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#f7f8fb 0%, #eef2f6 100%);
       margin:0;
-      padding:48px 20px 64px;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
+      background:linear-gradient(180deg,#f3f4f7 0%, #eef1f5 100%);
       color:var(--text);
-      line-height:1.7;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{
+      color:var(--accent);
+      text-decoration:none;
+    }
+
+    a:hover{
+      text-decoration:underline;
     }
 
     .page{
-      max-width:760px;
-      margin:0 auto;
-    }
-
-    .container{
-      background:rgba(255,255,255,0.92);
+      width:min(var(--max), calc(100% - 28px));
+      margin:20px auto 32px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(250,250,251,0.96) 100%);
+      border:1px solid rgba(230,233,238,0.95);
       border-radius:28px;
       box-shadow:var(--shadow);
-      padding:42px 34px 34px;
+      padding:20px 14px 28px;
+    }
+
+    .hero{
+      padding:8px 10px 0;
+      text-align:center;
     }
 
     h1{
+      margin:8px 0 10px;
       font-size:40px;
-      text-align:center;
-      margin:0 0 12px;
-      line-height:1.08;
-      letter-spacing:-0.02em;
+      line-height:1.06;
+      letter-spacing:-0.04em;
+      text-wrap:balance;
     }
 
-    .sub{
-      text-align:center;
-      color:var(--muted);
-      max-width:580px;
-      margin:0 auto 18px;
-      font-size:17px;
-    }
-
-    .info{
-      max-width:580px;
+    .hero-sub{
+      max-width:590px;
       margin:0 auto;
-      background:linear-gradient(180deg,#f8fafc 0%, #f2f4f7 100%);
-      border:1px solid #eceff3;
-      border-radius:16px;
-      padding:14px 18px;
+      color:var(--muted);
       font-size:14px;
-      text-align:center;
-      color:#4b5563;
+      line-height:1.7;
+      text-wrap:balance;
+    }
+
+    .hero-note{
+      max-width:560px;
+      margin:18px auto 0;
+      padding:12px 14px;
+      background:linear-gradient(180deg,#f7f8fb 0%, #f3f5f8 100%);
+      border:1px solid var(--line);
+      border-radius:12px;
+      color:#4a5568;
+      font-size:12.5px;
+      line-height:1.65;
+      text-align:left;
     }
 
     .section-card{
-      margin:28px auto;
-      max-width:580px;
-      background:linear-gradient(180deg,#ffffff 0%, #fafbfd 100%);
-      border:1px solid #edf0f3;
-      border-radius:22px;
-      padding:22px;
-      box-shadow:0 8px 20px rgba(15,23,42,0.03);
+      background:linear-gradient(180deg,rgba(255,255,255,0.86) 0%, rgba(250,251,252,0.96) 100%);
+      border:1px solid var(--line-soft);
+      border-radius:20px;
+      box-shadow:0 8px 24px rgba(15,23,42,0.03);
+      padding:18px 16px;
+      margin:14px auto 0;
+      width:min(100%, 600px);
     }
 
     .eyebrow{
-      font-size:12px;
+      font-size:10px;
+      letter-spacing:0.16em;
       text-transform:uppercase;
-      letter-spacing:0.08em;
-      color:#8b93a1;
+      color:#98a2b3;
       margin-bottom:8px;
     }
 
-    .section-card h2{
-      font-size:28px;
-      margin:0 0 10px;
+    h2{
+      margin:0 0 12px;
+      font-size:22px;
+      line-height:1.18;
+      letter-spacing:-0.03em;
+      text-wrap:balance;
+    }
+
+    h3{
+      margin:0 0 8px;
+      font-size:16px;
+      line-height:1.3;
       letter-spacing:-0.02em;
-      color:#111827;
     }
 
-    .section-card p{
-      margin:0;
-      color:#4b5563;
-      font-size:15px;
+    p{
+      margin:0 0 12px;
+      color:#344054;
+      font-size:14px;
     }
 
-    .bullet-list{
-      margin:14px 0 0;
-      padding-left:18px;
-      color:#374151;
-      font-size:15px;
+    .tight p:last-child,
+    .section-card p:last-child{
+      margin-bottom:0;
     }
 
-    .bullet-list li{
-      margin-bottom:8px;
+    .reading{
+      max-width:var(--reading);
     }
 
-    .decision-grid{
+    .answer-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin-top:14px;
+      gap:12px;
+      margin-top:10px;
     }
 
-    .decision-box{
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      border-radius:18px;
-      padding:16px 15px;
-      box-shadow:0 6px 16px rgba(15,23,42,0.04);
+    .mini-card{
+      background:linear-gradient(180deg,#fafbfc 0%, #f6f7f9 100%);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      min-height:170px;
     }
 
-    .decision-label{
-      font-size:12px;
+    .mini-label{
+      font-size:10px;
+      letter-spacing:0.14em;
       text-transform:uppercase;
-      letter-spacing:0.06em;
-      color:#8b93a1;
-      margin-bottom:6px;
+      color:#98a2b3;
+      margin-bottom:8px;
     }
 
-    .decision-title{
-      font-size:22px;
-      font-weight:700;
-      letter-spacing:-0.02em;
-      color:#111827;
-      margin-bottom:6px;
+    .mini-card p{
+      font-size:13px;
+      line-height:1.7;
+      color:#475467;
     }
 
-    .decision-desc{
+    .default-line{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
       font-size:14px;
-      color:#4b5563;
+      color:#253041;
+    }
+
+    .default-line strong{
+      color:#101828;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border:1px solid var(--line-soft);
+      border-radius:14px;
+      background:#fcfcfd;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:520px;
+    }
+
+    th,td{
+      padding:13px 12px;
+      text-align:left;
+      vertical-align:top;
+      border-bottom:1px solid var(--line-soft);
+      font-size:13px;
       line-height:1.6;
     }
 
-    .soft-note{
-      margin-top:14px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
-      font-size:15px;
+    th{
+      background:#f7f8fa;
+      color:#475467;
       font-weight:600;
-      line-height:1.65;
+      font-size:12px;
     }
 
-    .compare-table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:14px;
-      overflow:hidden;
-      border-radius:16px;
-      border:1px solid #edf0f3;
-      background:#fff;
-    }
-
-    .compare-table th,
-    .compare-table td{
-      padding:14px 12px;
-      text-align:left;
-      border-bottom:1px solid #edf0f3;
-      font-size:14px;
-      vertical-align:top;
-    }
-
-    .compare-table th{
-      background:#f8fafc;
-      color:#374151;
-      font-weight:700;
-    }
-
-    .compare-table tr:last-child td{
+    tr:last-child td{
       border-bottom:none;
     }
 
-    .winner{
-      color:#111827;
-      font-weight:700;
+    td strong{
+      color:#101828;
     }
 
-    .link-card strong{
-      display:block;
-      font-size:22px;
-      letter-spacing:-0.02em;
-      margin-bottom:8px;
-      color:#111827;
+    ul{
+      margin:0;
+      padding-left:18px;
+      color:#344054;
     }
 
-    .link-card p{
-      margin:0 0 14px;
-      color:#4b5563;
-      font-size:15px;
+    li{
+      margin:0 0 10px;
+      font-size:14px;
     }
 
-    .link-card a,
-    .footer a{
-      color:var(--link);
-      text-decoration:none;
+    li:last-child{
+      margin-bottom:0;
+    }
+
+    .split-note{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:8px;
+    }
+
+    .fit-box{
+      background:linear-gradient(180deg,#fafbfc 0%, #f6f7f9 100%);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+    }
+
+    .fit-box h3{
+      margin-bottom:6px;
+    }
+
+    .fit-box p{
+      font-size:13px;
+      line-height:1.7;
+      color:#475467;
+      margin:0;
+    }
+
+    .quote-box{
+      max-width:560px;
+      margin:14px auto 0;
+      padding:14px 16px;
+      background:linear-gradient(180deg,#f6f8fb 0%, #f2f5f9 100%);
+      border:1px solid #e1e7f0;
+      border-radius:16px;
+      color:#243142;
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .quote-box strong{
+      color:#0f172a;
+    }
+
+    .cta-card{
+      width:min(100%, 600px);
+      margin:14px auto 0;
+      padding:18px 16px;
+      background:linear-gradient(180deg,#ffffff 0%, #fafbfc 100%);
+      border:1px solid var(--line-soft);
+      border-radius:20px;
+      box-shadow:0 8px 24px rgba(15,23,42,0.03);
+    }
+
+    .cta-card h3{
+      font-size:24px;
+      line-height:1.15;
+      margin:0 0 8px;
+      letter-spacing:-0.03em;
+    }
+
+    .cta-link{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:8px;
+      font-size:14px;
       font-weight:600;
     }
 
     .faq-item{
-      padding-top:18px;
-      border-top:1px solid #eceff3;
-      margin-top:18px;
+      padding:16px 0;
+      border-top:1px solid var(--line-soft);
     }
 
     .faq-item:first-of-type{
       border-top:none;
-      padding-top:8px;
-      margin-top:0;
+      padding-top:0;
     }
 
-    .faq-item h3{
-      margin:0 0 8px;
-      font-size:19px;
+    .faq-q{
+      font-weight:700;
+      font-size:15px;
       color:#111827;
+      margin-bottom:8px;
     }
 
-    .footer{
+    .faq-a{
+      font-size:14px;
+      color:#475467;
+    }
+
+    .back-home{
       text-align:center;
-      margin-top:30px;
+      margin-top:18px;
+      font-size:13px;
     }
 
-    @media (max-width:768px){
-      .container{
-        padding:28px 18px 24px;
+    .back-home a{
+      color:#50658c;
+      font-weight:500;
+    }
+
+    @media (max-width: 640px){
+      .page{
+        width:calc(100% - 16px);
+        padding:14px 10px 22px;
+        border-radius:22px;
       }
 
       h1{
-        font-size:34px;
+        font-size:30px;
       }
 
-      .sub{
-        font-size:16px;
+      .section-card,
+      .cta-card{
+        width:100%;
+        padding:16px 14px;
       }
 
-      .section-card h2{
-        font-size:24px;
-      }
-
-      .decision-grid{
+      .answer-grid,
+      .split-note{
         grid-template-columns:1fr;
       }
 
-      .compare-table th,
-      .compare-table td{
-        padding:12px 10px;
-        font-size:13px;
+      .mini-card{
+        min-height:auto;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="container">
-
+  <main class="page">
+    <section class="hero">
       <h1>VOO vs QQQ</h1>
-      <div class="sub">
-        Compare VOO and QQQ across diversification, concentration, cost, and investing logic — and decide which ETF fits your strategy.
+      <p class="hero-sub">
+        Compare VOO and QQQ across diversification, concentration, cost, volatility, and long-term investing logic — then decide which ETF actually fits your strategy.
+      </p>
+
+      <div class="hero-note">
+        This is not a small choice between two similar funds. VOO is a broader S&amp;P 500 core holding, while QQQ is a more concentrated Nasdaq-100 growth-heavy exposure. The real question is not “which one sounds more exciting,” but “which structure can you actually hold through a full market cycle?”
       </div>
+    </section>
 
-      <div class="info">
-        This is a real choice between two different portfolio styles. VOO is a broader S&amp;P 500 core holding, while QQQ is a more concentrated Nasdaq-100 growth-heavy exposure.
-      </div>
+    <section class="section-card">
+      <div class="eyebrow">Quick Decision</div>
+      <h2>VOO vs QQQ: quick answer</h2>
 
-      <div class="section-card">
-        <div class="eyebrow">Quick Decision</div>
-        <h2>VOO vs QQQ: quick answer</h2>
-
-        <div class="decision-grid">
-          <div class="decision-box">
-            <div class="decision-label">Choose VOO</div>
-            <div class="decision-title">Broader and steadier</div>
-            <div class="decision-desc">
-              VOO is usually the better default for long-term investors who want broader U.S. large-cap exposure, lower cost, and less concentration risk.
-            </div>
-          </div>
-
-          <div class="decision-box">
-            <div class="decision-label">Choose QQQ</div>
-            <div class="decision-title">More concentrated growth</div>
-            <div class="decision-desc">
-              QQQ makes sense only if you intentionally want heavier Nasdaq-100 exposure and can tolerate a more concentrated, more volatile path.
-            </div>
-          </div>
+      <div class="answer-grid">
+        <div class="mini-card">
+          <div class="mini-label">Choose VOO</div>
+          <h3>Broader and steadier</h3>
+          <p>
+            VOO is usually the better default for long-term investors who want broad U.S. large-cap exposure, lower cost, and less concentration risk.
+          </p>
         </div>
 
-        <div class="soft-note">
-          For most beginners and most long-term investors, <strong>VOO is usually the default choice</strong>. Choose QQQ only if you understand that you are making a more concentrated bet and can actually hold it through deeper swings.
+        <div class="mini-card">
+          <div class="mini-label">Choose QQQ</div>
+          <h3>More concentrated growth</h3>
+          <p>
+            QQQ makes sense only if you intentionally want heavier Nasdaq-100 exposure and understand that the trade-off is higher concentration and potentially sharper swings.
+          </p>
         </div>
       </div>
 
-      <div class="section-card">
-        <div class="eyebrow">Key Differences</div>
-        <h2>Side-by-side comparison</h2>
+      <div class="default-line">
+        <strong>Default rule:</strong> for most beginners and most long-term investors, <strong>VOO is usually the cleaner default choice</strong>. Choose QQQ only if you fully understand that you are making a more concentrated bet and can stay invested through deeper volatility.
+      </div>
+    </section>
 
-        <table class="compare-table">
-          <tr>
-            <th>Feature</th>
-            <th>VOO</th>
-            <th>QQQ</th>
-          </tr>
-          <tr>
-            <td>Index tracked</td>
-            <td>S&amp;P 500</td>
-            <td>Nasdaq-100</td>
-          </tr>
-          <tr>
-            <td>Exposure style</td>
-            <td class="winner">Broader U.S. large-cap exposure</td>
-            <td>More concentrated non-financial Nasdaq exposure</td>
-          </tr>
-          <tr>
-            <td>Expense ratio</td>
-            <td class="winner">0.03%</td>
-            <td>0.18%</td>
-          </tr>
-          <tr>
-            <td>Best fit</td>
-            <td class="winner">Core long-term investing</td>
-            <td>Growth-tilted investors with higher risk tolerance</td>
-          </tr>
-          <tr>
-            <td>Main tradeoff</td>
-            <td>Less aggressive upside in tech-led runs</td>
-            <td>Higher concentration and higher fee</td>
-          </tr>
+    <section class="section-card">
+      <div class="eyebrow">Key Differences</div>
+      <h2>Side-by-side comparison</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>VOO</th>
+              <th>QQQ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Index tracked</td>
+              <td>S&amp;P 500</td>
+              <td>Nasdaq-100</td>
+            </tr>
+            <tr>
+              <td>Exposure style</td>
+              <td><strong>Broad U.S. large-cap exposure</strong></td>
+              <td><strong>More concentrated growth-heavy Nasdaq exposure</strong></td>
+            </tr>
+            <tr>
+              <td>Diversification</td>
+              <td>Broader sector balance and less single-theme dependence</td>
+              <td>More concentrated in a narrower group of leading companies</td>
+            </tr>
+            <tr>
+              <td>Expense ratio</td>
+              <td>0.03%</td>
+              <td>0.18%</td>
+            </tr>
+            <tr>
+              <td>Volatility character</td>
+              <td>Usually easier to hold through market stress</td>
+              <td>Can be stronger in rallies but harder to hold in drawdowns</td>
+            </tr>
+            <tr>
+              <td>Best fit</td>
+              <td><strong>Core long-term investing</strong></td>
+              <td><strong>Growth-tilted investors with higher risk tolerance</strong></td>
+            </tr>
+            <tr>
+              <td>Main risk</td>
+              <td>Still fully exposed to U.S. equity market declines</td>
+              <td>Higher concentration risk and greater dependence on one style leadership</td>
+            </tr>
+          </tbody>
         </table>
       </div>
+    </section>
 
-      <div class="section-card">
-        <div class="eyebrow">What Matters</div>
-        <h2>What actually matters for investors</h2>
-
-        <ul class="bullet-list">
-          <li>VOO and QQQ are not close substitutes. Choosing between them changes the character of your portfolio.</li>
-          <li>QQQ may outperform in certain growth-led periods, but it also comes with higher concentration risk and can be harder to hold during volatility.</li>
-          <li>For most investors building a core portfolio, diversification, cost, and behavior usually matter more than chasing the hottest segment of the market.</li>
+    <section class="section-card tight">
+      <div class="eyebrow">What Matters</div>
+      <h2>What actually matters for investors</h2>
+      <div class="reading">
+        <ul>
+          <li>VOO and QQQ are not just different tickers. They represent <strong>different portfolio structures</strong>.</li>
+          <li>VOO usually works better as a long-term core because it is broader, cheaper, and easier to live with over time.</li>
+          <li>QQQ may outperform in some growth-led periods, but that comes with <strong>more concentration risk</strong> and a tougher behavioral test when leadership changes.</li>
+          <li>For most investors, building a portfolio you can actually hold matters more than chasing the hottest part of the market.</li>
         </ul>
       </div>
+    </section>
 
-      <div class="section-card">
-        <div class="eyebrow">Decision Fit</div>
-        <h2>Which one fits you?</h2>
+    <section class="section-card">
+      <div class="eyebrow">Decision Fit</div>
+      <h2>Which investor fits VOO vs QQQ</h2>
 
-        <ul class="bullet-list">
-          <li><strong>VOO fits you</strong> if you want a simpler long-term core holding and do not want your outcome to depend too heavily on one style of market leadership.</li>
-          <li><strong>QQQ fits you</strong> if you deliberately want more concentrated Nasdaq-100 exposure and can stay invested through a rougher ride.</li>
-          <li><strong>Both can work</strong> only if you understand the tradeoff — but if you are unsure, defaulting to VOO is usually the more balanced long-term decision.</li>
-        </ul>
+      <div class="split-note">
+        <div class="fit-box">
+          <h3>VOO fits you if...</h3>
+          <p>
+            You want a simpler core holding, care about low cost, and do not want your long-term outcome to depend too heavily on one market leadership style.
+          </p>
+        </div>
+
+        <div class="fit-box">
+          <h3>QQQ fits you if...</h3>
+          <p>
+            You deliberately want more concentrated Nasdaq exposure, accept bigger swings, and know you can keep holding even when that style falls out of favor.
+          </p>
+        </div>
       </div>
 
-      <div class="section-card">
-        <div class="eyebrow">Reality Check</div>
-        <h2>This is a real risk choice, not a cosmetic one</h2>
+      <div class="default-line">
+        <strong>If you are unsure:</strong> that uncertainty itself is often a signal to choose the broader structure first. In practice, <strong>VOO is usually the more durable beginner-friendly decision</strong>.
+      </div>
+    </section>
 
+    <section class="section-card tight">
+      <div class="eyebrow">The Real Trade-off</div>
+      <h2>This is a real risk choice, not a cosmetic one</h2>
+      <div class="reading">
         <p>
-          Choosing between VOO and QQQ is not like choosing between VOO and IVV. You are not just changing issuer or tiny fee details. You are choosing between a broader market-style core holding and a more concentrated growth-heavy exposure.
+          Choosing between VOO and QQQ is not like choosing between two nearly identical S&amp;P 500 funds. You are deciding whether to own a <strong>broader market-style core holding</strong> or a <strong>more concentrated growth-heavy exposure</strong>.
         </p>
-
-        <p style="margin-top:12px;">
-          If you are investing for decades, QQQ can still work — but only if you are willing to accept deeper swings and avoid abandoning the plan when leadership changes.
+        <p>
+          That is why this page should be read through the lens of Buffett, Munger, Bogle, and Taleb:
+          simple structures are easier to understand, lower-cost broad exposure is usually more durable, and the best portfolio is often the one you can still hold when markets stop rewarding your favorite theme.
         </p>
       </div>
+    </section>
 
-      <div class="section-card">
-        <div class="eyebrow">Limitations</div>
-        <h2>What neither ETF solves</h2>
+    <div class="quote-box">
+      <strong>Rational investor principle:</strong> do not choose the ETF with the most exciting recent story. Choose the structure that gives you the highest chance of staying invested, staying calm, and compounding over many years.
+    </div>
 
-        <ul class="bullet-list">
+    <section class="section-card tight">
+      <div class="eyebrow">Limitations</div>
+      <h2>What neither ETF solves</h2>
+      <div class="reading">
+        <ul>
           <li>Neither VOO nor QQQ gives you international stock exposure on its own.</li>
           <li>Neither ETF protects you from equity market declines.</li>
-          <li>Neither fund is a solution for short-term cash needs.</li>
+          <li>Neither fund solves short-term cash needs or emotional investing mistakes.</li>
+          <li>Even the “better” ETF can become the wrong choice if you cannot actually hold it through volatility.</li>
         </ul>
       </div>
+    </section>
 
-      <div class="section-card">
-        <div class="eyebrow">Suggested Strategy</div>
-        <h2>What a rational investor might do</h2>
-
-        <ul class="bullet-list">
-          <li>Choose VOO if you want a lower-cost, broader, simpler default for long-term investing.</li>
-          <li>Choose QQQ only if you fully understand the concentration risk and can stay invested through deeper drawdowns.</li>
-          <li>If you are unsure, default to VOO rather than taking risk you may not be able to hold.</li>
-          <li>The biggest mistake is usually not choosing the “wrong ETF”, but choosing a level of risk you cannot actually stick with.</li>
+    <section class="section-card tight">
+      <div class="eyebrow">Suggested Strategy</div>
+      <h2>What a rational investor might do</h2>
+      <div class="reading">
+        <ul>
+          <li>Choose <strong>VOO</strong> if you want lower cost, broader exposure, and a cleaner core for long-term investing.</li>
+          <li>Choose <strong>QQQ</strong> only if you fully understand the concentration risk and are comfortable with a more aggressive profile.</li>
+          <li>If you are uncertain, default to the ETF you are more likely to keep holding through a bad year.</li>
+          <li>The biggest mistake is often not picking the “wrong ticker.” It is choosing a risk level you cannot emotionally survive.</li>
         </ul>
       </div>
+    </section>
 
-      <div class="section-card link-card">
-        <strong>Want to model your investment plan?</strong>
-        <p>
-          Use the ETF Calculator to estimate long-term growth based on your own assumptions for return, fees, and contributions.
-        </p>
-        <a href="/etf-calculator.html">Open ETF Calculator →</a>
-      </div>
+    <section class="cta-card">
+      <h3>Want to model your investment plan?</h3>
+      <p class="reading">
+        Use the ETF Calculator to estimate long-term growth based on your own return assumptions, contribution plan, and investment horizon.
+      </p>
+      <a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
+    </section>
 
-      <div class="section-card link-card">
-        <strong>Want to go deeper on VOO?</strong>
-        <p>
-          Explore the VOO Calculator if you want a dedicated page focused on long-term VOO investing logic.
-        </p>
-        <a href="/voo-calculator.html">Open VOO Calculator →</a>
-      </div>
+    <section class="cta-card">
+      <h3>Want to go deeper on VOO?</h3>
+      <p class="reading">
+        Explore the VOO Calculator if you want a dedicated page focused on long-term VOO investing logic, projection, and practical holding decisions.
+      </p>
+      <a class="cta-link" href="/voo-calculator.html">Open VOO Calculator →</a>
+    </section>
 
-      <div class="section-card">
-        <div class="eyebrow">FAQ</div>
-        <h2>VOO vs QQQ FAQ</h2>
+    <section class="section-card">
+      <div class="eyebrow">FAQ</div>
+      <h2>VOO vs QQQ FAQ</h2>
 
-        <div class="faq-item">
-          <h3>Which one is better for beginners?</h3>
-          <p>For many beginners, VOO is usually the simpler default because it is broader, lower cost, and easier to hold over time.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Why do some investors still choose QQQ?</h3>
-          <p>Because they want heavier exposure to Nasdaq-100 companies and are willing to accept more concentration and potentially higher volatility.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Is QQQ just a better-performing VOO?</h3>
-          <p>No. QQQ is not simply a “better version” of VOO. It is a different portfolio choice with different concentration and risk characteristics.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Can I own both?</h3>
-          <p>Yes, but that is a portfolio design decision. This page is mainly helping you understand what kind of exposure each ETF represents.</p>
+      <div class="faq-item">
+        <div class="faq-q">Which one is better for beginners?</div>
+        <div class="faq-a">
+          For most beginners, VOO is usually the simpler default because it is broader, lower cost, and easier to hold for the long term.
         </div>
       </div>
 
-      <div class="footer">
-        <a href="https://etfcalculator.net">← Back to Home</a>
+      <div class="faq-item">
+        <div class="faq-q">Why do some investors still choose QQQ?</div>
+        <div class="faq-a">
+          Because they want heavier exposure to Nasdaq-100 companies and are willing to accept more concentration risk and potentially higher volatility.
+        </div>
       </div>
 
+      <div class="faq-item">
+        <div class="faq-q">Is QQQ just a better-performing VOO?</div>
+        <div class="faq-a">
+          No. QQQ is not simply a better version of VOO. It is a different portfolio choice with different concentration, style exposure, and behavioral risk.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I own both?</div>
+        <div class="faq-a">
+          Yes, but only if you understand the overlap and why you are doing it. Owning both should be an intentional allocation choice, not accidental duplication.
+        </div>
+      </div>
+    </section>
+
+    <div class="back-home">
+      <a href="/index.html">← Back to Home</a>
     </div>
-  </div>
+  </main>
 </body>
 </html>
