@@ -1,572 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VOO vs SCHD: Which ETF Is Better for Long-Term Investors?</title>
-  <meta name="description" content="Compare VOO vs SCHD for long-term investing. Learn the difference between broad S&P 500 growth exposure and dividend-focused quality income, and which ETF may fit your strategy better.">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJLXTFDGCE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SJLXTFDGCE');
-  </script>
+<title>VOO vs SCHD: Which ETF Should You Actually Choose?</title>
+<meta name="description" content="Compare VOO vs SCHD across growth, income, diversification, cost, and long-term strategy. See which ETF fits your investing approach." />
 
-  <style>
-    :root{
-      --bg:#f5f7fb;
-      --page:#ffffff;
-      --card:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#eceff3;
-      --link:#4338ca;
-      --shadow:0 20px 60px rgba(15,23,42,0.06);
-      --button-top:#37456a;
-      --button-bottom:#26334f;
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      padding:56px 20px 80px;
-      line-height:1.82;
-    }
-
-    .page-wrap{
-      max-width:700px;
-      margin:0 auto;
-      padding:56px 40px 40px;
-      background:var(--page);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-    }
-
-    .container{
-      max-width:680px;
-      margin:0 auto;
-    }
-
-    .hero{
-      max-width:560px;
-      margin:0 auto 42px;
-    }
-
-    h1{
-      font-size:36px;
-      line-height:1.08;
-      letter-spacing:-0.03em;
-      margin:0 0 16px;
-      color:var(--text);
-    }
-
-    h2{
-      font-size:22px;
-      line-height:1.3;
-      letter-spacing:-0.02em;
-      margin:0 0 14px;
-      color:var(--text);
-    }
-
-    h3{
-      font-size:16px;
-      line-height:1.45;
-      letter-spacing:-0.01em;
-      margin:0 0 10px;
-      color:var(--text);
-    }
-
-    .subtitle{
-      max-width:480px;
-      font-size:18px;
-      line-height:1.95;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .card{
-      width:100%;
-      max-width:620px;
-      margin:28px auto 0;
-      background:rgba(255,255,255,0.96);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:26px 28px;
-      box-shadow:0 10px 28px rgba(15,23,42,0.04);
-    }
-
-    .overview-card{
-      margin-top:0;
-      text-align:center;
-    }
-
-    .overview-card h2{
-      margin-bottom:18px;
-    }
-
-    .overview-table-wrap{
-      max-width:100%;
-      margin:0 auto;
-    }
-
-    .overview-card table{
-      width:100%;
-      border-collapse:collapse;
-      table-layout:fixed;
-      margin-top:0;
-      font-size:15px;
-    }
-
-    .overview-card td{
-      padding:12px 6px;
-      border-bottom:1px solid #eef1f4;
-      vertical-align:middle;
-      color:#374151;
-      text-align:left;
-    }
-
-    .overview-card tr:last-child td{
-      border-bottom:none;
-    }
-
-    .overview-card td:first-child{
-      width:25%;
-      color:var(--muted);
-    }
-
-    .overview-card td:nth-child(2){
-      width:37.5%;
-    }
-
-    .overview-card td:nth-child(3){
-      width:37.5%;
-    }
-
-    .reading-section{
-      max-width:560px;
-      margin:64px auto 0;
-    }
-
-    .reading-section h2{
-      margin-bottom:16px;
-    }
-
-    .reading-section p{
-      max-width:500px;
-      font-size:17px;
-      line-height:1.95;
-      color:#4b5563;
-      margin:0 0 18px;
-    }
-
-    .cta-card{
-  text-align:center;
-  padding:30px 32px;
-  background:#f3f4f6;
-  border:1px solid #eceff3;
+<style>
+:root{
+  --bg:#f3f4f7;
+  --card:#fafbfc;
+  --text:#181c23;
+  --muted:#667085;
+  --line-soft:#eef1f4;
+  --accent:#425b84;
+  --shadow:0 10px 30px rgba(15,23,42,0.05);
+  --max:760px;
+  --reading:560px;
 }
 
-    .cta-card p{
-      max-width:46ch;
-      margin:0 auto 16px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-    }
+*{box-sizing:border-box}
 
-    .cta-button{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%, var(--button-bottom) 100%);
-      color:#ffffff !important;
-      text-decoration:none;
-      font-weight:600;
-      padding:13px 24px;
-      border-radius:14px;
-      box-shadow:0 10px 22px rgba(38,51,79,0.22);
-    }
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter;
+  background:linear-gradient(180deg,#f3f4f7,#eef1f5);
+  color:var(--text);
+}
 
-    .faq-section{
-      max-width:560px;
-      margin:64px auto 0;
-    }
+.page{
+  width:min(var(--max),calc(100% - 28px));
+  margin:20px auto;
+  background:white;
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  padding:20px 14px 28px;
+}
 
-    .faq-wrap{
-      max-width:500px;
-    }
+/* HERO */
 
-    .faq-title{
-      margin:0 0 22px;
-    }
+.hero{
+  text-align:center;
+}
 
-    .faq-item{
-      padding:16px 0;
-      border-bottom:1px solid #e7ebf0;
-    }
+h1{
+  font-size:38px;
+  letter-spacing:-0.04em;
+}
 
-    .faq-item:last-child{
-      border-bottom:none;
-      padding-bottom:0;
-    }
+.hero-sub{
+  max-width:560px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:14px;
+}
 
-    .faq-item h3{
-      max-width:500px;
-      margin:0 0 10px;
-    }
+.hero-note{
+  max-width:560px;
+  margin:16px auto 0;
+  padding:12px 14px;
+  background:linear-gradient(180deg,#fafbfc,#f6f7f9);
+  border:1px solid rgba(0,0,0,0.04);
+  border-radius:12px;
+  font-size:13px;
+  color:#4a5568;
+}
 
-    .faq-item p{
-      max-width:500px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-      margin:0;
-    }
+/* SECTION */
 
-    .nav-card{
-      text-align:center;
-      padding:30px 32px;
-    }
+.section-card{
+  width:min(600px,100%);
+  margin:14px auto;
+  padding:18px;
+  border-radius:20px;
+  background:linear-gradient(180deg,#ffffff,#fafbfc);
+  border:1px solid var(--line-soft);
+}
 
-    .nav-card h2{
-      margin-bottom:18px;
-    }
+.eyebrow{
+  font-size:10px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:#98a2b3;
+}
 
-    .nav-links{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      align-items:center;
-    }
+h2{
+  margin:6px 0 12px;
+  font-size:22px;
+}
 
-    .nav-links a{
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-    }
+.answer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
 
-    .community-card{
-      text-align:center;
-      padding:32px 32px;
-    }
+.mini-card{
+  padding:14px;
+  border-radius:14px;
+  background:#fafbfc;
+  border:1px solid var(--line-soft);
+}
 
-    .community-card p{
-      max-width:48ch;
-      margin:0 auto 14px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-    }
+.mini-label{
+  font-size:10px;
+  text-transform:uppercase;
+  color:#98a2b3;
+}
 
-    .community-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 22px;
-      color:var(--muted);
-      font-size:15px;
-    }
+.default-line{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--line-soft);
+}
 
-    .community-list li{
-      margin:8px 0;
-    }
+.subtle-line{
+  font-size:13px;
+  color:#667085;
+}
 
-    .community-actions{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:4px;
-    }
+/* TABLE */
 
-    .community-button{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%,var(--button-bottom) 100%);
-      color:#fff !important;
-      text-decoration:none;
-      font-weight:600;
-      padding:12px 22px;
-      border-radius:12px;
-      box-shadow:0 10px 22px rgba(38,51,79,0.22);
-    }
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
 
-    .community-link{
-      display:inline-block;
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-      padding:12px 4px;
-    }
+td,th{
+  padding:12px;
+  border-bottom:1px solid var(--line-soft);
+}
 
-    .community-note{
-      margin-top:12px;
-      font-size:14px;
-      color:#9ca3af;
-    }
+th{
+  background:#f7f8fa;
+}
 
-    .back-wrap{
-      text-align:left;
-      max-width:560px;
-      margin:30px auto 0;
-    }
+/* PRINCIPLE */
 
-    .back{
-      display:inline-block;
-      color:#6366f1;
-      text-decoration:none;
-      font-weight:500;
-    }
+.principle-card{
+  max-width:560px;
+  margin:14px auto;
+  padding:14px;
+  border-radius:16px;
+  background:#fafbfc;
+  border:1px solid var(--line-soft);
+}
 
-    @media (max-width:640px){
-      body{
-        padding:20px 12px 48px;
-      }
+/* CTA */
 
-      .page-wrap{
-        padding:28px 18px 28px;
-        border-radius:20px;
-      }
+.cta-card{
+  width:min(600px,100%);
+  margin:14px auto;
+  padding:18px;
+  border-radius:20px;
+  background:#ffffff;
+  border:1px solid var(--line-soft);
+}
 
-      .container,
-      .hero,
-      .reading-section,
-      .faq-section{
-        max-width:100%;
-      }
+.cta-link{
+  display:inline-block;
+  margin-top:8px;
+  font-weight:600;
+  color:var(--accent);
+}
 
-      h1{
-        font-size:31px;
-      }
+/* MOBILE */
 
-      h2{
-        font-size:20px;
-      }
-
-      .subtitle{
-        max-width:100%;
-        font-size:16px;
-        line-height:1.88;
-      }
-
-      .card{
-        max-width:100%;
-        border-radius:18px;
-        padding:22px 18px;
-      }
-
-      .overview-card td{
-        padding:12px 4px;
-        font-size:14px;
-      }
-
-      .reading-section p,
-      .faq-item h3,
-      .faq-item p{
-        max-width:100%;
-      }
-
-      .faq-wrap{
-        max-width:100%;
-      }
-
-      .community-actions{
-        flex-direction:column;
-        align-items:center;
-      }
-
-      .back-wrap{
-        max-width:100%;
-      }
-    }
-  </style>
+@media(max-width:640px){
+  .answer-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="page-wrap">
-    <div class="container">
+<main class="page">
 
-      <div class="hero">
-        <h1>VOO vs SCHD: Which ETF Is Better for Long-Term Investors?</h1>
-        <p class="subtitle">
-          VOO and SCHD are both popular long-term ETFs, but they solve different problems. VOO is built for broad S&amp;P 500 exposure and long-term growth, while SCHD is built for dividend quality and income-focused investing.
-        </p>
-        <p>
-          Many investors compare VOO vs SCHD when deciding between simple market growth and a more income-oriented strategy. The right choice depends on whether you want maximum simplicity or stronger dividend characteristics.
-        </p>
-      </div>
+<!-- HERO -->
+<section class="hero">
+<h1>VOO or SCHD: which one should you actually choose?</h1>
 
-      <div class="card overview-card">
-        <h2>ETF Overview</h2>
+<p class="hero-sub">
+This is a decision between growth and income — not just two ETFs.
+</p>
 
-        <div class="overview-table-wrap">
-          <table>
-            <tr>
-              <td>Category</td>
-              <td>VOO</td>
-              <td>SCHD</td>
-            </tr>
-            <tr>
-              <td>Full Name</td>
-              <td>Vanguard S&amp;P 500 ETF</td>
-              <td>Schwab U.S. Dividend Equity ETF</td>
-            </tr>
-            <tr>
-              <td>Provider</td>
-              <td>Vanguard</td>
-              <td>Charles Schwab</td>
-            </tr>
-            <tr>
-              <td>Expense Ratio</td>
-              <td>0.03%</td>
-              <td>0.06%</td>
-            </tr>
-            <tr>
-              <td>Tracks</td>
-              <td>S&amp;P 500</td>
-              <td>Dividend Growth Strategy</td>
-            </tr>
-          </table>
-        </div>
-      </div>
+<div class="hero-note">
+VOO is a broad S&P 500 growth-oriented core holding. SCHD focuses on dividend-paying companies with a more income-oriented profile. The real question is not which one performs better recently, but which structure fits your long-term behavior.
+</div>
+</section>
 
-      <div class="card">
-        <p>
-          When comparing VOO vs SCHD, investors are usually choosing between broad market-style growth and dividend-focused quality. Both are strong long-term ETFs, but they fit different personalities and goals.
-        </p>
-      </div>
+<!-- QUICK -->
+<section class="section-card">
+<div class="eyebrow">Quick Decision</div>
+<h2>VOO vs SCHD: quick answer</h2>
 
-      <div class="card quick-answer">
-        <h2>Quick Answer</h2>
+<div class="answer-grid">
+<div class="mini-card">
+<div class="mini-label">Choose VOO</div>
+<h3>Growth-focused core</h3>
+<p>Better if you want long-term growth, broad exposure, and a simple core portfolio.</p>
+</div>
 
-        <p><strong>Choose VOO if:</strong></p>
-        <ul>
-          <li>You want a simple long-term core ETF</li>
-          <li>You prefer broad exposure to the largest U.S. companies</li>
-          <li>You care more about growth and overall market participation than current income</li>
-        </ul>
+<div class="mini-card">
+<div class="mini-label">Choose SCHD</div>
+<h3>Income and stability</h3>
+<p>Better if you value dividend income, slightly lower volatility, and a more defensive profile.</p>
+</div>
+</div>
 
-        <p><strong>Choose SCHD if:</strong></p>
-        <ul>
-          <li>You want stronger dividend income and dividend growth</li>
-          <li>You prefer a more selective portfolio focused on quality companies</li>
-          <li>You want an ETF that feels more income-oriented and disciplined</li>
-        </ul>
+<div class="default-line">
+<strong>Default rule:</strong> most long-term investors start with VOO as a core, then consider SCHD as a complement — not a replacement.
+</div>
 
-        <div class="mini-cta">
-          <a href="/voo-vs-vti.html">Compare VOO vs VTI →</a>
-        </div>
-      </div>
+<p class="subtle-line">
+Most investors do not fail because they chose the wrong ETF — they fail because they chose one that does not match their behavior.
+</p>
+</section>
 
-      <section class="reading-section">
-        <h2>What Actually Matters for Long-Term Investors</h2>
+<!-- TABLE -->
+<section class="section-card">
+<div class="eyebrow">Key Differences</div>
+<h2>Side-by-side comparison</h2>
 
-        <p>
-          VOO tracks the S&amp;P 500, which means it owns 500 of the largest U.S. companies across many industries. For most investors, it is one of the simplest ways to get long-term exposure to the American stock market.
-        </p>
+<table>
+<tr>
+<th>Feature</th>
+<th>VOO</th>
+<th>SCHD</th>
+</tr>
 
-        <p>
-          SCHD works differently. It does not try to own the market. Instead, it focuses on dividend-paying companies with strong fundamentals, solid profitability, and a record of paying and growing dividends.
-        </p>
+<tr>
+<td>Strategy</td>
+<td>Broad market growth</td>
+<td>Dividend income</td>
+</tr>
 
-        <p>
-          That difference matters. VOO is broader and more benchmark-like. SCHD is more selective and more strategy-driven. VOO is often chosen as a “set it and hold it” core ETF. SCHD is often chosen by investors who want more income and more quality screening.
-        </p>
+<tr>
+<td>Focus</td>
+<td>Capital appreciation</td>
+<td>Income + stability</td>
+</tr>
 
-        <p>
-          So the real decision is not simply returns. It is whether you want a broad growth engine or a more focused dividend-quality engine.
-        </p>
-      </section>
+<tr>
+<td>Yield</td>
+<td>Lower</td>
+<td>Higher</td>
+</tr>
 
-      <section class="reading-section">
-        <h2>Which One Fits Your Investing Style?</h2>
+<tr>
+<td>Volatility</td>
+<td>Moderate</td>
+<td>Usually lower</td>
+</tr>
 
-        <p>
-          If you want the easiest long-term answer and do not want to overthink portfolio construction, VOO is often the better choice. It is straightforward, low-cost, and easy to keep buying through different market cycles.
-        </p>
+<tr>
+<td>Best role</td>
+<td><strong>Core holding</strong></td>
+<td><strong>Income complement</strong></td>
+</tr>
+</table>
+</section>
 
-        <p>
-          If you like seeing more dividend income and prefer companies that pass stricter quality screens, SCHD may feel more aligned with your goals. It can be especially appealing to investors who want their portfolio to produce more cash flow over time.
-        </p>
+<!-- WHAT MATTERS -->
+<section class="section-card">
+<div class="eyebrow">What Matters</div>
+<h2>What actually matters for investors</h2>
 
-        <p>
-          In practice, many investors use VOO as a core holding and add SCHD later. Others choose one based on whether they care more about broad market exposure or dividend-focused discipline.
-        </p>
+<ul>
+<li>VOO and SCHD represent different strategies: growth vs income.</li>
+<li>VOO compounds primarily through price growth.</li>
+<li>SCHD provides cash flow, which may improve psychological stability.</li>
+<li>The best choice depends on what you can stick with long-term.</li>
+</ul>
+</section>
 
-        <p><strong>Quick Answer:</strong> VOO is better for simple long-term growth, while SCHD is better for dividend quality and income-focused investing.</p>
-      </section>
+<!-- DECISION -->
+<section class="section-card">
+<div class="eyebrow">Decision Fit</div>
+<h2>Which investor fits VOO vs SCHD</h2>
 
-      <div class="card cta-card">
-        <h2>Estimate Your ETF Growth</h2>
-        <p>
-          Compare how broad market growth and dividend-focused investing could build wealth over time with regular contributions and compounding.
-        </p>
-        <a class="cta-button" href="/etf-calculator.html">Open ETF Calculator</a>
-      </div>
+<ul>
+<li><strong>VOO fits you</strong> if you want simplicity and long-term growth.</li>
+<li><strong>SCHD fits you</strong> if you prefer income and smoother experience.</li>
+<li>If unsure, start with VOO and add SCHD later.</li>
+</ul>
+</section>
 
-      <section class="faq-section">
-        <div class="faq-wrap">
-          <h2 class="faq-title">VOO vs SCHD FAQ</h2>
+<!-- TRADE OFF -->
+<section class="section-card">
+<div class="eyebrow">The Real Trade-off</div>
+<h2>This is growth vs income</h2>
 
-          <p><strong>VOO vs SCHD (Quick Answer):</strong> VOO is better for simple long-term growth, while SCHD is better for dividend quality and income-focused investing.</p>
+<p>
+You are not choosing between better or worse ETFs. You are choosing between reinvested growth and distributed income.
+</p>
 
-          <div class="faq-item">
-            <h3>Which is better for long-term investing, VOO or SCHD?</h3>
-            <p>
-              Both can work well long term. VOO is usually better for investors who want broad market exposure and simplicity, while SCHD is better for those who want dividend income and stronger quality screening.
-            </p>
-          </div>
+<p>
+Growth requires patience. Income provides feedback. The right choice depends on your temperament.
+</p>
+</section>
 
-          <div class="faq-item">
-            <h3>Is VOO or SCHD better for beginners?</h3>
-            <p>
-              VOO is often better for beginners because it is simpler and easier to understand as a core long-term ETF. SCHD can still be a strong choice, but it is more strategy-specific and income-focused.
-            </p>
-          </div>
+<div class="principle-card">
+<strong>Rational investor principle:</strong>
+do not choose the ETF that looks best today — choose the one you can hold for years.
+</div>
 
-          <div class="faq-item">
-            <h3>Can I hold both VOO and SCHD together?</h3>
-            <p>
-              Yes. Many investors combine VOO and SCHD to balance growth and dividend income. VOO can serve as a broad core holding, while SCHD adds a stronger dividend profile.
-            </p>
-          </div>
+<!-- CTA -->
+<section class="cta-card">
+<h3>Want to model your investment plan?</h3>
 
-          <div class="faq-item">
-            <h3>Does SCHD pay more dividends than VOO?</h3>
-            <p>
-              SCHD is generally more income-focused than VOO, so many investors choose it when dividend yield and dividend growth matter more than simply tracking the S&amp;P 500.
-            </p>
-          </div>
+<p style="font-size:13px;color:#667085;margin-top:-4px;">
+Before deciding, it helps to see what your plan actually looks like over time.
+</p>
 
-          <div class="faq-item">
-            <h3>Is SCHD safer than VOO?</h3>
-            <p>
-              SCHD may feel more stable to some investors because of its quality and dividend focus, but both are stock ETFs and both can decline in a weak market. The bigger difference is strategy, not guaranteed safety.
-            </p>
-          </div>
-        </div>
-      </section>
+<a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
+</section>
 
-      <div class="card nav-card">
-        <h2>Related ETF Comparisons</h2>
-        <div class="nav-links">
-          <a href="/voo-vs-vti.html">VOO vs VTI</a>
-          <a href="/vti-vs-schd.html">VTI vs SCHD</a>
-          <a href="/schd-vs-vym.html">SCHD vs VYM</a>
-          <a href="/etf-comparisons.html">Explore all ETF comparisons →</a>
-        </div>
-      </div>
+<section class="cta-card">
+<h3>Prefer a disciplined investing approach?</h3>
+<a class="cta-link" href="/dca-calculator.html">Open DCA Calculator →</a>
+</section>
 
-      <div class="back-wrap">
-        <a class="back" href="/">← Back to Home</a>
-      </div>
-
-    </div>
-  </div>
+</main>
 </body>
 </html>
