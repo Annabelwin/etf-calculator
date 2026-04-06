@@ -5,19 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VOO vs SPY: Which One Should You Actually Choose?</title>
-<meta name="description" content="VOO vs SPY explained clearly. Cost, structure, liquidity, and long-term behavior — not just performance.">
 
 <style>
 :root{
-  --bg:#f3f4f7;
   --text:#181c23;
   --muted:#667085;
   --line:#e7e9ee;
   --line-soft:#eef1f4;
   --accent:#425b84;
-  --shadow:0 10px 30px rgba(15,23,42,0.05);
   --max:760px;
-  --reading:560px;
 }
 
 *{box-sizing:border-box}
@@ -27,25 +23,19 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter;
   background:linear-gradient(180deg,#f3f4f7,#eef1f5);
   color:var(--text);
-  -webkit-font-smoothing:antialiased;
 }
-
-/* PAGE */
 
 .page{
   width:min(var(--max),calc(100% - 28px));
   margin:20px auto;
   background:linear-gradient(180deg,#ffffff,#fafbfc);
   border-radius:28px;
-  box-shadow:var(--shadow);
   padding:20px 14px 28px;
 }
 
 /* HERO */
 
-.hero{
-  text-align:center;
-}
+.hero{text-align:center}
 
 h1{
   font-size:40px;
@@ -54,39 +44,32 @@ h1{
 }
 
 .hero-sub{
-  color:var(--muted);
   font-size:14px;
+  color:var(--muted);
   max-width:560px;
   margin:0 auto;
-  line-height:1.7;
 }
 
 .hero-note{
   margin:18px auto 0;
   max-width:560px;
-  padding:12px 14px;
-  background:linear-gradient(180deg,#fafbfc,#f6f7f9);
+  padding:12px;
+  background:#fafbfc;
   border:1px solid rgba(0,0,0,0.04);
   border-radius:12px;
   font-size:13px;
-  line-height:1.6;
-  color:#4a5568;
-  text-align:left;
 }
 
-/* SECTION */
+/* CARD SYSTEM (统一核心) */
 
-.section-card{
+.section-card,
+.cta-card{
   width:min(600px,100%);
   margin:16px auto 0;
-  padding:18px 16px;
+  padding:18px;
   border-radius:20px;
-  background:linear-gradient(180deg,#ffffff,#fafbfc);
+  background:#ffffff;
   border:1px solid var(--line-soft);
-}
-
-.text-card{
-  max-width:var(--reading);
 }
 
 .eyebrow{
@@ -94,7 +77,6 @@ h1{
   letter-spacing:0.15em;
   text-transform:uppercase;
   color:#98a2b3;
-  margin-bottom:6px;
 }
 
 h2{
@@ -104,16 +86,11 @@ h2{
 
 p{
   font-size:14px;
-  line-height:1.7;
   color:#344054;
-  margin:0 0 10px;
+  line-height:1.7;
 }
 
-.reading{
-  max-width:var(--reading);
-}
-
-/* QUICK GRID */
+/* QUICK */
 
 .answer-grid{
   display:grid;
@@ -130,9 +107,7 @@ p{
 
 .mini-label{
   font-size:10px;
-  text-transform:uppercase;
   color:#98a2b3;
-  margin-bottom:6px;
 }
 
 .default-line{
@@ -142,18 +117,11 @@ p{
 }
 
 .subtle-line{
-  margin-top:6px;
   font-size:13px;
   color:#667085;
 }
 
 /* TABLE */
-
-.table-wrap{
-  overflow-x:auto;
-  border-radius:14px;
-  border:1px solid var(--line-soft);
-}
 
 table{
   width:100%;
@@ -168,41 +136,30 @@ td,th{
 
 th{
   background:#f7f8fa;
-  text-align:left;
 }
 
 /* PRINCIPLE */
 
 .principle{
-  max-width:560px;
+  width:min(600px,100%);
   margin:16px auto;
   padding:14px;
   border-radius:14px;
   background:#fafbfc;
   border:1px solid var(--line);
-  font-size:14px;
 }
 
 /* CTA */
-
-.cta-card{
-  width:min(600px,100%);
-  margin:16px auto 0;
-  padding:22px 16px;
-  border-radius:20px;
-  background:#ffffff;
-  border:1px solid var(--line-soft);
-}
-
-.cta-card h3{
-  font-size:22px;
-  margin-bottom:6px;
-}
 
 .cta-intro{
   font-size:13px;
   color:#667085;
   margin-bottom:6px;
+}
+
+.cta-body{
+  font-size:14px;
+  color:#475467;
 }
 
 .cta-link{
@@ -218,10 +175,6 @@ th{
   text-align:center;
   margin-top:18px;
   font-size:13px;
-}
-
-.back-home a{
-  color:#50658c;
 }
 
 /* MOBILE */
@@ -245,11 +198,11 @@ This is not about performance — it's about cost, structure, and how you actual
 </p>
 
 <div class="hero-note">
-VOO and SPY track the same S&amp;P 500 index. The real difference is not what they hold, but how they are built and how they are used.
+VOO and SPY track the same S&P 500 index. The real difference is not what they hold, but how they are built and used.
 </div>
 </section>
 
-<!-- QUICK ANSWER -->
+<!-- QUICK -->
 <section class="section-card">
 <div class="eyebrow">Quick Decision</div>
 <h2>VOO vs SPY: quick answer</h2>
@@ -258,7 +211,7 @@ VOO and SPY track the same S&amp;P 500 index. The real difference is not what th
 <div class="mini-card">
 <div class="mini-label">Choose VOO</div>
 <h3>Lower cost, long-term default</h3>
-<p>Best for long-term investors who want a simple, efficient S&amp;P 500 core holding.</p>
+<p>Best for long-term investors who want a simple, efficient S&P 500 core holding.</p>
 </div>
 
 <div class="mini-card">
@@ -277,22 +230,14 @@ Most investors do not fail because of returns — they fail because of structure
 </p>
 </section>
 
-<!-- DEEP LAYER -->
-<section class="section-card text-card">
+<!-- DEEP -->
+<section class="section-card">
 <div class="eyebrow">What Most People Miss</div>
 <h2>This is not a performance decision</h2>
 
-<p>
-VOO and SPY hold the same companies. The difference is not performance — it is cost and usage.
-</p>
-
-<p>
-SPY is designed for trading. VOO is designed for holding. Using SPY long-term means quietly paying more every year.
-</p>
-
-<p>
-Most investors think liquidity matters. In reality, they rarely use it. What they actually experience is long-term cost drag.
-</p>
+<p>VOO and SPY hold the same companies. The difference is cost and usage.</p>
+<p>SPY is built for trading. VOO is built for holding.</p>
+<p>Most investors overestimate liquidity and underestimate cost drag.</p>
 </section>
 
 <!-- TABLE -->
@@ -300,95 +245,55 @@ Most investors think liquidity matters. In reality, they rarely use it. What the
 <div class="eyebrow">Key Differences</div>
 <h2>Side-by-side comparison</h2>
 
-<div class="table-wrap">
 <table>
-<tr>
-<th>Feature</th>
-<th>VOO</th>
-<th>SPY</th>
-</tr>
-
-<tr>
-<td>Index</td>
-<td>S&amp;P 500</td>
-<td>S&amp;P 500</td>
-</tr>
-
-<tr>
-<td>Expense ratio</td>
-<td><strong>0.03%</strong></td>
-<td><strong>0.09%</strong></td>
-</tr>
-
-<tr>
-<td>Liquidity</td>
-<td>High</td>
-<td>Very high</td>
-</tr>
-
-<tr>
-<td>Best use</td>
-<td><strong>Long-term investing</strong></td>
-<td><strong>Trading / short-term</strong></td>
-</tr>
-
+<tr><th>Feature</th><th>VOO</th><th>SPY</th></tr>
+<tr><td>Expense ratio</td><td><strong>0.03%</strong></td><td><strong>0.09%</strong></td></tr>
+<tr><td>Liquidity</td><td>High</td><td>Very high</td></tr>
+<tr><td>Best use</td><td><strong>Long-term investing</strong></td><td><strong>Trading</strong></td></tr>
 </table>
-</div>
 </section>
 
 <!-- MISTAKE -->
-<section class="section-card text-card">
-<div class="eyebrow">Common Mistake</div>
+<section class="section-card">
+<div class="eyebrow">Mistake</div>
 <h2>Where investors get this wrong</h2>
 
-<p>
-Many investors think VOO vs SPY is a “small difference.” It is not.
-</p>
-
-<p>
-Over decades, cost compounds. That small difference becomes a meaningful drag.
-</p>
-
-<p>
-Choosing SPY without actually trading is a structural mistake.
-</p>
+<p>Many think this is a small difference. Over time, it is not.</p>
+<p>Cost compounds. Structure matters.</p>
 </section>
 
 <!-- BEHAVIOR -->
-<section class="section-card text-card">
+<section class="section-card">
 <div class="eyebrow">Behavior</div>
 <h2>Behavioral reality</h2>
 
-<p>
-Most investors do not need intraday liquidity.
-</p>
-
-<p>
-But many still choose SPY because it feels more flexible or more active.
-</p>
-
-<p>
-That is usually a mismatch between behavior and strategy.
-</p>
+<p>Most investors do not need intraday liquidity.</p>
+<p>Choosing SPY without trading is a mismatch.</p>
 </section>
 
 <div class="principle">
-<strong>Rational principle:</strong> choose the ETF that matches how you actually invest, not how you think you might behave.
+<strong>Rational principle:</strong> choose the ETF that matches how you actually invest.
 </div>
 
 <!-- CTA -->
 <section class="cta-card">
-<h3>Want to see the cost difference over time?</h3>
+<h2>Want to see the cost difference over time?</h2>
 
-<p class="cta-intro">
-Even small fee differences compound over decades.
+<p class="cta-intro">Even small fee differences compound over decades.</p>
+
+<p class="cta-body">
+Use the ETF Calculator to model long-term fee impact.
 </p>
 
 <a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
 </section>
 
 <section class="cta-card">
-<h3>Prefer a more consistent investing approach?</h3>
+<h2>Want a more consistent investing approach?</h2>
+
+<p class="cta-body">
+Use the DCA Calculator to simulate disciplined investing.
+</p>
 
 <a class="cta-link" href="/dca-calculator.html">Open DCA Calculator →</a>
 </section>
