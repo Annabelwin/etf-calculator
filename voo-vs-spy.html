@@ -5,12 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VOO vs SPY: Which One Should You Actually Choose?</title>
-<meta name="description" content="VOO vs SPY: a real decision breakdown. Cost, liquidity, behavior, and long-term investing logic explained clearly.">
+<meta name="description" content="VOO vs SPY explained clearly. Cost, structure, liquidity, and long-term behavior — not just performance.">
 
 <style>
 :root{
   --bg:#f3f4f7;
-  --card:#fafbfc;
   --text:#181c23;
   --muted:#667085;
   --line:#e7e9ee;
@@ -18,6 +17,7 @@
   --accent:#425b84;
   --shadow:0 10px 30px rgba(15,23,42,0.05);
   --max:760px;
+  --reading:560px;
 }
 
 *{box-sizing:border-box}
@@ -27,24 +27,30 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter;
   background:linear-gradient(180deg,#f3f4f7,#eef1f5);
   color:var(--text);
+  -webkit-font-smoothing:antialiased;
 }
+
+/* PAGE */
 
 .page{
   width:min(var(--max),calc(100% - 28px));
   margin:20px auto;
-  background:white;
+  background:linear-gradient(180deg,#ffffff,#fafbfc);
   border-radius:28px;
   box-shadow:var(--shadow);
   padding:20px 14px 28px;
 }
+
+/* HERO */
 
 .hero{
   text-align:center;
 }
 
 h1{
-  font-size:38px;
+  font-size:40px;
   letter-spacing:-0.04em;
+  margin-bottom:8px;
 }
 
 .hero-sub{
@@ -52,45 +58,102 @@ h1{
   font-size:14px;
   max-width:560px;
   margin:0 auto;
+  line-height:1.7;
 }
 
 .hero-note{
-  margin:16px auto;
+  margin:18px auto 0;
   max-width:560px;
-  padding:12px;
-  background:#fafbfc;
+  padding:12px 14px;
+  background:linear-gradient(180deg,#fafbfc,#f6f7f9);
   border:1px solid rgba(0,0,0,0.04);
   border-radius:12px;
   font-size:13px;
+  line-height:1.6;
+  color:#4a5568;
+  text-align:left;
 }
 
-/* BARBELL */
+/* SECTION */
 
-.barbell{
+.section-card{
+  width:min(600px,100%);
+  margin:16px auto 0;
+  padding:18px 16px;
+  border-radius:20px;
+  background:linear-gradient(180deg,#ffffff,#fafbfc);
+  border:1px solid var(--line-soft);
+}
+
+.text-card{
+  max-width:var(--reading);
+}
+
+.eyebrow{
+  font-size:10px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:#98a2b3;
+  margin-bottom:6px;
+}
+
+h2{
+  font-size:22px;
+  margin:6px 0 12px;
+}
+
+p{
+  font-size:14px;
+  line-height:1.7;
+  color:#344054;
+  margin:0 0 10px;
+}
+
+.reading{
+  max-width:var(--reading);
+}
+
+/* QUICK GRID */
+
+.answer-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:14px;
-  margin-top:14px;
+  gap:12px;
 }
 
-.card{
-  padding:16px;
-  border-radius:16px;
+.mini-card{
+  padding:14px;
+  border-radius:14px;
   background:#fafbfc;
-  border:1px solid var(--line-soft);
+  border:1px solid var(--line);
 }
 
-/* CENTER */
+.mini-label{
+  font-size:10px;
+  text-transform:uppercase;
+  color:#98a2b3;
+  margin-bottom:6px;
+}
 
-.section{
-  margin-top:16px;
-  padding:18px;
-  border-radius:20px;
-  background:#ffffff;
-  border:1px solid var(--line-soft);
+.default-line{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+}
+
+.subtle-line{
+  margin-top:6px;
+  font-size:13px;
+  color:#667085;
 }
 
 /* TABLE */
+
+.table-wrap{
+  overflow-x:auto;
+  border-radius:14px;
+  border:1px solid var(--line-soft);
+}
 
 table{
   width:100%;
@@ -99,35 +162,73 @@ table{
 }
 
 td,th{
-  padding:10px;
+  padding:12px;
   border-bottom:1px solid var(--line-soft);
 }
 
 th{
   background:#f7f8fa;
+  text-align:left;
+}
+
+/* PRINCIPLE */
+
+.principle{
+  max-width:560px;
+  margin:16px auto;
+  padding:14px;
+  border-radius:14px;
+  background:#fafbfc;
+  border:1px solid var(--line);
+  font-size:14px;
 }
 
 /* CTA */
 
-.cta{
-  margin-top:16px;
-  padding:20px;
+.cta-card{
+  width:min(600px,100%);
+  margin:16px auto 0;
+  padding:22px 16px;
   border-radius:20px;
+  background:#ffffff;
   border:1px solid var(--line-soft);
 }
 
-a{
-  color:var(--accent);
-  text-decoration:none;
+.cta-card h3{
+  font-size:22px;
+  margin-bottom:6px;
+}
+
+.cta-intro{
+  font-size:13px;
+  color:#667085;
+  margin-bottom:6px;
+}
+
+.cta-link{
+  display:inline-block;
+  margin-top:10px;
   font-weight:600;
+  color:var(--accent);
+}
+
+/* BACK */
+
+.back-home{
+  text-align:center;
+  margin-top:18px;
+  font-size:13px;
+}
+
+.back-home a{
+  color:#50658c;
 }
 
 /* MOBILE */
 
 @media(max-width:640px){
-  .barbell{
-    grid-template-columns:1fr;
-  }
+  h1{font-size:30px}
+  .answer-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -140,50 +241,66 @@ a{
 <h1>VOO or SPY: which one should you actually choose?</h1>
 
 <p class="hero-sub">
-This is not about performance — it's about cost, structure, and how you plan to use the ETF.
+This is not about performance — it's about cost, structure, and how you actually invest.
 </p>
 
 <div class="hero-note">
-VOO and SPY both track the S&amp;P 500. The real difference is not what they hold, but how they are built and used.
+VOO and SPY track the same S&amp;P 500 index. The real difference is not what they hold, but how they are built and how they are used.
 </div>
 </section>
 
-<!-- BARBELL STRUCTURE -->
+<!-- QUICK ANSWER -->
+<section class="section-card">
+<div class="eyebrow">Quick Decision</div>
+<h2>VOO vs SPY: quick answer</h2>
 
-<section class="barbell">
+<div class="answer-grid">
+<div class="mini-card">
+<div class="mini-label">Choose VOO</div>
+<h3>Lower cost, long-term default</h3>
+<p>Best for long-term investors who want a simple, efficient S&amp;P 500 core holding.</p>
+</div>
 
-<!-- LEFT: QUICK ANSWER -->
-<div class="card">
-<h3>Quick Answer (3-second decision)</h3>
+<div class="mini-card">
+<div class="mini-label">Choose SPY</div>
+<h3>Built for trading</h3>
+<p>Only makes sense if you actively trade or need intraday liquidity.</p>
+</div>
+</div>
 
-<p><strong>Choose VOO</strong> if you are a long-term investor focused on cost and simplicity.</p>
+<div class="default-line">
+<strong>Default rule:</strong> if you are investing long term, VOO is usually the better choice.
+</div>
 
-<p><strong>Choose SPY</strong> only if you need high liquidity or plan to trade frequently.</p>
-
-<p style="color:#667085;font-size:13px;">
-If you are unsure, VOO is usually the better default.
+<p class="subtle-line">
+Most investors do not fail because of returns — they fail because of structure and behavior.
 </p>
-</div>
-
-<!-- RIGHT: DEEP LAYER -->
-<div class="card">
-<h3>What most people miss</h3>
-
-<ul>
-<li>The difference is not returns — it is cost and usage.</li>
-<li>SPY is built for trading. VOO is built for holding.</li>
-<li>Choosing SPY long-term means quietly paying more every year.</li>
-<li>Most investors overestimate liquidity needs and underestimate cost impact.</li>
-</ul>
-</div>
-
 </section>
 
-<!-- CORE FACTS -->
-<section class="section">
+<!-- DEEP LAYER -->
+<section class="section-card text-card">
+<div class="eyebrow">What Most People Miss</div>
+<h2>This is not a performance decision</h2>
 
-<h3>Side-by-side comparison</h3>
+<p>
+VOO and SPY hold the same companies. The difference is not performance — it is cost and usage.
+</p>
 
+<p>
+SPY is designed for trading. VOO is designed for holding. Using SPY long-term means quietly paying more every year.
+</p>
+
+<p>
+Most investors think liquidity matters. In reality, they rarely use it. What they actually experience is long-term cost drag.
+</p>
+</section>
+
+<!-- TABLE -->
+<section class="section-card">
+<div class="eyebrow">Key Differences</div>
+<h2>Side-by-side comparison</h2>
+
+<div class="table-wrap">
 <table>
 <tr>
 <th>Feature</th>
@@ -216,73 +333,67 @@ If you are unsure, VOO is usually the better default.
 </tr>
 
 </table>
-
+</div>
 </section>
 
-<!-- DECISION LAYER -->
-<section class="section">
-
-<h3>Where people make mistakes</h3>
+<!-- MISTAKE -->
+<section class="section-card text-card">
+<div class="eyebrow">Common Mistake</div>
+<h2>Where investors get this wrong</h2>
 
 <p>
 Many investors think VOO vs SPY is a “small difference.” It is not.
 </p>
 
 <p>
-If you hold for decades, cost compounds. That small difference becomes a meaningful drag.
+Over decades, cost compounds. That small difference becomes a meaningful drag.
 </p>
 
 <p>
-Choosing SPY when you do not actually trade is a structural mistake, not a tactical one.
+Choosing SPY without actually trading is a structural mistake.
 </p>
-
 </section>
 
 <!-- BEHAVIOR -->
-<section class="section">
-
-<h3>Behavioral reality</h3>
+<section class="section-card text-card">
+<div class="eyebrow">Behavior</div>
+<h2>Behavioral reality</h2>
 
 <p>
 Most investors do not need intraday liquidity.
 </p>
 
 <p>
-But many choose SPY anyway because it feels “more active” or “more flexible.”
+But many still choose SPY because it feels more flexible or more active.
 </p>
 
 <p>
 That is usually a mismatch between behavior and strategy.
 </p>
-
 </section>
 
-<div class="card" style="margin-top:14px;">
+<div class="principle">
 <strong>Rational principle:</strong> choose the ETF that matches how you actually invest, not how you think you might behave.
 </div>
 
 <!-- CTA -->
-<section class="cta">
-
+<section class="cta-card">
 <h3>Want to see the cost difference over time?</h3>
 
-<p style="font-size:13px;color:#667085;">
+<p class="cta-intro">
 Even small fee differences compound over decades.
 </p>
 
-<a href="/etf-calculator.html">Open ETF Calculator →</a>
-
+<a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
 </section>
 
-<section class="cta">
+<section class="cta-card">
+<h3>Prefer a more consistent investing approach?</h3>
 
-<h3>Prefer a disciplined investing approach?</h3>
-
-<a href="/dca-calculator.html">Open DCA Calculator →</a>
-
+<a class="cta-link" href="/dca-calculator.html">Open DCA Calculator →</a>
 </section>
 
-<div style="text-align:center;margin-top:16px;font-size:13px;">
+<div class="back-home">
 <a href="/index.html">← Back to Home</a>
 </div>
 
