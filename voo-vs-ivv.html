@@ -1,270 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VOO vs IVV | Which ETF Should You Choose?</title>
-  <meta name="description" content="Compare VOO vs IVV across cost, structure, and long-term investing logic. A decision-first guide to help investors choose the right S&P 500 ETF." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOO vs IVV: Which One Should You Actually Choose?</title>
 
-  <style>
-    :root{
-      --bg:#f5f7fa;
-      --card:#ffffff;
-      --muted:#6e6e73;
-      --text:#1d1d1f;
-      --line:#e5e7eb;
-      --link:#4f46e5;
-      --shadow:0 20px 50px rgba(15,23,42,0.08);
-    }
+<style>
+/* ===== GLOBAL ===== */
+:root{
+  --text:#181c23;
+  --muted:#667085;
+  --line:#e7e9ee;
+  --line-soft:#eef1f4;
+  --accent:#425b84;
+  --max:760px;
+  --card:600px;
+}
 
-    *{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+  background:linear-gradient(180deg,#f3f4f7,#eef1f5);
+  color:var(--text);
+}
 
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#f7f8fb 0%, #eef2f6 100%);
-      margin:0;
-      padding:48px 20px 64px;
-      color:var(--text);
-      line-height:1.7;
-    }
+.page{
+  width:min(var(--max),calc(100% - 28px));
+  margin:20px auto;
+  background:#fff;
+  border-radius:28px;
+  padding:20px 14px 28px;
+}
 
-    .page{ max-width:760px; margin:0 auto; }
+.hero{text-align:center}
+h1{font-size:36px;margin-bottom:8px}
+.hero-sub{color:var(--muted);font-size:14px}
 
-    .container{
-      background:rgba(255,255,255,0.92);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-      padding:42px 34px;
-    }
+.hero-note{
+  margin-top:16px;
+  padding:12px;
+  background:#fafbfc;
+  border-radius:12px;
+  border:1px solid var(--line-soft);
+  font-size:13px;
+}
 
-    h1{
-      font-size:40px;
-      text-align:center;
-      margin-bottom:10px;
-    }
+.section-card{
+  width:min(var(--card),100%);
+  margin:18px auto;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid var(--line-soft);
+}
 
-    .sub{
-      text-align:center;
-      color:var(--muted);
-      max-width:580px;
-      margin:0 auto 20px;
-    }
+h2{font-size:20px;margin-bottom:10px}
 
-    .info{
-      background:#f3f5f8;
-      border-radius:14px;
-      padding:14px;
-      font-size:14px;
-      text-align:center;
-      color:#4b5563;
-    }
+.answer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
 
-    .section-card{
-      margin:28px auto;
-      background:#fff;
-      border-radius:20px;
-      padding:20px;
-      border:1px solid #eee;
-    }
+.mini-card{
+  background:#fafbfc;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px;
+}
 
-    .eyebrow{
-      font-size:12px;
-      color:#8b93a1;
-      text-transform:uppercase;
-      margin-bottom:6px;
-    }
+.impact-line{
+  font-weight:600;
+  margin-top:10px;
+}
 
-    h2{ margin:0 0 10px; }
+.principle{
+  width:min(var(--card),100%);
+  margin:18px auto;
+  padding:14px;
+  border-radius:14px;
+  background:#fafbfc;
+  border:1px solid var(--line);
+}
 
-    .bullet-list{
-      padding-left:18px;
-    }
-
-    .decision-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin-top:12px;
-    }
-
-    .decision-box{
-      background:#f8fafc;
-      padding:14px;
-      border-radius:14px;
-    }
-
-    .decision-title{
-      font-weight:700;
-      margin-bottom:6px;
-    }
-
-    .soft-note{
-      margin-top:12px;
-      background:#f3f5f8;
-      padding:12px;
-      border-radius:12px;
-      font-size:14px;
-    }
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:10px;
-    }
-
-    td,th{
-      padding:10px;
-      border-bottom:1px solid #eee;
-      text-align:left;
-      font-size:14px;
-    }
-
-    th{ background:#f9fafb; }
-
-    .link-card a{
-      color:var(--link);
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    .footer{
-      text-align:center;
-      margin-top:30px;
-    }
-
-  </style>
+.back-home{
+  text-align:center;
+  margin-top:20px;
+}
+</style>
 </head>
 
 <body>
-<div class="page">
-<div class="container">
+<main class="page">
 
-<h1>VOO vs IVV</h1>
-<div class="sub">
-Compare VOO and IVV across cost, structure, and long-term investing logic — and decide which ETF fits your strategy.
+<section class="hero">
+<h1>VOO or IVV: which one should you actually choose?</h1>
+<p class="hero-sub">This is not a performance decision — it is a non-decision.</p>
+
+<div class="hero-note">
+VOO and IVV track the same S&P 500 index with nearly identical structure and cost.
+</div>
+</section>
+
+<section class="section-card">
+<h2>Quick answer</h2>
+
+<div class="answer-grid">
+<div class="mini-card">
+<h3>Either is fine</h3>
+<p>They are functionally equivalent.</p>
 </div>
 
-<div class="info">
-Both ETFs track the S&P 500. For most investors, the real question is not which one is better, but whether the difference even matters.
-</div>
-
-<!-- Quick Decision -->
-<div class="section-card">
-<div class="eyebrow">Quick Decision</div>
-<h2>VOO vs IVV: quick answer</h2>
-
-<div class="decision-grid">
-<div class="decision-box">
-<div class="decision-title">Choose VOO</div>
-VOO is widely used by long-term investors who prefer Vanguard’s structure and ecosystem.
-</div>
-
-<div class="decision-box">
-<div class="decision-title">Choose IVV</div>
-IVV is often chosen for institutional use and slightly different fund structure advantages.
+<div class="mini-card">
+<h3>Move on</h3>
+<p>The difference is too small to matter.</p>
 </div>
 </div>
 
-<div class="soft-note">
-For most long-term investors, <strong>this is not a meaningful decision</strong> — choosing either VOO or IVV will likely lead to the same outcome.
-</div>
-</div>
-
-<!-- Table -->
-<div class="section-card">
-<div class="eyebrow">Key Differences</div>
-<h2>Side-by-side comparison</h2>
-
-<table>
-<tr><th>Feature</th><th>VOO</th><th>IVV</th></tr>
-<tr><td>Index</td><td>S&P 500</td><td>S&P 500</td></tr>
-<tr><td>Expense ratio</td><td>0.03%</td><td>0.03%</td></tr>
-<tr><td>Issuer</td><td>Vanguard</td><td>BlackRock</td></tr>
-<tr><td>Best fit</td><td>Long-term investors</td><td>Long-term investors</td></tr>
-<tr><td>Main difference</td><td>Vanguard structure</td><td>BlackRock structure</td></tr>
-</table>
-</div>
-
-<!-- What Matters -->
-<div class="section-card">
-<div class="eyebrow">What Matters</div>
-<h2>What actually matters for investors</h2>
-
-<ul class="bullet-list">
-<li>Both ETFs track the same index with nearly identical cost.</li>
-<li>Long-term performance differences are negligible.</li>
-<li>Your behavior matters far more than choosing between these two funds.</li>
-</ul>
-</div>
-
-<!-- Decision Fit -->
-<div class="section-card">
-<div class="eyebrow">Decision Fit</div>
-<h2>Which one fits you?</h2>
-
-<ul class="bullet-list">
-<li><strong>VOO fits you</strong> if you prefer Vanguard and a simple long-term approach.</li>
-<li><strong>IVV fits you</strong> if you are already using BlackRock products or platforms.</li>
-<li><strong>Either works</strong> — the difference is unlikely to affect your long-term outcome.</li>
-</ul>
-</div>
-
-<!-- Reality -->
-<div class="section-card">
-<div class="eyebrow">Reality Check</div>
-<h2>The difference is almost negligible</h2>
-
-<p>
-VOO and IVV are essentially two wrappers around the same idea. Over long periods, your results will depend far more on how long you stay invested than which one you choose.
+<p class="impact-line">
+The real risk is not choosing between them — it is delaying investing.
 </p>
+</section>
 
-<p style="margin-top:12px;">
-If you are investing for decades, choosing between VOO and IVV is a second-order decision. Staying invested is the first-order decision.
+<section class="section-card">
+<h2>This is a non-decision</h2>
+
+<p>VOO and IVV are nearly identical in holdings and cost.</p>
+
+<p class="impact-line">
+Spending time comparing them usually adds no real value.
 </p>
+</section>
+
+<div class="principle">
+<strong>Rational principle:</strong> when two options are equivalent, execution matters more than selection.
 </div>
 
-<!-- Limitations -->
-<div class="section-card">
-<div class="eyebrow">Limitations</div>
-<h2>What neither ETF solves</h2>
-
-<ul class="bullet-list">
-<li>No international diversification.</li>
-<li>No protection from market declines.</li>
-<li>Not suitable for short-term needs.</li>
-</ul>
+<div class="back-home">
+<a href="/index.html">← Back to Home</a>
 </div>
 
-<!-- Strategy -->
-<div class="section-card">
-<div class="eyebrow">Suggested Strategy</div>
-<h2>What a rational investor might do</h2>
-
-<ul class="bullet-list">
-<li>Pick either VOO or IVV and stay consistent.</li>
-<li>Do not switch between them based on small differences.</li>
-<li>The biggest risk is abandoning your plan, not choosing the wrong ETF.</li>
-</ul>
-</div>
-
-<!-- Links -->
-<div class="section-card link-card">
-<strong>Want to model your investment plan?</strong>
-<p>Use the ETF Calculator to estimate long-term growth.</p>
-<a href="/etf-calculator.html">Open ETF Calculator →</a>
-</div>
-
-<div class="section-card link-card">
-<strong>Want to go deeper?</strong>
-<p>Explore the VOO Calculator for long-term investing logic.</p>
-<a href="/voo-calculator.html">Open VOO Calculator →</a>
-</div>
-
-<div class="footer">
-<a href="/">← Back to Home</a>
-</div>
-
-</div>
-</div>
+</main>
 </body>
 </html>
