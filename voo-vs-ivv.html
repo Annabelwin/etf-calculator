@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>VOO vs IVV: Which One Should You Actually Choose?</title>
 
 <style>
-/* ===== GLOBAL ===== */
 :root{
   --text:#181c23;
   --muted:#667085;
@@ -17,9 +17,11 @@
   --card:600px;
 }
 
+*{box-sizing:border-box}
+
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter;
   background:linear-gradient(180deg,#f3f4f7,#eef1f5);
   color:var(--text);
 }
@@ -32,59 +34,198 @@ body{
   padding:20px 14px 28px;
 }
 
-.hero{text-align:center}
-h1{font-size:36px;margin-bottom:8px}
-.hero-sub{color:var(--muted);font-size:14px}
+/* HERO */
+
+.hero{
+  text-align:center;
+}
+
+.hero-inner{
+  max-width:600px;
+  margin:0 auto;
+}
+
+h1{
+  font-size:40px;
+  letter-spacing:-0.04em;
+  margin:0 0 8px;
+  line-height:1.12;
+}
+
+.hero-sub{
+  font-size:14px;
+  color:var(--muted);
+  max-width:560px;
+  margin:0 auto;
+  line-height:1.7;
+}
 
 .hero-note{
-  margin-top:16px;
-  padding:12px;
+  margin:18px auto 0;
+  max-width:560px;
+  padding:12px 14px;
   background:#fafbfc;
+  border:1px solid rgba(0,0,0,0.04);
   border-radius:12px;
-  border:1px solid var(--line-soft);
   font-size:13px;
+  line-height:1.6;
+  text-align:left;
+  color:#4a5568;
 }
 
-.section-card{
+/* CARD */
+
+.section-card,
+.cta-card{
   width:min(var(--card),100%);
-  margin:18px auto;
-  padding:18px;
-  border-radius:18px;
+  margin:18px auto 0;
+  padding:20px 18px;
+  border-radius:20px;
+  background:#fff;
   border:1px solid var(--line-soft);
 }
 
-h2{font-size:20px;margin-bottom:10px}
+.eyebrow{
+  font-size:10px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:#98a2b3;
+}
+
+h2{
+  font-size:22px;
+  margin:6px 0 14px;
+  line-height:1.25;
+}
+
+h3{
+  font-size:16px;
+  margin:4px 0 8px;
+}
+
+p{
+  font-size:14px;
+  line-height:1.7;
+  color:#344054;
+  margin:0 0 12px;
+}
+
+/* QUICK */
 
 .answer-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:10px;
+  gap:12px;
 }
 
 .mini-card{
-  background:#fafbfc;
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:12px;
-}
-
-.impact-line{
-  font-weight:600;
-  margin-top:10px;
-}
-
-.principle{
-  width:min(var(--card),100%);
-  margin:18px auto;
   padding:14px;
   border-radius:14px;
   background:#fafbfc;
   border:1px solid var(--line);
 }
 
+.mini-label{
+  font-size:10px;
+  text-transform:uppercase;
+  color:#98a2b3;
+  margin-bottom:6px;
+}
+
+.default-line{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+}
+
+.subtle-line{
+  font-size:13px;
+  color:#667085;
+  margin-top:6px;
+  margin-bottom:0;
+}
+
+.impact-line{
+  margin-top:10px;
+  font-size:14px;
+  line-height:1.7;
+  color:#1f2937;
+  font-weight:600;
+}
+
+/* TABLE */
+
+.table-wrap{
+  border:1px solid var(--line-soft);
+  border-radius:14px;
+  overflow:hidden;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+
+td,th{
+  padding:12px;
+  border-bottom:1px solid var(--line-soft);
+  text-align:left;
+  vertical-align:top;
+}
+
+th{
+  background:#f7f8fa;
+}
+
+/* PRINCIPLE */
+
+.principle{
+  width:min(var(--card),100%);
+  margin:18px auto;
+  padding:16px 18px;
+  border-radius:16px;
+  background:linear-gradient(180deg,#fafbfc 0%, #f7f8fa 100%);
+  border:1px solid var(--line);
+  font-size:14px;
+  line-height:1.75;
+  color:#243142;
+}
+
+/* CTA */
+
+.cta-intro{
+  font-size:13px;
+  color:#667085;
+}
+
+.cta-body{
+  font-size:14px;
+  color:#475467;
+}
+
+.cta-link{
+  display:inline-block;
+  margin-top:10px;
+  font-weight:600;
+  color:var(--accent);
+}
+
+/* BACK */
+
 .back-home{
   text-align:center;
-  margin-top:20px;
+  margin-top:18px;
+  font-size:13px;
+}
+
+.back-home a{
+  color:#50658c;
+}
+
+@media(max-width:640px){
+  h1{font-size:30px}
+  .answer-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -92,48 +233,220 @@ h2{font-size:20px;margin-bottom:10px}
 <body>
 <main class="page">
 
+<!-- HERO -->
 <section class="hero">
-<h1>VOO or IVV: which one should you actually choose?</h1>
-<p class="hero-sub">This is not a performance decision — it is a non-decision.</p>
+  <div class="hero-inner">
+    <h1>VOO or IVV: which one should you actually choose?</h1>
 
-<div class="hero-note">
-VOO and IVV track the same S&P 500 index with nearly identical structure and cost.
-</div>
+    <p class="hero-sub">
+      This looks like a decision — but for most investors, it usually isn’t.
+    </p>
+
+    <div class="hero-note">
+      VOO and IVV track the same S&amp;P 500 index with nearly identical exposure, cost, and long-term behavior. For most investors, the more important question is not which one is “better,” but whether this choice matters enough to deserve real decision time.
+    </div>
+  </div>
 </section>
 
+<!-- QUICK -->
 <section class="section-card">
-<h2>Quick answer</h2>
+<div class="eyebrow">Quick Decision</div>
+<h2>VOO vs IVV: quick answer</h2>
 
 <div class="answer-grid">
+
 <div class="mini-card">
-<h3>Either is fine</h3>
-<p>They are functionally equivalent.</p>
+<div class="mini-label">Choose Either</div>
+<h3>Functionally equivalent</h3>
+<p>For most long-term investors, VOO and IVV are close enough that either choice is reasonable.</p>
 </div>
 
 <div class="mini-card">
-<h3>Move on</h3>
-<p>The difference is too small to matter.</p>
+<div class="mini-label">What to do next</div>
+<h3>Pick one and move on</h3>
+<p>The real edge is usually not ETF selection here — it is getting invested and staying consistent.</p>
 </div>
+
 </div>
+
+<div class="default-line">
+<strong>Default rule:</strong> choose either VOO or IVV, then focus your attention on decisions that matter more.
+</div>
+
+<p class="subtle-line">
+If you feel stuck here, that may be a sign that you are optimizing a detail instead of moving your plan forward.
+</p>
 
 <p class="impact-line">
-The real risk is not choosing between them — it is delaying investing.
+For most investors, the bigger risk is not choosing between VOO and IVV — it is delaying action on a decision that is already good enough.
 </p>
 </section>
 
+<!-- DEEP -->
 <section class="section-card">
-<h2>This is a non-decision</h2>
+<div class="eyebrow">What Most People Miss</div>
+<h2>This is usually a non-decision</h2>
 
-<p>VOO and IVV are nearly identical in holdings and cost.</p>
+<p>
+VOO and IVV track the same index, hold essentially the same companies, and operate with nearly identical long-term cost structures.
+</p>
+
+<p>
+That means the practical difference between them is usually too small to meaningfully affect long-term outcomes.
+</p>
+
+<p>
+The more important question is often not “which one should I choose?” but “why am I spending so much energy on a choice this close?”
+</p>
 
 <p class="impact-line">
-Spending time comparing them usually adds no real value.
+When two structures are this similar, the opportunity cost of overthinking can become larger than the difference between the ETFs themselves.
+</p>
+</section>
+
+<!-- TABLE -->
+<section class="section-card">
+<div class="eyebrow">Key Differences</div>
+<h2>Side-by-side comparison</h2>
+
+<div class="table-wrap">
+<table>
+<tr><th>Feature</th><th>VOO</th><th>IVV</th></tr>
+
+<tr>
+<td>Index tracked</td>
+<td>S&amp;P 500</td>
+<td>S&amp;P 500</td>
+</tr>
+
+<tr>
+<td>Primary role</td>
+<td>Long-term core holding</td>
+<td>Long-term core holding</td>
+</tr>
+
+<tr>
+<td>Expense ratio</td>
+<td><strong>0.03%</strong></td>
+<td><strong>0.03%</strong></td>
+</tr>
+
+<tr>
+<td>Diversification</td>
+<td>Broad U.S. large-cap exposure</td>
+<td>Broad U.S. large-cap exposure</td>
+</tr>
+
+<tr>
+<td>Practical long-term difference</td>
+<td>Minimal</td>
+<td>Minimal</td>
+</tr>
+
+<tr>
+<td>Main decision implication</td>
+<td>Usually fine</td>
+<td>Usually fine</td>
+</tr>
+
+</table>
+</div>
+</section>
+
+<!-- WHY IT FEELS IMPORTANT -->
+<section class="section-card">
+<div class="eyebrow">Decision Psychology</div>
+<h2>Why this feels like a bigger decision than it is</h2>
+
+<p>
+Investors often assume that choosing the “better ETF” will meaningfully improve outcomes.
+</p>
+
+<p>
+When two options have different tickers, providers, and branding, it feels like there must be an important hidden difference.
+</p>
+
+<p>
+In the case of VOO and IVV, that intuition usually overstates the practical significance of the choice.
+</p>
+
+<p class="impact-line">
+This is a classic case where the feeling of precision is stronger than the value of precision.
+</p>
+</section>
+
+<!-- MISTAKE -->
+<section class="section-card">
+<div class="eyebrow">Common Pitfall</div>
+<h2>Where investors may go wrong</h2>
+
+<p>
+Some investors delay starting because they want to choose the perfect S&amp;P 500 ETF.
+</p>
+
+<p>
+Others keep revisiting the same comparison, as if one more round of analysis will unlock a meaningfully better answer.
+</p>
+
+<p>
+In practice, both choices are already strong enough that further optimization often adds little.
+</p>
+
+<p class="impact-line">
+The real cost is not choosing the wrong ETF here — it is losing time, consistency, and compounding while trying to perfect a low-stakes decision.
+</p>
+</section>
+
+<!-- BEHAVIOR -->
+<section class="section-card">
+<div class="eyebrow">Behavior</div>
+<h2>Behavioral reality</h2>
+
+<p>
+Most long-term investors do not fail because they picked VOO instead of IVV, or IVV instead of VOO.
+</p>
+
+<p>
+They struggle because they hesitate, delay, second-guess, or keep shifting attention to details that do not materially improve the plan.
+</p>
+
+<p>
+When the structure is already good enough, staying consistent matters far more than fine distinctions.
+</p>
+
+<p class="impact-line">
+If both roads lead to nearly the same place, discipline matters more than micro-selection.
 </p>
 </section>
 
 <div class="principle">
-<strong>Rational principle:</strong> when two options are equivalent, execution matters more than selection.
+<strong>Rational principle:</strong> when two options are structurally equivalent, the better decision is usually to stop optimizing and start executing.
 </div>
+
+<!-- CTA -->
+<section class="cta-card">
+<h2>Want to see what actually matters more than this choice?</h2>
+
+<p class="cta-intro">
+In a comparison this close, contribution size, time horizon, and consistency usually matter more than ETF selection.
+</p>
+
+<p class="cta-body">
+Use the ETF Calculator to explore how investing assumptions shape long-term outcomes — and to keep your focus on variables that actually move the result.
+</p>
+
+<a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
+</section>
+
+<section class="cta-card">
+<h2>Want a plan you can actually keep following?</h2>
+
+<p class="cta-body">
+Use the DCA Calculator to model disciplined investing over time — especially if your real challenge is not choosing between VOO and IVV, but staying consistent once you start.
+</p>
+
+<a class="cta-link" href="/dca-calculator.html">Open DCA Calculator →</a>
+</section>
 
 <div class="back-home">
 <a href="/index.html">← Back to Home</a>
