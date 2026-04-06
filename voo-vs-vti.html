@@ -1,568 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VOO vs VTI: Which ETF Is Better for Long-Term Investors?</title>
-  <meta name="description" content="Compare VOO vs VTI for long-term investing. Learn the difference between S&P 500 exposure and total U.S. stock market exposure, and which ETF may fit your strategy better.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJLXTFDGCE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SJLXTFDGCE');
-  </script>
+<title>VOO vs VTI: Which One Should You Actually Choose?</title>
 
-  <style>
-    :root{
-      --bg:#f5f7fb;
-      --page:#ffffff;
-      --card:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#eceff3;
-      --link:#4338ca;
-      --shadow:0 20px 60px rgba(15,23,42,0.06);
-      --button-top:#37456a;
-      --button-bottom:#26334f;
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      padding:56px 20px 80px;
-      line-height:1.82;
-    }
-
-    .page-wrap{
-      max-width:700px;
-      margin:0 auto;
-      padding:56px 40px 40px;
-      background:var(--page);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-    }
-
-    .container{
-      max-width:680px;
-      margin:0 auto;
-    }
-
-    .hero{
-      max-width:560px;
-      margin:0 auto 42px;
-    }
-
-    h1{
-      font-size:36px;
-      line-height:1.08;
-      letter-spacing:-0.03em;
-      margin:0 0 16px;
-      color:var(--text);
-    }
-
-    h2{
-      font-size:22px;
-      line-height:1.3;
-      letter-spacing:-0.02em;
-      margin:0 0 14px;
-      color:var(--text);
-    }
-
-    h3{
-      font-size:16px;
-      line-height:1.45;
-      letter-spacing:-0.01em;
-      margin:0 0 10px;
-      color:var(--text);
-    }
-
-    .subtitle{
-      max-width:480px;
-      font-size:18px;
-      line-height:1.95;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .card{
-      width:100%;
-      max-width:620px;
-      margin:28px auto 0;
-      background:rgba(255,255,255,0.96);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:26px 28px;
-      box-shadow:0 10px 28px rgba(15,23,42,0.04);
-    }
-
-    .overview-card{
-      margin-top:0;
-      text-align:center;
-    }
-
-    .overview-card h2{
-      margin-bottom:18px;
-    }
-
-    .overview-table-wrap{
-      max-width:100%;
-      margin:0 auto;
-    }
-
-    .overview-card table{
-      width:100%;
-      border-collapse:collapse;
-      table-layout:fixed;
-      margin-top:0;
-      font-size:15px;
-    }
-
-    .overview-card td{
-      padding:12px 6px;
-      border-bottom:1px solid #eef1f4;
-      vertical-align:middle;
-      color:#374151;
-      text-align:left;
-    }
-
-    .overview-card tr:last-child td{
-      border-bottom:none;
-    }
-
-    .overview-card td:first-child{
-      width:25%;
-      color:var(--muted);
-    }
-
-    .overview-card td:nth-child(2){
-      width:37.5%;
-    }
-
-    .overview-card td:nth-child(3){
-      width:37.5%;
-    }
-
-    .reading-section{
-      max-width:560px;
-      margin:64px auto 0;
-    }
-
-    .reading-section h2{
-      margin-bottom:16px;
-    }
-
-    .reading-section p{
-      max-width:500px;
-      font-size:17px;
-      line-height:1.95;
-      color:#4b5563;
-      margin:0 0 18px;
-    }
-
-    .cta-card{
-  text-align:center;
-  padding:30px 32px;
-  background:#f3f4f6;
-  border:1px solid #eceff3;
+<style>
+:root{
+  --text:#181c23;
+  --muted:#667085;
+  --line:#e7e9ee;
+  --line-soft:#eef1f4;
+  --accent:#425b84;
+  --max:760px;
+  --card:600px;
 }
 
-    .cta-card p{
-      max-width:46ch;
-      margin:0 auto 16px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-    }
+*{box-sizing:border-box}
 
-    .cta-button{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%, var(--button-bottom) 100%);
-      color:#ffffff !important;
-      text-decoration:none;
-      font-weight:600;
-      padding:13px 24px;
-      border-radius:14px;
-      box-shadow:0 10px 22px rgba(38,51,79,0.22);
-    }
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter;
+  background:linear-gradient(180deg,#f3f4f7,#eef1f5);
+  color:var(--text);
+}
 
-    .faq-section{
-      max-width:560px;
-      margin:64px auto 0;
-    }
+.page{
+  width:min(var(--max),calc(100% - 28px));
+  margin:20px auto;
+  background:#fff;
+  border-radius:28px;
+  padding:20px 14px 28px;
+}
 
-    .faq-wrap{
-      max-width:500px;
-    }
+.hero{text-align:center}
 
-    .faq-title{
-      margin:0 0 22px;
-    }
+h1{
+  font-size:40px;
+  letter-spacing:-0.04em;
+  margin-bottom:8px;
+}
 
-    .faq-item{
-      padding:16px 0;
-      border-bottom:1px solid #e7ebf0;
-    }
+.hero-sub{
+  font-size:14px;
+  color:var(--muted);
+  max-width:560px;
+  margin:0 auto;
+}
 
-    .faq-item:last-child{
-      border-bottom:none;
-      padding-bottom:0;
-    }
+.hero-note{
+  margin:18px auto 0;
+  max-width:560px;
+  padding:12px 14px;
+  background:#fafbfc;
+  border:1px solid rgba(0,0,0,0.04);
+  border-radius:12px;
+  font-size:13px;
+  line-height:1.6;
+  text-align:left;
+}
 
-    .faq-item h3{
-      max-width:500px;
-      margin:0 0 10px;
-    }
+.impact-line{
+  margin-top:10px;
+  font-weight:600;
+  color:#111827;
+  letter-spacing:-0.01em;
+}
 
-    .faq-item p{
-      max-width:500px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-      margin:0;
-    }
+.section-card,
+.cta-card{
+  width:min(var(--card),100%);
+  margin:18px auto 0;
+  padding:20px 18px;
+  border-radius:20px;
+  background:#fff;
+  border:1px solid var(--line-soft);
+}
 
-    .nav-card{
-      text-align:center;
-      padding:30px 32px;
-    }
+.eyebrow{
+  font-size:10px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:#98a2b3;
+}
 
-    .nav-card h2{
-      margin-bottom:18px;
-    }
+h2{
+  font-size:22px;
+  margin:6px 0 14px;
+}
 
-    .nav-links{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      align-items:center;
-    }
+h3{
+  font-size:16px;
+}
 
-    .nav-links a{
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-    }
+p{
+  font-size:14px;
+  line-height:1.7;
+  color:#344054;
+}
 
-    .community-card{
-      text-align:center;
-      padding:32px 32px;
-    }
+.answer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
 
-    .community-card p{
-      max-width:48ch;
-      margin:0 auto 14px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-    }
+.mini-card{
+  padding:14px;
+  border-radius:14px;
+  background:#fafbfc;
+  border:1px solid var(--line);
+}
 
-    .community-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 22px;
-      color:var(--muted);
-      font-size:15px;
-    }
+.mini-label{
+  font-size:10px;
+  text-transform:uppercase;
+  color:#98a2b3;
+}
 
-    .community-list li{
-      margin:8px 0;
-    }
+.default-line{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+}
 
-    .community-actions{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:4px;
-    }
+.subtle-line{
+  font-size:13px;
+  color:#667085;
+  margin-top:6px;
+}
 
-    .community-button{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%,var(--button-bottom) 100%);
-      color:#fff !important;
-      text-decoration:none;
-      font-weight:600;
-      padding:12px 22px;
-      border-radius:12px;
-      box-shadow:0 10px 22px rgba(38,51,79,0.22);
-    }
+.table-wrap{
+  border:1px solid var(--line-soft);
+  border-radius:14px;
+  overflow:hidden;
+}
 
-    .community-link{
-      display:inline-block;
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-      padding:12px 4px;
-    }
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
 
-    .community-note{
-      margin-top:12px;
-      font-size:14px;
-      color:#9ca3af;
-    }
+td,th{
+  padding:12px;
+  border-bottom:1px solid var(--line-soft);
+}
 
-    .back-wrap{
-      text-align:left;
-      max-width:560px;
-      margin:30px auto 0;
-    }
+th{
+  background:#f7f8fa;
+  text-align:left;
+}
 
-    .back{
-      display:inline-block;
-      color:#6366f1;
-      text-decoration:none;
-      font-weight:500;
-    }
+.principle{
+  width:min(var(--card),100%);
+  margin:18px auto;
+  padding:16px;
+  border-radius:16px;
+  background:#fafbfc;
+  border:1px solid var(--line);
+  font-size:14px;
+}
 
-    @media (max-width:640px){
-      body{
-        padding:20px 12px 48px;
-      }
+.cta-intro{
+  font-size:13px;
+  color:#667085;
+}
 
-      .page-wrap{
-        padding:28px 18px 28px;
-        border-radius:20px;
-      }
+.cta-body{
+  font-size:14px;
+  color:#475467;
+}
 
-      .container,
-      .hero,
-      .reading-section,
-      .faq-section{
-        max-width:100%;
-      }
+.cta-link{
+  display:inline-block;
+  margin-top:10px;
+  font-weight:600;
+  color:var(--accent);
+}
 
-      h1{
-        font-size:31px;
-      }
+.back-home{
+  text-align:center;
+  margin-top:18px;
+  font-size:13px;
+}
 
-      h2{
-        font-size:20px;
-      }
-
-      .subtitle{
-        max-width:100%;
-        font-size:16px;
-        line-height:1.88;
-      }
-
-      .card{
-        max-width:100%;
-        border-radius:18px;
-        padding:22px 18px;
-      }
-
-      .overview-card td{
-        padding:12px 4px;
-        font-size:14px;
-      }
-
-      .reading-section p,
-      .faq-item h3,
-      .faq-item p{
-        max-width:100%;
-      }
-
-      .faq-wrap{
-        max-width:100%;
-      }
-
-      .community-actions{
-        flex-direction:column;
-        align-items:center;
-      }
-
-      .back-wrap{
-        max-width:100%;
-      }
-    }
-  </style>
+@media(max-width:640px){
+  h1{font-size:30px}
+  .answer-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
-  <div class="page-wrap">
-    <div class="container">
+<main class="page">
 
-      <div class="hero">
-        <h1>VOO vs VTI</h1>
-        <p class="subtitle">
-          VOO and VTI are two of the most popular long-term ETFs, and many investors eventually choose between them. They look similar at first, but the key difference is simple: VOO tracks the S&amp;P 500, while VTI owns nearly the entire U.S. stock market.
-        </p>
-      </div>
+<!-- HERO -->
+<section class="hero">
+<h1>VOO or VTI: which one should you actually choose?</h1>
 
-      <div class="card overview-card">
-        <h2>ETF Overview</h2>
+<p class="hero-sub">
+This is not a big difference — but it is still a structural decision.
+</p>
 
-        <div class="overview-table-wrap">
-          <table>
-            <tr>
-              <td>Category</td>
-              <td>VOO</td>
-              <td>VTI</td>
-            </tr>
-            <tr>
-              <td>Full Name</td>
-              <td>Vanguard S&amp;P 500 ETF</td>
-              <td>Vanguard Total Stock Market ETF</td>
-            </tr>
-            <tr>
-              <td>Provider</td>
-              <td>Vanguard</td>
-              <td>Vanguard</td>
-            </tr>
-            <tr>
-              <td>Expense Ratio</td>
-              <td>0.03%</td>
-              <td>0.03%</td>
-            </tr>
-            <tr>
-              <td>Tracks</td>
-              <td>S&amp;P 500</td>
-              <td>Total U.S. Stock Market</td>
-            </tr>
-          </table>
-        </div>
-      </div>
+<div class="hero-note">
+VOO tracks the S&amp;P 500, while VTI tracks the total U.S. stock market. Both are broad, low-cost, long-term core holdings.
 
-      <div class="card">
-        <p>
-          When comparing VOO vs VTI, investors are usually deciding between large-cap simplicity and broader diversification. Both are low-cost Vanguard ETFs, but they do not hold the same market exposure.
-        </p>
-      </div>
+<p class="impact-line">
+The real decision is not performance — it is whether you want simplicity or maximum completeness.
+</p>
+</div>
+</section>
 
-      <div class="card quick-answer">
-        <h2>Quick Answer</h2>
+<!-- QUICK -->
+<section class="section-card">
+<div class="eyebrow">Quick Decision</div>
+<h2>VOO vs VTI: quick answer</h2>
 
-        <p><strong>Choose VOO if:</strong></p>
-        <ul>
-          <li>You want a simple ETF focused on the 500 largest U.S. companies</li>
-          <li>You like using the S&amp;P 500 as your main long-term benchmark</li>
-          <li>You prefer a very familiar, straightforward core holding</li>
-        </ul>
+<div class="answer-grid">
 
-        <p><strong>Choose VTI if:</strong></p>
-        <ul>
-          <li>You want broader exposure across large-cap, mid-cap, and small-cap stocks</li>
-          <li>You prefer owning more of the total U.S. market in one ETF</li>
-          <li>You want slightly more diversification without increasing cost</li>
-        </ul>
+<div class="mini-card">
+<div class="mini-label">Default Choice</div>
+<h3>VOO — simpler core</h3>
+<p>Cleaner exposure, easier to understand, and already covers most of the market.</p>
+</div>
 
-         <div class="mini-cta">
-  <a href="/voo-vs-spy.html">Compare VOO vs SPY →</a>
-</div> 
-      </div>
+<div class="mini-card">
+<div class="mini-label">Alternative</div>
+<h3>VTI — total market</h3>
+<p>Slightly broader exposure including small caps, but with minimal practical difference.</p>
+</div>
 
-      <section class="reading-section">
-        <h2>What Actually Matters for Long-Term Investors</h2>
+</div>
 
-        <p>
-          At first glance, VOO and VTI look almost identical. Both are low-cost Vanguard ETFs, both are built for long-term investors, and both give broad exposure to U.S. stocks.
-        </p>
+<div class="default-line">
+<strong>Default rule:</strong> for most long-term investors, the difference is small enough that either choice works — consistency matters more.
+</div>
 
-        <p>
-          But the real difference is what they actually hold. VOO owns the S&amp;P 500, which means around 500 of the largest companies in the United States. For many investors, that already feels like “the market.”
-        </p>
+<p class="subtle-line">
+If you are unsure, choose the one you understand better and can stick with longer.
+</p>
+</section>
 
-        <p>
-          VTI goes further. It includes not only large companies, but also mid-cap and small-cap stocks. That means thousands of holdings instead of hundreds, and slightly broader diversification across the U.S. economy.
-        </p>
+<!-- CORE INSIGHT -->
+<section class="section-card">
+<div class="eyebrow">What Most People Miss</div>
+<h2>This is a very small difference</h2>
 
-        <p>
-          In practice, this is not a dramatic all-or-nothing difference. It is more about whether you want to focus on the largest companies or hold nearly the whole market in one fund.
-        </p>
+<p>
+VOO and VTI are structurally very similar. Both provide broad U.S. equity exposure at low cost.
+</p>
 
-        <p>
-          So the real choice is not “good ETF versus bad ETF.” It is simplicity versus broader coverage.
-        </p>
-      </section>
+<p>
+VTI includes additional small-cap stocks, but their impact on long-term performance is usually limited.
+</p>
 
-      <section class="reading-section">
-        <h2>Which One Fits Your Investing Style?</h2>
+<p class="impact-line">
+The real risk is not choosing between them — it is wasting time on a decision that barely changes outcomes.
+</p>
+</section>
 
-        <p>
-          If you want a simple, widely recognized benchmark that many long-term investors already understand, VOO is often the easier choice. It is clean, familiar, and centered on America’s biggest companies.
-        </p>
+<!-- TABLE -->
+<section class="section-card">
+<div class="eyebrow">Key Differences</div>
+<h2>Side-by-side comparison</h2>
 
-        <p>
-          If you like the idea of owning more of the market in one ETF, VTI often makes more sense. By adding mid-cap and small-cap exposure, it gives you a fuller version of the U.S. stock market without charging more.
-        </p>
+<div class="table-wrap">
+<table>
+<tr><th>Feature</th><th>VOO</th><th>VTI</th></tr>
 
-        <p>
-          For many investors, the performance gap between VOO and VTI may not feel huge over time. Large companies already make up most of the market’s value, which is why these two ETFs often move in similar ways.
-        </p>
+<tr>
+<td>Coverage</td>
+<td>S&amp;P 500</td>
+<td>Total U.S. market</td>
+</tr>
 
-        <p>
-          In practice, both ETFs can work very well for long-term investing. The better choice is usually the one you can keep buying and holding through market cycles without second-guessing yourself.
-        </p>
+<tr>
+<td>Expense ratio</td>
+<td>0.03%</td>
+<td>0.03%</td>
+</tr>
 
-        <p><strong>In short:</strong> VOO is a simpler large-cap choice, while VTI gives broader total-market diversification at the same low cost.</p>
-      </section>
+<tr>
+<td>Diversification</td>
+<td>Large-cap focused</td>
+<td>Includes small + mid caps</td>
+</tr>
 
-      <div class="card cta-card">
-        <h2>Compare Your VOO vs VTI Growth</h2>
-        <p>
-          Compare how long-term investing could grow with regular contributions, compounding, and time.
-        </p>
-        <a class="cta-button" href="/etf-calculator.html">Compare Returns Now</a>
-      </div>
+<tr>
+<td>Best use</td>
+<td>Core holding</td>
+<td>Core holding</td>
+</tr>
 
-      <section class="faq-section">
-        <div class="faq-wrap">
-          <h2 class="faq-title">VOO vs VTI FAQ</h2>
+<tr>
+<td>Practical difference</td>
+<td>Minimal</td>
+<td>Minimal</td>
+</tr>
 
-          <div class="faq-item">
-            <h3>VOO vs VTI: which ETF is better?</h3>
-            <p>
-              Neither is universally better. VOO is better for investors who want a simple S&amp;P 500 fund, while VTI is better for investors who want broader exposure to the total U.S. stock market.
-            </p>
-          </div>
+</table>
+</div>
+</section>
 
-          <div class="faq-item">
-            <h3>Is VTI more diversified than VOO?</h3>
-            <p>
-              Yes. VTI holds thousands of U.S. stocks, including mid-cap and small-cap companies, while VOO holds around 500 large-cap companies in the S&amp;P 500.
-            </p>
-          </div>
+<!-- PSYCHOLOGY -->
+<section class="section-card">
+<div class="eyebrow">Decision Psychology</div>
+<h2>Why this feels like a bigger decision than it is</h2>
 
-          <div class="faq-item">
-            <h3>Do VOO and VTI perform similarly?</h3>
-            <p>
-              Often, yes. Because large-cap companies dominate the U.S. market, VOO and VTI can move very similarly, though VTI includes a broader slice of the market.
-            </p>
-          </div>
+<p>
+Investors often assume that “more complete” means “better.”
+</p>
 
-          <div class="faq-item">
-            <h3>Can beginners choose either VOO or VTI?</h3>
-            <p>
-              Yes. Both are beginner-friendly long-term ETFs. VOO is slightly simpler to understand, while VTI is slightly broader in diversification.
-            </p>
-          </div>
-        </div>
-      </section>
+<p>
+This can lead to overthinking small structural differences that have limited real-world impact.
+</p>
 
-      <div class="card nav-card">
-        <h2>Related ETF Comparisons</h2>
-        <div class="nav-links">
-          <a href="/voo-vs-spy.html">VOO vs SPY</a>
-          <a href="/voo-vs-ivv.html">VOO vs IVV</a>
-          <a href="/vti-vs-qqq.html">VTI vs QQQ</a>
-          <a href="/etf-comparisons.html">Explore all ETF comparisons →</a>
-        </div>
-      </div>
+<p class="impact-line">
+When two options are this close, the illusion of precision becomes stronger than the value of precision.
+</p>
+</section>
 
-      <div class="back-wrap">
-        <a class="back" href="/">← Back to Home</a>
-      </div>
+<!-- MISTAKE -->
+<section class="section-card">
+<div class="eyebrow">Common Pitfall</div>
+<h2>Where investors go wrong</h2>
 
-    </div>
-  </div>
+<p>
+Some investors delay investing because they want to pick the “perfect” ETF.
+</p>
+
+<p>
+Others repeatedly revisit the decision, expecting a meaningful edge from further analysis.
+</p>
+
+<p class="impact-line">
+The real cost is not choosing the wrong ETF — it is losing time, consistency, and compounding.
+</p>
+</section>
+
+<!-- BEHAVIOR -->
+<section class="section-card">
+<div class="eyebrow">Behavior</div>
+<h2>Behavioral reality</h2>
+
+<p>
+Most long-term investors succeed by staying invested, not by optimizing small differences.
+</p>
+
+<p>
+Both VOO and VTI lead to nearly the same destination over time.
+</p>
+
+<p class="impact-line">
+In practice, discipline matters more than micro-selection.
+</p>
+</section>
+
+<div class="principle">
+<strong>Rational principle:</strong> when two options are nearly identical, the better decision is to stop optimizing and start investing.
+</div>
+
+<!-- CTA -->
+<section class="cta-card">
+<h2>Before you decide — focus on what actually moves your outcome</h2>
+
+<p class="cta-body">
+Use the ETF Calculator to explore how time horizon, contribution size, and consistency impact your long-term results.
+</p>
+
+<a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
+</section>
+
+<section class="cta-card">
+<h2>Want a plan you can actually follow?</h2>
+
+<p class="cta-body">
+Use the DCA Calculator to build a repeatable investing system that works regardless of which ETF you choose.
+</p>
+
+<a class="cta-link" href="/dca-calculator.html">Open DCA Calculator →</a>
+</section>
+
+<div class="back-home">
+<a href="/index.html">← Back to Home</a>
+</div>
+
+</main>
 </body>
 </html>
