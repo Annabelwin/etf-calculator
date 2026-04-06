@@ -36,14 +36,8 @@ body{
 
 /* HERO */
 
-.hero{
-  text-align:center;
-}
-
-.hero-inner{
-  max-width:600px;
-  margin:0 auto;
-}
+.hero{text-align:center}
+.hero-inner{max-width:600px;margin:0 auto;}
 
 h1{
   font-size:40px;
@@ -95,22 +89,16 @@ h1{
 h2{
   font-size:22px;
   margin:6px 0 14px;
-  line-height:1.25;
 }
 
-h3{
-  font-size:16px;
-  margin:4px 0 8px;
-}
+h3{font-size:16px;}
 
 p{
   font-size:14px;
   line-height:1.7;
   color:#344054;
-  margin:0 0 12px;
+  margin-bottom:12px;
 }
-
-/* QUICK */
 
 .answer-grid{
   display:grid;
@@ -129,7 +117,6 @@ p{
   font-size:10px;
   text-transform:uppercase;
   color:#98a2b3;
-  margin-bottom:6px;
 }
 
 .default-line{
@@ -141,16 +128,11 @@ p{
 .subtle-line{
   font-size:13px;
   color:#667085;
-  margin-top:6px;
-  margin-bottom:0;
 }
 
 .impact-line{
-  margin-top:10px;
-  font-size:14px;
-  line-height:1.7;
-  color:#1f2937;
   font-weight:600;
+  color:#1f2937;
 }
 
 /* TABLE */
@@ -170,12 +152,11 @@ table{
 td,th{
   padding:12px;
   border-bottom:1px solid var(--line-soft);
-  text-align:left;
-  vertical-align:top;
 }
 
 th{
   background:#f7f8fa;
+  text-align:left;
 }
 
 /* PRINCIPLE */
@@ -183,26 +164,17 @@ th{
 .principle{
   width:min(var(--card),100%);
   margin:18px auto;
-  padding:16px 18px;
+  padding:16px;
   border-radius:16px;
-  background:linear-gradient(180deg,#fafbfc 0%, #f7f8fa 100%);
+  background:#fafbfc;
   border:1px solid var(--line);
   font-size:14px;
-  line-height:1.75;
-  color:#243142;
 }
 
 /* CTA */
 
-.cta-intro{
-  font-size:13px;
-  color:#667085;
-}
-
-.cta-body{
-  font-size:14px;
-  color:#475467;
-}
+.cta-intro{font-size:13px;color:#667085;}
+.cta-body{font-size:14px;color:#475467;}
 
 .cta-link{
   display:inline-block;
@@ -213,15 +185,7 @@ th{
 
 /* BACK */
 
-.back-home{
-  text-align:center;
-  margin-top:18px;
-  font-size:13px;
-}
-
-.back-home a{
-  color:#50658c;
-}
+.back-home{text-align:center;margin-top:18px;font-size:13px;}
 
 @media(max-width:640px){
   h1{font-size:30px}
@@ -235,17 +199,19 @@ th{
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <h1>VOO or QQQM: which one should you actually choose?</h1>
+<div class="hero-inner">
 
-    <p class="hero-sub">
-      This is not just a return question — it is a concentration decision.
-    </p>
+<h1>VOO or QQQM: which one should you actually choose?</h1>
 
-    <div class="hero-note">
-      VOO gives broad S&amp;P 500 exposure and usually works as a cleaner long-term core. QQQM gives more concentrated Nasdaq-100 exposure, with heavier dependence on growth leadership. The real choice is not simply “more upside or less upside,” but whether you want a broad structure or a narrower bet.
-    </div>
-  </div>
+<p class="hero-sub">
+This is not just a growth decision — it is a question of how much concentration you can actually hold.
+</p>
+
+<div class="hero-note">
+VOO offers broad S&amp;P 500 exposure and works as a stable long-term core. QQQM offers more concentrated Nasdaq-100 exposure with heavier reliance on growth leadership. The real difference is not just potential return — it is how narrow your portfolio becomes.
+</div>
+
+</div>
 </section>
 
 <!-- QUICK -->
@@ -256,52 +222,49 @@ th{
 <div class="answer-grid">
 
 <div class="mini-card">
-<div class="mini-label">Choose VOO</div>
-<h3>Broad long-term default</h3>
-<p>More diversified, easier to understand, and usually the cleaner core holding for most long-term investors.</p>
+<div class="mini-label">Default Choice</div>
+<h3>VOO — broad core</h3>
+<p>More diversified, easier to hold, and usually the cleaner long-term foundation.</p>
 </div>
 
 <div class="mini-card">
-<div class="mini-label">Choose QQQM</div>
-<h3>Concentrated growth tilt</h3>
-<p>More suitable if you intentionally want heavier Nasdaq-100 exposure and can tolerate greater concentration risk.</p>
+<div class="mini-label">Conditional Choice</div>
+<h3>QQQM — growth tilt</h3>
+<p>Only makes sense if you deliberately want higher concentration and can tolerate deeper swings.</p>
 </div>
 
 </div>
 
 <div class="default-line">
-<strong>Default rule:</strong> if you are building a long-term core portfolio, VOO is usually the more balanced starting point.
+<strong>Default rule:</strong> for most long-term investors, VOO is the more stable starting point.
 </div>
 
 <p class="subtle-line">
-If you are unsure, that uncertainty often favors the broader structure rather than the narrower one.
+If you are unsure, that uncertainty usually favors the broader structure.
 </p>
 
 <p class="impact-line">
-Choosing QQQM over VOO is usually not a small style preference — it is accepting a more concentrated way to own the market.
+Choosing QQQM over VOO is not a small preference — it is accepting a more concentrated way to own the market.
 </p>
 </section>
 
-<!-- DEEP -->
+<!-- WHAT MOST PEOPLE MISS -->
 <section class="section-card">
 <div class="eyebrow">What Most People Miss</div>
-<h2>This is a concentration decision</h2>
+<h2>This is not just “more return”</h2>
 
 <p>
-VOO and QQQM are not just two different tickers with slightly different performance histories. They represent different portfolio structures.
+Many investors see QQQM as a “faster version” of VOO.
 </p>
 
 <p>
-VOO spreads exposure across the S&amp;P 500. QQQM relies much more heavily on a narrower group of large growth-oriented companies.
-</p>
-
-<p>
-That means the real question is usually not “which one performed better recently,” but “which one can I realistically hold through a full cycle?”
+In reality, it is a narrower exposure with heavier dependence on a smaller group of companies.
 </p>
 
 <p class="impact-line">
-For many investors, the bigger mistake is not missing extra upside — it is choosing more concentration than they can emotionally hold.
+QQQM is not a better version of VOO — it is a more concentrated version of the market.
 </p>
+
 </section>
 
 <!-- TABLE -->
@@ -311,90 +274,79 @@ For many investors, the bigger mistake is not missing extra upside — it is cho
 
 <div class="table-wrap">
 <table>
+
 <tr><th>Feature</th><th>VOO</th><th>QQQM</th></tr>
 
 <tr>
-<td>Primary role</td>
-<td>Broad long-term core</td>
-<td>Growth-tilted concentration</td>
-</tr>
-
-<tr>
-<td>Index tracked</td>
+<td>Index</td>
 <td>S&amp;P 500</td>
 <td>Nasdaq-100</td>
 </tr>
 
 <tr>
 <td>Diversification</td>
-<td>Broader U.S. large-cap exposure</td>
-<td>Narrower exposure with heavier concentration</td>
+<td>Broad</td>
+<td>Narrower</td>
 </tr>
 
 <tr>
-<td>Style exposure</td>
-<td>Balanced large-cap mix</td>
-<td>Growth-heavy, innovation-tilted mix</td>
+<td>Style</td>
+<td>Balanced</td>
+<td>Growth-heavy</td>
 </tr>
 
 <tr>
 <td>Best use</td>
-<td><strong>Core portfolio</strong></td>
-<td><strong>Intentional growth tilt</strong></td>
+<td><strong>Core holding</strong></td>
+<td><strong>Growth tilt</strong></td>
 </tr>
 
 <tr>
 <td>Main trade-off</td>
-<td>Less concentrated upside</td>
-<td>Higher dependence on a narrower group of leaders</td>
+<td>Less upside concentration</td>
+<td>Higher dependence on fewer companies</td>
 </tr>
 
 </table>
 </div>
 </section>
 
-<!-- DECISION PSYCHOLOGY -->
+<!-- PSYCHOLOGY -->
 <section class="section-card">
 <div class="eyebrow">Decision Psychology</div>
-<h2>Why QQQM can feel more compelling</h2>
+<h2>Why QQQM feels more attractive</h2>
 
 <p>
-Concentrated growth exposure often feels more exciting because the story is clearer and recent winners are easier to see.
+Growth-heavy portfolios often feel more powerful because the winners are easier to see.
 </p>
 
 <p>
-That makes QQQM feel like the more “powerful” option, even when the investor is really looking for a reliable long-term core.
-</p>
-
-<p>
-In practice, clarity of story and suitability of structure are not the same thing.
+That makes QQQM feel like the smarter choice — even when the investor actually needs stability.
 </p>
 
 <p class="impact-line">
-The ETF that feels more exciting is not always the ETF that fits the job you actually need done.
+The ETF that looks stronger is not always the one that fits your job.
 </p>
+
 </section>
 
 <!-- MISTAKE -->
 <section class="section-card">
 <div class="eyebrow">Common Pitfall</div>
-<h2>Where investors may go wrong</h2>
+<h2>Where investors go wrong</h2>
 
 <p>
-Some investors choose QQQM because they want more upside, without fully recognizing that they are also choosing more concentration.
+Some investors chase higher returns without realizing they are also increasing concentration risk.
 </p>
 
 <p>
-Others compare recent performance and assume the stronger-looking chart automatically implies the better long-term default.
-</p>
-
-<p>
-That can lead to a portfolio that looks good in theory, but becomes harder to hold when leadership narrows, volatility rises, or sentiment changes.
+Others assume recent performance equals better long-term structure.
 </p>
 
 <p class="impact-line">
-The real cost is not simply higher volatility — it is building a structure you may not want to keep holding when it stops feeling easy.
+The real mistake is not volatility — it is choosing a structure you cannot stick with.
 </p>
+
 </section>
 
 <!-- BEHAVIOR -->
@@ -403,46 +355,39 @@ The real cost is not simply higher volatility — it is building a structure you
 <h2>Behavioral reality</h2>
 
 <p>
-Most investors do better with a structure they can understand, hold, and ignore for long periods.
+Most investors succeed by sticking with a simple structure over time.
 </p>
 
 <p>
-Broader portfolios are often easier to stick with because they demand less conviction in one narrow leadership theme.
-</p>
-
-<p>
-More concentrated portfolios can work well, but only if the investor is prepared for deeper swings and longer periods of discomfort.
+Broader portfolios are easier to hold because they require less conviction in a single theme.
 </p>
 
 <p class="impact-line">
-In practice, many investors do not need a more aggressive story — they need a structure they can keep owning without second-guessing.
+What matters most is not picking the “strongest ETF” — but picking one you can keep owning.
 </p>
+
 </section>
 
 <div class="principle">
-<strong>Rational principle:</strong> choose the level of concentration you can realistically hold through full market cycles — not the one that only feels attractive when growth leadership is working.
+<strong>Rational principle:</strong> choose the level of concentration you can realistically hold — not the one that looks best in recent performance.
 </div>
 
 <!-- CTA -->
 <section class="cta-card">
-<h2>Want to see how different assumptions change the outcome?</h2>
-
-<p class="cta-intro">
-When the structure changes, return expectations, risk tolerance, and holding period matter even more.
-</p>
+<h2>If this structure changes, what does it do to your outcome?</h2>
 
 <p class="cta-body">
-Use the ETF Calculator to explore how different long-term assumptions may affect outcomes — and to keep the focus on what kind of structure you are actually building.
+Use the ETF Calculator to understand how different assumptions affect long-term results.
 </p>
 
 <a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
 </section>
 
 <section class="cta-card">
-<h2>Want a structure you can keep following over time?</h2>
+<h2>Want a plan you can actually follow?</h2>
 
 <p class="cta-body">
-Use the DCA Calculator to model disciplined investing — especially if your real challenge is not choosing the more exciting ETF, but choosing one you can keep holding consistently.
+Use the DCA Calculator to build a repeatable investing system.
 </p>
 
 <a class="cta-link" href="/dca-calculator.html">Open DCA Calculator →</a>
