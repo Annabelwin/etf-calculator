@@ -13,7 +13,9 @@
   --line:#e7e9ee;
   --line-soft:#eef1f4;
   --accent:#425b84;
+  --bg:#f3f4f7;
   --max:760px;
+  --card:600px;
 }
 
 *{box-sizing:border-box}
@@ -23,7 +25,10 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter;
   background:linear-gradient(180deg,#f3f4f7,#eef1f5);
   color:var(--text);
+  -webkit-font-smoothing:antialiased;
 }
+
+/* PAGE */
 
 .page{
   width:min(var(--max),calc(100% - 28px));
@@ -48,25 +53,29 @@ h1{
   color:var(--muted);
   max-width:560px;
   margin:0 auto;
+  line-height:1.7;
 }
 
 .hero-note{
   margin:18px auto 0;
   max-width:560px;
-  padding:12px;
+  padding:12px 14px;
   background:#fafbfc;
   border:1px solid rgba(0,0,0,0.04);
   border-radius:12px;
   font-size:13px;
+  line-height:1.6;
+  color:#4a5568;
+  text-align:left;
 }
 
-/* CARD SYSTEM (统一核心) */
+/* CARD SYSTEM */
 
 .section-card,
 .cta-card{
-  width:min(600px,100%);
-  margin:16px auto 0;
-  padding:18px;
+  width:min(var(--card),100%);
+  margin:18px auto 0;
+  padding:20px 18px;
   border-radius:20px;
   background:#ffffff;
   border:1px solid var(--line-soft);
@@ -77,17 +86,23 @@ h1{
   letter-spacing:0.15em;
   text-transform:uppercase;
   color:#98a2b3;
+  margin-bottom:6px;
 }
 
 h2{
   font-size:22px;
-  margin:6px 0 12px;
+  margin:6px 0 14px;
+}
+
+h3{
+  font-size:16px;
+  margin:4px 0;
 }
 
 p{
   font-size:14px;
-  color:#344054;
   line-height:1.7;
+  color:#344054;
 }
 
 /* QUICK */
@@ -107,7 +122,9 @@ p{
 
 .mini-label{
   font-size:10px;
+  text-transform:uppercase;
   color:#98a2b3;
+  margin-bottom:6px;
 }
 
 .default-line{
@@ -119,9 +136,16 @@ p{
 .subtle-line{
   font-size:13px;
   color:#667085;
+  margin-top:6px;
 }
 
 /* TABLE */
+
+.table-wrap{
+  border:1px solid var(--line-soft);
+  border-radius:14px;
+  overflow:hidden;
+}
 
 table{
   width:100%;
@@ -136,17 +160,20 @@ td,th{
 
 th{
   background:#f7f8fa;
+  text-align:left;
 }
 
 /* PRINCIPLE */
 
 .principle{
-  width:min(600px,100%);
-  margin:16px auto;
-  padding:14px;
-  border-radius:14px;
+  width:min(var(--card),100%);
+  margin:18px auto;
+  padding:16px;
+  border-radius:16px;
   background:#fafbfc;
   border:1px solid var(--line);
+  font-size:14px;
+  line-height:1.7;
 }
 
 /* CTA */
@@ -194,11 +221,11 @@ th{
 <h1>VOO or SPY: which one should you actually choose?</h1>
 
 <p class="hero-sub">
-This is not about performance — it's about cost, structure, and how you actually invest.
+This is a cost-and-usage decision, not a performance comparison.
 </p>
 
 <div class="hero-note">
-VOO and SPY track the same S&P 500 index. The real difference is not what they hold, but how they are built and used.
+VOO and SPY track the same S&amp;P 500 index. For most long-term investors, the real risk is not choosing the wrong exposure — it is quietly paying trading-level costs for a holding strategy.
 </div>
 </section>
 
@@ -208,25 +235,27 @@ VOO and SPY track the same S&P 500 index. The real difference is not what they h
 <h2>VOO vs SPY: quick answer</h2>
 
 <div class="answer-grid">
+
 <div class="mini-card">
 <div class="mini-label">Choose VOO</div>
-<h3>Lower cost, long-term default</h3>
-<p>Best for long-term investors who want a simple, efficient S&P 500 core holding.</p>
+<h3>Long-term default</h3>
+<p>Lower cost, simpler structure, and built for long-term holding.</p>
 </div>
 
 <div class="mini-card">
 <div class="mini-label">Choose SPY</div>
-<h3>Built for trading</h3>
+<h3>Trading tool</h3>
 <p>Only makes sense if you actively trade or need intraday liquidity.</p>
 </div>
+
 </div>
 
 <div class="default-line">
-<strong>Default rule:</strong> if you are investing long term, VOO is usually the better choice.
+<strong>Default rule:</strong> if you are investing for the long term, VOO is usually the correct choice.
 </div>
 
 <p class="subtle-line">
-Most investors do not fail because of returns — they fail because of structure and behavior.
+If you are unsure, that usually means you should choose the simpler structure.
 </p>
 </section>
 
@@ -235,9 +264,17 @@ Most investors do not fail because of returns — they fail because of structure
 <div class="eyebrow">What Most People Miss</div>
 <h2>This is not a performance decision</h2>
 
-<p>VOO and SPY hold the same companies. The difference is cost and usage.</p>
-<p>SPY is built for trading. VOO is built for holding.</p>
-<p>Most investors overestimate liquidity and underestimate cost drag.</p>
+<p>
+VOO and SPY hold the same companies. The difference is not returns — it is cost and fund purpose.
+</p>
+
+<p>
+SPY is designed for trading volume. VOO is designed for long-term efficiency.
+</p>
+
+<p>
+Most investors think liquidity matters. In reality, they rarely use it — but they always pay the cost.
+</p>
 </section>
 
 <!-- TABLE -->
@@ -245,12 +282,42 @@ Most investors do not fail because of returns — they fail because of structure
 <div class="eyebrow">Key Differences</div>
 <h2>Side-by-side comparison</h2>
 
+<div class="table-wrap">
 <table>
 <tr><th>Feature</th><th>VOO</th><th>SPY</th></tr>
-<tr><td>Expense ratio</td><td><strong>0.03%</strong></td><td><strong>0.09%</strong></td></tr>
-<tr><td>Liquidity</td><td>High</td><td>Very high</td></tr>
-<tr><td>Best use</td><td><strong>Long-term investing</strong></td><td><strong>Trading</strong></td></tr>
+
+<tr>
+<td>Primary purpose</td>
+<td>Long-term holding</td>
+<td>High-liquidity trading</td>
+</tr>
+
+<tr>
+<td>Expense ratio</td>
+<td><strong>0.03%</strong></td>
+<td><strong>0.09%</strong></td>
+</tr>
+
+<tr>
+<td>Liquidity</td>
+<td>High</td>
+<td>Very high</td>
+</tr>
+
+<tr>
+<td>Best use</td>
+<td><strong>Core portfolio</strong></td>
+<td><strong>Trading / short-term</strong></td>
+</tr>
+
+<tr>
+<td>Main drawback</td>
+<td>Less trading flexibility</td>
+<td>Higher long-term cost</td>
+</tr>
+
 </table>
+</div>
 </section>
 
 <!-- MISTAKE -->
@@ -258,8 +325,17 @@ Most investors do not fail because of returns — they fail because of structure
 <div class="eyebrow">Mistake</div>
 <h2>Where investors get this wrong</h2>
 
-<p>Many think this is a small difference. Over time, it is not.</p>
-<p>Cost compounds. Structure matters.</p>
+<p>
+Many investors think this is a small difference. Over time, it is not.
+</p>
+
+<p>
+Choosing SPY without trading is effectively paying a premium for a feature you do not use.
+</p>
+
+<p>
+That cost compounds quietly over decades.
+</p>
 </section>
 
 <!-- BEHAVIOR -->
@@ -267,32 +343,43 @@ Most investors do not fail because of returns — they fail because of structure
 <div class="eyebrow">Behavior</div>
 <h2>Behavioral reality</h2>
 
-<p>Most investors do not need intraday liquidity.</p>
-<p>Choosing SPY without trading is a mismatch.</p>
+<p>
+Most investors do not need intraday liquidity.
+</p>
+
+<p>
+But many choose SPY because it feels more flexible — even if they never use that flexibility.
+</p>
+
+<p>
+This is a mismatch between behavior and structure.
+</p>
 </section>
 
 <div class="principle">
-<strong>Rational principle:</strong> choose the ETF that matches how you actually invest.
+<strong>Rational principle:</strong> choose the ETF that matches how you actually invest — not how you think you might behave.
 </div>
 
 <!-- CTA -->
 <section class="cta-card">
 <h2>Want to see the cost difference over time?</h2>
 
-<p class="cta-intro">Even small fee differences compound over decades.</p>
+<p class="cta-intro">
+Even small fee differences compound over decades.
+</p>
 
 <p class="cta-body">
-Use the ETF Calculator to model long-term fee impact.
+Use the ETF Calculator to model how expense ratios impact long-term returns across different time horizons.
 </p>
 
 <a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
 </section>
 
 <section class="cta-card">
-<h2>Want a more consistent investing approach?</h2>
+<h2>Want a more repeatable long-term plan?</h2>
 
 <p class="cta-body">
-Use the DCA Calculator to simulate disciplined investing.
+Use the DCA Calculator to simulate disciplined investing — especially if your real challenge is consistency, not ETF selection.
 </p>
 
 <a class="cta-link" href="/dca-calculator.html">Open DCA Calculator →</a>
