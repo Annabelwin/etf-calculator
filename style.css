@@ -1,121 +1,196 @@
 :root{
-  --bg:#f5f7fa;
+  --bg:#f3f4f7;
+  --bg-soft:#eef1f5;
   --card:#ffffff;
-  --text:#1a1f2b;
-  --sub:#667085;
-  --line:#e6e8ec;
-  --accent:#2563eb;
+  --card-soft:#fafbfc;
+  --text:#181c23;
+  --muted:#667085;
+  --line:#e7e9ee;
+  --line-soft:#eef1f4;
+  --accent:#425b84;
+  --accent-soft:#50658c;
+  --max:760px;
+  --card-width:600px;
 }
 
-/* 全局 */
+*{
+  box-sizing:border-box;
+}
+
+html{
+  -webkit-text-size-adjust:100%;
+}
+
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-  background:var(--bg);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"Helvetica Neue",Arial,sans-serif;
+  background:linear-gradient(180deg,var(--bg),var(--bg-soft));
   color:var(--text);
 }
 
+a{
+  color:inherit;
+}
+
 .page{
-  max-width:760px;
-  margin:40px auto;
-  padding:0 16px;
+  width:min(var(--max),calc(100% - 28px));
+  margin:20px auto;
+  background:var(--card);
+  border-radius:28px;
+  padding:20px 14px 28px;
 }
 
 /* HERO */
+.hero{
+  text-align:center;
+}
+
+.hero-inner{
+  max-width:600px;
+  margin:0 auto;
+}
+
 .hero h1{
-  font-size:28px;
-  line-height:1.3;
-  margin-bottom:12px;
+  font-size:40px;
+  line-height:1.12;
+  letter-spacing:-0.04em;
+  margin:0 0 8px;
+  color:#161b22;
+  text-wrap:balance;
 }
 
 .hero-sub{
+  max-width:560px;
+  margin:0 auto;
   font-size:14px;
-  color:var(--sub);
-  margin-bottom:16px;
+  line-height:1.7;
+  color:var(--muted);
 }
 
 .hero-note{
-  background:var(--card);
-  border:1px solid var(--line);
-  padding:14px 16px;
+  margin:18px auto 0;
+  max-width:560px;
+  padding:12px 14px;
+  background:var(--card-soft);
+  border:1px solid rgba(0,0,0,0.04);
   border-radius:12px;
-  font-size:14px;
-  color:#344054;
-  margin-bottom:14px;
+  font-size:13px;
+  line-height:1.6;
+  text-align:left;
+  color:#4a5568;
 }
 
-/* 卡片 */
-.section-card{
+.hero-note p:last-child{
+  margin-bottom:0;
+}
+
+/* SECTION CARDS */
+.section-card,
+.cta-card{
+  width:min(var(--card-width),100%);
+  margin:18px auto 0;
+  padding:20px 18px;
+  border-radius:20px;
   background:var(--card);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:18px;
-  margin:18px 0;
+  border:1px solid var(--line-soft);
 }
 
-/* 标题小标签 */
 .eyebrow{
-  font-size:11px;
-  letter-spacing:.08em;
-  color:#98a2b3;
+  font-size:10px;
+  line-height:1.2;
+  letter-spacing:0.15em;
   text-transform:uppercase;
+  color:#98a2b3;
   margin-bottom:6px;
 }
 
-.section-card h2{
-  font-size:18px;
-  margin-bottom:12px;
+.section-card h2,
+.cta-card h2{
+  font-size:22px;
+  line-height:1.24;
+  margin:6px 0 14px;
+  color:#161b22;
+  text-wrap:balance;
 }
 
-/* Quick Answer 布局 */
+h3{
+  font-size:16px;
+  line-height:1.35;
+  margin:4px 0 8px;
+  color:#161b22;
+}
+
+p{
+  margin:0 0 12px;
+  font-size:14px;
+  line-height:1.7;
+  color:#344054;
+}
+
+.section-card p:last-child,
+.cta-card p:last-child{
+  margin-bottom:0;
+}
+
+/* QUICK ANSWER */
 .answer-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
-  margin-bottom:12px;
 }
 
 .mini-card{
+  padding:14px;
+  border-radius:14px;
+  background:var(--card-soft);
   border:1px solid var(--line);
-  border-radius:12px;
-  padding:12px;
-  background:#fafbfc;
 }
 
 .mini-label{
-  font-size:11px;
+  font-size:10px;
+  line-height:1.2;
+  text-transform:uppercase;
   color:#98a2b3;
-  margin-bottom:4px;
+  margin-bottom:6px;
+  letter-spacing:0.04em;
 }
 
-.mini-card h3{
-  font-size:14px;
-  margin:4px 0;
-}
-
-.mini-card p{
-  font-size:13px;
-  color:#475467;
-}
-
-/* 重点句 */
 .default-line{
-  font-size:13px;
-  margin:10px 0;
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  font-size:14px;
+  line-height:1.7;
   color:#344054;
+}
+
+.default-line strong{
+  color:#111827;
+}
+
+.subtle-line{
+  margin-top:6px;
+  margin-bottom:0;
+  font-size:13px;
+  line-height:1.65;
+  color:var(--muted);
 }
 
 .impact-line{
-  font-size:13px;
   margin-top:10px;
-  padding-left:10px;
-  border-left:3px solid #d0d5dd;
-  color:#344054;
+  margin-bottom:0;
+  font-size:14px;
+  line-height:1.7;
+  font-weight:600;
+  color:#111827;
+  letter-spacing:-0.01em;
 }
 
-/* 表格 */
+/* TABLE */
 .table-wrap{
-  overflow-x:auto;
+  border:1px solid var(--line-soft);
+  border-radius:14px;
+  overflow:hidden;
 }
 
 table{
@@ -124,61 +199,120 @@ table{
   font-size:13px;
 }
 
-th,td{
-  padding:10px;
-  border-bottom:1px solid var(--line);
-  text-align:left;   /* ⭐你刚问的这里 */
+th,
+td{
+  padding:12px;
+  border-bottom:1px solid var(--line-soft);
+  text-align:left;
   vertical-align:top;
+  color:#344054;
 }
 
 th{
   background:#f7f8fa;
   font-weight:600;
+  color:#111827;
 }
 
-/* Principle */
+tr:last-child td{
+  border-bottom:none;
+}
+
+/* PRINCIPLE */
 .principle{
-  width:100%;
+  width:min(var(--card-width),100%);
   margin:18px auto;
   padding:16px 18px;
   border-radius:16px;
   background:linear-gradient(180deg,#fafbfc 0%, #f7f8fa 100%);
   border:1px solid var(--line);
   font-size:14px;
-  line-height:1.7;
+  line-height:1.75;
   color:#243142;
 }
 
+.principle strong{
+  color:#111827;
+  font-weight:600;
+}
+
 /* CTA */
-.cta-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:18px;
-  margin:18px 0;
+.cta-intro{
+  font-size:13px;
+  line-height:1.65;
+  color:var(--muted);
 }
 
 .cta-body{
-  font-size:13px;
+  font-size:14px;
+  line-height:1.7;
   color:#475467;
-  margin:10px 0;
 }
 
 .cta-link{
-  font-size:13px;
+  display:inline-block;
+  margin-top:10px;
+  font-size:14px;
+  line-height:1.4;
+  font-weight:600;
   color:var(--accent);
-  text-decoration:none;
-  font-weight:500;
+  text-decoration:underline;
+  text-decoration-color:rgba(66,91,132,0.28);
+  text-underline-offset:2px;
 }
 
-/* back */
+.cta-link:hover{
+  color:var(--accent-soft);
+}
+
+/* BACK HOME */
 .back-home{
   text-align:center;
-  margin:20px 0;
+  margin-top:18px;
+  font-size:13px;
 }
 
 .back-home a{
-  font-size:12px;
-  color:#98a2b3;
+  color:var(--accent-soft);
   text-decoration:none;
+}
+
+/* MOBILE */
+@media (max-width:640px){
+  .page{
+    width:min(var(--max),calc(100% - 18px));
+    margin:10px auto;
+    padding:16px 10px 22px;
+    border-radius:20px;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .section-card,
+  .cta-card,
+  .principle{
+    width:100%;
+  }
+
+  .answer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .section-card,
+  .cta-card{
+    padding:16px 14px;
+    border-radius:16px;
+  }
+
+  .section-card h2,
+  .cta-card h2{
+    font-size:20px;
+  }
+
+  th,
+  td{
+    padding:10px;
+  }
 }
