@@ -1,572 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QQQ vs SCHD: Which ETF Is Better for Long-Term Investors?</title>
-  <meta name="description" content="Compare QQQ vs SCHD for long-term investing. Learn the difference between growth-focused technology exposure and dividend-focused quality income, and which ETF may fit your strategy better.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJLXTFDGCE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SJLXTFDGCE');
-  </script>
+<title>QQQ vs SCHD: Which One Should You Actually Choose?</title>
 
-  <style>
-   :root{
-      --bg:#f5f7fb;
-      --page:#ffffff;
-      --card:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#eceff3;
-      --link:#4338ca;
-      --shadow:0 20px 60px rgba(15,23,42,0.06);
-      --button-top:#37456a;
-      --button-bottom:#26334f;
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      padding:56px 20px 80px;
-      line-height:1.82;
-    }
-
-    .page-wrap{
-      max-width:700px;
-      margin:0 auto;
-      padding:56px 40px 40px;
-      background:var(--page);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-    }
-
-    .container{
-      max-width:680px;
-      margin:0 auto;
-    }
-
-    .hero{
-      max-width:560px;
-      margin:0 auto 42px;
-    }
-
-    h1{
-      font-size:36px;
-      line-height:1.08;
-      letter-spacing:-0.03em;
-      margin:0 0 16px;
-      color:var(--text);
-    }
-
-    h2{
-      font-size:22px;
-      line-height:1.3;
-      letter-spacing:-0.02em;
-      margin:0 0 14px;
-      color:var(--text);
-    }
-
-    h3{
-      font-size:16px;
-      line-height:1.45;
-      letter-spacing:-0.01em;
-      margin:0 0 10px;
-      color:var(--text);
-    }
-
-    .subtitle{
-      max-width:480px;
-      font-size:18px;
-      line-height:1.95;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .card{
-      width:100%;
-      max-width:620px;
-      margin:28px auto 0;
-      background:rgba(255,255,255,0.96);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:26px 28px;
-      box-shadow:0 10px 28px rgba(15,23,42,0.04);
-    }
-
-    .overview-card{
-      margin-top:0;
-      text-align:center;
-    }
-
-    .overview-card h2{
-      margin-bottom:18px;
-    }
-
-    .overview-table-wrap{
-      max-width:100%;
-      margin:0 auto;
-    }
-
-    .overview-card table{
-      width:100%;
-      border-collapse:collapse;
-      table-layout:fixed;
-      margin-top:0;
-      font-size:15px;
-    }
-
-    .overview-card td{
-      padding:12px 6px;
-      border-bottom:1px solid #eef1f4;
-      vertical-align:middle;
-      color:#374151;
-      text-align:left;
-    }
-
-    .overview-card tr:last-child td{
-      border-bottom:none;
-    }
-
-    .overview-card td:first-child{
-      width:25%;
-      color:var(--muted);
-    }
-
-    .overview-card td:nth-child(2){
-      width:37.5%;
-    }
-
-    .overview-card td:nth-child(3){
-      width:37.5%;
-    }
-
-    .reading-section{
-      max-width:560px;
-      margin:64px auto 0;
-    }
-
-    .reading-section h2{
-      margin-bottom:16px;
-    }
-
-    .reading-section p{
-      max-width:500px;
-      font-size:17px;
-      line-height:1.95;
-      color:#4b5563;
-      margin:0 0 18px;
-    }
-
-    .cta-card{
-  text-align:center;
-  padding:30px 32px;
-  background:#f3f4f6;
-  border:1px solid #eceff3;
+<style>
+:root{
+  --text:#181c23;
+  --muted:#667085;
+  --line:#e7e9ee;
+  --line-soft:#eef1f4;
+  --accent:#425b84;
+  --max:760px;
+  --card:600px;
 }
 
-    .cta-card p{
-      max-width:46ch;
-      margin:0 auto 16px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-    }
+*{box-sizing:border-box}
 
-    .cta-button{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%, var(--button-bottom) 100%);
-      color:#ffffff !important;
-      text-decoration:none;
-      font-weight:600;
-      padding:13px 24px;
-      border-radius:14px;
-      box-shadow:0 10px 22px rgba(38,51,79,0.22);
-    }
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter;
+  background:linear-gradient(180deg,#f3f4f7,#eef1f5);
+  color:var(--text);
+}
 
-    .faq-section{
-      max-width:560px;
-      margin:64px auto 0;
-    }
+.page{
+  width:min(var(--max),calc(100% - 28px));
+  margin:20px auto;
+  background:#fff;
+  border-radius:28px;
+  padding:20px 14px 28px;
+}
 
-    .faq-wrap{
-      max-width:500px;
-    }
+.hero{
+  text-align:center;
+}
 
-    .faq-title{
-      margin:0 0 22px;
-    }
+.hero-inner{
+  max-width:600px;
+  margin:0 auto;
+}
 
-    .faq-item{
-      padding:16px 0;
-      border-bottom:1px solid #e7ebf0;
-    }
+h1{
+  font-size:40px;
+  letter-spacing:-0.04em;
+  margin:0 0 8px;
+  line-height:1.12;
+}
 
-    .faq-item:last-child{
-      border-bottom:none;
-      padding-bottom:0;
-    }
+.hero-sub{
+  font-size:14px;
+  color:var(--muted);
+  max-width:560px;
+  margin:0 auto;
+  line-height:1.7;
+}
 
-    .faq-item h3{
-      max-width:500px;
-      margin:0 0 10px;
-    }
+.hero-note{
+  margin:18px auto 0;
+  max-width:560px;
+  padding:12px 14px;
+  background:#fafbfc;
+  border:1px solid rgba(0,0,0,0.04);
+  border-radius:12px;
+  font-size:13px;
+  line-height:1.6;
+  text-align:left;
+  color:#4a5568;
+}
 
-    .faq-item p{
-      max-width:500px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-      margin:0;
-    }
+.impact-line{
+  margin-top:10px;
+  font-weight:600;
+  color:#111827;
+  letter-spacing:-0.01em;
+}
 
-    .nav-card{
-      text-align:center;
-      padding:30px 32px;
-    }
+.section-card,
+.cta-card{
+  width:min(var(--card),100%);
+  margin:18px auto 0;
+  padding:20px 18px;
+  border-radius:20px;
+  background:#fff;
+  border:1px solid var(--line-soft);
+}
 
-    .nav-card h2{
-      margin-bottom:18px;
-    }
+.eyebrow{
+  font-size:10px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:#98a2b3;
+}
 
-    .nav-links{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      align-items:center;
-    }
+h2{
+  font-size:22px;
+  margin:6px 0 14px;
+  line-height:1.24;
+}
 
-    .nav-links a{
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-    }
+h3{
+  font-size:16px;
+  margin:4px 0 8px;
+}
 
-    .community-card{
-      text-align:center;
-      padding:32px 32px;
-    }
+p{
+  font-size:14px;
+  line-height:1.7;
+  color:#344054;
+  margin:0 0 12px;
+}
 
-    .community-card p{
-      max-width:48ch;
-      margin:0 auto 14px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-    }
+.answer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
 
-    .community-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 22px;
-      color:var(--muted);
-      font-size:15px;
-    }
+.mini-card{
+  padding:14px;
+  border-radius:14px;
+  background:#fafbfc;
+  border:1px solid var(--line);
+}
 
-    .community-list li{
-      margin:8px 0;
-    }
+.mini-label{
+  font-size:10px;
+  text-transform:uppercase;
+  color:#98a2b3;
+  margin-bottom:6px;
+}
 
-    .community-actions{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:4px;
-    }
+.default-line{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+}
 
-    .community-button{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%,var(--button-bottom) 100%);
-      color:#fff !important;
-      text-decoration:none;
-      font-weight:600;
-      padding:12px 22px;
-      border-radius:12px;
-      box-shadow:0 10px 22px rgba(38,51,79,0.22);
-    }
+.subtle-line{
+  font-size:13px;
+  color:#667085;
+  margin-top:6px;
+  margin-bottom:0;
+}
 
-    .community-link{
-      display:inline-block;
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-      padding:12px 4px;
-    }
+.table-wrap{
+  border:1px solid var(--line-soft);
+  border-radius:14px;
+  overflow:hidden;
+}
 
-    .community-note{
-      margin-top:12px;
-      font-size:14px;
-      color:#9ca3af;
-    }
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
 
-    .back-wrap{
-      text-align:left;
-      max-width:560px;
-      margin:30px auto 0;
-    }
+td,th{
+  padding:12px;
+  border-bottom:1px solid var(--line-soft);
+  text-align:left;
+  vertical-align:top;
+}
 
-    .back{
-      display:inline-block;
-      color:#6366f1;
-      text-decoration:none;
-      font-weight:500;
-    }
+th{
+  background:#f7f8fa;
+}
 
-    @media (max-width:640px){
-      body{
-        padding:20px 12px 48px;
-      }
+.principle{
+  width:min(var(--card),100%);
+  margin:18px auto;
+  padding:16px 18px;
+  border-radius:16px;
+  background:linear-gradient(180deg,#fafbfc 0%, #f7f8fa 100%);
+  border:1px solid var(--line);
+  font-size:14px;
+  line-height:1.75;
+  color:#243142;
+}
 
-      .page-wrap{
-        padding:28px 18px 28px;
-        border-radius:20px;
-      }
+.cta-intro{
+  font-size:13px;
+  color:#667085;
+}
 
-      .container,
-      .hero,
-      .reading-section,
-      .faq-section{
-        max-width:100%;
-      }
+.cta-body{
+  font-size:14px;
+  color:#475467;
+}
 
-      h1{
-        font-size:31px;
-      }
+.cta-link{
+  display:inline-block;
+  margin-top:10px;
+  font-weight:600;
+  color:var(--accent);
+}
 
-      h2{
-        font-size:20px;
-      }
+.back-home{
+  text-align:center;
+  margin-top:18px;
+  font-size:13px;
+}
 
-      .subtitle{
-        max-width:100%;
-        font-size:16px;
-        line-height:1.88;
-      }
+.back-home a{
+  color:#50658c;
+}
 
-      .card{
-        max-width:100%;
-        border-radius:18px;
-        padding:22px 18px;
-      }
-
-      .overview-card td{
-        padding:12px 4px;
-        font-size:14px;
-      }
-
-      .reading-section p,
-      .faq-item h3,
-      .faq-item p{
-        max-width:100%;
-      }
-
-      .faq-wrap{
-        max-width:100%;
-      }
-
-      .community-actions{
-        flex-direction:column;
-        align-items:center;
-      }
-
-      .back-wrap{
-        max-width:100%;
-      }
-    }
-  </style>
+@media(max-width:640px){
+  h1{font-size:30px}
+  .answer-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
-  <div class="page-wrap">
-    <div class="container">
+<main class="page">
 
-      <div class="hero">
-        <h1>QQQ vs SCHD: Which ETF Is Better for Long-Term Investors?</h1>
-        <p class="subtitle">
-          QQQ and SCHD are both popular ETFs, but they represent very different investing styles. QQQ is built for growth and technology exposure, while SCHD focuses on dividend quality and income.
-        </p>
-        <p>
-          Many investors compare QQQ vs SCHD when deciding between higher growth potential and steadier dividend-focused investing. The right choice depends on whether you value upside and momentum or income and quality screening.
-        </p>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>QQQ or SCHD: which one should you actually choose?</h1>
 
-      <div class="card overview-card">
-        <h2>ETF Overview</h2>
+    <p class="hero-sub">
+      This is not just a growth vs dividend question — it is a decision about what kind of structure you can keep holding.
+    </p>
 
-        <div class="overview-table-wrap">
-          <table>
-            <tr>
-              <td>Category</td>
-              <td>QQQ</td>
-              <td>SCHD</td>
-            </tr>
-            <tr>
-              <td>Full Name</td>
-              <td>Invesco QQQ Trust</td>
-              <td>Schwab U.S. Dividend Equity ETF</td>
-            </tr>
-            <tr>
-              <td>Provider</td>
-              <td>Invesco</td>
-              <td>Charles Schwab</td>
-            </tr>
-            <tr>
-              <td>Expense Ratio</td>
-              <td>0.20%</td>
-              <td>0.06%</td>
-            </tr>
-            <tr>
-              <td>Tracks</td>
-              <td>Nasdaq-100</td>
-              <td>Dividend Growth Strategy</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <p>
-          When comparing QQQ vs SCHD, investors are not choosing between two similar ETFs. They are choosing between two very different ways to build wealth: growth concentration or dividend-focused quality.
-        </p>
-      </div>
-
-      <div class="card quick-answer">
-        <h2>Quick Answer</h2>
-
-        <p><strong>Choose QQQ if:</strong></p>
-        <ul>
-          <li>You want more exposure to large technology and growth companies</li>
-          <li>You can tolerate bigger swings and higher concentration</li>
-          <li>You are focused more on long-term upside than current income</li>
-        </ul>
-
-        <p><strong>Choose SCHD if:</strong></p>
-        <ul>
-          <li>You want dividend income and stronger quality screening</li>
-          <li>You prefer steadier companies and a more income-focused strategy</li>
-          <li>You care more about cash flow and valuation discipline than aggressive growth</li>
-        </ul>
-
-        <div class="mini-cta">
-          <a href="/voo-vs-vti.html">Compare VOO vs VTI →</a>
-        </div>
-      </div>
-
-      <section class="reading-section">
-        <h2>What Actually Matters for Long-Term Investors</h2>
-
-        <p>
-          QQQ holds 100 large non-financial companies listed on the Nasdaq. In practice, that means a strong tilt toward technology, innovation, and growth-oriented businesses. It can deliver powerful returns in strong growth cycles, but it is also more concentrated and more volatile.
-        </p>
-
-        <p>
-          SCHD is very different. It focuses on dividend-paying companies with strong fundamentals and a history of sustainable dividend growth. It is more selective, more income-focused, and usually feels less aggressive than QQQ.
-        </p>
-
-        <p>
-          This means QQQ is often chosen by investors who want more growth potential, while SCHD is often preferred by those who want a more balanced mix of quality and income.
-        </p>
-
-        <p>
-          So the real difference is not just performance. It is concentration versus discipline, growth versus income, and momentum versus quality.
-        </p>
-      </section>
-
-      <section class="reading-section">
-        <h2>Which One Fits Your Investing Style?</h2>
-
-        <p>
-          If you believe large growth companies will continue leading the market and you are comfortable with volatility, QQQ may be more attractive.
-        </p>
-
-        <p>
-          If you want a more grounded long-term strategy built around dividends, profitability, and quality screening, SCHD may be the better fit.
-        </p>
-
-        <p>
-          In practice, some investors use SCHD as a stabilizing core income position and add QQQ for extra growth. Others simply choose based on whether they want faster growth or more dependable income characteristics.
-        </p>
-
-        <p><strong>Quick Answer:</strong> QQQ is better for growth-focused investors, while SCHD is better for dividend quality and income-focused investing.</p>
-      </section>
-
-      <div class="card cta-card">
-        <h2>Estimate Your ETF Growth</h2>
-        <p>
-          Compare how growth-focused and dividend-focused strategies could perform over time with regular contributions and long-term compounding.
-        </p>
-        <a class="cta-button" href="/etf-calculator.html">Open ETF Calculator</a>
-      </div>
-
-      <section class="faq-section">
-        <div class="faq-wrap">
-          <h2 class="faq-title">QQQ vs SCHD FAQ</h2>
-
-          <p><strong>QQQ vs SCHD (Quick Answer):</strong> QQQ is better for growth-focused investors, while SCHD is better for dividend quality and income-focused investing.</p>
-
-          <div class="faq-item">
-            <h3>Which is better for long-term investing, QQQ or SCHD?</h3>
-            <p>
-              It depends on your goal. QQQ is often better for investors who want higher growth potential, while SCHD is better for those who prefer dividend income, quality screening, and a steadier long-term strategy.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Is QQQ or SCHD better for beginners?</h3>
-            <p>
-              SCHD is often easier for beginners who want a more conservative and income-focused approach. QQQ may suit beginners who are comfortable with higher volatility and want stronger exposure to growth stocks.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Can I hold both QQQ and SCHD together?</h3>
-            <p>
-              Yes. Many investors combine QQQ and SCHD to balance growth and income. QQQ can provide upside, while SCHD can add dividends and more quality-oriented stability.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Is SCHD safer than QQQ?</h3>
-            <p>
-              SCHD is generally considered less volatile than QQQ because it is less concentrated in technology and focuses more on mature dividend-paying companies. However, both are stock ETFs and can still fall in difficult markets.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Does QQQ have more growth potential than SCHD?</h3>
-            <p>
-              Yes. QQQ is usually seen as having more growth potential because of its heavy exposure to large technology and innovation-driven companies, though that comes with higher risk and bigger swings.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div class="card nav-card">
-        <h2>Related ETF Comparisons</h2>
-        <div class="nav-links">
-          <a href="/qqq-vs-spy.html">QQQ vs SPY</a>
-          <a href="/vti-vs-qqq.html">VTI vs QQQ</a>
-          <a href="/vti-vs-schd.html">VTI vs SCHD</a>
-          <a href="/etf-comparisons.html">Explore all ETF comparisons →</a>
-        </div>
-      </div>
-
-      <div class="back-wrap">
-        <a class="back" href="/">← Back to Home</a>
-      </div>
-
+    <div class="hero-note">
+      QQQ gives concentrated Nasdaq-100 exposure with heavy dependence on growth leadership. SCHD gives a quality-focused dividend structure with more income and a steadier profile.
+      <p class="impact-line">
+        The real decision is not whether you want growth or income — it is whether you want a structure built for concentration and momentum, or one built for steadiness and quality discipline.
+      </p>
     </div>
   </div>
+</section>
+
+<!-- QUICK -->
+<section class="section-card">
+<div class="eyebrow">Quick Decision</div>
+<h2>QQQ vs SCHD: quick answer</h2>
+
+<div class="answer-grid">
+
+<div class="mini-card">
+<div class="mini-label">Conditional Choice</div>
+<h3>QQQ — concentrated growth tilt</h3>
+<p>Only makes sense if you deliberately want more concentration, less income, and a structure that may be harder to hold through stress.</p>
+</div>
+
+<div class="mini-card">
+<div class="mini-label">Default Choice</div>
+<h3>SCHD — steadier income structure</h3>
+<p>Usually the cleaner choice if you want quality filters, dividend income, and a structure that may feel easier to keep holding.</p>
+</div>
+
+</div>
+
+<div class="default-line">
+<strong>Default rule:</strong> if your goal is durable long-term compounding with less behavioral strain, SCHD is usually the more stable default structure.
+</div>
+
+<p class="subtle-line">
+If you are unsure, that uncertainty often favors quality and simplicity over concentration and excitement.
+</p>
+
+<p class="impact-line">
+Choosing QQQ over SCHD is not just choosing “more growth” — it is choosing a narrower structure with less income support and more dependence on fewer leaders.
+</p>
+</section>
+
+<!-- WHAT MOST PEOPLE MISS -->
+<section class="section-card">
+<div class="eyebrow">What Most People Miss</div>
+<h2>This is not just “growth beats dividends”</h2>
+
+<p>
+Many investors frame this as a simple trade-off between higher growth and lower growth.
+</p>
+
+<p>
+That is too shallow. The deeper difference is structural: QQQ emphasizes concentration in growth leadership, while SCHD emphasizes dividend quality and cash-flow discipline.
+</p>
+
+<p>
+One may feel more exciting when growth leadership is working. The other is often easier to trust when markets feel uncertain.
+</p>
+
+<p class="impact-line">
+In decisions like this, what looks like more upside can simply be more fragility with better marketing.
+</p>
+
+<p class="impact-line">
+The risk is not that QQQ grows slower than expected — it is that you may abandon it when its leadership weakens and the story stops feeling easy.
+</p>
+</section>
+
+<!-- TABLE -->
+<section class="section-card">
+<div class="eyebrow">Key Differences</div>
+<h2>Side-by-side comparison</h2>
+
+<div class="table-wrap">
+<table>
+<tr><th>Feature</th><th>QQQ</th><th>SCHD</th></tr>
+
+<tr>
+<td>Primary role</td>
+<td>Concentrated growth tilt</td>
+<td>Quality-focused dividend core</td>
+</tr>
+
+<tr>
+<td>Income profile</td>
+<td>Lower income orientation</td>
+<td>Higher income orientation</td>
+</tr>
+
+<tr>
+<td>Diversification</td>
+<td>Narrower and more dependent on large growth leaders</td>
+<td>More selective but less concentration in a single growth theme</td>
+</tr>
+
+<tr>
+<td>Behavioral demand</td>
+<td>Higher conviction required</td>
+<td>Often easier to trust and hold</td>
+</tr>
+
+<tr>
+<td>Typical use</td>
+<td><strong>Growth tilt</strong></td>
+<td><strong>Income / quality core</strong></td>
+</tr>
+
+<tr>
+<td>Main trade-off</td>
+<td>Less income support and more fragility</td>
+<td>Less pure upside concentration</td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- DECISION PSYCHOLOGY -->
+<section class="section-card">
+<div class="eyebrow">Decision Psychology</div>
+<h2>Why QQQ can feel more compelling</h2>
+
+<p>
+Growth-heavy portfolios often feel smarter because winners are visible, stories are exciting, and recent performance is easier to imagine continuing.
+</p>
+
+<p>
+That makes QQQ feel like the “modern” choice, while SCHD can appear slower or less impressive at first glance.
+</p>
+
+<p>
+But emotional clarity is not the same as structural durability.
+</p>
+
+<p class="impact-line">
+The ETF that feels more powerful today is not always the one you will still want to own when conditions change.
+</p>
+</section>
+
+<!-- COMMON PITFALL -->
+<section class="section-card">
+<div class="eyebrow">Common Pitfall</div>
+<h2>Where investors go wrong</h2>
+
+<p>
+Some investors reject SCHD because they assume dividend-focused means giving up upside or settling for something “less sophisticated.”
+</p>
+
+<p>
+Others choose QQQ because recent performance made concentration feel safer than it really is.
+</p>
+
+<p>
+That often leads to a portfolio chosen for excitement rather than suitability.
+</p>
+
+<p class="impact-line">
+The real mistake is not choosing the ETF with lower upside — it is building a portfolio you are likely to abandon when stress rises and confidence falls.
+</p>
+</section>
+
+<!-- BEHAVIOR -->
+<section class="section-card">
+<div class="eyebrow">Behavior</div>
+<h2>Behavioral reality</h2>
+
+<p>
+Most long-term investors succeed with a structure they can keep holding through boredom, stress, and changing market stories.
+</p>
+
+<p>
+A portfolio that feels trustworthy often beats one that merely looks impressive during the good years.
+</p>
+
+<p>
+That matters even more for income-oriented investors, because many are seeking reassurance, consistency, and a durable process — not just headline return.
+</p>
+
+<p class="impact-line">
+In practice, many investors do not need the most exciting ETF — they need one they can keep believing in.
+</p>
+</section>
+
+<div class="principle">
+<strong>Rational principle:</strong> long-term success depends less on choosing the ETF with the most exciting story — and more on choosing a structure you can keep holding through uncertainty, doubt, and full market cycles.
+</div>
+
+<!-- CTA -->
+<section class="cta-card">
+<h2>Before you choose — see what actually shapes long-term results</h2>
+
+<p class="cta-body">
+Use the ETF Calculator to explore how time horizon, return assumptions, and contribution patterns affect outcomes — especially when the structure itself changes how hard the plan is to hold.
+</p>
+
+<a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
+</section>
+
+<section class="cta-card">
+<h2>Want a plan you can actually keep following?</h2>
+
+<p class="cta-body">
+Use the DCA Calculator to build a disciplined investing system you can stick with over time, especially if your real challenge is not choosing a ticker, but choosing a structure you can keep owning.
+</p>
+
+<a class="cta-link" href="/dca-calculator.html">Open DCA Calculator →</a>
+</section>
+
+<!-- INTERNAL LINKS -->
+<section class="cta-card">
+<h2>Still comparing ETF structures?</h2>
+
+<p class="cta-body">
+Different ETF choices involve different trade-offs in quality, concentration, diversification, and behavior.
+</p>
+
+<div style="margin-top:12px; line-height:1.8;">
+<a class="cta-link" href="/qqq-vs-spy.html">QQQ vs SPY → concentration vs broad market structure</a><br/>
+<a class="cta-link" href="/schd-vs-vym.html">SCHD vs VYM → quality vs broad dividend coverage</a><br/>
+<a class="cta-link" href="/voo-vs-qqqm.html">VOO vs QQQM → concentration & risk</a>
+</div>
+
+<p class="cta-intro" style="margin-top:10px;">
+Or explore the full comparison center to see all ETF decisions.
+</p>
+
+<a class="cta-link" href="/etf-comparisons.html">Explore all comparisons →</a>
+</section>
+
+<div class="back-home">
+<a href="/index.html">← Back to Home</a>
+</div>
+
+</main>
 </body>
 </html>
