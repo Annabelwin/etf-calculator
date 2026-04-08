@@ -1,537 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SPY vs VTI | Which ETF Is Better for Long-Term Investors?</title>
-  <meta name="description" content="Compare SPY vs VTI from a real investor perspective. Learn the difference between the S&P 500 and the total U.S. stock market, and which ETF may fit your long-term strategy better.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      --bg:#f5f7fb;
-      --page:#ffffff;
-      --card:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#eceff3;
-      --link:#4338ca;
-      --shadow:0 20px 60px rgba(15,23,42,0.06);
-      --button-top:#37456a;
-      --button-bottom:#26334f;
-      --button-shadow:0 10px 22px rgba(38,51,79,0.22);
-    }
+<title>SPY vs VTI: which one should you actually choose?</title>
 
-    *{
-      box-sizing:border-box;
-    }
-
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      padding:40px 20px 72px;
-      line-height:1.82;
-    }
-
-    .page-wrap{
-      max-width:700px;
-      margin:0 auto;
-      padding:56px 40px 48px;
-      background:var(--page);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-    }
-
-    .container{
-      max-width:680px;
-      margin:0 auto;
-    }
-
-    .hero{
-      max-width:560px;
-      margin:0 auto 42px;
-    }
-
-    h1{
-      font-size:36px;
-      line-height:1.08;
-      letter-spacing:-0.03em;
-      margin:0 0 16px;
-      color:var(--text);
-    }
-
-    h2{
-      font-size:22px;
-      line-height:1.3;
-      letter-spacing:-0.02em;
-      margin:0 0 14px;
-      color:var(--text);
-    }
-
-    h3{
-      font-size:16px;
-      line-height:1.45;
-      letter-spacing:-0.01em;
-      margin:0 0 10px;
-      color:var(--text);
-    }
-
-    .subtitle{
-      max-width:480px;
-      font-size:18px;
-      line-height:1.95;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .card{
-      width:100%;
-      max-width:620px;
-      margin:28px auto 0;
-      background:rgba(255,255,255,0.96);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:26px 28px;
-      box-shadow:0 10px 28px rgba(15,23,42,0.04);
-    }
-
-    .overview-card{
-      margin-top:0;
-      text-align:center;
-    }
-
-    .overview-card h2{
-      margin-bottom:18px;
-    }
-
-    .overview-table-wrap{
-      max-width:100%;
-      margin:0 auto;
-    }
-
-    .overview-card table{
-      width:100%;
-      border-collapse:collapse;
-      table-layout:fixed;
-      margin-top:0;
-      font-size:15px;
-    }
-
-    .overview-card td{
-      padding:12px 6px;
-      border-bottom:1px solid #eef1f4;
-      vertical-align:middle;
-      color:#374151;
-      text-align:left;
-    }
-
-    .overview-card tr:last-child td{
-      border-bottom:none;
-    }
-
-    .overview-card td:first-child{
-      width:25%;
-      color:var(--muted);
-    }
-
-    .overview-card td:nth-child(2){
-      width:37.5%;
-    }
-
-    .overview-card td:nth-child(3){
-      width:37.5%;
-    }
-
-    .reading-section{
-      max-width:560px;
-      margin:64px auto 0;
-    }
-
-    .reading-section h2{
-      margin-bottom:16px;
-    }
-
-    .reading-section p{
-      max-width:500px;
-      font-size:17px;
-      line-height:1.95;
-      color:#4b5563;
-      margin:0 0 18px;
-    }
-
-    .cta-card{
-      text-align:center;
-      padding:30px 32px;
-      background:#f3f4f6;
-      border:1px solid #eceff3;
-    }
-
-    .cta-card p{
-      max-width:46ch;
-      margin:0 auto 16px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-    }
-
-    .cta-button{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%, var(--button-bottom) 100%);
-      color:#ffffff !important;
-      text-decoration:none;
-      font-weight:600;
-      padding:13px 24px;
-      border-radius:14px;
-      box-shadow:var(--button-shadow);
-    }
-
-    .faq-section{
-      max-width:560px;
-      margin:64px auto 0;
-    }
-
-    .faq-wrap{
-      max-width:500px;
-    }
-
-    .faq-title{
-      margin:0 0 22px;
-    }
-
-    .faq-item{
-      padding:16px 0;
-      border-bottom:1px solid #e7ebf0;
-    }
-
-    .faq-item:last-child{
-      border-bottom:none;
-      padding-bottom:0;
-    }
-
-    .faq-item h3{
-      max-width:500px;
-      margin:0 0 10px;
-    }
-
-    .faq-item p{
-      max-width:500px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-      margin:0;
-    }
-
-    .nav-card{
-      text-align:center;
-      padding:30px 32px;
-    }
-
-    .nav-card h2{
-      margin-bottom:18px;
-    }
-
-    .nav-links{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      align-items:center;
-    }
-
-    .nav-links a{
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-    }
-
-    .community-card{
-      text-align:center;
-      padding:32px 32px;
-    }
-
-    .community-card p{
-      max-width:48ch;
-      margin:0 auto 14px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-    }
-
-    .community-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 22px;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    .community-list li{
-      margin:8px 0;
-    }
-
-    .community-actions{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:4px;
-    }
-
-    .community-button{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%,var(--button-bottom) 100%);
-      color:#fff !important;
-      text-decoration:none;
-      font-weight:600;
-      padding:12px 22px;
-      border-radius:12px;
-      box-shadow:var(--button-shadow);
-    }
-
-    .community-link{
-      display:inline-block;
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-      padding:12px 4px;
-    }
-
-    .community-note{
-      margin-top:12px;
-      font-size:14px;
-      color:#9ca3af;
-    }
-
-    .back-wrap{
-      text-align:left;
-      max-width:560px;
-      margin:30px auto 0;
-    }
-
-    .back{
-      display:inline-block;
-      color:#6366f1;
-      text-decoration:none;
-      font-weight:500;
-    }
-
-    @media (max-width:640px){
-      body{
-        padding:20px 12px 48px;
-      }
-
-      .page-wrap{
-        padding:28px 18px 28px;
-        border-radius:20px;
-      }
-
-      .container,
-      .hero,
-      .reading-section,
-      .faq-section{
-        max-width:100%;
-      }
-
-      h1{
-        font-size:31px;
-      }
-
-      h2{
-        font-size:20px;
-      }
-
-      .subtitle{
-        max-width:100%;
-        font-size:16px;
-        line-height:1.88;
-      }
-
-      .card{
-        max-width:100%;
-        border-radius:18px;
-        padding:22px 18px;
-      }
-
-      .overview-card td{
-        padding:12px 4px;
-        font-size:14px;
-      }
-
-      .reading-section p,
-      .faq-item h3,
-      .faq-item p{
-        max-width:100%;
-      }
-
-      .faq-wrap{
-        max-width:100%;
-      }
-
-      .community-actions{
-        flex-direction:column;
-        align-items:center;
-      }
-
-      .back-wrap{
-        max-width:100%;
-      }
-    }
-  </style>
+<style>
+:root{
+  --text:#181c23;
+  --muted:#667085;
+  --line:#e7e9ee;
+  --line-soft:#eef1f4;
+  --accent:#425b84;
+  --max:760px;
+  --card:600px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter;
+  background:linear-gradient(180deg,#f3f4f7,#eef1f5);
+  color:var(--text);
+}
+.page{
+  width:min(var(--max),calc(100% - 28px));
+  margin:20px auto;
+  background:#fff;
+  border-radius:28px;
+  padding:20px 14px 28px;
+}
+.hero{text-align:center;}
+.hero-inner{max-width:600px;margin:0 auto;}
+h1{font-size:40px;letter-spacing:-0.04em;margin:0 0 8px;line-height:1.12;}
+.hero-sub{font-size:14px;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.7;}
+.hero-note{
+  margin:18px auto 0;
+  max-width:560px;
+  padding:12px 14px;
+  background:#fafbfc;
+  border:1px solid rgba(0,0,0,0.04);
+  border-radius:12px;
+  font-size:13px;
+  line-height:1.6;
+  text-align:left;
+}
+.impact-line{
+  margin-top:10px;
+  font-weight:600;
+  color:#111827;
+}
+.section-card,.cta-card{
+  width:min(var(--card),100%);
+  margin:18px auto 0;
+  padding:20px 18px;
+  border-radius:20px;
+  background:#fff;
+  border:1px solid var(--line-soft);
+}
+.eyebrow{
+  font-size:10px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:#98a2b3;
+}
+h2{font-size:22px;margin:6px 0 14px;}
+.answer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.mini-card{
+  padding:14px;
+  border-radius:14px;
+  background:#fafbfc;
+  border:1px solid var(--line);
+}
+.mini-label{
+  font-size:10px;
+  text-transform:uppercase;
+  color:#98a2b3;
+}
+.default-line{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+}
+.subtle-line{font-size:13px;color:#667085;}
+.table-wrap{
+  border:1px solid var(--line-soft);
+  border-radius:14px;
+  overflow:hidden;
+}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+td,th{padding:12px;border-bottom:1px solid var(--line-soft);}
+th{background:#f7f8fa;}
+.principle{
+  width:min(var(--card),100%);
+  margin:18px auto;
+  padding:16px 18px;
+  border-radius:16px;
+  background:linear-gradient(180deg,#fafbfc,#f7f8fa);
+  border:1px solid var(--line);
+}
+.cta-link{
+  display:inline-block;
+  margin-top:10px;
+  font-weight:600;
+  color:var(--accent);
+}
+.back-home{text-align:center;margin-top:18px;font-size:13px;}
+</style>
 </head>
 
 <body>
-  <div class="page-wrap">
-    <div class="container">
+<main class="page">
 
-      <div class="hero">
-        <h1>SPY vs VTI</h1>
-        <p class="subtitle">
-          SPY and VTI are both widely used U.S. stock market ETFs, but they are built for slightly different purposes. One tracks the S&amp;P 500, while the other covers nearly the entire U.S. stock market.
-        </p>
-      </div>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+<h1>SPY or VTI: which structure should you actually hold?</h1>
 
-      <div class="card overview-card">
-        <h2>ETF Overview</h2>
+<p class="hero-sub">
+This looks like a small difference — but for most investors, it barely matters.
+</p>
 
-        <div class="overview-table-wrap">
-          <table>
-            <tr>
-              <td>Category</td>
-              <td>SPY</td>
-              <td>VTI</td>
-            </tr>
-            <tr>
-              <td>Full Name</td>
-              <td>SPDR S&amp;P 500 ETF Trust</td>
-              <td>Vanguard Total Stock Market ETF</td>
-            </tr>
-            <tr>
-              <td>Provider</td>
-              <td>State Street</td>
-              <td>Vanguard</td>
-            </tr>
-            <tr>
-              <td>Expense Ratio</td>
-              <td>0.09%</td>
-              <td>0.03%</td>
-            </tr>
-            <tr>
-              <td>Tracks</td>
-              <td>S&amp;P 500</td>
-              <td>CRSP US Total Market Index</td>
-            </tr>
-          </table>
-        </div>
-      </div>
+<div class="hero-note">
+SPY tracks the S&P 500. VTI tracks the entire U.S. stock market. Both are low-cost, long-term core holdings.
+<p class="impact-line">
+The real decision is not coverage — it is whether this difference is worth your attention at all.
+</p>
+</div>
+</div>
+</section>
 
-      <section class="reading-section">
-        <h2>What Actually Matters for Long-Term Investors</h2>
+<!-- QUICK -->
+<section class="section-card">
+<div class="eyebrow">Quick Decision</div>
+<h2>SPY vs VTI: quick answer</h2>
 
-        <p>
-          At first glance, SPY and VTI may look similar because both give investors exposure to the U.S. stock market. But the real difference is what part of the market you are buying and how much you pay to own it.
-        </p>
+<div class="answer-grid">
 
-        <p>
-          SPY tracks the S&amp;P 500, which means it holds about 500 of the largest publicly traded companies in the United States. In practice, that gives you exposure to the biggest and most influential firms in the U.S. economy.
-        </p>
+<div class="mini-card">
+<div class="mini-label">Default Choice</div>
+<h3>VTI — broader market</h3>
+<p>Includes small and mid caps, but behaves very similarly to large-cap indexes in practice.</p>
+</div>
 
-        <p>
-          VTI goes further. It holds thousands of U.S. companies, not just the large ones. That means you get large-cap, mid-cap, and small-cap exposure in a single ETF.
-        </p>
+<div class="mini-card">
+<div class="mini-label">Alternative</div>
+<h3>SPY — S&P 500</h3>
+<p>Slightly more liquid and widely used, but economically almost identical exposure.</p>
+</div>
 
-        <p>
-          For many long-term investors, the biggest practical difference is that VTI offers broader diversification and comes with a lower expense ratio. SPY, by contrast, remains more popular among traders because of its deep liquidity and massive trading volume.
-        </p>
-      </section>
+</div>
 
-      <section class="reading-section">
-        <h2>Which One Fits Your Investing Style?</h2>
+<div class="default-line">
+<strong>Default rule:</strong> for long-term investors, the difference is small enough that either choice works — consistency matters more.
+</div>
 
-        <p>
-          If you want a simple buy-and-hold ETF that captures almost the entire U.S. market, VTI will often make more sense. It is low-cost, broad, and easy to hold for decades.
-        </p>
+<p class="subtle-line">
+If you are unsure, choose one and move on — optimizing here rarely improves outcomes.
+</p>
 
-        <p>
-          If you specifically want the S&amp;P 500 and care about trading liquidity, SPY may still be attractive. It remains one of the most heavily traded ETFs in the world.
-        </p>
+<p class="impact-line">
+In practice, spending too much time on this decision is often the bigger mistake.
+</p>
+</section>
 
-        <p>
-          For long-term investors, though, the decision often comes down to this: do you want just the largest companies, or the whole market? If you prefer broader exposure and lower fees, VTI usually has the edge.
-        </p>
-      </section>
+<!-- WHAT MOST PEOPLE MISS -->
+<section class="section-card">
+<div class="eyebrow">What Most People Miss</div>
+<h2>This difference is smaller than it looks</h2>
 
-      <div class="card cta-card">
-        <h2>Try the ETF Calculator</h2>
-        <p>
-          Estimate how long-term ETF investing could grow with regular contributions, compounding, and time.
-        </p>
-        <a class="cta-button" href="/etf-calculator.html">Open ETF Calculator</a>
-      </div>
+<p>
+SPY and VTI are structurally very similar. Large-cap companies dominate both.
+</p>
 
-      <section class="faq-section">
-        <div class="faq-wrap">
-          <h2 class="faq-title">SPY vs VTI FAQ</h2>
+<p>
+VTI includes small-cap stocks, but their impact on long-term returns is limited.
+</p>
 
-          <div class="faq-item">
-            <h3>Is VTI more diversified than SPY?</h3>
-            <p>Yes. VTI holds thousands of U.S. companies, while SPY only holds the 500 companies in the S&amp;P 500.</p>
-          </div>
+<p class="impact-line">
+The real risk is not choosing between them — it is delaying action on something that barely changes outcomes.
+</p>
 
-          <div class="faq-item">
-            <h3>Why do investors compare SPY and VTI?</h3>
-            <p>They compare them because both provide broad U.S. stock exposure, but one focuses on the S&amp;P 500 while the other covers the total market.</p>
-          </div>
+<p class="impact-line">
+In decisions like this, the illusion of importance is often the biggest cost.
+</p>
+</section>
 
-          <div class="faq-item">
-            <h3>Is VTI cheaper than SPY?</h3>
-            <p>Yes. VTI generally has a lower expense ratio, which matters more for long-term investors than for short-term traders.</p>
-          </div>
+<!-- TABLE -->
+<section class="section-card">
+<div class="eyebrow">Key Differences</div>
+<h2>Side-by-side comparison</h2>
 
-          <div class="faq-item">
-            <h3>Which ETF is better for long-term investing?</h3>
-            <p>Many long-term investors prefer VTI because of its broader diversification and lower ongoing cost.</p>
-          </div>
-        </div>
-      </section>
+<div class="table-wrap">
+<table>
+<tr><th>Feature</th><th>SPY</th><th>VTI</th></tr>
 
-      <div class="card nav-card">
-        <h2>Keep Exploring</h2>
-        <div class="nav-links">
-          <a href="/voo-vs-spy.html">VOO vs SPY</a>
-          <a href="/voo-vs-vti.html">VOO vs VTI</a>
-          <a href="/qqq-vs-voo.html">QQQ vs VOO</a>
-          <a href="/voo-vs-vym.html">VOO vs VYM</a>
-          <a href="/spy-vs-vti.html">SPY vs VTI</a>
-          <a href="/etf-comparisons.html">Explore all ETF comparisons →</a>
-        </div>
-      </div>
+<tr><td>Coverage</td><td>S&P 500</td><td>Total U.S. market</td></tr>
+<tr><td>Diversification</td><td>Large-cap focused</td><td>Includes small + mid caps</td></tr>
+<tr><td>Expense ratio</td><td>~0.09%</td><td>~0.03%</td></tr>
+<tr><td>Liquidity</td><td>Extremely high</td><td>High</td></tr>
+<tr><td>Practical difference</td><td>Minimal</td><td>Minimal</td></tr>
 
-      <div class="card community-card">
-        <h2>Help Us Improve the Tools</h2>
+</table>
+</div>
+</section>
 
-        <p>
-          Share ideas, suggest improvements and help us build better ETF tools for long-term investors.
-        </p>
+<!-- PSYCHOLOGY -->
+<section class="section-card">
+<div class="eyebrow">Decision Psychology</div>
+<h2>Why this feels like a bigger decision than it is</h2>
 
-        <ul class="community-list">
-          <li>Discuss ETF investing</li>
-          <li>Suggest new features</li>
-          <li>Report calculation issues</li>
-        </ul>
+<p>
+Investors tend to assume that “more complete” means better.
+</p>
 
-        <div class="community-actions">
-          <a class="community-button" href="mailto:feedback@etfcalculator.net?subject=ETF%20Calculator%20Feedback">Send feedback</a>
-          <a class="community-link" href="YOUR_COMMUNITY_LINK">Join the discussion</a>
-        </div>
+<p>
+That leads to overthinking small structural differences with limited real-world impact.
+</p>
 
-        <div class="community-note">We read every message.</div>
-      </div>
+<p class="impact-line">
+When two options are this close, the illusion of precision becomes stronger than the value of precision.
+</p>
+</section>
 
-      <div class="back-wrap">
-        <a class="back" href="/">← Back to Home</a>
-      </div>
+<!-- PITFALL -->
+<section class="section-card">
+<div class="eyebrow">Common Pitfall</div>
+<h2>Where investors go wrong</h2>
 
-    </div>
-  </div>
+<p>
+Some investors delay investing because they want to choose the “perfect” ETF.
+</p>
+
+<p>
+Others revisit the same decision repeatedly, expecting a meaningful edge from further analysis.
+</p>
+
+<p class="impact-line">
+The real cost is not choosing the wrong ETF — it is losing time, consistency, and compounding.
+</p>
+</section>
+
+<!-- BEHAVIOR -->
+<section class="section-card">
+<div class="eyebrow">Behavior</div>
+<h2>Behavioral reality</h2>
+
+<p>
+Most long-term investors succeed by staying invested, not by optimizing small differences.
+</p>
+
+<p>
+Both SPY and VTI lead to nearly the same destination over time.
+</p>
+
+<p class="impact-line">
+In practice, discipline matters more than micro-selection — and starting matters more than both.
+</p>
+</section>
+
+<div class="principle">
+<strong>Rational principle:</strong> when two options are nearly identical, the better decision is to stop optimizing and start investing.
+</div>
+
+<!-- CTA -->
+<section class="cta-card">
+<h2>Before you decide — focus on what actually moves your outcome</h2>
+<p>
+Use the ETF Calculator to explore how time horizon, contribution size, and consistency impact your long-term results.
+</p>
+<a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
+</section>
+
+<section class="cta-card">
+<h2>Want a plan you can actually follow?</h2>
+<p>
+Use the DCA Calculator to build a repeatable investing system that works regardless of which ETF you choose.
+</p>
+<a class="cta-link" href="/dca-calculator.html">Open DCA Calculator →</a>
+</section>
+
+<!-- INTERNAL -->
+<section class="cta-card">
+<h2>Still comparing similar ETFs?</h2>
+
+<p>
+If this decision feels small, you're right — but other ETF choices may involve bigger trade-offs.
+</p>
+
+<div style="margin-top:12px;line-height:1.8;">
+<a class="cta-link" href="/voo-vs-spy.html">VOO vs SPY → cost & structure</a><br/>
+<a class="cta-link" href="/voo-vs-vti.html">VOO vs VTI → simplicity vs completeness</a><br/>
+<a class="cta-link" href="/vti-vs-qqq.html">VTI vs QQQ → diversification vs concentration</a>
+</div>
+
+<p style="margin-top:10px;">
+Or explore the full comparison center to see all ETF decisions.
+</p>
+
+<a class="cta-link" href="/etf-comparisons.html">Explore all comparisons →</a>
+</section>
+
+<div class="back-home">
+<a href="/index.html">← Back to Home</a>
+</div>
+
+</main>
 </body>
 </html>
