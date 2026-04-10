@@ -1,561 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>IVV vs SPY: Which S&P 500 ETF Is Better?</title>
-<meta name="description" content="Compare IVV vs SPY, two popular S&P 500 ETFs. Learn the key differences in fees, structure, and long-term investing considerations.">
-
-<style>
-:root{
-      --bg:#f5f7fb;
-      --page:#ffffff;
-      --card:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#eceff3;
-      --link:#4338ca;
-      --shadow:0 20px 60px rgba(15,23,42,0.06);
-      --button-top:#37456a;
-      --button-bottom:#26334f;
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      padding:56px 20px 80px;
-      line-height:1.82;
-    }
-
-    .page-wrap{
-      max-width:700px;
-      margin:0 auto;
-      padding:56px 40px 40px;
-      background:var(--page);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-    }
-
-    .container{
-      max-width:680px;
-      margin:0 auto;
-    }
-
-    .hero{
-      max-width:560px;
-      margin:0 auto 42px;
-    }
-
-    h1{
-      font-size:36px;
-      line-height:1.08;
-      letter-spacing:-0.03em;
-      margin:0 0 16px;
-      color:var(--text);
-    }
-
-    h2{
-      font-size:22px;
-      line-height:1.3;
-      letter-spacing:-0.02em;
-      margin:0 0 14px;
-      color:var(--text);
-    }
-
-    h3{
-      font-size:16px;
-      line-height:1.45;
-      letter-spacing:-0.01em;
-      margin:0 0 10px;
-      color:var(--text);
-    }
-
-    .subtitle{
-      max-width:480px;
-      font-size:18px;
-      line-height:1.95;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .card{
-      width:100%;
-      max-width:620px;
-      margin:28px auto 0;
-      background:rgba(255,255,255,0.96);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:26px 28px;
-      box-shadow:0 10px 28px rgba(15,23,42,0.04);
-    }
-
-    .overview-card{
-      margin-top:0;
-      text-align:center;
-    }
-
-    .overview-card h2{
-      margin-bottom:18px;
-    }
-
-    .overview-table-wrap{
-      max-width:100%;
-      margin:0 auto;
-    }
-
-    .overview-card table{
-      width:100%;
-      border-collapse:collapse;
-      table-layout:fixed;
-      margin-top:0;
-      font-size:15px;
-    }
-
-    .overview-card td{
-      padding:12px 6px;
-      border-bottom:1px solid #eef1f4;
-      vertical-align:middle;
-      color:#374151;
-      text-align:left;
-    }
-
-    .overview-card tr:last-child td{
-      border-bottom:none;
-    }
-
-    .overview-card td:first-child{
-      width:25%;
-      color:var(--muted);
-    }
-
-    .overview-card td:nth-child(2){
-      width:37.5%;
-    }
-
-    .overview-card td:nth-child(3){
-      width:37.5%;
-    }
-
-    .reading-section{
-      max-width:560px;
-      margin:64px auto 0;
-    }
-
-    .reading-section h2{
-      margin-bottom:16px;
-    }
-
-    .reading-section p{
-      max-width:500px;
-      font-size:17px;
-      line-height:1.95;
-      color:#4b5563;
-      margin:0 0 18px;
-    }
-
-    .cta-card{
-  text-align:center;
-  padding:30px 32px;
-  background:#f3f4f6;
-  border:1px solid #eceff3;
-}
-
-    .cta-card p{
-      max-width:46ch;
-      margin:0 auto 16px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-    }
-
-    .cta-button{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%, var(--button-bottom) 100%);
-      color:#ffffff !important;
-      text-decoration:none;
-      font-weight:600;
-      padding:13px 24px;
-      border-radius:14px;
-      box-shadow:0 10px 22px rgba(38,51,79,0.22);
-    }
-
-    .faq-section{
-      max-width:560px;
-      margin:64px auto 0;
-    }
-
-    .faq-wrap{
-      max-width:500px;
-    }
-
-    .faq-title{
-      margin:0 0 22px;
-    }
-
-    .faq-item{
-      padding:16px 0;
-      border-bottom:1px solid #e7ebf0;
-    }
-
-    .faq-item:last-child{
-      border-bottom:none;
-      padding-bottom:0;
-    }
-
-    .faq-item h3{
-      max-width:500px;
-      margin:0 0 10px;
-    }
-
-    .faq-item p{
-      max-width:500px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-      margin:0;
-    }
-
-    .nav-card{
-      text-align:center;
-      padding:30px 32px;
-    }
-
-    .nav-card h2{
-      margin-bottom:18px;
-    }
-
-    .nav-links{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      align-items:center;
-    }
-
-    .nav-links a{
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-    }
-
-    .community-card{
-      text-align:center;
-      padding:32px 32px;
-    }
-
-    .community-card p{
-      max-width:48ch;
-      margin:0 auto 14px;
-      font-size:16px;
-      line-height:1.9;
-      color:#4b5563;
-    }
-
-    .community-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 22px;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    .community-list li{
-      margin:8px 0;
-    }
-
-    .community-actions{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:4px;
-    }
-
-    .community-button{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--button-top) 0%,var(--button-bottom) 100%);
-      color:#fff !important;
-      text-decoration:none;
-      font-weight:600;
-      padding:12px 22px;
-      border-radius:12px;
-      box-shadow:0 10px 22px rgba(38,51,79,0.22);
-    }
-
-    .community-link{
-      display:inline-block;
-      color:var(--link);
-      text-decoration:none;
-      font-weight:500;
-      padding:12px 4px;
-    }
-
-    .community-note{
-      margin-top:12px;
-      font-size:14px;
-      color:#9ca3af;
-    }
-
-    .back-wrap{
-      text-align:left;
-      max-width:560px;
-      margin:30px auto 0;
-    }
-
-    .back{
-      display:inline-block;
-      color:#6366f1;
-      text-decoration:none;
-      font-weight:500;
-    }
-
-    @media (max-width:640px){
-      body{
-        padding:20px 12px 48px;
-      }
-
-      .page-wrap{
-        padding:28px 18px 28px;
-        border-radius:20px;
-      }
-
-      .container,
-      .hero,
-      .reading-section,
-      .faq-section{
-        max-width:100%;
-      }
-
-      h1{
-        font-size:31px;
-      }
-
-      h2{
-        font-size:20px;
-      }
-
-      .subtitle{
-        max-width:100%;
-        font-size:16px;
-        line-height:1.88;
-      }
-
-      .card{
-        max-width:100%;
-        border-radius:18px;
-        padding:22px 18px;
-      }
-
-      .overview-card td{
-        padding:12px 4px;
-        font-size:14px;
-      }
-
-      .reading-section p,
-      .faq-item h3,
-      .faq-item p{
-        max-width:100%;
-      }
-
-      .faq-wrap{
-        max-width:100%;
-      }
-
-      .community-actions{
-        flex-direction:column;
-        align-items:center;
-      }
-
-      .back-wrap{
-        max-width:100%;
-      }
-    }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IVV vs SPY: which one should you actually choose?</title>
+  <meta name="description" content="IVV vs SPY is not really a performance decision. Learn the real difference between two nearly identical S&P 500 ETFs and what actually matters more for long-term investors.">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<div class="page-wrap">
-<div class="container">
+  <main class="page">
 
-<div class="hero">
-<h1>IVV vs SPY</h1>
-<p class="subtitle">
-IVV and SPY both track the S&amp;P 500, but they differ in structure, fees, and how investors typically use them.
-</p>
-</div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>IVV or SPY: which one should you actually choose?</h1>
 
-<div class="card overview-card">
-<h2>ETF Overview</h2>
+        <p class="hero-sub">
+          This looks like an important choice — but for most long-term investors, it usually isn’t.
+        </p>
 
-<div class="overview-table-wrap">
-<table>
-<tr>
-<td>Category</td>
-<td>IVV</td>
-<td>SPY</td>
-</tr>
+        <div class="hero-note">
+          <p>
+            IVV and SPY both track the S&amp;P 500. Both are large, liquid, low-cost ways to own the core of the U.S. stock market.
+          </p>
 
-<tr>
-<td>Full Name</td>
-<td>iShares Core S&amp;P 500 ETF</td>
-<td>SPDR S&amp;P 500 ETF Trust</td>
-</tr>
+          <p style="margin-top:8px;">
+            The real decision is not IVV vs SPY — it is whether this tiny difference deserves real decision time at all.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<tr>
-<td>Provider</td>
-<td>BlackRock</td>
-<td>State Street</td>
-</tr>
+    <!-- QUICK DECISION -->
+    <section class="section-card">
+      <div class="eyebrow">Quick Decision</div>
+      <h2>IVV vs SPY: quick answer</h2>
 
-<tr>
-<td>Expense Ratio</td>
-<td>0.03%</td>
-<td>0.09%</td>
-</tr>
+      <div class="answer-grid">
+        <div class="mini-card">
+          <div class="mini-label">Either Choice</div>
+          <h3>IVV — completely fine</h3>
+          <p>
+            Low-cost, broad S&amp;P 500 exposure, and fully suitable as a long-term core holding for most investors.
+          </p>
+        </div>
 
-<tr>
-<td>Tracks</td>
-<td>S&amp;P 500</td>
-<td>S&amp;P 500</td>
-</tr>
-</table>
-</div>
-</div>
+        <div class="mini-card">
+          <div class="mini-label">Either Choice</div>
+          <h3>SPY — also completely fine</h3>
+          <p>
+            Nearly identical market exposure and equally capable of serving as a long-term S&amp;P 500 core.
+          </p>
+        </div>
+      </div>
 
-<div class="card">
-<p>
-When comparing IVV vs SPY, investors are looking at two ETFs that track the same index but differ in cost, structure, and typical use cases.
-</p>
-</div>
+      <p class="default-line">
+        <strong>Default rule:</strong> if you are choosing between IVV and SPY for long-term investing, either is already good enough.
+      </p>
 
-<div class="card quick-answer">
-<h2>Quick Answer</h2>
+      <p class="subtle-line">
+        If you are stuck here, the bigger issue is usually not ETF quality — it is over-optimization.
+      </p>
 
-<p><strong>Choose IVV if:</strong></p>
-<ul>
-<li>You want lower fees for long-term investing</li>
-<li>You are building a buy-and-hold portfolio</li>
-<li>You prefer a simple, cost-efficient core ETF</li>
-</ul>
+      <p class="impact-line">
+        In practice, this is often not an ETF decision — it is an execution decision.
+      </p>
 
-<p><strong>Choose SPY if:</strong></p>
-<ul>
-<li>You care about liquidity and tight bid-ask spreads</li>
-<li>You trade more actively</li>
-<li>You want one of the most heavily traded ETFs in the world</li>
-</ul>
+      <p class="impact-line">
+        The bigger mistake is rarely choosing IVV instead of SPY — it is delaying action over a difference that barely changes long-term outcomes.
+      </p>
+    </section>
 
-<p>
-You may also compare <a href="/voo-vs-spy.html">VOO vs SPY</a> if you're deciding between the most popular S&amp;P 500 ETFs.
-</p>
-</div>
+    <!-- WHAT MOST PEOPLE MISS -->
+    <section class="section-card">
+      <div class="eyebrow">What Most People Miss</div>
+      <h2>This is usually a non-decision</h2>
 
-<section class="reading-section">
-<h2>What Actually Matters for Long-Term Investors</h2>
+      <p>
+        Many investors compare IVV and SPY as if one must be meaningfully better.
+      </p>
 
-<p>
-When people compare IVV vs SPY, the key point is that both ETFs track the exact same index: the S&amp;P 500.
-</p>
+      <p>
+        But structurally, they are extremely close. They track the same index, serve the same purpose, and tend to lead to nearly the same place over long periods.
+      </p>
 
-<p>
-IVV has a lower expense ratio, which can make a meaningful difference over long periods, especially for investors who consistently invest and hold.
-</p>
+      <p>
+        This means the practical difference is often much smaller than the mental energy investors spend on it.
+      </p>
 
-<p>
-SPY, on the other hand, is one of the most actively traded ETFs in the world. Its high liquidity makes it especially useful for traders and institutions.
-</p>
+      <p class="impact-line">
+        In decisions like this, the illusion of importance is often the biggest cost.
+      </p>
 
-<p>
-So while performance is nearly identical before fees, the real difference comes down to cost efficiency versus trading flexibility.
-</p>
-</section>
+      <p class="impact-line">
+        The real risk is not choosing the weaker ETF — it is turning a low-stakes choice into an excuse for delay.
+      </p>
+    </section>
 
-<section class="reading-section">
-<h2>Which One Fits Your Investing Style?</h2>
+    <!-- TABLE -->
+    <section class="section-card">
+      <div class="eyebrow">Key Differences</div>
+      <h2>Side-by-side comparison</h2>
 
-<p>
-If your goal is long-term investing with minimal costs, IVV is often the more efficient choice.
-</p>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>IVV</th>
+            <th>SPY</th>
+          </tr>
+          <tr>
+            <td>Index tracked</td>
+            <td>S&amp;P 500</td>
+            <td>S&amp;P 500</td>
+          </tr>
+          <tr>
+            <td>Exposure</td>
+            <td>Broad U.S. large-cap market</td>
+            <td>Broad U.S. large-cap market</td>
+          </tr>
+          <tr>
+            <td>Diversification</td>
+            <td>Very high</td>
+            <td>Very high</td>
+          </tr>
+          <tr>
+            <td>Behavioral simplicity</td>
+            <td>Very high</td>
+            <td>Very high</td>
+          </tr>
+          <tr>
+            <td>Typical role</td>
+            <td><strong>S&amp;P 500 core</strong></td>
+            <td><strong>S&amp;P 500 core</strong></td>
+          </tr>
+          <tr>
+            <td>Main implication</td>
+            <td>Usually fine</td>
+            <td>Usually fine</td>
+          </tr>
+        </table>
+      </div>
+    </section>
 
-<p>
-If you are more active in the market and care about execution, liquidity, and trading volume, SPY may be more suitable.
-</p>
+    <!-- DECISION PSYCHOLOGY -->
+    <section class="section-card">
+      <div class="eyebrow">Decision Psychology</div>
+      <h2>Why this feels bigger than it is</h2>
 
-<p>
-In practice, long-term investors often lean toward IVV, while traders and institutions tend to prefer SPY.
-</p>
+      <p>
+        Investors often assume that every ETF comparison must hide an important edge.
+      </p>
 
-<p>
-In short, IVV vs SPY is less about which ETF is better and more about how you plan to use it.
-</p>
+      <p>
+        That makes tiny differences feel more meaningful than they really are.
+      </p>
 
-<p><strong>In short:</strong> IVV offers lower costs for long-term investors, while SPY provides unmatched liquidity for active trading.</p>
-</section>
+      <p>
+        But when two structures are this close, the feeling of precision can become much stronger than the value of precision.
+      </p>
 
-<div class="card cta-card">
-<h2>Compare Your IVV vs SPY Returns</h2>
-<p>
-Compare how long-term investing could grow with regular contributions, compounding, and time.
-</p>
-<a class="cta-button" href="/etf-calculator.html">Compare Returns Now</a>
-</div>
+      <p class="impact-line">
+        What feels like careful optimization is often just attention being spent in the wrong place.
+      </p>
+    </section>
 
-<section class="faq-section">
-<div class="faq-wrap">
-<h2 class="faq-title">IVV vs SPY FAQ</h2>
+    <!-- COMMON PITFALL -->
+    <section class="section-card">
+      <div class="eyebrow">Common Pitfall</div>
+      <h2>Where investors go wrong</h2>
 
-<div class="faq-item">
-<h3>IVV vs SPY: which ETF is better?</h3>
-<p>
-Neither is universally better. IVV is typically better for long-term investors due to lower fees, while SPY is preferred by traders because of its high liquidity.
-</p>
-</div>
+      <p>
+        Some investors delay starting because they want to identify the one “best” S&amp;P 500 ETF first.
+      </p>
 
-<div class="faq-item">
-<h3>Do IVV and SPY have the same holdings?</h3>
-<p>
-Yes. Both track the S&amp;P 500, so their holdings are nearly identical.
-</p>
-</div>
+      <p>
+        Others keep revisiting the same comparison, expecting one more round of analysis to unlock a better answer.
+      </p>
 
-<div class="faq-item">
-<h3>Why is SPY more popular than IVV?</h3>
-<p>
-SPY was the first ETF listed in the U.S. and remains one of the most heavily traded, making it extremely liquid.
-</p>
-</div>
+      <p>
+        That often turns a tiny structural difference into a much bigger behavioral problem.
+      </p>
 
-<div class="faq-item">
-<h3>Is IVV cheaper than SPY?</h3>
-<p>
-Yes. IVV has a lower expense ratio, which can reduce long-term costs for investors.
-</p>
-</div>
+      <p class="impact-line">
+        The real mistake is not choosing the wrong ETF — it is losing time, consistency, and compounding while trying to perfect a low-stakes decision.
+      </p>
 
-</div>
-</section>
+      <p class="impact-line">
+        In decisions like this, over-optimization can quietly become procrastination.
+      </p>
+    </section>
 
-<div class="card nav-card">
-<h2>Related ETF Comparisons</h2>
-<div class="nav-links">
-<a href="/voo-vs-ivv.html">VOO vs IVV</a>
-<a href="/voo-vs-spy.html">VOO vs SPY</a>
-<a href="/spy-vs-vti.html">SPY vs VTI</a>
-<a href="/etf-comparisons.html">Explore all ETF comparisons →</a>
-</div>
-</div>
+    <!-- BEHAVIOR -->
+    <section class="section-card">
+      <div class="eyebrow">Behavior</div>
+      <h2>Behavioral reality</h2>
 
-<div class="back-wrap">
-<a class="back" href="/">← Back to Home</a>
-</div>
+      <p>
+        Most long-term investors do not fail because they chose IVV instead of SPY, or SPY instead of IVV.
+      </p>
 
-</div>
-</div>
+      <p>
+        They struggle because they hesitate, second-guess, or keep searching for a perfect answer instead of committing to a sound plan.
+      </p>
+
+      <p>
+        Once the structure is already strong, execution matters more than micro-selection.
+      </p>
+
+      <p class="impact-line">
+        In practice, both ETFs can work well — but only if the investor stops optimizing and stays invested.
+      </p>
+
+      <p class="impact-line">
+        And when the difference is this small, discipline matters more than selection.
+      </p>
+    </section>
+
+    <!-- PRINCIPLE -->
+    <div class="principle">
+      <strong>Rational principle:</strong> when two structures are nearly identical, the better decision is usually not to search for perfection — it is to choose one, keep contributing, and let compounding do the real work.
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-card">
+      <h2>Before you choose — see what actually drives results</h2>
+      <p class="cta-body">
+        Use the ETF Calculator to explore how time horizon, contribution size, and return assumptions shape outcomes — because those usually matter far more than the small gap between IVV and SPY.
+      </p>
+      <a class="cta-link" href="/etf-calculator.html">Open ETF Calculator →</a>
+    </section>
+
+    <section class="cta-card">
+      <h2>Want a plan you can actually keep following?</h2>
+      <p class="cta-body">
+        Use the DCA Calculator to build a disciplined investing system over time, instead of getting stuck on low-stakes ETF perfection.
+      </p>
+      <a class="cta-link" href="/dca-calculator.html">Open DCA Calculator →</a>
+    </section>
+
+    <!-- INTERNAL LINKS -->
+    <section class="cta-card">
+      <h2>Still comparing ETF structures?</h2>
+      <p class="cta-body">
+        Some ETF choices involve real structural trade-offs. Others are much closer than they first appear.
+      </p>
+
+      <div style="margin-top:12px; line-height:1.8;">
+        <a class="cta-link" href="/voo-vs-ivv.html">VOO vs IVV → near-identical S&amp;P 500 choice</a><br>
+        <a class="cta-link" href="/voo-vs-spy.html">VOO vs SPY → cost &amp; structure</a><br>
+        <a class="cta-link" href="/spy-vs-vti.html">SPY vs VTI → total market vs S&amp;P 500</a>
+      </div>
+
+      <p class="cta-intro" style="margin-top:10px;">
+        Or explore the full comparison center to see all ETF decisions.
+      </p>
+
+      <a class="cta-link" href="/etf-comparisons.html">Explore all comparisons →</a>
+    </section>
+
+    <div class="back-home">
+      <a href="/index.html">← Back to Home</a>
+    </div>
+
+  </main>
 </body>
 </html>
