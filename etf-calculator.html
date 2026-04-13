@@ -27,7 +27,9 @@
       --shadow:0 20px 50px rgba(15,23,42,0.08);
     }
 
-    *{ box-sizing:border-box; }
+    *{
+      box-sizing:border-box;
+    }
 
     body{
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
@@ -212,6 +214,7 @@
       text-transform:uppercase;
       letter-spacing:0.08em;
       color:#8b93a1;
+      margin-bottom:8px;
     }
 
     .decision-title{
@@ -219,7 +222,7 @@
       line-height:1.18;
       letter-spacing:-0.02em;
       font-weight:700;
-      margin:8px 0 8px;
+      margin:0 0 8px;
       color:#111827;
     }
 
@@ -600,11 +603,12 @@
         </div>
       </div>
 
-     <div class="eyebrow">Quick Answer</div>
-<div class="decision-title" id="decisionTitle">A practical long-term ETF plan</div>
-<div class="decision-sub" id="decisionSub">
-  This plan is structurally sound — the main driver is consistency and time, not perfect timing.
-</div>
+      <div class="decision-panel">
+        <div class="eyebrow">Quick Answer</div>
+        <div class="decision-title" id="decisionTitle">A practical long-term ETF plan</div>
+        <div class="decision-sub" id="decisionSub">
+          This plan is structurally sound — the main driver is consistency and time, not perfect timing.
+        </div>
 
         <div class="decision-summary" id="planVerdict">
           <strong>Decision confirmation:</strong> This plan is practical and repeatable for a long-term investor.
@@ -658,138 +662,138 @@
       </div>
 
       <div class="section-card chart-wrap">
-  <div class="eyebrow">Projection</div>
-  <div class="chart-title">ETF Growth Over Time</div>
-  <div class="chart-sub">
-    A visual view of how your ETF portfolio value may grow over time compared with your total contributions.
-  </div>
-  <canvas id="growthChart" height="220"></canvas>
-  <div class="decision-line" id="decisionLine">
-    At this pace, time and compounding are becoming major drivers of your future ETF outcome.
-  </div>
-</div>
+        <div class="eyebrow">Projection</div>
+        <div class="chart-title">ETF Growth Over Time</div>
+        <div class="chart-sub">
+          A visual view of how your ETF portfolio value may grow over time compared with your total contributions.
+        </div>
+        <canvas id="growthChart" height="220"></canvas>
+        <div class="decision-line" id="decisionLine">
+          At this pace, time and compounding are becoming major drivers of your future ETF outcome.
+        </div>
+      </div>
 
-<div class="section-card text-card">
-  <div class="eyebrow">Risk Reality</div>
-  <h2>Losses are normal, not a sign that the plan failed</h2>
-  <p>
-    Even a strong long-term ETF plan will go through painful periods. A 20% decline is normal at some point. Larger drawdowns can also happen. Volatility does not mean the strategy is broken.
-  </p>
-  <div class="callout" id="riskRealityText">
-    If a normal decline would make you panic and sell, the risk is not only market volatility — it is building a plan you cannot emotionally hold.
-  </div>
-</div>
+      <div class="section-card text-card">
+        <div class="eyebrow">Risk Reality</div>
+        <h2>Losses are normal, not a sign that the plan failed</h2>
+        <p>
+          Even a strong long-term ETF plan will go through painful periods. A 20% decline is normal at some point. Larger drawdowns can also happen. Volatility does not mean the strategy is broken.
+        </p>
+        <div class="callout" id="riskRealityText">
+          If a normal decline would make you panic and sell, the risk is not only market volatility — it is building a plan you cannot emotionally hold.
+        </div>
+      </div>
 
-<div class="section-card text-card">
-  <div class="eyebrow">Fee Impact</div>
-  <h2>The hidden cost of fees</h2>
+      <div class="section-card text-card">
+        <div class="eyebrow">Fee Impact</div>
+        <h2>The hidden cost of fees</h2>
 
-  <div class="feature-grid">
-    <div class="feature-box">
-      <div class="feature-label">Gross Return</div>
-      <div class="feature-value" id="grossReturnBox">8.0%</div>
-      <div class="feature-desc">This is the return assumption before ETF fees are subtracted.</div>
-    </div>
+        <div class="feature-grid">
+          <div class="feature-box">
+            <div class="feature-label">Gross Return</div>
+            <div class="feature-value" id="grossReturnBox">8.0%</div>
+            <div class="feature-desc">This is the return assumption before ETF fees are subtracted.</div>
+          </div>
 
-    <div class="feature-box">
-      <div class="feature-label">Expense Ratio</div>
-      <div class="feature-value" id="feeBox">0.03%</div>
-      <div class="feature-desc">Even small annual fee differences reduce how much of your return stays invested.</div>
-    </div>
+          <div class="feature-box">
+            <div class="feature-label">Expense Ratio</div>
+            <div class="feature-value" id="feeBox">0.03%</div>
+            <div class="feature-desc">Even small annual fee differences reduce how much of your return stays invested.</div>
+          </div>
 
-    <div class="feature-box">
-      <div class="feature-label">Net Return</div>
-      <div class="feature-value" id="netReturnBox">7.97%</div>
-      <div class="feature-desc">This is what your plan compounds at after the ETF fee is removed.</div>
-    </div>
-  </div>
+          <div class="feature-box">
+            <div class="feature-label">Net Return</div>
+            <div class="feature-value" id="netReturnBox">7.97%</div>
+            <div class="feature-desc">This is what your plan compounds at after the ETF fee is removed.</div>
+          </div>
+        </div>
 
-  <div class="callout" id="feeImpactText">
-    A low fee may look small in one year, but over long periods it affects how much of your result remains invested and compounding for you.
-  </div>
-</div>
+        <div class="callout" id="feeImpactText">
+          A low fee may look small in one year, but over long periods it affects how much of your result remains invested and compounding for you.
+        </div>
+      </div>
 
-<div class="section-card text-card">
-  <div class="eyebrow">Timing Anxiety</div>
-  <h2>You do not need a perfect entry point</h2>
-  <p>
-    Many investors delay action because they are waiting for a better moment to buy. In real life, a practical long-term ETF plan usually wins by being started and followed, not by being perfectly timed.
-  </p>
-  <div class="callout">
-    If the plan makes sense, the bigger risk is often waiting too long for certainty that never comes.
-  </div>
-</div>
+      <div class="section-card text-card">
+        <div class="eyebrow">Timing Anxiety</div>
+        <h2>You do not need a perfect entry point</h2>
+        <p>
+          Many investors delay action because they are waiting for a better moment to buy. In real life, a practical long-term ETF plan usually wins by being started and followed, not by being perfectly timed.
+        </p>
+        <div class="callout">
+          If the plan makes sense, the bigger risk is often waiting too long for certainty that never comes.
+        </div>
+      </div>
 
-<div class="section-card text-card">
-  <div class="eyebrow">Behavior Guard</div>
-  <h2>What may make you fail later</h2>
-  <ul class="suggestion-list" id="behaviorList">
-    <li>Panic selling during market declines.</li>
-    <li>Changing plans too often after short-term noise.</li>
-    <li>Expecting one ETF to remove uncertainty or emotional discomfort.</li>
-  </ul>
-</div>
+      <div class="section-card text-card">
+        <div class="eyebrow">Behavior Guard</div>
+        <h2>What may make you fail later</h2>
+        <ul class="suggestion-list" id="behaviorList">
+          <li>Panic selling during market declines.</li>
+          <li>Changing plans too often after short-term noise.</li>
+          <li>Expecting one ETF to remove uncertainty or emotional discomfort.</li>
+        </ul>
+      </div>
 
-<div class="section-card text-card">
-  <div class="eyebrow">Decision Explanation</div>
-  <h2>Why this plan is worth following</h2>
-  <p>
-    A rational ETF strategy is usually not about guessing the perfect market entry. It is about building a practical long-term process around a fund structure you understand, with costs you can accept and contributions you can keep making.
-  </p>
-  <p style="margin-top:12px;">
-    The plan works when four things align: low enough cost, long enough horizon, realistic assumptions, and behavior strong enough to stay invested when markets become uncomfortable.
-  </p>
-</div>
+      <div class="section-card text-card">
+        <div class="eyebrow">Decision Explanation</div>
+        <h2>Why this plan is worth following</h2>
+        <p>
+          A rational ETF strategy is usually not about guessing the perfect market entry. It is about building a practical long-term process around a fund structure you understand, with costs you can accept and contributions you can keep making.
+        </p>
+        <p style="margin-top:12px;">
+          The plan works when four things align: low enough cost, long enough horizon, realistic assumptions, and behavior strong enough to stay invested when markets become uncomfortable.
+        </p>
+      </div>
 
-<div class="section-card text-card">
-  <div class="eyebrow">Next Step</div>
-  <h2>What should you do next?</h2>
-  <p>
-    You do not need more analysis. You need a path you can follow. If this ETF plan looks reasonable, your next decision is whether to simplify into a default ETF path or focus more directly on building a repeatable investing habit.
-  </p>
+      <div class="section-card text-card">
+        <div class="eyebrow">Next Step</div>
+        <h2>What should you do next?</h2>
+        <p>
+          You do not need more analysis. You need a path you can follow. If this ETF plan looks reasonable, your next decision is whether to simplify into a default ETF path or focus more directly on building a repeatable investing habit.
+        </p>
 
-  <div class="next-step-grid">
-    <div class="next-step-card">
-      <h3>Keep it simple with VOO</h3>
-      <p>
-        If you want a cleaner default path built around low-cost U.S. large-cap exposure, continue with the VOO Calculator.
-      </p>
-      <a href="/voo-calculator.html">Open VOO Calculator →</a>
-    </div>
+        <div class="next-step-grid">
+          <div class="next-step-card">
+            <h3>Keep it simple with VOO</h3>
+            <p>
+              If you want a cleaner default path built around low-cost U.S. large-cap exposure, continue with the VOO Calculator.
+            </p>
+            <a href="/voo-calculator.html">Open VOO Calculator →</a>
+          </div>
 
-    <div class="next-step-card">
-      <h3>Build a repeatable DCA habit</h3>
-      <p>
-        If your bigger question is how to keep investing consistently over time, continue with the DCA Calculator.
-      </p>
-      <a href="/dca-calculator.html">Open DCA Calculator →</a>
-    </div>
-  </div>
-</div>
+          <div class="next-step-card">
+            <h3>Build a repeatable DCA habit</h3>
+            <p>
+              If your bigger question is how to keep investing consistently over time, continue with the DCA Calculator.
+            </p>
+            <a href="/dca-calculator.html">Open DCA Calculator →</a>
+          </div>
+        </div>
+      </div>
 
-<div class="section-card faq">
-  <h2>ETF Calculator FAQ</h2>
+      <div class="section-card faq">
+        <h2>ETF Calculator FAQ</h2>
 
-  <div class="faq-item">
-    <h3>What is an ETF expense ratio?</h3>
-    <p>The expense ratio is the annual fee charged by the ETF. Even small fees can reduce long-term returns because they compound against you over time.</p>
-  </div>
+        <div class="faq-item">
+          <h3>What is an ETF expense ratio?</h3>
+          <p>The expense ratio is the annual fee charged by the ETF. Even small fees can reduce long-term returns because they compound against you over time.</p>
+        </div>
 
-  <div class="faq-item">
-    <h3>Can I use this for index funds?</h3>
-    <p>Yes. Many investors use this calculator for broad market ETFs and index-based investing strategies, especially when comparing low-cost long-term options.</p>
-  </div>
+        <div class="faq-item">
+          <h3>Can I use this for index funds?</h3>
+          <p>Yes. Many investors use this calculator for broad market ETFs and index-based investing strategies, especially when comparing low-cost long-term options.</p>
+        </div>
 
-  <div class="faq-item">
-    <h3>Why include ETF fees?</h3>
-    <p>Because fees are one of the few investing variables you can actually control. Lower fees can lead to meaningfully higher ending wealth over long periods.</p>
-  </div>
+        <div class="faq-item">
+          <h3>Why include ETF fees?</h3>
+          <p>Because fees are one of the few investing variables you can actually control. Lower fees can lead to meaningfully higher ending wealth over long periods.</p>
+        </div>
 
-  <div class="faq-item">
-    <h3>How is this different from the VOO Calculator?</h3>
-    <p>This page is broader and designed for modeling general ETF investing plans. The VOO Calculator is more specific and focused on VOO as a default long-term ETF path.</p>
-  </div>
-</div>
+        <div class="faq-item">
+          <h3>How is this different from the VOO Calculator?</h3>
+          <p>This page is broader and designed for modeling general ETF investing plans. The VOO Calculator is more specific and focused on VOO as a default long-term ETF path.</p>
+        </div>
+      </div>
 
       <div class="footer">
         <a href="https://etfcalculator.net">← Back to Home</a>
@@ -871,13 +875,13 @@
       if(years >= 10){
         return {
           title: "Behavioral Risk",
-          desc: "The main risk is usually not the ETF fee itself. It is abandoning the plan during uncomfortable market periods."
+          desc: "The biggest risk is usually not the ETF fee itself. It is abandoning the plan during uncomfortable market periods."
         };
       }
       return {
         title: "Short Horizon",
         desc: "With fewer years ahead, there is less time for compounding to work through volatility and mistakes."
-      };
+        };
     }
 
     function buildPlanVerdict(years, ratePercent, feePercent){
@@ -912,26 +916,23 @@
       return "Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
     }
 
-   function buildDecisionTitle(years, ratePercent, feePercent){
-  if(feePercent > 0.40){
-    return "A workable ETF plan — but the fee level is too high";
-  }
-  if(ratePercent >= 11){
-    return "A workable ETF plan — but your assumptions may be too optimistic";
-  }
-  if(years >= 15){
-    return "A practical long-term ETF plan";
-  }
-  if(years >= 8){
-    return "A solid ETF plan built around patience";
-  }
-  return "A simple ETF plan that depends on discipline";
-}
+    function buildDecisionTitle(years, ratePercent, feePercent){
+      if(feePercent > 0.40){
+        return "A workable ETF plan — but the fee level is too high";
+      }
+      if(ratePercent >= 11){
+        return "A workable ETF plan — but your assumptions may be too optimistic";
+      }
+      if(years >= 15){
+        return "A practical long-term ETF plan";
+      }
+      if(years >= 8){
+        return "A solid ETF plan built around patience";
+      }
+      return "A simple ETF plan that depends on discipline";
+    }
 
     function buildDecisionSub(years, growthShare){
-      if(years >= 15 && growthShare >= 40){
-        return "This plan is structurally sound — the main driver is consistency and time, not perfect timing.";
-      }
       if(years < 8){
         return "This plan can still work, but at this stage discipline matters more than mature long-term compounding.";
       }
