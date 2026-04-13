@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DCA Calculator | Model a Long-Term Dollar-Cost Averaging Plan</title>
-  <meta name="description" content="Free DCA calculator to model a long-term dollar-cost averaging plan with monthly contributions, ETF fees, scenario ranges, and practical investment decision guidance.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DCA Calculator | Build a Repeatable Long-Term Investing Habit</title>
+  <meta name="description" content="Free DCA calculator to estimate long-term dollar-cost averaging growth with monthly contributions, ETF fees, behavior guidance, and practical decision support." />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJLXTFDGCE"></script>
@@ -23,7 +23,6 @@
       --text:#1d1d1f;
       --line:#e5e7eb;
       --accent:#2f3b52;
-      --accent-soft:#e9eef6;
       --link:#4f46e5;
       --shadow:0 20px 50px rgba(15,23,42,0.08);
     }
@@ -68,14 +67,14 @@
     }
 
     .sub{
-      max-width:580px;
+      max-width:600px;
       margin:0 auto 18px;
       color:var(--muted);
       font-size:17px;
     }
 
     .info{
-      max-width:580px;
+      max-width:600px;
       margin:0 auto;
       background:linear-gradient(180deg,#f8fafc 0%, #f2f4f7 100%);
       border:1px solid #eceff3;
@@ -172,7 +171,7 @@
       max-width:580px;
       margin:0 auto 18px;
       display:grid;
-      grid-template-columns:repeat(2,1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:14px;
     }
 
@@ -210,16 +209,20 @@
       box-shadow:0 8px 20px rgba(15,23,42,0.03);
     }
 
-    .decision-panel .eyebrow{
+    .eyebrow{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      color:#8b93a1;
       margin-bottom:8px;
     }
 
     .decision-title{
       font-size:28px;
-      line-height:1.2;
+      line-height:1.18;
       letter-spacing:-0.02em;
       font-weight:700;
-      margin-bottom:8px;
+      margin:0 0 8px;
       color:#111827;
     }
 
@@ -229,10 +232,23 @@
       margin-bottom:18px;
     }
 
+    .decision-summary{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
+      border:1px solid #edf0f3;
+      color:#111827;
+      font-size:15px;
+      font-weight:600;
+      line-height:1.7;
+    }
+
     .decision-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:14px;
+      margin-top:16px;
     }
 
     .decision-box{
@@ -265,16 +281,17 @@
       line-height:1.55;
     }
 
-    .decision-summary{
-      margin-top:14px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
+    .decision-final{
+      margin-top:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:linear-gradient(180deg,#f9fafb 0%, #f3f4f6 100%);
+      border:1px solid #eceff3;
       font-size:15px;
-      font-weight:600;
-      line-height:1.7;
+      color:#111827;
+      font-weight:500;
+      line-height:1.65;
+      text-align:center;
     }
 
     .section-card{
@@ -289,13 +306,6 @@
 
     .chart-wrap{
       padding:20px 20px 14px;
-    }
-
-    .eyebrow{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      color:#8b93a1;
     }
 
     .chart-title{
@@ -337,6 +347,54 @@
       font-size:15px;
     }
 
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .feature-box{
+      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
+      border:1px solid #edf0f3;
+      border-radius:18px;
+      padding:16px 15px;
+      box-shadow:0 6px 16px rgba(15,23,42,0.04);
+    }
+
+    .feature-label{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      color:#8b93a1;
+      margin-bottom:6px;
+    }
+
+    .feature-value{
+      font-size:18px;
+      font-weight:700;
+      color:#111827;
+      letter-spacing:-0.02em;
+      margin-bottom:4px;
+    }
+
+    .feature-desc{
+      font-size:13px;
+      color:#6b7280;
+      line-height:1.55;
+    }
+
+    .callout{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
+      border:1px solid #edf0f3;
+      color:#111827;
+      font-size:15px;
+      line-height:1.65;
+    }
+
     .suggestion-list{
       margin:14px 0 0;
       padding-left:18px;
@@ -351,7 +409,7 @@
     .scenario-table{
       width:100%;
       border-collapse:collapse;
-      margin-top:12px;
+      margin-top:14px;
       overflow:hidden;
       border-radius:16px;
       border:1px solid #edf0f3;
@@ -379,51 +437,46 @@
     }
 
     .next-step-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin-top:16px;
-}
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
 
-.next-step-card{
-  background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-  border:1px solid #edf0f3;
-  border-radius:18px;
-  padding:18px 16px;
-  box-shadow:0 6px 16px rgba(15,23,42,0.04);
-}
+    .next-step-card{
+      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
+      border:1px solid #edf0f3;
+      border-radius:18px;
+      padding:18px 16px;
+      box-shadow:0 6px 16px rgba(15,23,42,0.04);
+    }
 
-.next-step-card h3{
-  font-size:18px;
-  margin:0 0 8px;
-  letter-spacing:-0.02em;
-  color:#111827;
-}
+    .next-step-card h3{
+      font-size:18px;
+      margin:0 0 8px;
+      letter-spacing:-0.02em;
+      color:#111827;
+    }
 
-.next-step-card p{
-  margin:0 0 12px;
-  color:#4b5563;
-  font-size:14px;
-  line-height:1.6;
-}
+    .next-step-card p{
+      margin:0 0 12px;
+      color:#4b5563;
+      font-size:14px;
+      line-height:1.6;
+    }
 
-.next-step-card a{
-  color:#4f46e5;
-  font-weight:600;
-  text-decoration:none;
-}
-
-@media (max-width:768px){
-  .next-step-grid{
-    grid-template-columns:1fr;
-  }
-}
+    .next-step-card a{
+      color:var(--link);
+      font-weight:600;
+      text-decoration:none;
+    }
 
     .faq{
-  max-width:560px;
-  margin:0 auto;
-  padding:22px;
-}
+      max-width:580px;
+      margin:32px auto 0;
+      text-align:left;
+      padding:22px;
+    }
 
     .faq h2{
       font-size:28px;
@@ -491,6 +544,7 @@
 
       .results,
       .decision-grid,
+      .feature-grid,
       .next-step-grid{
         grid-template-columns:1fr;
       }
@@ -517,7 +571,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="page">
     <div class="container">
@@ -525,32 +578,32 @@
       <div class="hero">
         <h1>DCA Calculator</h1>
         <div class="sub">
-          For most long-term investors, dollar-cost averaging is a strong default strategy — not because it predicts the market, but because it makes a long-term plan easier to follow.
+          Build a repeatable long-term investing habit — not to predict the market perfectly, but to judge whether a steady monthly plan is practical and worth following over time.
         </div>
         <div class="info">
-          Use this calculator to model a simple monthly investing plan, estimate fee drag, think in realistic return ranges, and decide whether your plan is practical for the long term.
+          Use this calculator to estimate long-term DCA growth with monthly contributions, realistic return assumptions, and ETF fees — then decide whether the plan makes sense in real life.
         </div>
       </div>
 
       <div class="form-card">
         <div class="form-row">
           <label for="monthly">Monthly Investment ($)</label>
-          <input id="monthly" type="number" step="50" min="0" placeholder="500">
+          <input id="monthly" type="number" step="50" min="0" placeholder="500" />
         </div>
 
         <div class="form-row">
           <label for="years">Years</label>
-          <input id="years" type="number" step="1" min="1" placeholder="20">
+          <input id="years" type="number" step="1" min="1" placeholder="20" />
         </div>
 
         <div class="form-row">
           <label for="rate">Expected Annual Return (%)</label>
-          <input id="rate" type="number" step="0.1" min="0" placeholder="8">
+          <input id="rate" type="number" step="0.1" min="0" placeholder="8" />
         </div>
 
         <div class="form-row">
           <label for="fee">ETF Expense Ratio (%)</label>
-          <input id="fee" type="number" step="0.01" min="0" placeholder="0.03">
+          <input id="fee" type="number" step="0.01" min="0" placeholder="0.03" />
         </div>
 
         <div class="buttons">
@@ -560,7 +613,7 @@
         </div>
 
         <div class="assumption-note">
-          Assumption: This projection uses fixed monthly investing, a fixed annual return, and a fixed ETF fee. Real market returns change over time and are never guaranteed. The goal is not perfect prediction — it is better planning.
+          Assumption: This projection uses fixed monthly investing, a fixed annual return, and a fixed ETF fee. Real market returns vary, markets fall, and this is not a guarantee — it is a planning tool.
         </div>
       </div>
 
@@ -587,50 +640,62 @@
       </div>
 
       <div class="decision-panel">
-  <div class="eyebrow">Quick Decision</div>
-  <div class="decision-title" id="decisionTitle">Your plan looks reasonable for long-term DCA</div>
-  <div class="decision-sub" id="decisionSub">
-    This calculator is not just showing a projected number. It is helping you judge whether your plan is practical, efficient, and realistic enough to keep following for years.
-  </div>
+        <div class="eyebrow">Quick Answer</div>
+        <div class="decision-title" id="decisionTitle">A practical long-term DCA plan</div>
+        <div class="decision-sub" id="decisionSub">
+          This plan is structurally sound — built on consistency, time, and the removal of timing pressure.
+        </div>
 
-  <div class="decision-summary" id="planVerdict">
-    <strong>Plan Verdict:</strong> This DCA plan looks reasonable for a long-term investor.
-  </div>
+        <div class="decision-summary" id="planVerdict">
+          <strong>Decision confirmation:</strong> This is a practical and repeatable long-term investing plan.
+        </div>
 
-  <div class="decision-grid" style="margin-top:14px;">
-    <div class="decision-box">
-      <div class="decision-label">Plan Diagnosis</div>
-      <div class="decision-value" id="profileType">Long-Term Builder</div>
-      <div class="decision-desc" id="profileDesc">A disciplined monthly plan gives compounding more chances to work over time.</div>
-    </div>
+        <div class="decision-grid">
+          <div class="decision-box">
+            <div class="decision-label">Plan Type</div>
+            <div class="decision-value" id="profileType">Long-Term Habit Builder</div>
+            <div class="decision-desc" id="profileDesc">
+              You are building a steady investing process designed to reduce hesitation and keep you moving through uncertainty.
+            </div>
+          </div>
 
-    <div class="decision-box">
-      <div class="decision-label">Net Return</div>
-      <div class="decision-value" id="netReturn">0.0%</div>
-      <div class="decision-desc" id="netReturnDesc">Your expected annual return after subtracting the ETF expense ratio.</div>
-    </div>
+          <div class="decision-box">
+            <div class="decision-label">Net Return</div>
+            <div class="decision-value" id="netReturn">0.0%</div>
+            <div class="decision-desc" id="netReturnDesc">
+              Your expected annual return after subtracting the ETF expense ratio.
+            </div>
+          </div>
 
-    <div class="decision-box">
-      <div class="decision-label">Biggest Driver</div>
-      <div class="decision-value" id="biggestDriver">Consistency</div>
-      <div class="decision-desc" id="biggestDriverDesc">At this stage, your long-term outcome depends more on staying invested than on finding a perfect entry point.</div>
-    </div>
+          <div class="decision-box">
+            <div class="decision-label">Biggest Driver</div>
+            <div class="decision-value" id="biggestDriver">Consistency</div>
+            <div class="decision-desc" id="biggestDriverDesc">
+              DCA works best when you keep investing through normal ups and downs instead of reacting to them.
+            </div>
+          </div>
 
-    <div class="decision-box">
-      <div class="decision-label">Main Risk</div>
-      <div class="decision-value" id="mainRisk">Behavioral Risk</div>
-      <div class="decision-desc" id="mainRiskDesc">The biggest risk for many DCA plans is not market noise — it is stopping the plan when markets feel uncomfortable.</div>
-    </div>
-  </div>
+          <div class="decision-box">
+            <div class="decision-label">Main Risk</div>
+            <div class="decision-value" id="mainRisk">Behavioral Risk</div>
+            <div class="decision-desc" id="mainRiskDesc">
+              The biggest risk is not market volatility itself. It is stopping the plan when markets become uncomfortable.
+            </div>
+          </div>
+        </div>
 
-  <div class="decision-summary" id="improveFirst" style="margin-top:14px;">
-    <strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it.
-  </div>
+        <div class="decision-summary" id="improveFirst">
+          <strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it during difficult markets.
+        </div>
 
-  <div class="decision-summary" id="decisionSummary" style="margin-top:14px;">
-    For most long-term investors, a simple DCA plan is usually a strong default choice — especially when the goal is to build a repeatable investing habit instead of trying to time the market.
-  </div>
-</div>
+        <div class="decision-summary" id="decisionSummary">
+          For most long-term investors, a simple DCA plan is a strong default path — especially when the goal is to build a repeatable investing habit instead of trying to time the market.
+        </div>
+
+        <div class="decision-final" id="decisionFinal">
+          You do not need a perfect entry point — you need a plan you can continue.
+        </div>
+      </div>
 
       <div class="section-card chart-wrap">
         <div class="eyebrow">Projection</div>
@@ -640,7 +705,18 @@
         </div>
         <canvas id="growthChart" height="220"></canvas>
         <div class="decision-line" id="decisionLine">
-          A steady investment habit can be more valuable than trying to predict short-term market moves.
+          At this pace, time and compounding are becoming major drivers of your future wealth.
+        </div>
+      </div>
+
+      <div class="section-card text-card">
+        <div class="eyebrow">Risk Reality</div>
+        <h2>DCA does not remove losses — it helps you survive them</h2>
+        <p>
+          A DCA plan still goes through market declines. Your account value can fall, and the process can still feel uncomfortable. DCA is not risk-free — it is behavior-friendly.
+        </p>
+        <div class="callout" id="riskRealityText">
+          If a normal market decline would make you stop investing, the risk is not only volatility — it is whether the plan is simple enough for you to continue.
         </div>
       </div>
 
@@ -648,7 +724,7 @@
         <div class="eyebrow">Scenario Thinking</div>
         <h2>Think in ranges, not certainty</h2>
         <p>
-          No one knows the exact return your plan will earn. A more rational approach is to test your plan across a range of outcomes instead of relying on one perfect forecast. What matters is whether the plan still looks workable under more conservative assumptions.
+          No one knows the exact return your plan will earn. A more rational approach is to test your plan across a range of outcomes instead of relying on one perfect forecast.
         </p>
 
         <table class="scenario-table">
@@ -683,52 +759,93 @@
         </table>
       </div>
 
-     <div class="section-card text-card">
-  <div class="eyebrow">Why DCA Works in Real Life</div>
-  <h2>Process matters more than prediction</h2>
-  <p>
-    Dollar-cost averaging works best as a behavior system, not as a forecasting system. Its main advantage is that it reduces hesitation, spreads decisions over time, and makes a long-term plan easier to continue.
-  </p>
-  <p style="margin-top:12px;">
-    The biggest risk is usually not short-term volatility itself. It is abandoning the plan when markets feel uncomfortable. A strong DCA strategy should be simple enough to survive difficult periods, not only easy ones.
-  </p>
-</div>
+      <div class="section-card text-card">
+        <div class="eyebrow">Cost Awareness</div>
+        <h2>Even small fees still matter</h2>
+
+        <div class="feature-grid">
+          <div class="feature-box">
+            <div class="feature-label">Gross Return</div>
+            <div class="feature-value" id="grossReturnBox">8.0%</div>
+            <div class="feature-desc">This is the return assumption before ETF fees are subtracted.</div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-label">Expense Ratio</div>
+            <div class="feature-value" id="feeBox">0.03%</div>
+            <div class="feature-desc">Even small annual fees reduce how much of your return stays invested.</div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-label">Net Return</div>
+            <div class="feature-value" id="netReturnBox">7.97%</div>
+            <div class="feature-desc">This is what your plan compounds at after the ETF fee is removed.</div>
+          </div>
+        </div>
+
+        <div class="callout" id="feeImpactText">
+          DCA reduces timing pressure, but low fees still matter because they affect how much of your long-term result keeps compounding.
+        </div>
+      </div>
 
       <div class="section-card text-card">
-        <div class="eyebrow">Decision Guide</div>
-        <h2>When DCA usually makes sense</h2>
-        <ul class="suggestion-list" id="decisionList">
-          <li>You want a repeatable monthly investing habit.</li>
-          <li>You are investing for the long term, not trading short-term moves.</li>
-          <li>You prefer discipline over trying to guess market bottoms.</li>
+        <div class="eyebrow">Timing Anxiety</div>
+        <h2>You do not need to guess the best month to buy</h2>
+        <p>
+          The purpose of DCA is not to maximize perfect timing. It is to remove the pressure of deciding the “right” entry point every time you invest.
+        </p>
+        <div class="callout">
+          If the plan makes sense, the bigger risk is often waiting for clarity instead of building the habit.
+        </div>
+      </div>
+
+      <div class="section-card text-card">
+        <div class="eyebrow">Behavior Guard</div>
+        <h2>What may cause this plan to fail</h2>
+        <ul class="suggestion-list" id="behaviorList">
+          <li>Stopping contributions during market declines.</li>
+          <li>Changing the plan too often after short-term noise.</li>
+          <li>Expecting DCA to remove uncertainty or emotional discomfort.</li>
         </ul>
-      </div>   
-  
+      </div>
+
       <div class="section-card text-card">
-  <div class="eyebrow">Next Step</div>
-  <h2>What should you do next?</h2>
-  <p>
-    If your DCA plan looks reasonable, the next decision is what ETF path you want to use with that habit.
-  </p>
+        <div class="eyebrow">Decision Explanation</div>
+        <h2>Why this plan is worth following</h2>
+        <p>
+          DCA is valuable because it turns investing into a repeatable process. It reduces hesitation, spreads decisions over time, and makes it easier to keep acting under uncertainty.
+        </p>
+        <p style="margin-top:12px;">
+          The strength of this plan comes from simplicity, realistic repetition, and the ability to continue through uncomfortable market periods.
+        </p>
+      </div>
 
-  <div class="next-step-grid">
-    <div class="next-step-card">
-      <h3>Use VOO as the default path</h3>
-      <p>
-        If you want a simple long-term plan built around low-cost U.S. large-cap exposure, continue with the VOO Calculator.
-      </p>
-      <a href="/voo-calculator.html">Open VOO Calculator →</a>
-    </div>
+      <div class="section-card text-card">
+        <div class="eyebrow">Next Step</div>
+        <h2>What should you do next?</h2>
+        <p>
+          If your DCA plan looks reasonable, the next decision is what ETF path you want to use with that habit.
+        </p>
 
-    <div class="next-step-card">
-      <h3>Compare a broader ETF plan</h3>
-      <p>
-        If you want to test a different ETF, compare fee levels, or model a broader portfolio path, continue with the ETF Calculator.
-      </p>
-      <a href="/etf-calculator.html">Open ETF Calculator →</a>
-    </div>
-  </div>
-</div>
+        <div class="next-step-grid">
+          <div class="next-step-card">
+            <h3>Use VOO as the default path</h3>
+            <p>
+              If you want a simple long-term plan built around low-cost U.S. large-cap exposure, continue with the VOO Calculator.
+            </p>
+            <a href="/voo-calculator.html">Open VOO Calculator →</a>
+          </div>
+
+          <div class="next-step-card">
+            <h3>Compare a broader ETF plan</h3>
+            <p>
+              If you want to test a different ETF, compare fee levels, or model a broader portfolio path, continue with the ETF Calculator.
+            </p>
+            <a href="/etf-calculator.html">Open ETF Calculator →</a>
+          </div>
+        </div>
+      </div>
+
       <div class="section-card faq">
         <h2>DCA Calculator FAQ</h2>
 
@@ -746,12 +863,20 @@
           <h3>Why include ETF fees?</h3>
           <p>Because even small annual fees reduce your net return, and over long periods that drag compounds against you.</p>
         </div>
+
+        <div class="faq-item">
+          <h3>How is this different from the ETF Calculator?</h3>
+          <p>This page is specifically about the DCA process. The ETF Calculator is broader and designed for judging an overall ETF investing plan.</p>
+        </div>
       </div>
 
       <div class="footer">
         <a href="https://etfcalculator.net">← Back to Home</a>
       </div>
-        </div>
+
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script>
@@ -782,28 +907,170 @@
     }
 
     function getProfileType(years, monthly){
-      if(years >= 20 && monthly >= 300){
+      if(years >= 15 && monthly >= 300){
         return {
-          title: "Long-Term Builder",
-          desc: "This plan gives time and compounding a meaningful chance to work. The main challenge is staying consistent for years, not finding a perfect market entry."
+          title: "Long-Term Habit Builder",
+          desc: "You are building a steady investing process designed to reduce hesitation and keep you moving through uncertainty."
         };
       }
-      if(years >= 12){
+      if(years >= 10){
         return {
-          title: "Steady Accumulator",
-          desc: "This is a reasonable long-term plan. Your result still depends heavily on contribution discipline, but the compounding window is becoming more helpful."
-        };
-      }
-      if(years >= 5){
-        return {
-          title: "Early Compounding Stage",
-          desc: "This plan is still driven more by what you put in than by what markets return. Building the habit matters more than return optimization right now."
+          title: "Steady DCA Investor",
+          desc: "This plan is built around regular investing and patience. Time still matters more than trying to guess better entry points."
         };
       }
       return {
-        title: "Habit-First Investor",
-        desc: "With a shorter time horizon, the main value of DCA is building consistency and reducing bad timing decisions."
+        title: "Early-Stage Habit Builder",
+        desc: "At this stage, the plan depends more on keeping the habit alive than on fully developed long-term compounding."
       };
+    }
+
+    function getBiggestDriver(years, growthShare){
+      if(years < 8){
+        return {
+          title: "Consistency",
+          desc: "At this stage, the value of DCA comes mostly from building and maintaining the investing habit."
+        };
+      }
+      if(years >= 15 && growthShare >= 45){
+        return {
+          title: "Time + Compounding",
+          desc: "The longer the horizon, the more your future result depends on compounding rather than fresh contributions alone."
+        };
+      }
+      return {
+        title: "Consistency",
+        desc: "DCA works best when you keep investing through normal ups and downs instead of reacting to them."
+      };
+    }
+
+    function getMainRisk(years, ratePercent, feePercent){
+      if(feePercent > 0.40){
+        return {
+          title: "Fee Drag",
+          desc: "Your ETF fee is high enough to take a noticeable amount away from long-term compounding."
+        };
+      }
+      if(ratePercent >= 11){
+        return {
+          title: "Optimistic Assumptions",
+          desc: "Your expected return may be too aggressive. A good DCA plan should still make sense under more conservative assumptions."
+        };
+      }
+      return {
+        title: "Behavioral Risk",
+        desc: "The biggest risk is not market volatility itself. It is stopping the plan when markets become uncomfortable."
+      };
+    }
+
+    function buildPlanVerdict(years, ratePercent, feePercent){
+      if(feePercent > 0.40){
+        return "This plan is workable, but the ETF fee is too high for an efficient long-term DCA plan.";
+      }
+      if(ratePercent >= 11){
+        return "This plan is reasonable, but your expected return assumption may be too optimistic.";
+      }
+      if(years < 5){
+        return "This can still be a valid start, but the time horizon is short for a long-term DCA plan to show its full strength.";
+      }
+      if(years >= 10){
+        return "This is a practical and repeatable long-term investing plan.";
+      }
+      return "This is a workable DCA plan, but consistency matters more than mature compounding at this stage.";
+    }
+
+    function buildImproveFirst(years, monthly, ratePercent, feePercent){
+      if(feePercent > 0.40){
+        return "Lower ETF fees. Cost still matters because it affects how much of your result keeps compounding over time.";
+      }
+      if(ratePercent >= 11){
+        return "Use a more conservative expected return so the plan still looks sensible under less optimistic conditions.";
+      }
+      if(monthly < 200){
+        return "Increase your monthly contribution if possible. At this stage, contribution size matters more than fine-tuning return assumptions.";
+      }
+      if(years < 8){
+        return "Extend your time horizon if your real goal is long-term compounding rather than just a shorter-term projection.";
+      }
+      return "Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
+    }
+
+    function buildDecisionTitle(years, ratePercent, feePercent){
+      if(feePercent > 0.40){
+        return "A workable DCA plan — but the fee level is too high";
+      }
+      if(ratePercent >= 11){
+        return "A workable DCA plan — but your assumptions may be too optimistic";
+      }
+      if(years >= 15){
+        return "A practical long-term DCA plan";
+      }
+      if(years >= 8){
+        return "A solid DCA plan built around patience";
+      }
+      return "A simple DCA plan that depends on discipline";
+    }
+
+    function buildDecisionSub(years){
+      if(years < 8){
+        return "This plan can still work, but at this stage consistency matters more than mature long-term compounding.";
+      }
+      return "This plan is structurally sound — built on consistency, time, and the removal of timing pressure.";
+    }
+
+    function buildDecisionSummary(ratePercent, feePercent){
+      if(feePercent > 0.40){
+        return "A simple DCA plan is still the right idea — but your current fee level is too high.";
+      }
+      if(ratePercent >= 11){
+        return "A simple DCA plan is still a strong path — but your return assumption should be more conservative.";
+      }
+      return "For most long-term investors, a simple DCA plan is a strong default path — especially when the goal is to build a repeatable investing habit instead of trying to time the market.";
+    }
+
+    function buildDecisionLine(years, growthShare){
+      if(years >= 15 && growthShare >= 45){
+        return "At this pace, time and compounding are becoming major drivers of your future wealth.";
+      }
+      if(years < 8){
+        return "At this stage, your result is still driven heavily by your steady contributions, which is why consistency matters.";
+      }
+      return "At this pace, time and compounding are becoming major drivers of your future wealth.";
+    }
+
+    function buildFeeImpactText(feePercent){
+      if(feePercent <= 0.10){
+        return "DCA reduces timing pressure, but low fees still matter because they affect how much of your long-term result keeps compounding.";
+      }
+      if(feePercent <= 0.30){
+        return "This fee level is still manageable, but it is no longer trivial over long holding periods.";
+      }
+      return "This fee level is high enough to materially reduce long-term compounding, especially over many years.";
+    }
+
+    function buildRiskRealityText(years){
+      if(years >= 10){
+        return "If a normal market decline would make you stop investing, the risk is not only volatility — it is whether the plan is simple enough for you to continue.";
+      }
+      return "Even with a shorter horizon, DCA still includes losses and uncertainty. A plan only works if you can continue through that reality.";
+    }
+
+    function buildBehaviorList(ratePercent, feePercent){
+      const items = [
+        "Stopping contributions during market declines.",
+        "Changing the plan too often after short-term noise.",
+        "Expecting DCA to remove uncertainty or emotional discomfort."
+      ];
+
+      if(feePercent > 0.40){
+        items.unshift("Ignoring fund costs that quietly compound against your result.");
+      }
+
+      if(ratePercent >= 11){
+        items.push("Depending too much on optimistic return assumptions.");
+      }
+
+      return items;
     }
 
     function updateScenarioTable(monthly, years, feePercent){
@@ -830,131 +1097,6 @@
         `;
         tbody.appendChild(row);
       });
-    }
-
-    function getBiggestDriver(years, growthShare){
-      if(years < 8){
-        return {
-          title: "Contribution Habit",
-          desc: "At this stage, your outcome is driven more by what you invest regularly than by return differences."
-        };
-      }
-      if(years >= 15 && growthShare >= 40){
-        return {
-          title: "Time + Compounding",
-          desc: "The longer horizon is becoming a major advantage. The plan is starting to benefit more from compounding, not just contributions."
-        };
-      }
-      return {
-        title: "Consistency",
-        desc: "A stable investing process is still doing more heavy lifting here than short-term return forecasting."
-      };
-    }
-
-    function getMainRisk(years, feePercent, ratePercent){
-      if(feePercent > 0.30){
-        return {
-          title: "Fee Drag",
-          desc: "Your fee level is high enough to take a noticeable amount away from long-term compounding. Lower-cost ETFs deserve attention."
-        };
-      }
-      if(ratePercent >= 11){
-        return {
-          title: "Optimistic Assumptions",
-          desc: "Your expected return may be too aggressive. A good plan should still make sense under more conservative assumptions."
-        };
-      }
-      if(years >= 10){
-        return {
-          title: "Behavioral Risk",
-          desc: "For many long-term plans, the biggest risk is not volatility itself. It is abandoning the plan during uncomfortable markets."
-        };
-      }
-      return {
-        title: "Short Horizon",
-        desc: "With fewer years ahead, there is less time for compounding to absorb market fluctuations and mistakes."
-      };
-    }
-
-    function buildDecisionTitle(years, feePercent, ratePercent){
-      if(feePercent > 0.50){
-        return "Your investing habit is fine, but your fee level is too high";
-      }
-      if(ratePercent >= 12){
-        return "This plan may rely too much on optimistic return assumptions";
-      }
-      if(years >= 15){
-        return "A reasonable long-term investing plan";
-      }
-      if(years >= 8){
-        return "A solid habit-building investment plan";
-      }
-      return "A simple plan that prioritizes discipline";
-    }
-
-    function buildDecisionSub(years, monthly, growthShare){
-      if(years >= 15 && growthShare >= 40){
-        return "This plan is no longer just about saving money. Time and compounding are starting to become major drivers of the final outcome.";
-      }
-      if(monthly < 200){
-        return "This is still a valid start. The plan becomes even more powerful when the contribution habit grows over time.";
-      }
-      if(years < 8){
-        return "At this stage, the value of the plan is more about building discipline and reducing bad timing decisions than chasing the highest projected number.";
-      }
-      return "This plan looks practical for a long-term investor who wants a repeatable process instead of trying to predict short-term market moves.";
-    }
-
-    function buildDecisionSummary(years, feePercent, ratePercent){
-      if(feePercent > 0.30){
-        return "The DCA structure is reasonable, but the fee level is taking more from long-term compounding than it should. A lower-cost ETF may improve the plan without changing your behavior.";
-      }
-      if(ratePercent >= 11){
-        return "The habit itself is useful, but your expected return assumption may be too optimistic. Try planning around a conservative range, not one best-case number.";
-      }
-      if(years >= 10){
-        return "For most long-term investors, a simple DCA plan is usually a strong default choice — especially when the goal is to build a repeatable investing habit instead of trying to time the market.";
-      }
-      return "This plan can still make sense, but its value comes more from discipline and consistency than from dramatic compounding over a short period.";
-    }
-
-    function buildDecisionLine(years, feePercent, growthShare){
-      if(feePercent > 0.30){
-        return "This plan can still work, but fees are taking more from long-term compounding than they should.";
-      }
-      if(years >= 15 && growthShare >= 45){
-        return "At this pace, time and compounding are becoming major drivers of your future wealth.";
-      }
-      if(years < 10){
-        return "This result is still driven heavily by your monthly saving habit, which is exactly why consistency matters.";
-      }
-      return "A steady investment habit can be more valuable than trying to predict short-term market moves.";
-    }
-
-    function buildDecisionList(years, feePercent, ratePercent){
-      const items = [];
-
-      if(years >= 10){
-        items.push("You are investing with a long enough horizon for the process to matter.");
-      } else {
-        items.push("You are using DCA mainly to build discipline and reduce emotional timing decisions.");
-      }
-
-      if(feePercent <= 0.10){
-        items.push("Your fee level is reasonably low for a long-term ETF-based plan.");
-      } else if(feePercent <= 0.30){
-        items.push("Your fee level is acceptable, but lower-cost options may improve the plan over time.");
-      } else {
-        items.push("Your fee level is high enough that reviewing lower-cost ETF options would be sensible.");
-      }
-
-      if(ratePercent >= 11){
-        items.push("Your return assumption may be too aggressive. Stress-test the plan with a lower expected return.");
-      } else {
-        items.push("Your assumption range looks more realistic than relying on one perfect forecast.");
-      }
-
-      return items;
     }
 
     function drawChart(labels, balanceData, contributionData){
@@ -1016,7 +1158,7 @@
             x: {
               ticks: {
                 color: "#6b7280",
-                callback: function(value, index) {
+                callback: function(value, index){
                   const yearNumber = index + 1;
                   return [1, 5, 10, 15, 20, 25, 30].includes(yearNumber) ? yearNumber : "";
                 },
@@ -1058,6 +1200,7 @@
       const netAnnualRate = Math.max(grossRate - feeRate, 0);
 
       const months = Math.max(Math.round(years * 12), 0);
+
       let balance = 0;
       let invested = 0;
       let grossBalance = 0;
@@ -1093,19 +1236,16 @@
 
       const profile = getProfileType(years, monthly);
       const biggestDriver = getBiggestDriver(years, growthShare);
-      const mainRisk = getMainRisk(years, feePercent, grossRatePercent);
+      const mainRisk = getMainRisk(years, grossRatePercent, feePercent);
 
-      document.getElementById("decisionTitle").textContent = buildDecisionTitle(years, feePercent, grossRatePercent);
-      document.getElementById("decisionSub").textContent = buildDecisionSub(years, monthly, growthShare);
+      document.getElementById("decisionTitle").textContent = buildDecisionTitle(years, grossRatePercent, feePercent);
+      document.getElementById("decisionSub").textContent = buildDecisionSub(years);
 
       document.getElementById("profileType").textContent = profile.title;
       document.getElementById("profileDesc").textContent = profile.desc;
 
       document.getElementById("netReturn").textContent = formatPercent(netReturnPercent);
-      document.getElementById("netReturnDesc").textContent =
-        feePercent > 0
-          ? "Your expected annual return after subtracting the ETF expense ratio."
-          : "This is the same as your gross expected return because no ETF fee is applied here.";
+      document.getElementById("netReturnDesc").textContent = "Your expected annual return after subtracting the ETF expense ratio.";
 
       document.getElementById("biggestDriver").textContent = biggestDriver.title;
       document.getElementById("biggestDriverDesc").textContent = biggestDriver.desc;
@@ -1113,20 +1253,29 @@
       document.getElementById("mainRisk").textContent = mainRisk.title;
       document.getElementById("mainRiskDesc").textContent = mainRisk.desc;
 
-      document.getElementById("decisionSummary").textContent = buildDecisionSummary(years, feePercent, grossRatePercent);
-      document.getElementById("decisionLine").textContent = buildDecisionLine(years, feePercent, growthShare);
+      document.getElementById("planVerdict").innerHTML = "<strong>Decision confirmation:</strong> " + buildPlanVerdict(years, grossRatePercent, feePercent);
+      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> " + buildImproveFirst(years, monthly, grossRatePercent, feePercent);
+      document.getElementById("decisionSummary").textContent = buildDecisionSummary(grossRatePercent, feePercent);
+      document.getElementById("decisionFinal").textContent = "You do not need a perfect entry point — you need a plan you can continue.";
+      document.getElementById("decisionLine").textContent = buildDecisionLine(years, growthShare);
+
+      document.getElementById("grossReturnBox").textContent = formatPercent(grossRatePercent);
+      document.getElementById("feeBox").textContent = formatPercent(feePercent);
+      document.getElementById("netReturnBox").textContent = formatPercent(netReturnPercent);
+      document.getElementById("feeImpactText").textContent = buildFeeImpactText(feePercent);
+      document.getElementById("riskRealityText").textContent = buildRiskRealityText(years);
+
+      const behaviorList = document.getElementById("behaviorList");
+      const behaviorItems = buildBehaviorList(grossRatePercent, feePercent);
+      behaviorList.innerHTML = "";
+      behaviorItems.forEach(function(item){
+        const li = document.createElement("li");
+        li.textContent = item;
+        behaviorList.appendChild(li);
+      });
 
       updateScenarioTable(monthly, years, feePercent);
       drawChart(labels, balanceData, contributionData);
-
-      const decisionList = document.getElementById("decisionList");
-      const items = buildDecisionList(years, feePercent, grossRatePercent);
-      decisionList.innerHTML = "";
-      items.forEach(function(item){
-        const li = document.createElement("li");
-        li.textContent = item;
-        decisionList.appendChild(li);
-      });
     }
 
     function exampleData(){
@@ -1148,28 +1297,39 @@
       document.getElementById("growth").textContent = "$0.00";
       document.getElementById("feeDrag").textContent = "$0.00";
 
-      document.getElementById("decisionTitle").textContent = "A reasonable long-term investing plan";
-      document.getElementById("decisionSub").textContent = "This page is not just showing a number. It is helping you judge whether your DCA plan is simple, realistic, and easier to stick with over time.";
+      document.getElementById("decisionTitle").textContent = "A practical long-term DCA plan";
+      document.getElementById("decisionSub").textContent = "This plan is structurally sound — built on consistency, time, and the removal of timing pressure.";
 
-      document.getElementById("profileType").textContent = "Long-Term Builder";
-      document.getElementById("profileDesc").textContent = "A disciplined monthly plan gives compounding more chances to work over time.";
+      document.getElementById("profileType").textContent = "Long-Term Habit Builder";
+      document.getElementById("profileDesc").textContent = "You are building a steady investing process designed to reduce hesitation and keep you moving through uncertainty.";
 
       document.getElementById("netReturn").textContent = "0.0%";
       document.getElementById("netReturnDesc").textContent = "Your expected annual return after subtracting the ETF expense ratio.";
 
       document.getElementById("biggestDriver").textContent = "Consistency";
-      document.getElementById("biggestDriverDesc").textContent = "At this stage, your long-term outcome depends more on staying invested than on finding a perfect entry point.";
+      document.getElementById("biggestDriverDesc").textContent = "DCA works best when you keep investing through normal ups and downs instead of reacting to them.";
 
       document.getElementById("mainRisk").textContent = "Behavioral Risk";
-      document.getElementById("mainRiskDesc").textContent = "The biggest risk for many DCA plans is not market noise — it is stopping the plan when markets feel uncomfortable.";
+      document.getElementById("mainRiskDesc").textContent = "The biggest risk is not market volatility itself. It is stopping the plan when markets become uncomfortable.";
 
-      document.getElementById("decisionSummary").textContent = "For most long-term investors, a simple DCA plan is usually a strong default choice — especially when the goal is to build a repeatable investing habit instead of trying to time the market.";
-      document.getElementById("planVerdict").innerHTML = "<strong>Plan Verdict:</strong> This DCA plan looks reasonable for a long-term investor.";
-document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> Keep the plan simple enough that you can continue it during uncomfortable markets.";
-      document.getElementById("decisionLine").textContent = "A steady investment habit can be more valuable than trying to predict short-term market moves.";
-document.getElementById("planVerdict").innerHTML = "<strong>" + buildPlanVerdict(years, feePercent, grossRatePercent).split(":")[0] + ":</strong>" + buildPlanVerdict(years, feePercent, grossRatePercent).substring(buildPlanVerdict(years, feePercent, grossRatePercent).indexOf(":") + 1);
+      document.getElementById("planVerdict").innerHTML = "<strong>Decision confirmation:</strong> This is a practical and repeatable long-term investing plan.";
+      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
+      document.getElementById("decisionSummary").textContent = "For most long-term investors, a simple DCA plan is a strong default path — especially when the goal is to build a repeatable investing habit instead of trying to time the market.";
+      document.getElementById("decisionFinal").textContent = "You do not need a perfect entry point — you need a plan you can continue.";
+      document.getElementById("decisionLine").textContent = "At this pace, time and compounding are becoming major drivers of your future wealth.";
 
-document.getElementById("improveFirst").innerHTML = "<strong>" + buildImproveFirst(years, monthly, feePercent, grossRatePercent).split(":")[0] + ":</strong>" + buildImproveFirst(years, monthly, feePercent, grossRatePercent).substring(buildImproveFirst(years, monthly, feePercent, grossRatePercent).indexOf(":") + 1);
+      document.getElementById("grossReturnBox").textContent = "8.0%";
+      document.getElementById("feeBox").textContent = "0.03%";
+      document.getElementById("netReturnBox").textContent = "7.97%";
+      document.getElementById("feeImpactText").textContent = "DCA reduces timing pressure, but low fees still matter because they affect how much of your long-term result keeps compounding.";
+      document.getElementById("riskRealityText").textContent = "If a normal market decline would make you stop investing, the risk is not only volatility — it is whether the plan is simple enough for you to continue.";
+
+      document.getElementById("behaviorList").innerHTML = `
+        <li>Stopping contributions during market declines.</li>
+        <li>Changing the plan too often after short-term noise.</li>
+        <li>Expecting DCA to remove uncertainty or emotional discomfort.</li>
+      `;
+
       document.getElementById("scenarioBody").innerHTML = `
         <tr>
           <td>Conservative</td>
@@ -1189,12 +1349,6 @@ document.getElementById("improveFirst").innerHTML = "<strong>" + buildImproveFir
           <td>9.97%</td>
           <td>$0.00</td>
         </tr>
-      `;
-
-      document.getElementById("decisionList").innerHTML = `
-        <li>You want a repeatable monthly investing habit.</li>
-        <li>You are investing for the long term, not trading short-term moves.</li>
-        <li>You prefer discipline over trying to guess market bottoms.</li>
       `;
 
       if(chartInstance){
@@ -1223,37 +1377,6 @@ document.getElementById("improveFirst").innerHTML = "<strong>" + buildImproveFir
 
       exampleData();
     });
-    function buildPlanVerdict(years, feePercent, ratePercent){
-  if(feePercent > 0.30){
-    return "Plan Verdict: The investing habit is good, but the ETF fee is too high for an efficient long-term DCA plan.";
-  }
-  if(ratePercent >= 11){
-    return "Plan Verdict: The structure is reasonable, but your expected return assumption may be too optimistic.";
-  }
-  if(years < 5){
-    return "Plan Verdict: This plan can still build discipline, but the time horizon is short for DCA to show its full compounding strength.";
-  }
-  if(years >= 10){
-    return "Plan Verdict: This DCA plan looks reasonable for a long-term investor.";
-  }
-  return "Plan Verdict: This is a workable habit-building plan, but consistency matters more than compounding at this stage.";
-}
-
-function buildImproveFirst(years, monthly, feePercent, ratePercent){
-  if(feePercent > 0.30){
-    return "What to improve first: Lower ETF fees. Small annual cost differences matter more over long holding periods.";
-  }
-  if(ratePercent >= 11){
-    return "What to improve first: Use a more conservative expected return so your plan still works under less optimistic conditions.";
-  }
-  if(monthly < 200){
-    return "What to improve first: Increase your monthly contribution if possible. At this stage, contribution size matters more than fine-tuning projections.";
-  }
-  if(years < 8){
-    return "What to improve first: Extend your time horizon if your real goal is long-term compounding, not just short-term habit building.";
-  }
-  return "What to improve first: Keep the plan simple enough that you can continue it during uncomfortable markets.";
-}
   </script>
 </body>
 </html>
