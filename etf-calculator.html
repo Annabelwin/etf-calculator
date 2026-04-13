@@ -913,21 +913,21 @@
       return "Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
     }
 
-    function buildDecisionTitle(years, ratePercent, feePercent){
-      if(feePercent > 0.40){
-        return "A workable ETF plan — but the fee level is too high";
-      }
-      if(ratePercent >= 11){
-        return "A workable ETF plan — but your assumptions may be too optimistic";
-      }
-      if(years >= 15){
-        return "A practical ETF plan for long-term investing";
-      }
-      if(years >= 8){
-        return "A solid ETF plan built around patience";
-      }
-      return "A simple ETF plan that depends on discipline";
-    }
+   function buildDecisionTitle(years, ratePercent, feePercent){
+  if(feePercent > 0.40){
+    return "A workable ETF plan — but the fee level is too high";
+  }
+  if(ratePercent >= 11){
+    return "A workable ETF plan — but your assumptions may be too optimistic";
+  }
+  if(years >= 15){
+    return "A practical long-term ETF plan";
+  }
+  if(years >= 8){
+    return "A solid ETF plan built around patience";
+  }
+  return "A simple ETF plan that depends on discipline";
+}
 
     function buildDecisionSub(years, growthShare){
       if(years >= 15 && growthShare >= 40){
@@ -1192,7 +1192,7 @@
       document.getElementById("contributions").textContent = "$0.00";
       document.getElementById("growth").textContent = "$0.00";
 
-      document.getElementById("decisionTitle").textContent = "A practical ETF plan for long-term investing";
+      document.getElementById("decisionTitle").textContent = "A practical long-term ETF plan";
       document.getElementById("decisionSub").textContent = "This plan is structurally sound — the main driver is consistency and time, not perfect timing.";
 
       document.getElementById("profileType").textContent = "Long-Term Builder";
