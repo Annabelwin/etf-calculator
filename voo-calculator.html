@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VOO Calculator | Model Long-Term VOO Growth</title>
-  <meta name="description" content="Free VOO calculator to estimate long-term Vanguard S&P 500 ETF growth with an initial investment, monthly contributions, compounding, fees, and practical investment decision guidance." />
+  <title>VOO Calculator | Build a Long-Term VOO Investing Plan</title>
+  <meta name="description" content="Free VOO calculator to estimate long-term Vanguard S&P 500 ETF growth with an initial investment, monthly contributions, low fund fees, and practical decision guidance." />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJLXTFDGCE"></script>
@@ -67,14 +67,14 @@
     }
 
     .sub{
-      max-width:580px;
+      max-width:600px;
       margin:0 auto 18px;
       color:var(--muted);
       font-size:17px;
     }
 
     .info{
-      max-width:580px;
+      max-width:600px;
       margin:0 auto;
       background:linear-gradient(180deg,#f8fafc 0%, #f2f4f7 100%);
       border:1px solid #eceff3;
@@ -214,14 +214,15 @@
       text-transform:uppercase;
       letter-spacing:0.08em;
       color:#8b93a1;
+      margin-bottom:8px;
     }
 
     .decision-title{
       font-size:28px;
-      line-height:1.2;
+      line-height:1.18;
       letter-spacing:-0.02em;
       font-weight:700;
-      margin:8px 0 8px;
+      margin:0 0 8px;
       color:#111827;
     }
 
@@ -231,11 +232,23 @@
       margin-bottom:18px;
     }
 
+    .decision-summary{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
+      border:1px solid #edf0f3;
+      color:#111827;
+      font-size:15px;
+      font-weight:600;
+      line-height:1.7;
+    }
+
     .decision-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:14px;
-      margin-top:14px;
+      margin-top:16px;
     }
 
     .decision-box{
@@ -268,30 +281,19 @@
       line-height:1.55;
     }
 
-    .decision-summary{
-      margin-top:18px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
-      font-size:15px;
-      font-weight:600;
-      line-height:1.7;
-    }
     .decision-final{
-  margin-top:10px;
-  padding:12px 14px;
-  border-radius:14px;
-  background:linear-gradient(180deg,#f9fafb 0%, #f3f4f6 100%);
-  border:1px solid #eceff3;
-  font-size:15px;
-  color:#111827;
-  font-weight:500;
-  line-height:1.65;
-  text-align:center;
-}
-    
+      margin-top:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:linear-gradient(180deg,#f9fafb 0%, #f3f4f6 100%);
+      border:1px solid #eceff3;
+      font-size:15px;
+      color:#111827;
+      font-weight:500;
+      line-height:1.65;
+      text-align:center;
+    }
+
     .section-card{
       margin:32px auto;
       max-width:580px;
@@ -382,6 +384,17 @@
       line-height:1.55;
     }
 
+    .callout{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
+      border:1px solid #edf0f3;
+      color:#111827;
+      font-size:15px;
+      line-height:1.65;
+    }
+
     .suggestion-list{
       margin:14px 0 0;
       padding-left:18px;
@@ -394,45 +407,39 @@
     }
 
     .next-step-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin-top:16px;
-}
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
 
-.next-step-card{
-  background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-  border:1px solid #edf0f3;
-  border-radius:18px;
-  padding:18px 16px;
-  box-shadow:0 6px 16px rgba(15,23,42,0.04);
-}
+    .next-step-card{
+      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
+      border:1px solid #edf0f3;
+      border-radius:18px;
+      padding:18px 16px;
+      box-shadow:0 6px 16px rgba(15,23,42,0.04);
+    }
 
-.next-step-card h3{
-  font-size:18px;
-  margin:0 0 8px;
-  letter-spacing:-0.02em;
-  color:#111827;
-}
+    .next-step-card h3{
+      font-size:18px;
+      margin:0 0 8px;
+      letter-spacing:-0.02em;
+      color:#111827;
+    }
 
-.next-step-card p{
-  margin:0 0 12px;
-  color:#4b5563;
-  font-size:14px;
-  line-height:1.6;
-}
+    .next-step-card p{
+      margin:0 0 12px;
+      color:#4b5563;
+      font-size:14px;
+      line-height:1.6;
+    }
 
-.next-step-card a{
-  color:#4f46e5;
-  font-weight:600;
-  text-decoration:none;
-}
-
-@media (max-width:768px){
-  .next-step-grid{
-    grid-template-columns:1fr;
-  }
-}
+    .next-step-card a{
+      color:var(--link);
+      font-weight:600;
+      text-decoration:none;
+    }
 
     .faq{
       max-width:580px;
@@ -535,10 +542,10 @@
       <div class="hero">
         <h1>VOO Calculator</h1>
         <div class="sub">
-          Model a simple long-term VOO plan — not to predict the market perfectly, but to understand what steady investing in a low-cost S&amp;P 500 ETF may look like over time.
+          Build a simple long-term VOO plan — not to predict the market perfectly, but to judge whether steady investing in a low-cost S&P 500 ETF is worth following over time.
         </div>
         <div class="info">
-          Use this calculator to estimate VOO growth with an initial investment, monthly contributions, compounding, and VOO's low expense ratio — then judge whether the plan is practical for long-term investing.
+          Use this calculator to estimate VOO growth with an initial investment, monthly contributions, and VOO’s low expense ratio — then decide whether the plan is practical for long-term investing.
         </div>
       </div>
 
@@ -575,7 +582,7 @@
         </div>
 
         <div class="assumption-note">
-          Assumption: This projection uses a fixed annual return, VOO’s expense ratio, and regular monthly contributions. Real returns will vary, and this is not a guarantee — it is a planning tool.
+          Assumption: This projection uses a fixed annual return, VOO’s expense ratio, and regular monthly contributions. Real returns vary, markets fall, and this is not a guarantee — it is a planning tool.
         </div>
       </div>
 
@@ -597,50 +604,60 @@
       </div>
 
       <div class="decision-panel">
-        <div class="eyebrow">Quick Decision</div>
-        <div class="decision-title" id="decisionTitle">This VOO plan looks reasonable for long-term investing</div>
+        <div class="eyebrow">Quick Answer</div>
+        <div class="decision-title" id="decisionTitle">A practical long-term VOO plan</div>
         <div class="decision-sub" id="decisionSub">
-          This page is not only showing a projected number. It is helping you judge whether your VOO plan is practical, long-term oriented, and simple enough to stay invested through market cycles.
+          This plan is structurally sound — built on low cost, broad exposure, and long-term discipline.
         </div>
 
         <div class="decision-summary" id="planVerdict">
-          <strong>Plan Verdict:</strong> This VOO plan looks reasonable for a long-term investor.
+          <strong>Decision confirmation:</strong> This is a practical and repeatable long-term investing plan.
         </div>
 
         <div class="decision-grid">
           <div class="decision-box">
-            <div class="decision-label">VOO Investor Type</div>
+            <div class="decision-label">Plan Type</div>
             <div class="decision-value" id="profileType">Core Index Builder</div>
-            <div class="decision-desc" id="profileDesc">This plan fits a long-term investor who values broad U.S. market exposure, low cost, and disciplined compounding.</div>
+            <div class="decision-desc" id="profileDesc">
+              You are following a classic index investing approach — broad market exposure with minimal complexity.
+            </div>
           </div>
 
           <div class="decision-box">
             <div class="decision-label">Net Return</div>
             <div class="decision-value" id="netReturn">0.0%</div>
-            <div class="decision-desc" id="netReturnDesc">Your expected annual return after subtracting VOO’s expense ratio.</div>
+            <div class="decision-desc" id="netReturnDesc">
+              Your expected return after subtracting VOO’s low expense ratio.
+            </div>
           </div>
 
           <div class="decision-box">
             <div class="decision-label">Biggest Driver</div>
             <div class="decision-value" id="biggestDriver">Time + Compounding</div>
-            <div class="decision-desc" id="biggestDriverDesc">For long-term VOO plans, the main engine is usually staying invested long enough for compounding to matter.</div>
+            <div class="decision-desc" id="biggestDriverDesc">
+              The longer you stay invested, the more your results depend on compounding — not timing.
+            </div>
           </div>
 
           <div class="decision-box">
             <div class="decision-label">Main Risk</div>
             <div class="decision-value" id="mainRisk">Behavioral Risk</div>
-            <div class="decision-desc" id="mainRiskDesc">The main risk is usually not VOO’s fee. It is abandoning the plan during uncomfortable market declines.</div>
+            <div class="decision-desc" id="mainRiskDesc">
+              The biggest risk is abandoning the plan during market declines — not the ETF itself.
+            </div>
           </div>
         </div>
 
         <div class="decision-summary" id="improveFirst">
-          <strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it during difficult markets.
+          <strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping during difficult markets.
         </div>
 
         <div class="decision-summary" id="decisionSummary">
-          <div class="decision-summary" id="decisionSummary">
-  For many long-term investors, VOO is a reasonable default path — especially when the goal is simple, low-cost exposure to the U.S. stock market and a plan that can be followed consistently over time.
-</div>
+          For most long-term investors, a simple VOO plan is a strong default path — especially when the goal is low-cost U.S. market exposure.
+        </div>
+
+        <div class="decision-final" id="decisionFinal">
+          You do not need a perfect ETF — you need a plan you can stick with.
         </div>
       </div>
 
@@ -652,94 +669,114 @@
         </div>
         <canvas id="growthChart" height="220"></canvas>
         <div class="decision-line" id="decisionLine">
-          This plan works best when you stay invested long enough for compounding to become a major driver of the outcome.
+          At this pace, time and compounding are becoming major drivers of your future VOO outcome.
         </div>
-        <div class="decision-final">
-  This is not about finding a perfect strategy — it is about following a plan that works.
-</div>
       </div>
 
       <div class="section-card text-card">
-        <div class="eyebrow">Why VOO Appeals to Many Long-Term Investors</div>
-        <h2>What makes VOO attractive</h2>
+        <div class="eyebrow">Risk Reality</div>
+        <h2>VOO will decline — and that is normal</h2>
+        <p>
+          Even broad market ETFs like VOO go through significant drawdowns. A 20% decline is not unusual — and deeper declines can occur during major downturns.
+        </p>
+        <div class="callout" id="riskRealityText">
+          If a normal market decline would make you panic, the problem is not the ETF — it is whether the plan matches your behavior.
+        </div>
+      </div>
+
+      <div class="section-card text-card">
+        <div class="eyebrow">Cost Advantage</div>
+        <h2>Low cost is your structural edge</h2>
 
         <div class="feature-grid">
           <div class="feature-box">
-            <div class="feature-label">Exposure</div>
-            <div class="feature-value">S&amp;P 500</div>
-            <div class="feature-desc">VOO gives you broad exposure to 500 of the largest U.S. companies in one fund.</div>
+            <div class="feature-label">Gross Return</div>
+            <div class="feature-value" id="grossReturnBox">8.0%</div>
+            <div class="feature-desc">This is the return assumption before VOO’s expense ratio is subtracted.</div>
           </div>
 
           <div class="feature-box">
-            <div class="feature-label">Style</div>
-            <div class="feature-value">Broad U.S.</div>
-            <div class="feature-desc">It is designed for investors who want simple large-cap U.S. equity exposure without stock-picking.</div>
+            <div class="feature-label">Expense Ratio</div>
+            <div class="feature-value" id="feeBox">0.03%</div>
+            <div class="feature-desc">VOO’s expense ratio is extremely low, which helps more of your return stay invested.</div>
           </div>
 
           <div class="feature-box">
-            <div class="feature-label">Fee</div>
-            <div class="feature-value">0.03%</div>
-            <div class="feature-desc">Its expense ratio is very low, which helps more of your return stay invested over time.</div>
+            <div class="feature-label">Net Return</div>
+            <div class="feature-value" id="netReturnBox">7.97%</div>
+            <div class="feature-desc">This is what your plan compounds at after VOO’s fee is removed.</div>
           </div>
         </div>
 
-        <p style="margin-top:16px;">
-  VOO tends to work well when your priority is simple, low-cost exposure to large U.S. companies. It is not designed to solve every portfolio need, but it can serve as a strong default building block for long-term investing.
-</p>
+        <div class="callout" id="feeImpactText">
+          In long-term investing, cost is one of the few things you can control — and one of the most important.
+        </div>
       </div>
 
       <div class="section-card text-card">
-        <div class="eyebrow">VOO Fit</div>
-        <h2>Is VOO a good fit for you?</h2>
-        <ul class="suggestion-list" id="fitList">
-          <li>Good fit if you want simple, low-cost exposure to large U.S. companies.</li>
-          <li>Good fit if you are comfortable holding through market ups and downs.</li>
-          <li>Less suitable if you expect one ETF to provide full global diversification or solve every portfolio need.</li>
+        <div class="eyebrow">Timing Anxiety</div>
+        <h2>You do not need to wait for the perfect moment</h2>
+        <p>
+          Many investors delay action because they are waiting for a better entry point. In reality, long-term investing works by starting and staying invested.
+        </p>
+        <div class="callout">
+          The bigger risk is often not starting at all — or waiting too long for certainty.
+        </div>
+      </div>
+
+      <div class="section-card text-card">
+        <div class="eyebrow">Behavior Guard</div>
+        <h2>What may cause this plan to fail</h2>
+        <ul class="suggestion-list" id="behaviorList">
+          <li>Panic selling during market declines.</li>
+          <li>Changing plans based on short-term noise.</li>
+          <li>Expecting VOO to remove uncertainty or volatility.</li>
         </ul>
       </div>
 
       <div class="section-card text-card">
-        <div class="eyebrow">Why This Plan Works in Real Life</div>
-        <h2>Process matters more than prediction</h2>
+        <div class="eyebrow">Decision Explanation</div>
+        <h2>Why this plan is worth following</h2>
         <p>
-          A rational VOO strategy is usually not about guessing the perfect market entry. It is about building a long-term process around a low-cost index fund and allowing time to do most of the heavy lifting.
+          VOO represents a low-cost, broad exposure to the U.S. economy. It removes the need to pick individual winners and focuses on long-term growth.
         </p>
         <p style="margin-top:12px;">
-          The biggest risk is often not VOO itself. It is reacting emotionally to market declines, changing the plan too often, or expecting the fund to solve problems it was never designed to solve.
+          The strength of this plan comes from simplicity, cost efficiency, and the ability to stay invested over long periods.
         </p>
       </div>
 
       <div class="section-card text-card">
-  <div class="eyebrow">Next Step</div>
-  <h2>What should you do next?</h2>
-  <p>
-    If your VOO plan looks reasonable, the next decision is whether you want to compare it with a broader ETF framework or focus more directly on contribution discipline.
-  </p>
+        <div class="eyebrow">Next Step</div>
+        <h2>What should you do next?</h2>
+        <p>
+          If this VOO plan looks reasonable, the next decision is whether to expand your strategy or focus on building a repeatable investing habit.
+        </p>
 
-  <div class="next-step-grid">
-    <div class="next-step-card">
-      <h3>Compare with a broader ETF plan</h3>
-      <p>
-        If you want to test another ETF, compare fee structures, or think beyond VOO as a single default holding, continue with the ETF Calculator.
-      </p>
-      <a href="/etf-calculator.html">Open ETF Calculator →</a>
-    </div>
+        <div class="next-step-grid">
+          <div class="next-step-card">
+            <h3>Compare a broader ETF plan</h3>
+            <p>
+              If you want to test other ETFs or compare different structures, continue with the ETF Calculator.
+            </p>
+            <a href="/etf-calculator.html">Open ETF Calculator →</a>
+          </div>
 
-    <div class="next-step-card">
-      <h3>Focus on contribution discipline</h3>
-      <p>
-        If your bigger question is how to keep investing consistently over time, continue with the DCA Calculator.
-      </p>
-      <a href="/dca-calculator.html">Open DCA Calculator →</a>
-    </div>
-  </div>
-</div>
+          <div class="next-step-card">
+            <h3>Focus on contribution discipline</h3>
+            <p>
+              If your main challenge is consistency, build a repeatable investing habit using DCA.
+            </p>
+            <a href="/dca-calculator.html">Open DCA Calculator →</a>
+          </div>
+        </div>
+      </div>
+
       <div class="section-card faq">
         <h2>VOO Calculator FAQ</h2>
 
         <div class="faq-item">
           <h3>What is VOO?</h3>
-          <p>VOO is Vanguard’s S&amp;P 500 ETF. It gives investors exposure to 500 of the largest publicly traded U.S. companies through one fund.</p>
+          <p>VOO is Vanguard’s S&amp;P 500 ETF. It gives investors broad exposure to 500 of the largest publicly traded U.S. companies through one fund.</p>
         </div>
 
         <div class="faq-item">
@@ -784,33 +821,23 @@
       }) + "%";
     }
 
-    function futureValueVOO(initial, monthly, years, annualRate){
-      const months = Math.max(Math.round(years * 12), 0);
-      let balance = initial;
-      for(let i = 1; i <= months; i++){
-        balance *= (1 + annualRate / 12);
-        balance += monthly;
-      }
-      return balance;
-    }
-
     function getProfileType(years, monthly, initial){
       if(years >= 15 && (initial >= 5000 || monthly >= 300)){
         return {
           title: "Core Index Builder",
-          desc: "This plan fits a long-term investor who values broad U.S. market exposure, low cost, and disciplined compounding."
+          desc: "You are following a classic index investing approach — broad market exposure with minimal complexity."
         };
       }
       if(years >= 10){
         return {
-          title: "Steady VOO Accumulator",
-          desc: "This plan is built around regular investing and patience. Time still matters more than tactical timing."
+          title: "Steady VOO Investor",
+          desc: "This plan is built around steady investing and patience. Time matters more than tactical market timing."
         };
       }
       return {
         title: "Early-Stage VOO Investor",
-        desc: "At this stage, the plan is driven more by contribution discipline than by advanced return optimization."
-        };
+        desc: "At this stage, the plan depends more on contribution discipline than on fully developed long-term compounding."
+      };
     }
 
     function getBiggestDriver(years, growthShare){
@@ -823,12 +850,12 @@
       if(years >= 15 && growthShare >= 45){
         return {
           title: "Time + Compounding",
-          desc: "The longer holding period is becoming a major advantage. More of the result is now driven by compounding, not just contributions."
+          desc: "The longer you stay invested, the more your results depend on compounding — not timing."
         };
       }
       return {
         title: "Consistency",
-        desc: "For many VOO investors, the main driver is staying invested and adding capital regularly over time."
+        desc: "For many VOO plans, the biggest driver is staying invested and continuing the process over time."
       };
     }
 
@@ -842,7 +869,7 @@
       if(years >= 10){
         return {
           title: "Behavioral Risk",
-          desc: "The main risk is usually not VOO’s fee. It is abandoning the plan during uncomfortable market declines."
+          desc: "The biggest risk is abandoning the plan during market declines — not the ETF itself."
         };
       }
       return {
@@ -853,28 +880,28 @@
 
     function buildPlanVerdict(years, ratePercent){
       if(ratePercent >= 11){
-        return "Plan Verdict: The structure is reasonable, but your expected return assumption may be too optimistic.";
+        return "This plan is reasonable, but your expected return assumption may be too optimistic.";
       }
       if(years < 5){
-        return "Plan Verdict: This can still be a valid start, but the time horizon is short for a VOO plan to show its full long-term strength.";
+        return "This can still be a valid start, but the time horizon is short for a long-term VOO plan to show its full strength.";
       }
       if(years >= 10){
-        return "Plan Verdict: This VOO plan looks reasonable for a long-term investor.";
+        return "This is a practical and repeatable long-term investing plan.";
       }
-      return "Plan Verdict: This is a workable VOO plan, but discipline still matters more than compounding at this stage.";
+      return "This is a workable VOO plan, but discipline matters more than mature compounding at this stage.";
     }
 
     function buildImproveFirst(years, monthly, ratePercent){
       if(ratePercent >= 11){
-        return "What to improve first: Use a more conservative expected return so the plan still looks sensible under less optimistic conditions.";
+        return "Use a more conservative expected return so the plan still looks sensible under less optimistic conditions.";
       }
       if(monthly < 200){
-        return "What to improve first: Increase your monthly contribution if possible. At this stage, contribution size matters more than fine-tuning assumptions.";
+        return "Increase your monthly contribution if possible. At this stage, contribution size matters more than fine-tuning return assumptions.";
       }
       if(years < 8){
-        return "What to improve first: Extend your time horizon if your real goal is long-term compounding instead of a shorter-term projection.";
+        return "Extend your time horizon if your real goal is long-term compounding rather than a shorter-term projection.";
       }
-      return "What to improve first: Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
+      return "Stay consistent — your plan already works. The main risk is stopping during difficult markets.";
     }
 
     function buildDecisionTitle(years, ratePercent){
@@ -882,7 +909,7 @@
         return "A workable VOO plan — but your assumptions may be too optimistic";
       }
       if(years >= 15){
-        return "This VOO plan looks reasonable for long-term investing";
+        return "A practical long-term VOO plan";
       }
       if(years >= 8){
         return "A solid VOO plan built around patience";
@@ -890,50 +917,53 @@
       return "A simple VOO plan that depends on discipline";
     }
 
-    function buildDecisionSub(years, growthShare){
-      if(years >= 15 && growthShare >= 40){
-        return "This is no longer just a saving plan. Time and compounding are starting to become major drivers of the final outcome.";
-      }
+    function buildDecisionSub(years){
       if(years < 8){
-        return "At this stage, the value of the plan comes more from building a repeatable investing habit than from dramatic long-term compounding.";
+        return "This plan can still work, but at this stage discipline matters more than mature long-term compounding.";
       }
-      return "This plan looks practical for an investor who wants simple broad U.S. equity exposure and a process that is easier to follow over time.";
+      return "This plan is structurally sound — built on low cost, broad exposure, and long-term discipline.";
     }
 
-    function buildDecisionSummary(years, ratePercent){
+    function buildDecisionSummary(ratePercent){
       if(ratePercent >= 11){
-        return "The habit itself is useful, but your expected return assumption may be too optimistic. A strong VOO plan should still look reasonable under more conservative assumptions.";
+        return "A simple VOO plan is still a strong path — but your return assumption should be more conservative.";
       }
-      if(years >= 10){
-        return "For many long-term investors, a simple VOO plan is usually a strong default choice — especially when the goal is low-cost U.S. equity exposure and a repeatable long-term investing habit.";
-      }
-      return "This plan can still make sense, but its strength comes more from discipline and steady investing than from mature long-term compounding.";
+      return "For most long-term investors, a simple VOO plan is a strong default path — especially when the goal is low-cost U.S. market exposure.";
     }
 
     function buildDecisionLine(years, growthShare){
       if(years >= 15 && growthShare >= 45){
-        return "At this pace, time and compounding are becoming major drivers of your VOO outcome.";
+        return "At this pace, time and compounding are becoming major drivers of your future VOO outcome.";
       }
       if(years < 8){
         return "At this stage, your result is still driven heavily by what you keep contributing, which is why consistency matters.";
       }
-      return "This plan works if you stay invested. The biggest risk is not the market — it is stopping.";
+      return "At this pace, time and compounding are becoming major drivers of your future VOO outcome.";
     }
 
-    function buildFitList(years, ratePercent){
-      const items = [];
-
-      items.push("Good fit if you want simple, low-cost exposure to large U.S. companies.");
-      items.push("Good fit if you are comfortable holding through market ups and downs.");
-
-      if(years < 8){
-        items.push("Less powerful if your time horizon is short and your goal depends heavily on compounding.");
-      } else {
-        items.push("Less suitable if you want global diversification inside a single fund.");
+    function buildRiskRealityText(years){
+      if(years >= 10){
+        return "If a normal market decline would make you panic, the problem is not the ETF — it is whether the plan matches your behavior.";
       }
+      return "Even with a shorter horizon, VOO still includes losses and uncertainty. A plan only works if you can emotionally tolerate that reality.";
+    }
+
+    function buildFeeImpactText(feePercent){
+      if(feePercent <= 0.10){
+        return "VOO’s low cost helps more of your return remain invested and compounding over the long run.";
+      }
+      return "Even with VOO, cost still matters. Lower fees are part of why long-term index investing works so well.";
+    }
+
+    function buildBehaviorList(ratePercent){
+      const items = [
+        "Panic selling during market declines.",
+        "Changing plans based on short-term noise.",
+        "Expecting VOO to remove uncertainty or volatility."
+      ];
 
       if(ratePercent >= 11){
-        items.push("Use more conservative planning assumptions so you do not depend on one best-case return number.");
+        items.push("Depending too much on optimistic return assumptions.");
       }
 
       return items;
@@ -1043,7 +1073,6 @@
       const months = Math.max(Math.round(years * 12), 0);
 
       let balance = initial;
-      let grossBalance = initial;
       let contributions = initial;
 
       const labels = [];
@@ -1053,10 +1082,6 @@
       for(let i = 1; i <= months; i++){
         balance *= (1 + netAnnualRate / 12);
         balance += monthly;
-
-        grossBalance *= (1 + grossRate / 12);
-        grossBalance += monthly;
-
         contributions += monthly;
 
         if(i % 12 === 0){
@@ -1068,7 +1093,6 @@
 
       if(months === 0){
         balance = initial;
-        grossBalance = initial;
         contributions = initial;
       }
 
@@ -1085,13 +1109,13 @@
       const mainRisk = getMainRisk(years, grossRatePercent);
 
       document.getElementById("decisionTitle").textContent = buildDecisionTitle(years, grossRatePercent);
-      document.getElementById("decisionSub").textContent = buildDecisionSub(years, growthShare);
+      document.getElementById("decisionSub").textContent = buildDecisionSub(years);
 
       document.getElementById("profileType").textContent = profile.title;
       document.getElementById("profileDesc").textContent = profile.desc;
 
       document.getElementById("netReturn").textContent = formatPercent(netReturnPercent);
-      document.getElementById("netReturnDesc").textContent = "Your expected annual return after subtracting VOO’s expense ratio.";
+      document.getElementById("netReturnDesc").textContent = "Your expected return after subtracting VOO’s low expense ratio.";
 
       document.getElementById("biggestDriver").textContent = biggestDriver.title;
       document.getElementById("biggestDriverDesc").textContent = biggestDriver.desc;
@@ -1099,18 +1123,25 @@
       document.getElementById("mainRisk").textContent = mainRisk.title;
       document.getElementById("mainRiskDesc").textContent = mainRisk.desc;
 
-      document.getElementById("planVerdict").innerHTML = "<strong>Plan Verdict:</strong> " + buildPlanVerdict(years, grossRatePercent).replace("Plan Verdict: ", "");
-      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> " + buildImproveFirst(years, monthly, grossRatePercent).replace("What to improve first: ", "");
-      document.getElementById("decisionSummary").textContent = buildDecisionSummary(years, grossRatePercent);
+      document.getElementById("planVerdict").innerHTML = "<strong>Decision confirmation:</strong> " + buildPlanVerdict(years, grossRatePercent);
+      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> " + buildImproveFirst(years, monthly, grossRatePercent);
+      document.getElementById("decisionSummary").textContent = buildDecisionSummary(grossRatePercent);
+      document.getElementById("decisionFinal").textContent = "You do not need a perfect ETF — you need a plan you can stick with.";
       document.getElementById("decisionLine").textContent = buildDecisionLine(years, growthShare);
 
-      const fitList = document.getElementById("fitList");
-      const fitItems = buildFitList(years, grossRatePercent);
-      fitList.innerHTML = "";
-      fitItems.forEach(function(item){
+      document.getElementById("grossReturnBox").textContent = formatPercent(grossRatePercent);
+      document.getElementById("feeBox").textContent = formatPercent(feePercent);
+      document.getElementById("netReturnBox").textContent = formatPercent(netReturnPercent);
+      document.getElementById("feeImpactText").textContent = buildFeeImpactText(feePercent);
+      document.getElementById("riskRealityText").textContent = buildRiskRealityText(years);
+
+      const behaviorList = document.getElementById("behaviorList");
+      const behaviorItems = buildBehaviorList(grossRatePercent);
+      behaviorList.innerHTML = "";
+      behaviorItems.forEach(function(item){
         const li = document.createElement("li");
         li.textContent = item;
-        fitList.appendChild(li);
+        behaviorList.appendChild(li);
       });
 
       drawChart(labels, balanceData, contributionData);
@@ -1136,30 +1167,37 @@
       document.getElementById("contributions").textContent = "$0.00";
       document.getElementById("growth").textContent = "$0.00";
 
-      document.getElementById("decisionTitle").textContent = "A reasonable plan for long-term VOO investing";
-      document.getElementById("decisionSub").textContent = "This page is not only showing a projected number. It is helping you judge whether your VOO plan is practical, long-term oriented, and simple enough to stay invested through market cycles.";
+      document.getElementById("decisionTitle").textContent = "A practical long-term VOO plan";
+      document.getElementById("decisionSub").textContent = "This plan is structurally sound — built on low cost, broad exposure, and long-term discipline.";
 
       document.getElementById("profileType").textContent = "Core Index Builder";
-      document.getElementById("profileDesc").textContent = "This plan fits a long-term investor who values broad U.S. market exposure, low cost, and disciplined compounding.";
+      document.getElementById("profileDesc").textContent = "You are following a classic index investing approach — broad market exposure with minimal complexity.";
 
       document.getElementById("netReturn").textContent = "0.0%";
-      document.getElementById("netReturnDesc").textContent = "Your expected annual return after subtracting VOO’s expense ratio.";
+      document.getElementById("netReturnDesc").textContent = "Your expected return after subtracting VOO’s low expense ratio.";
 
       document.getElementById("biggestDriver").textContent = "Time + Compounding";
-      document.getElementById("biggestDriverDesc").textContent = "For long-term VOO plans, the main engine is usually staying invested long enough for compounding to matter.";
+      document.getElementById("biggestDriverDesc").textContent = "The longer you stay invested, the more your results depend on compounding — not timing.";
 
       document.getElementById("mainRisk").textContent = "Behavioral Risk";
-      document.getElementById("mainRiskDesc").textContent = "The main risk is usually not VOO’s fee. It is abandoning the plan during uncomfortable market declines.";
+      document.getElementById("mainRiskDesc").textContent = "The biggest risk is abandoning the plan during market declines — not the ETF itself.";
 
-      document.getElementById("planVerdict").innerHTML = "<strong>Plan Verdict:</strong> This VOO plan looks reasonable for a long-term investor.";
-      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
-      document.getElementById("decisionSummary").textContent = "VOO is a reasonable default path for this type of long-term investing plan — especially when simplicity, low cost, and consistency matter more than complexity.";
-      document.getElementById("decisionLine").textContent = "This plan works best when you stay invested long enough for compounding to become a major driver of the outcome.";
+      document.getElementById("planVerdict").innerHTML = "<strong>Decision confirmation:</strong> This is a practical and repeatable long-term investing plan.";
+      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping during difficult markets.";
+      document.getElementById("decisionSummary").textContent = "For most long-term investors, a simple VOO plan is a strong default path — especially when the goal is low-cost U.S. market exposure.";
+      document.getElementById("decisionFinal").textContent = "You do not need a perfect ETF — you need a plan you can stick with.";
+      document.getElementById("decisionLine").textContent = "At this pace, time and compounding are becoming major drivers of your future VOO outcome.";
 
-      document.getElementById("fitList").innerHTML = `
-        <li>Good fit if you want simple, low-cost exposure to large U.S. companies.</li>
-        <li>Good fit if you are comfortable holding through market ups and downs.</li>
-        <li>Less suitable if you want global diversification inside a single fund.</li>
+      document.getElementById("grossReturnBox").textContent = "8.0%";
+      document.getElementById("feeBox").textContent = "0.03%";
+      document.getElementById("netReturnBox").textContent = "7.97%";
+      document.getElementById("feeImpactText").textContent = "In long-term investing, cost is one of the few things you can control — and one of the most important.";
+      document.getElementById("riskRealityText").textContent = "If a normal market decline would make you panic, the problem is not the ETF — it is whether the plan matches your behavior.";
+
+      document.getElementById("behaviorList").innerHTML = `
+        <li>Panic selling during market declines.</li>
+        <li>Changing plans based on short-term noise.</li>
+        <li>Expecting VOO to remove uncertainty or volatility.</li>
       `;
 
       if(chartInstance){
