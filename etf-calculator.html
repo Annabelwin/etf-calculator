@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ETF Calculator | Model Long-Term ETF Growth</title>
-  <meta name="description" content="Free ETF calculator to estimate long-term ETF growth with an initial investment, monthly contributions, compounding, and expense ratio impact — plus practical ETF decision guidance." />
+  <title>ETF Calculator | Build a Long-Term ETF Investing Plan</title>
+  <meta name="description" content="Free ETF calculator to estimate long-term ETF growth with monthly contributions, fund fees, risk awareness, behavior guardrails, and practical decision support." />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJLXTFDGCE"></script>
@@ -27,9 +27,7 @@
       --shadow:0 20px 50px rgba(15,23,42,0.08);
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{ box-sizing:border-box; }
 
     body{
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
@@ -67,14 +65,14 @@
     }
 
     .sub{
-      max-width:580px;
+      max-width:600px;
       margin:0 auto 18px;
       color:var(--muted);
       font-size:17px;
     }
 
     .info{
-      max-width:580px;
+      max-width:600px;
       margin:0 auto;
       background:linear-gradient(180deg,#f8fafc 0%, #f2f4f7 100%);
       border:1px solid #eceff3;
@@ -218,7 +216,7 @@
 
     .decision-title{
       font-size:28px;
-      line-height:1.2;
+      line-height:1.18;
       letter-spacing:-0.02em;
       font-weight:700;
       margin:8px 0 8px;
@@ -231,11 +229,23 @@
       margin-bottom:18px;
     }
 
+    .decision-summary{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
+      border:1px solid #edf0f3;
+      color:#111827;
+      font-size:15px;
+      font-weight:600;
+      line-height:1.7;
+    }
+
     .decision-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:14px;
-      margin-top:14px;
+      margin-top:16px;
     }
 
     .decision-box{
@@ -268,28 +278,17 @@
       line-height:1.55;
     }
 
-    .decision-summary{
-      margin-top:18px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
-      font-size:15px;
-      font-weight:600;
-      line-height:1.7;
-    }
-
     .decision-final{
-      margin-top:18px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
+      margin-top:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:linear-gradient(180deg,#f9fafb 0%, #f3f4f6 100%);
+      border:1px solid #eceff3;
       font-size:15px;
-      font-weight:600;
-      line-height:1.7;
+      color:#111827;
+      font-weight:500;
+      line-height:1.65;
+      text-align:center;
     }
 
     .section-card{
@@ -382,6 +381,17 @@
       line-height:1.55;
     }
 
+    .callout{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
+      border:1px solid #edf0f3;
+      color:#111827;
+      font-size:15px;
+      line-height:1.65;
+    }
+
     .suggestion-list{
       margin:14px 0 0;
       padding-left:18px;
@@ -394,45 +404,39 @@
     }
 
     .next-step-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin-top:16px;
-}
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
 
-.next-step-card{
-  background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-  border:1px solid #edf0f3;
-  border-radius:18px;
-  padding:18px 16px;
-  box-shadow:0 6px 16px rgba(15,23,42,0.04);
-}
+    .next-step-card{
+      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
+      border:1px solid #edf0f3;
+      border-radius:18px;
+      padding:18px 16px;
+      box-shadow:0 6px 16px rgba(15,23,42,0.04);
+    }
 
-.next-step-card h3{
-  font-size:18px;
-  margin:0 0 8px;
-  letter-spacing:-0.02em;
-  color:#111827;
-}
+    .next-step-card h3{
+      font-size:18px;
+      margin:0 0 8px;
+      letter-spacing:-0.02em;
+      color:#111827;
+    }
 
-.next-step-card p{
-  margin:0 0 12px;
-  color:#4b5563;
-  font-size:14px;
-  line-height:1.6;
-}
+    .next-step-card p{
+      margin:0 0 12px;
+      color:#4b5563;
+      font-size:14px;
+      line-height:1.6;
+    }
 
-.next-step-card a{
-  color:#4f46e5;
-  font-weight:600;
-  text-decoration:none;
-}
-
-@media (max-width:768px){
-  .next-step-grid{
-    grid-template-columns:1fr;
-  }
-}
+    .next-step-card a{
+      color:var(--link);
+      font-weight:600;
+      text-decoration:none;
+    }
 
     .faq{
       max-width:580px;
@@ -535,10 +539,10 @@
       <div class="hero">
         <h1>ETF Calculator</h1>
         <div class="sub">
-          Model a general ETF investing plan — not to predict the market perfectly, but to judge whether an ETF strategy is practical, efficient, and worth following over time.
+          Build a long-term ETF investing plan — not to predict the market perfectly, but to judge whether your strategy is practical, efficient, and worth following over time.
         </div>
         <div class="info">
-          Use this calculator to estimate long-term ETF growth with an initial investment, monthly contributions, compounding, and expense ratio impact — then decide whether the plan makes sense for long-term investing.
+          Use this calculator to estimate ETF growth with an initial investment, monthly contributions, and expense ratio impact — then decide whether the plan makes sense in real life.
         </div>
       </div>
 
@@ -575,7 +579,7 @@
         </div>
 
         <div class="assumption-note">
-          Assumption: This projection uses a fixed annual return, a fixed ETF expense ratio, and regular monthly contributions. Real returns vary over time, and this is not a guarantee — it is a planning tool.
+          Assumption: This projection uses a fixed annual return, a fixed ETF expense ratio, and regular monthly contributions. Real returns vary, markets fall, and this is not a guarantee — it is a planning tool.
         </div>
       </div>
 
@@ -596,63 +600,63 @@
         </div>
       </div>
 
-     <div class="decision-panel">
-  <div class="eyebrow">Quick Decision</div>
-  <div class="decision-title" id="decisionTitle">A solid long-term ETF investing plan</div>
-  <div class="decision-sub" id="decisionSub">
-    This plan is structurally sound — the main driver is consistency and time, not perfect timing.
-  </div>
+      <div class="decision-panel">
+        <div class="eyebrow">Quick Answer</div>
+        <div class="decision-title" id="decisionTitle">A practical ETF plan for long-term investing</div>
+        <div class="decision-sub" id="decisionSub">
+          This plan is structurally sound — the main driver is consistency and time, not perfect timing.
+        </div>
 
-  <div class="decision-summary" id="planVerdict">
-    <strong>Plan Verdict:</strong> This plan is practical and repeatable for a long-term investor.
-  </div>
+        <div class="decision-summary" id="planVerdict">
+          <strong>Decision confirmation:</strong> This plan is practical and repeatable for a long-term investor.
+        </div>
 
-  <div class="decision-grid">
-    <div class="decision-box">
-      <div class="decision-label">Portfolio Type</div>
-      <div class="decision-value" id="profileType">Long-Term Builder</div>
-      <div class="decision-desc" id="profileDesc">
-        This plan fits an investor who values consistency, time, and a practical long-term approach more than short-term market timing.
+        <div class="decision-grid">
+          <div class="decision-box">
+            <div class="decision-label">Plan Type</div>
+            <div class="decision-value" id="profileType">Long-Term Builder</div>
+            <div class="decision-desc" id="profileDesc">
+              This plan fits an investor who values consistency, time, and a practical long-term approach more than short-term market timing.
+            </div>
+          </div>
+
+          <div class="decision-box">
+            <div class="decision-label">Net Return</div>
+            <div class="decision-value" id="netReturn">0.0%</div>
+            <div class="decision-desc" id="netReturnDesc">
+              Your expected annual return after subtracting the ETF expense ratio.
+            </div>
+          </div>
+
+          <div class="decision-box">
+            <div class="decision-label">Biggest Driver</div>
+            <div class="decision-value" id="biggestDriver">Time + Compounding</div>
+            <div class="decision-desc" id="biggestDriverDesc">
+              The longer the horizon, the more your outcome depends on compounding rather than fresh contributions alone.
+            </div>
+          </div>
+
+          <div class="decision-box">
+            <div class="decision-label">Main Risk</div>
+            <div class="decision-value" id="mainRisk">Behavioral Risk</div>
+            <div class="decision-desc" id="mainRiskDesc">
+              The biggest risk is usually not the ETF fee itself. It is abandoning the plan during uncomfortable market periods.
+            </div>
+          </div>
+        </div>
+
+        <div class="decision-summary" id="improveFirst">
+          <strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it during difficult markets.
+        </div>
+
+        <div class="decision-summary" id="decisionSummary">
+          For most investors, a simple low-cost ETF portfolio is a strong default path.
+        </div>
+
+        <div class="decision-final" id="decisionFinal">
+          This is not about finding a perfect ETF. It is about following a plan that works.
+        </div>
       </div>
-    </div>
-
-    <div class="decision-box">
-      <div class="decision-label">Net Return</div>
-      <div class="decision-value" id="netReturn">0.0%</div>
-      <div class="decision-desc" id="netReturnDesc">
-        Your expected annual return after subtracting the ETF expense ratio.
-      </div>
-    </div>
-
-    <div class="decision-box">
-      <div class="decision-label">Biggest Driver</div>
-      <div class="decision-value" id="biggestDriver">Time + Compounding</div>
-      <div class="decision-desc" id="biggestDriverDesc">
-        For many ETF plans, the main engine is staying invested long enough for compounding to matter.
-      </div>
-    </div>
-
-    <div class="decision-box">
-      <div class="decision-label">Main Risk</div>
-      <div class="decision-value" id="mainRisk">Behavioral Risk</div>
-      <div class="decision-desc" id="mainRiskDesc">
-        The main risk is often not the ETF fee itself. It is abandoning the plan during uncomfortable market periods.
-      </div>
-    </div>
-  </div>
-
-  <div class="decision-summary" id="improveFirst">
-    <strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it during difficult markets.
-  </div>
-
-  <div class="decision-summary" id="decisionSummary">
-    For most investors, a simple low-cost ETF portfolio is a strong default path.
-  </div>
-
-  <div class="decision-final" id="decisionFinal">
-    This is not about finding a perfect ETF. It is about following a plan that works.
-  </div>
-</div>
 
       <div class="section-card chart-wrap">
         <div class="eyebrow">Projection</div>
@@ -662,7 +666,18 @@
         </div>
         <canvas id="growthChart" height="220"></canvas>
         <div class="decision-line" id="decisionLine">
-          This plan works if you stay invested. The biggest risk is not the market — it is stopping.
+          At this pace, time and compounding are becoming major drivers of your future ETF outcome.
+        </div>
+      </div>
+
+      <div class="section-card text-card">
+        <div class="eyebrow">Risk Reality</div>
+        <h2>Losses are normal, not a sign that the plan failed</h2>
+        <p>
+          Even a strong long-term ETF plan will go through painful periods. A 20% decline is normal at some point. Larger drawdowns can also happen. Volatility does not mean the strategy is broken.
+        </p>
+        <div class="callout" id="riskRealityText">
+          If a normal decline would make you panic and sell, the risk is not only market volatility — it is building a plan you cannot emotionally hold.
         </div>
       </div>
 
@@ -690,57 +705,69 @@
           </div>
         </div>
 
-        <p style="margin-top:16px;" id="feeImpactText">
+        <div class="callout" id="feeImpactText">
           A low fee may look small in one year, but over long periods it affects how much of your result remains invested and compounding for you.
-        </p>
+        </div>
       </div>
 
       <div class="section-card text-card">
-        <div class="eyebrow">ETF Fit</div>
-        <h2>When this kind of ETF plan makes sense</h2>
-        <ul class="suggestion-list" id="fitList">
-          <li>Good fit if you want a general ETF plan with low cost and long-term discipline.</li>
-          <li>Good fit if you are investing with a time horizon long enough for compounding to matter.</li>
-          <li>Less suitable if your plan depends on short-term moves or one perfect market entry.</li>
+        <div class="eyebrow">Timing Anxiety</div>
+        <h2>You do not need a perfect entry point</h2>
+        <p>
+          Many investors delay action because they are waiting for a better moment to buy. In real life, a practical long-term ETF plan usually wins by being started and followed, not by being perfectly timed.
+        </p>
+        <div class="callout">
+          If the plan makes sense, the bigger risk is often waiting too long for certainty that never comes.
+        </div>
+      </div>
+
+      <div class="section-card text-card">
+        <div class="eyebrow">Behavior Guard</div>
+        <h2>What may make you fail later</h2>
+        <ul class="suggestion-list" id="behaviorList">
+          <li>Panic selling during market declines.</li>
+          <li>Changing plans too often after short-term noise.</li>
+          <li>Expecting one ETF to remove uncertainty or emotional discomfort.</li>
         </ul>
       </div>
 
       <div class="section-card text-card">
-        <div class="eyebrow">Why This Plan May Fail</div>
-        <h2>Process matters more than prediction</h2>
+        <div class="eyebrow">Decision Explanation</div>
+        <h2>Why this plan works</h2>
         <p>
           A rational ETF strategy is usually not about guessing the perfect market entry. It is about building a practical long-term process around a fund structure you understand, with costs you can accept and contributions you can keep making.
         </p>
         <p style="margin-top:12px;">
-          The biggest risk is often not the ETF itself. It is reacting emotionally to market declines, changing the plan too often, or expecting a fund to solve problems that discipline and time were supposed to solve.
+          The plan works when four things align: low enough cost, long enough horizon, realistic assumptions, and behavior strong enough to stay invested when markets become uncomfortable.
         </p>
       </div>
 
       <div class="section-card text-card">
-  <div class="eyebrow">Next Step</div>
-  <h2>What should you do next?</h2>
-  <p>
-    If this ETF plan looks reasonable, your next decision is whether to simplify into a default ETF path or focus more directly on building a repeatable investing habit.
-  </p>
+        <div class="eyebrow">Next Step</div>
+        <h2>What should you do next?</h2>
+        <p>
+          If this ETF plan looks reasonable, your next decision is whether to simplify into a default ETF path or focus more directly on building a repeatable investing habit.
+        </p>
 
-  <div class="next-step-grid">
-    <div class="next-step-card">
-      <h3>Keep it simple with VOO</h3>
-      <p>
-        If you want a cleaner default path built around low-cost U.S. large-cap exposure, continue with the VOO Calculator.
-      </p>
-      <a href="/voo-calculator.html">Open VOO Calculator →</a>
-    </div>
+        <div class="next-step-grid">
+          <div class="next-step-card">
+            <h3>Keep it simple with VOO</h3>
+            <p>
+              If you want a cleaner default path built around low-cost U.S. large-cap exposure, continue with the VOO Calculator.
+            </p>
+            <a href="/voo-calculator.html">Open VOO Calculator →</a>
+          </div>
 
-    <div class="next-step-card">
-      <h3>Build a repeatable DCA habit</h3>
-      <p>
-        If your bigger question is how to keep investing consistently over time, continue with the DCA Calculator.
-      </p>
-      <a href="/dca-calculator.html">Open DCA Calculator →</a>
-    </div>
-  </div>
-</div>
+          <div class="next-step-card">
+            <h3>Build a repeatable DCA habit</h3>
+            <p>
+              If your bigger question is how to keep investing consistently over time, continue with the DCA Calculator.
+            </p>
+            <a href="/dca-calculator.html">Open DCA Calculator →</a>
+          </div>
+        </div>
+      </div>
+
       <div class="section-card faq">
         <h2>ETF Calculator FAQ</h2>
 
@@ -820,7 +847,7 @@
       if(years >= 15 && growthShare >= 45){
         return {
           title: "Time + Compounding",
-          desc: "The longer horizon is becoming a major advantage. More of the final outcome is now driven by compounding, not just contributions."
+          desc: "The longer the horizon, the more your outcome depends on compounding rather than fresh contributions alone."
         };
       }
       return {
@@ -845,7 +872,7 @@
       if(years >= 10){
         return {
           title: "Behavioral Risk",
-          desc: "The main risk is often not the ETF fee itself. It is abandoning the plan during uncomfortable market periods."
+          desc: "The main risk is usually not the ETF fee itself. It is abandoning the plan during uncomfortable market periods."
         };
       }
       return {
@@ -856,45 +883,45 @@
 
     function buildPlanVerdict(years, ratePercent, feePercent){
       if(feePercent > 0.40){
-        return "Plan Verdict: The structure is workable, but the ETF fee is too high for an efficient long-term investing plan.";
+        return "This plan is workable, but the ETF fee is too high for an efficient long-term investing plan.";
       }
       if(ratePercent >= 11){
-        return "Plan Verdict: The structure is reasonable, but your expected return assumption may be too optimistic.";
+        return "This plan is reasonable, but your expected return assumption may be too optimistic.";
       }
       if(years < 5){
-        return "Plan Verdict: This can still be a valid start, but the time horizon is short for a long-term ETF plan to show its full strength.";
+        return "This can still be a valid start, but the time horizon is short for a long-term ETF plan to show its full strength.";
       }
       if(years >= 10){
-        return "Plan Verdict: This ETF plan looks reasonable for a long-term investor.";
+        return "This plan is practical and repeatable for a long-term investor.";
       }
-      return "Plan Verdict: This is a workable ETF plan, but discipline still matters more than mature compounding at this stage.";
+      return "This is a workable ETF plan, but discipline still matters more than mature compounding at this stage.";
     }
 
     function buildImproveFirst(years, monthly, ratePercent, feePercent){
       if(feePercent > 0.40){
-        return "What to improve first: Lower ETF fees. Cost control matters more than many investors realize over long holding periods.";
+        return "Lower ETF fees. Cost control matters more than many investors realize over long holding periods.";
       }
       if(ratePercent >= 11){
-        return "What to improve first: Use a more conservative expected return so the plan still looks sensible under less optimistic conditions.";
+        return "Use a more conservative expected return so the plan still looks sensible under less optimistic conditions.";
       }
       if(monthly < 200){
-        return "What to improve first: Increase your monthly contribution if possible. At this stage, contribution size matters more than fine-tuning return assumptions.";
+        return "Increase your monthly contribution if possible. At this stage, contribution size matters more than fine-tuning return assumptions.";
       }
       if(years < 8){
-        return "What to improve first: Extend your time horizon if your real goal is long-term compounding rather than a shorter-term projection.";
+        return "Extend your time horizon if your real goal is long-term compounding rather than a shorter-term projection.";
       }
-      return "What to improve first: Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
+      return "Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
     }
 
     function buildDecisionTitle(years, ratePercent, feePercent){
       if(feePercent > 0.40){
-        return "This ETF plan works — but the fee level is too high";
+        return "A workable ETF plan — but the fee level is too high";
       }
       if(ratePercent >= 11){
-        return "This ETF plan is workable — but your assumptions may be too optimistic";
+        return "A workable ETF plan — but your assumptions may be too optimistic";
       }
       if(years >= 15){
-        return "This ETF plan looks reasonable for long-term investing";
+        return "A practical ETF plan for long-term investing";
       }
       if(years >= 8){
         return "A solid ETF plan built around patience";
@@ -904,25 +931,22 @@
 
     function buildDecisionSub(years, growthShare){
       if(years >= 15 && growthShare >= 40){
-        return "This is no longer just a saving plan. Time and compounding are starting to become major drivers of the final outcome.";
+        return "This plan is structurally sound — the main driver is consistency and time, not perfect timing.";
       }
       if(years < 8){
-        return "At this stage, the value of the plan comes more from building a repeatable investing habit than from dramatic long-term compounding.";
+        return "This plan can still work, but at this stage discipline matters more than mature long-term compounding.";
       }
-      return "This plan looks practical for an investor who wants a general ETF strategy with realistic costs and a process that is easier to follow over time.";
+      return "This plan is structurally sound — the main driver is consistency and time, not perfect timing.";
     }
 
     function buildDecisionSummary(years, ratePercent, feePercent){
       if(feePercent > 0.40){
-        return "The plan structure is reasonable, but the ETF fee is high enough to reduce long-term efficiency in a meaningful way.";
+        return "A simple low-cost ETF portfolio is still the right idea — but your current fee level is too high.";
       }
       if(ratePercent >= 11){
-        return "The habit itself is useful, but your expected return assumption may be too optimistic. A strong ETF plan should still look reasonable under more conservative assumptions.";
+        return "A simple low-cost ETF portfolio is still a strong path — but your return assumption should be more conservative.";
       }
-      if(years >= 10){
-        return "For many long-term investors, a simple low-cost ETF plan is a reasonable default path — especially when consistency, cost control, and staying invested matter more than complexity.";
-      }
-      return "This plan can still make sense, but its strength comes more from discipline and steady investing than from fully developed long-term compounding.";
+      return "For most investors, a simple low-cost ETF portfolio is a strong default path.";
     }
 
     function buildDecisionLine(years, growthShare){
@@ -932,32 +956,42 @@
       if(years < 8){
         return "At this stage, your result is still driven heavily by what you keep contributing, which is why consistency matters.";
       }
-      return "This plan works if you stay invested. The biggest risk is not the market — it is stopping.";
-    }
-
-    function buildFitList(years, feePercent){
-      const items = [];
-
-      items.push("Good fit if you want a general ETF plan with low cost and long-term discipline.");
-      items.push("Good fit if you are investing with a time horizon long enough for compounding to matter.");
-
-      if(feePercent > 0.40){
-        items.push("Less suitable if you are using a higher-cost ETF when lower-cost alternatives could serve the same purpose.");
-      } else {
-        items.push("Less suitable if your plan depends on short-term moves or one perfect market entry.");
-      }
-
-      return items;
+      return "At this pace, time and compounding are becoming major drivers of your future ETF outcome.";
     }
 
     function buildFeeImpactText(feePercent){
       if(feePercent <= 0.10){
-        return "This fee level is very low. That helps more of your return stay invested and compounding over the long run.";
+        return "A low fee may look small in one year, but over long periods it affects how much of your result remains invested and compounding for you.";
       }
       if(feePercent <= 0.30){
-        return "This fee level is still manageable, but the cost is no longer trivial over long holding periods.";
+        return "This fee level is still manageable, but it is no longer trivial over long holding periods.";
       }
-      return "This fee level is high enough that it can materially reduce long-term compounding, especially over many years.";
+      return "This fee level is high enough to materially reduce long-term compounding, especially over many years.";
+    }
+
+    function buildRiskRealityText(years){
+      if(years >= 10){
+        return "If a normal decline would make you panic and sell, the risk is not only market volatility — it is building a plan you cannot emotionally hold.";
+      }
+      return "Even with a shorter horizon, ETF investing still includes losses and uncertainty. A plan only works if you can emotionally tolerate that reality.";
+    }
+
+    function buildBehaviorList(feePercent, ratePercent){
+      const items = [
+        "Panic selling during market declines.",
+        "Changing plans too often after short-term noise.",
+        "Expecting one ETF to remove uncertainty or emotional discomfort."
+      ];
+
+      if(feePercent > 0.40){
+        items.unshift("Ignoring fund costs that can quietly compound against you.");
+      }
+
+      if(ratePercent >= 11){
+        items.push("Depending too much on optimistic return assumptions.");
+      }
+
+      return items;
     }
 
     function drawChart(labels, balanceData, contributionData){
@@ -1114,23 +1148,25 @@
       document.getElementById("mainRisk").textContent = mainRisk.title;
       document.getElementById("mainRiskDesc").textContent = mainRisk.desc;
 
-      document.getElementById("planVerdict").innerHTML = "<strong>Plan Verdict:</strong> " + buildPlanVerdict(years, grossRatePercent, feePercent).replace("Plan Verdict: ", "");
-      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> " + buildImproveFirst(years, monthly, grossRatePercent, feePercent).replace("What to improve first: ", "");
+      document.getElementById("planVerdict").innerHTML = "<strong>Decision confirmation:</strong> " + buildPlanVerdict(years, grossRatePercent, feePercent);
+      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> " + buildImproveFirst(years, monthly, grossRatePercent, feePercent);
       document.getElementById("decisionSummary").textContent = buildDecisionSummary(years, grossRatePercent, feePercent);
+      document.getElementById("decisionFinal").textContent = "This is not about finding a perfect ETF. It is about following a plan that works.";
       document.getElementById("decisionLine").textContent = buildDecisionLine(years, growthShare);
 
       document.getElementById("grossReturnBox").textContent = formatPercent(grossRatePercent);
       document.getElementById("feeBox").textContent = formatPercent(feePercent);
       document.getElementById("netReturnBox").textContent = formatPercent(netReturnPercent);
       document.getElementById("feeImpactText").textContent = buildFeeImpactText(feePercent);
+      document.getElementById("riskRealityText").textContent = buildRiskRealityText(years);
 
-      const fitList = document.getElementById("fitList");
-      const fitItems = buildFitList(years, feePercent);
-      fitList.innerHTML = "";
-      fitItems.forEach(function(item){
+      const behaviorList = document.getElementById("behaviorList");
+      const behaviorItems = buildBehaviorList(feePercent, grossRatePercent);
+      behaviorList.innerHTML = "";
+      behaviorItems.forEach(function(item){
         const li = document.createElement("li");
         li.textContent = item;
-        fitList.appendChild(li);
+        behaviorList.appendChild(li);
       });
 
       drawChart(labels, balanceData, contributionData);
@@ -1156,8 +1192,9 @@
       document.getElementById("contributions").textContent = "$0.00";
       document.getElementById("growth").textContent = "$0.00";
 
-      document.getElementById("decisionTitle").textContent = "A solid long-term ETF investing plan";
+      document.getElementById("decisionTitle").textContent = "A practical ETF plan for long-term investing";
       document.getElementById("decisionSub").textContent = "This plan is structurally sound — the main driver is consistency and time, not perfect timing.";
+
       document.getElementById("profileType").textContent = "Long-Term Builder";
       document.getElementById("profileDesc").textContent = "This plan fits an investor who values consistency, time, and a practical long-term approach more than short-term market timing.";
 
@@ -1165,26 +1202,27 @@
       document.getElementById("netReturnDesc").textContent = "Your expected annual return after subtracting the ETF expense ratio.";
 
       document.getElementById("biggestDriver").textContent = "Time + Compounding";
-      document.getElementById("biggestDriverDesc").textContent = "For many ETF plans, the main engine is staying invested long enough for compounding to matter.";
+      document.getElementById("biggestDriverDesc").textContent = "The longer the horizon, the more your outcome depends on compounding rather than fresh contributions alone.";
 
       document.getElementById("mainRisk").textContent = "Behavioral Risk";
-      document.getElementById("mainRiskDesc").textContent = "The main risk is often not the ETF fee itself. It is abandoning the plan during uncomfortable market periods.";
+      document.getElementById("mainRiskDesc").textContent = "The biggest risk is usually not the ETF fee itself. It is abandoning the plan during uncomfortable market periods.";
 
-     document.getElementById("planVerdict").innerHTML = "<strong>Plan Verdict:</strong> This plan is practical and repeatable for a long-term investor.";
-     document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
-     document.getElementById("decisionSummary").textContent = "For most investors, a simple low-cost ETF portfolio is a strong default path.";
+      document.getElementById("planVerdict").innerHTML = "<strong>Decision confirmation:</strong> This plan is practical and repeatable for a long-term investor.";
+      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
+      document.getElementById("decisionSummary").textContent = "For most investors, a simple low-cost ETF portfolio is a strong default path.";
       document.getElementById("decisionFinal").textContent = "This is not about finding a perfect ETF. It is about following a plan that works.";
-      document.getElementById("decisionLine").textContent = "This plan works if you stay invested. The biggest risk is not the market — it is stopping.";
+      document.getElementById("decisionLine").textContent = "At this pace, time and compounding are becoming major drivers of your future ETF outcome.";
 
       document.getElementById("grossReturnBox").textContent = "8.0%";
       document.getElementById("feeBox").textContent = "0.03%";
       document.getElementById("netReturnBox").textContent = "7.97%";
       document.getElementById("feeImpactText").textContent = "A low fee may look small in one year, but over long periods it affects how much of your result remains invested and compounding for you.";
+      document.getElementById("riskRealityText").textContent = "If a normal decline would make you panic and sell, the risk is not only market volatility — it is building a plan you cannot emotionally hold.";
 
-      document.getElementById("fitList").innerHTML = `
-        <li>Good fit if you want a general ETF plan with low cost and long-term discipline.</li>
-        <li>Good fit if you are investing with a time horizon long enough for compounding to matter.</li>
-        <li>Less suitable if your plan depends on short-term moves or one perfect market entry.</li>
+      document.getElementById("behaviorList").innerHTML = `
+        <li>Panic selling during market declines.</li>
+        <li>Changing plans too often after short-term noise.</li>
+        <li>Expecting one ETF to remove uncertainty or emotional discomfort.</li>
       `;
 
       if(chartInstance){
