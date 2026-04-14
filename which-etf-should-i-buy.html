@@ -4,23 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Which ETF Should I Buy? | ETF Calculator</title>
-  <meta name="description" content="A beginner-friendly ETF decision guide to help you choose between VOO, VTI, QQQ, and SCHD with a calm, practical, long-term framework." />
+  <meta name="description" content="A calm, beginner-friendly guide to choosing between VOO, VTI, QQQ, and SCHD with a practical long-term framework." />
   <style>
     :root{
       --bg:#edf1f5;
-      --card:#ffffff;
-      --card-soft:rgba(255,255,255,0.72);
-      --text:#17202b;
-      --muted:#5f6c7b;
-      --soft:#8a95a3;
+      --card:rgba(255,255,255,.78);
+      --card-solid:#ffffff;
+      --text:#18212b;
+      --muted:#61707f;
+      --soft:#8e98a6;
       --line:#dde5ed;
-      --accent:#61758d;
-      --accent-dark:#4b6078;
-      --shadow:0 10px 28px rgba(15,23,42,.05);
+      --shadow:0 10px 30px rgba(15,23,42,.05);
       --radius-xl:24px;
       --radius-lg:18px;
       --radius-md:14px;
       --max:780px;
+      --btn:#677c95;
+      --btn-dark:#55697f;
     }
 
     *{box-sizing:border-box}
@@ -30,286 +30,333 @@
       background:var(--bg);
       color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      line-height:1.65;
+      line-height:1.7;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
 
     a{
-      color:var(--accent-dark);
+      color:#4f647b;
       text-decoration:none;
     }
 
-    a:hover{
-      text-decoration:underline;
-    }
+    a:hover{ text-decoration:underline; }
 
     .page{
-  width:min(calc(100% - 40px), var(--max));
-  margin:0 auto;
-  padding:18px 0 64px;
-}
+      width:min(calc(100% - 36px), var(--max));
+      margin:0 auto;
+      padding:18px 0 60px;
+    }
 
-.section-card{
-  background:var(--card-soft);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(221,229,237,.95);
-  border-radius:var(--radius-xl);
-  box-shadow:var(--shadow);
-  padding:34px 30px;
-  margin:22px 0;
-}
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
 
-.hero{
-  text-align:center;
-  padding:42px 30px 34px;
-}
+    .section-card{
+      background:var(--card);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(221,229,237,.95);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:36px 30px;
+      margin:20px 0;
+    }
 
-h1,h2,h3{
-  margin:0;
-  line-height:1.12;
-  letter-spacing:-0.028em;
-  text-wrap:balance;
-}
+    .hero{
+      text-align:center;
+      padding:40px 30px 34px;
+    }
 
-h1{
-  font-size:clamp(2.2rem,4.8vw,3.55rem);
-  font-weight:750;
-  margin-bottom:16px;
-}
+    .eyebrow{
+      display:inline-block;
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#98a3af;
+      font-weight:700;
+      margin-bottom:10px;
+    }
 
-h2{
-  font-size:clamp(1.7rem,3vw,2.2rem);
-  font-weight:700;
-  margin-bottom:14px;
-}
+    h1,h2,h3{
+      margin:0;
+      letter-spacing:-0.03em;
+      line-height:1.12;
+      text-wrap:balance;
+    }
 
-h3{
-  font-size:17px;
-  font-weight:700;
-  margin-bottom:8px;
-}
+    h1{
+      font-size:clamp(2.25rem,4.9vw,3.55rem);
+      font-weight:720;
+      margin-bottom:14px;
+    }
 
-.hero-sub{
-  max-width:620px;
-  margin:0 auto;
-  font-size:16px;
-  line-height:1.75;
-  color:var(--muted);
-}
+    h2{
+      font-size:clamp(1.85rem,3.2vw,2.45rem);
+      font-weight:700;
+      margin-bottom:14px;
+    }
 
-.hero-support{
-  max-width:620px;
-  margin:14px auto 0;
-  font-size:14px;
-  line-height:1.75;
-  color:#7c8795;
-}
+    h3{
+      font-size:17px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
 
-.section-intro{
-  max-width:680px;
-  margin:0 auto 16px;
-  font-size:15px;
-  line-height:1.75;
-  color:var(--muted);
-  text-align:center;
-}
+    p{
+      margin:0 0 16px;
+      font-size:15px;
+      color:var(--muted);
+      line-height:1.82;
+    }
 
-.text-card p{
-  margin:0 0 16px;
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.82;
-}
+    .hero-sub{
+      max-width:620px;
+      margin:0 auto;
+      font-size:16px;
+      line-height:1.78;
+      color:var(--muted);
+    }
 
-.impact-line{
-  margin-top:18px;
-  padding-top:16px;
-  border-top:1px solid var(--line);
-  font-size:15px;
-  line-height:1.78;
-  font-weight:650;
-  color:var(--text);
-}
+    .hero-support{
+      max-width:620px;
+      margin:14px auto 0;
+      font-size:14px;
+      line-height:1.78;
+      color:#7d8795;
+    }
 
-.soft-note{
-  text-align:center;
-  color:#4f5d6c;
-  font-size:15px;
-  line-height:1.8;
-  background:rgba(255,255,255,.5);
-  border:1px solid rgba(221,229,237,.85);
-  border-radius:18px;
-  padding:20px 24px;
-  box-shadow:var(--shadow);
-  margin:20px 0;
-}
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin:22px 0 12px;
+    }
 
-.grid-2{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
-  margin-top:18px;
-}
+    .button,
+    .button-secondary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 18px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:650;
+      transition:.18s ease;
+      box-shadow:var(--shadow);
+    }
 
-.grid-3{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;
-  margin-top:18px;
-}
+    .button{
+      color:#fff;
+      background:linear-gradient(180deg,#72859a 0%,#647990 100%);
+    }
 
-.mini-card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:20px 18px;
-}
+    .button:hover{
+      text-decoration:none;
+      transform:translateY(-1px);
+      background:linear-gradient(180deg,#6b7f93 0%,#596d82 100%);
+    }
 
-.mini-card p{
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.78;
-}
+    .button-secondary{
+      background:#fff;
+      color:#50647c;
+      border:1px solid var(--line);
+    }
 
-.decision-line{
-  margin-top:10px;
-  font-size:13px;
-  line-height:1.7;
-  color:#697686;
-  font-weight:600;
-}
+    .button-secondary:hover{
+      text-decoration:none;
+      transform:translateY(-1px);
+      background:#fff;
+    }
 
-.path-card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:22px 20px;
-}
+    .hero-mini{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:14px;
+      font-size:12px;
+      color:#7f8997;
+      margin-top:8px;
+    }
 
-.path-card p{
-  margin:0 0 12px;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.78;
-}
+    .text-center{ text-align:center; }
 
-.path-card ul{
-  margin:12px 0 0 18px;
-  padding:0;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.75;
-}
+    .section-intro{
+      max-width:670px;
+      margin:0 auto 16px;
+      text-align:center;
+      font-size:15px;
+      line-height:1.78;
+      color:var(--muted);
+    }
 
-.path-card li{
-  margin:7px 0;
-}
+    .impact-line{
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+      font-size:15px;
+      line-height:1.8;
+      font-weight:620;
+      color:var(--text);
+    }
 
-.pill-strip{
-  margin-top:18px;
-  padding:16px 18px;
-  background:#f8fafc;
-  border:1px solid var(--line);
-  border-radius:16px;
-  text-align:center;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.75;
-}
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+      margin-top:18px;
+    }
 
-.decision-box{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:20px 18px;
-}
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+      margin-top:18px;
+    }
 
-.decision-box ul{
-  margin:0 0 0 18px;
-  padding:0;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.75;
-}
+    .mini-card{
+      background:var(--card-solid);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px 18px;
+    }
 
-.decision-box li{
-  margin:7px 0;
-}
+    .mini-card p,
+    .tool-card p,
+    .faq-item p{
+      margin:0;
+      font-size:14px;
+      line-height:1.78;
+      color:var(--muted);
+    }
 
-.tool-card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:20px 18px;
-}
+    .small-tag{
+      display:inline-block;
+      margin-bottom:8px;
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#99a3b0;
+      font-weight:700;
+    }
 
-.tool-card p{
-  margin:0 0 12px;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.78;
-}
+    .decision-line{
+      margin-top:10px;
+      font-size:13px;
+      line-height:1.72;
+      color:#697686;
+      font-weight:600;
+    }
 
-.tool-card a{
-  font-size:14px;
-  font-weight:700;
-}
+    .soft-note{
+      text-align:center;
+      padding:18px 22px;
+      border-radius:18px;
+      border:1px solid rgba(221,229,237,.85);
+      background:rgba(255,255,255,.48);
+      box-shadow:var(--shadow);
+      color:#556272;
+      font-size:14px;
+      line-height:1.8;
+      margin:18px 0;
+    }
 
-.faq-item{
-  padding:16px 0;
-  border-top:1px solid var(--line);
-}
+    .tool-card{
+      background:var(--card-solid);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px 18px;
+    }
 
-.faq-item p{
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.82;
-}
+    .tool-card a{
+      display:inline-block;
+      margin-top:10px;
+      font-size:14px;
+      font-weight:650;
+    }
 
-.footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:12px;
-  margin-top:18px;
-}
+    .faq-item{
+      padding:16px 0;
+      border-top:1px solid var(--line);
+    }
 
-.footer-links a{
-  display:inline-flex;
-  align-items:center;
-  min-height:38px;
-  padding:0 14px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid var(--line);
-  font-size:13px;
-  font-weight:650;
-}
+    .faq-item:first-of-type{
+      border-top:none;
+      padding-top:0;
+    }
 
-@media (max-width:760px){
-  .page{
-    width:min(calc(100% - 20px), var(--max));
-    padding-top:14px;
-  }
+    .faq-item h3{
+      margin-bottom:8px;
+    }
 
-  .section-card{
-    padding:24px 18px;
-    border-radius:20px;
-    margin:18px 0;
-  }
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-top:16px;
+    }
 
-  .hero{
-    padding:30px 18px 26px;
-  }
+    .footer-links a{
+      display:inline-flex;
+      align-items:center;
+      min-height:38px;
+      padding:0 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:13px;
+      font-weight:650;
+      color:#4f647b;
+    }
 
-  .grid-2,
-  .grid-3{
-    grid-template-columns:1fr;
-  }
-}
+    .site-mini{
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      font-size:12px;
+      color:#7e8897;
+    }
+
+    .back-home{
+      text-align:center;
+      margin-top:18px;
+    }
+
+    .back-home a{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    @media (max-width:760px){
+      .page{
+        width:min(calc(100% - 20px), var(--max));
+        padding-top:14px;
+      }
+
+      .section-card{
+        padding:24px 18px;
+        border-radius:20px;
+      }
+
+      .hero{
+        padding:30px 18px 26px;
+      }
+
+      .grid-2,
+      .grid-3{
+        grid-template-columns:1fr;
+      }
 
       .hero-actions{
         flex-direction:column;
@@ -330,167 +377,124 @@ h3{
 
     <section class="section-card hero">
       <div class="eyebrow">ETF Decision Guide</div>
-      <h1>Which ETF Should You Buy?</h1>
+      <h1>Which ETF Should I Buy?</h1>
       <p class="hero-sub">
-        A calmer way to choose between VOO, VTI, QQQ, and SCHD — built for beginners who want a decision they can actually live with.
+        A calmer way to choose between VOO, VTI, QQQ, and SCHD — built for beginners who want a decision they can actually follow.
       </p>
       <p class="hero-support">
-        This is not about finding the most exciting ticker. It is about choosing an ETF that is simple enough to understand, strong enough to trust, and practical enough to keep buying over time.
+        This page is not about finding the most exciting ticker. It is about choosing an ETF that is simple enough to understand, durable enough to trust, and practical enough to keep buying over time.
       </p>
 
       <div class="hero-actions">
-        <a class="button" href="/etf-calculator.html">Build your ETF plan</a>
-        <a class="button-secondary" href="/best-etfs.html">See the best beginner ETFs</a>
+        <a class="button" href="/etf-calculator.html">Start with ETF Calculator →</a>
+        <a class="button-secondary" href="/best-etfs.html">Explore beginner ETFs →</a>
       </div>
 
-      <div class="hero-note">
-        <span>Compare real trade-offs</span>
+      <div class="hero-mini">
         <span>Choose a structure you can hold</span>
         <span>Start with a plan, not a prediction</span>
+        <span>Built for long-term investing</span>
       </div>
     </section>
 
-    <section class="section-card text-card">
+    <section class="section-card text-center">
       <div class="eyebrow">Why this page exists</div>
-      <h2 class="text-center">Most beginners do not need more ETF options. They need a clearer decision.</h2>
+      <h2>Most beginners do not need more ETF options. They need a clearer decision.</h2>
       <p class="section-intro">
-        The biggest beginner problem is usually not a lack of choices. It is the opposite: too many choices, too much noise, and too little clarity.
+        The problem is usually not a lack of ETFs. It is too many choices, too much noise, and too little clarity about what actually matters.
       </p>
       <p>
         That is why this page does not start with hype, forecasts, or performance chasing. A good first ETF does not need to impress you on paper. It needs to help you stay invested through real market cycles.
       </p>
       <p>
-        For most people, the first decision should be practical: do you want the clean default, the broad market, more growth, or more dividend focus? Once that is clear, the ETF choice becomes much easier.
+        For most investors, the first step should be practical: do you want the clean default, the full market, more growth, or more dividend focus? Once that is clear, the ETF choice becomes much easier.
       </p>
       <p class="impact-line">
         The real question is not “Which ETF is best?” It is “Which ETF can I understand, trust, and keep holding when markets become difficult?”
       </p>
     </section>
 
-    <section class="section-card">
-      <div class="eyebrow">Quick answer</div>
-      <h2 class="text-center">Four beginner-friendly ETF paths</h2>
+    <section class="section-card text-center">
+      <div class="eyebrow">Four beginner-friendly paths</div>
+      <h2>Start with the ETF role, not the ticker excitement</h2>
       <p class="section-intro">
         These are not four equally right answers. They are four different paths for four different kinds of investors.
       </p>
 
       <div class="grid-2">
-        <article class="path-card">
-          <div class="small-tag">1 · VOO</div>
+        <div class="mini-card" style="text-align:left;">
+          <div class="small-tag">VOO</div>
           <h3>The simple core path</h3>
-          <p>
-            <strong>VOO</strong> is usually the cleanest starting point for beginners who want a strong long-term default.
-          </p>
-          <ul>
-            <li>Simple to understand</li>
-            <li>Low cost</li>
-            <li>Broad large-cap U.S. exposure</li>
-            <li>Easier to keep holding</li>
-          </ul>
-          <div class="decision-line">Choose this if you want the strongest default path.</div>
-        </article>
+          <p>Clear, low-cost exposure to the S&amp;P 500.</p>
+          <div class="decision-line">Best for a simple long-term default.</div>
+        </div>
 
-        <article class="path-card">
-          <div class="small-tag">2 · VTI</div>
+        <div class="mini-card" style="text-align:left;">
+          <div class="small-tag">VTI</div>
           <h3>The broader market path</h3>
-          <p>
-            <strong>VTI</strong> gives you the total U.S. stock market, not just the large companies in the S&amp;P 500.
-          </p>
-          <ul>
-            <li>Total market exposure</li>
-            <li>Includes mid and small caps</li>
-            <li>Still simple enough for beginners</li>
-            <li>Usually behaves close to VOO</li>
-          </ul>
-          <div class="decision-line">Choose this if you want to own the market more broadly.</div>
-        </article>
+          <p>Own the full U.S. stock market in one fund.</p>
+          <div class="decision-line">Slightly broader, similar role to VOO.</div>
+        </div>
 
-        <article class="path-card">
-          <div class="small-tag">3 · QQQ</div>
+        <div class="mini-card" style="text-align:left;">
+          <div class="small-tag">QQQ</div>
           <h3>The growth-focused path</h3>
-          <p>
-            <strong>QQQ</strong> can offer more upside in strong growth periods, but it also brings more concentration and bigger swings.
-          </p>
-          <ul>
-            <li>Higher upside potential</li>
-            <li>Higher volatility</li>
-            <li>More concentration risk</li>
-            <li>Much harder to hold under pressure</li>
-          </ul>
-          <div class="decision-line">Choose this only if you accept deeper drawdowns.</div>
-        </article>
+          <p>Higher upside, but more concentration and volatility.</p>
+          <div class="decision-line">Only if you accept deeper drawdowns.</div>
+        </div>
 
-        <article class="path-card">
-          <div class="small-tag">4 · SCHD</div>
+        <div class="mini-card" style="text-align:left;">
+          <div class="small-tag">SCHD</div>
           <h3>The dividend-quality path</h3>
-          <p>
-            <strong>SCHD</strong> may fit investors who care more about dividend behavior, quality screens, and a steadier investing feel.
-          </p>
-          <ul>
-            <li>Dividend-focused approach</li>
-            <li>Quality-oriented holdings</li>
-            <li>Different feel from growth-heavy ETFs</li>
-            <li>Can be easier for some investors to live with</li>
-          </ul>
-          <div class="decision-line">Choose this if dependable behavior matters more than speed.</div>
-        </article>
+          <p>More income-oriented, with a steadier feel for some investors.</p>
+          <div class="decision-line">Better if dependable behavior matters more than speed.</div>
+        </div>
       </div>
 
-      <div class="pill-strip">
-        For most beginners: <strong>VOO</strong> is the clearest default. <strong>VTI</strong> is the broader version. <strong>QQQ</strong> is the riskier growth path. <strong>SCHD</strong> is the dividend-focused path.
+      <div class="soft-note">
+        For most beginners, <strong>VOO</strong> is the clearest default. <strong>VTI</strong> is the broader version. <strong>QQQ</strong> is the riskier growth path. <strong>SCHD</strong> is the dividend-focused path.
       </div>
+    </section>
+
+    <section class="section-card text-center">
+      <div class="eyebrow">What usually matters most</div>
+      <h2>This is not just about returns. It is also about what you can survive.</h2>
+      <p class="section-intro">
+        A fund is not only a return profile. It is also a behavior profile. The harder it is to hold, the less useful its upside becomes.
+      </p>
+      <p>
+        That is why recent performance alone is such a weak starting point. A fund that looks exciting in a bull market can become a bad decision if volatility pushes you into panic, regret, or abandoning your plan.
+      </p>
+      <p>
+        In practice, <strong>VOO</strong> is usually the most durable default. <strong>VTI</strong> is slightly broader without changing the core idea too much. <strong>QQQ</strong> may grow faster, but it is more fragile under stress. <strong>SCHD</strong> may feel steadier if dividend behavior matters to you.
+      </p>
+      <p class="impact-line">
+        The biggest beginner mistake is often not choosing the wrong ETF. It is choosing one you cannot stick with when the market gets difficult.
+      </p>
     </section>
 
     <div class="soft-note">
       You do not need to maximize every ETF category before you begin. In real life, the better choice is usually the one you can understand clearly and keep buying consistently.
     </div>
 
-    <section class="section-card text-card">
-      <div class="eyebrow">Risk structure</div>
-      <h2 class="text-center">This is not just about returns — it is about what you can survive</h2>
+    <section class="section-card text-center">
+      <div class="eyebrow">How beginners usually decide well</div>
+      <h2>A better ETF decision starts with a better question</h2>
       <p class="section-intro">
-        A fund is not only a return profile. It is also a behavior profile. The harder it is to hold, the less useful its upside becomes.
-      </p>
-      <p>
-        That is why recent performance alone is such a poor starting point. A fund that looks exciting in a bull market may become a liability if volatility causes you to stop buying, panic, or abandon your plan.
-      </p>
-      <p>
-        <strong>VOO</strong> is usually the most durable default.  
-        <strong>VTI</strong> is slightly broader without changing the game too much.  
-        <strong>QQQ</strong> may grow faster, but it is more fragile under stress.  
-        <strong>SCHD</strong> may feel steadier if dividend behavior matters to you.
-      </p>
-      <p class="impact-line">
-        The biggest mistake is usually not choosing the wrong ETF. It is choosing one you cannot stick with when the market gets difficult.
-      </p>
-    </section>
-
-    <section class="section-card">
-      <div class="eyebrow">How beginners should decide</div>
-      <h2 class="text-center">The decision framework matters more than the perfect ticker</h2>
-      <p class="section-intro">
-        These questions usually lead to better ETF decisions than asking which fund is “the best.”
+        These questions usually lead to stronger ETF decisions than asking which fund is “the best.”
       </p>
 
       <div class="grid-2">
-        <div class="decision-box">
+        <div class="mini-card" style="text-align:left;">
           <h3>Start here if you want the cleanest path</h3>
-          <ul>
-            <li>Choose VOO if you want the simplest strong default</li>
-            <li>Choose VTI if the idea of the whole market appeals to you more</li>
-            <li>Choose QQQ only if you accept bigger drops and concentration</li>
-            <li>Choose SCHD if dividend behavior matters more than maximum upside</li>
-          </ul>
+          <p>Choose VOO if you want the simplest strong default.</p>
+          <div class="decision-line">Choose VTI if the full market idea fits you better.</div>
         </div>
 
-        <div class="decision-box">
-          <h3>Questions that matter more than “Which one is best?”</h3>
-          <ul>
-            <li>Can I hold this after a 25%–35% drawdown?</li>
-            <li>Do I want simplicity or more moving parts?</li>
-            <li>Am I buying a structure or chasing recent winners?</li>
-            <li>Will I keep buying this during stress, or stop?</li>
-          </ul>
+        <div class="mini-card" style="text-align:left;">
+          <h3>What matters more than “Which one is best?”</h3>
+          <p>Can I hold this after a meaningful drawdown?</p>
+          <div class="decision-line">Am I buying a structure, or chasing recent winners?</div>
         </div>
       </div>
 
@@ -499,62 +503,62 @@ h3{
       </p>
     </section>
 
-    <section class="section-card">
+    <section class="section-card text-center">
       <div class="eyebrow">Personal fit</div>
-      <h2 class="text-center">Which ETF usually fits which kind of investor?</h2>
+      <h2>Which ETF usually fits which kind of investor?</h2>
 
-     <div class="grid-2">
-  <div class="mini-card">
-    <h3>VOO · Simple core</h3>
-    <p>Clear, low-cost exposure to the S&amp;P 500.</p>
-    <div class="decision-line">Best for a simple long-term default.</div>
-  </div>
+      <div class="grid-2">
+        <div class="mini-card" style="text-align:left;">
+          <h3>VOO · Simple core</h3>
+          <p>Clear, low-cost exposure to the S&amp;P 500.</p>
+          <div class="decision-line">Best for a simple long-term default.</div>
+        </div>
 
-  <div class="mini-card">
-    <h3>VTI · Total market</h3>
-    <p>Own the full U.S. stock market in one fund.</p>
-    <div class="decision-line">Slightly broader, similar role to VOO.</div>
-  </div>
+        <div class="mini-card" style="text-align:left;">
+          <h3>VTI · Total market</h3>
+          <p>Own the full U.S. stock market in one fund.</p>
+          <div class="decision-line">Slightly broader, similar role to VOO.</div>
+        </div>
 
-  <div class="mini-card">
-    <h3>QQQ · Growth tilt</h3>
-    <p>Higher upside, but more concentration and volatility.</p>
-    <div class="decision-line">Only if you accept deeper drawdowns.</div>
-  </div>
+        <div class="mini-card" style="text-align:left;">
+          <h3>QQQ · Growth tilt</h3>
+          <p>Higher upside, but more concentration and volatility.</p>
+          <div class="decision-line">Only if you accept deeper drawdowns.</div>
+        </div>
 
-  <div class="mini-card">
-    <h3>SCHD · Dividend focus</h3>
-    <p>More income-oriented, with a steadier feel for some investors.</p>
-    <div class="decision-line">Better if behavior matters more than speed.</div>
-  </div>
-</div>
+        <div class="mini-card" style="text-align:left;">
+          <h3>SCHD · Dividend focus</h3>
+          <p>More income-oriented, with a steadier feel for some investors.</p>
+          <div class="decision-line">Better if dependable behavior matters more than speed.</div>
+        </div>
+      </div>
 
-      <div class="pill-strip">
-        For most beginners, the best ETF is not the flashiest one. It is the one that helps you stay practical, stay invested, and keep buying with confidence.
+      <div class="soft-note">
+        For most beginners, the best ETF is usually not the flashiest one. It is the one that helps you stay practical, stay invested, and keep buying with confidence.
       </div>
     </section>
 
-    <section class="section-card">
+    <section class="section-card text-center">
       <div class="eyebrow">Turn choice into action</div>
-      <h2 class="text-center">A good ETF choice becomes useful only when it turns into a real plan</h2>
+      <h2>How our core tools help turn ETF choice into a real plan</h2>
       <p class="section-intro">
-        Choosing between VOO, VTI, QQQ, and SCHD is only the first step. The next step is building an investing plan you can actually follow.
+        Choosing between VOO, VTI, QQQ, and SCHD is only the first step. The next step is building an investing process you can actually follow.
       </p>
 
       <div class="grid-3">
-        <div class="tool-card">
+        <div class="tool-card" style="text-align:left;">
           <h3>ETF Calculator</h3>
-          <p>Use this to compare long-term outcomes, contribution amounts, and growth scenarios.</p>
+          <p>Compare long-term outcomes, contribution amounts, and growth scenarios.</p>
           <a href="/etf-calculator.html">See your long-term growth →</a>
         </div>
 
-        <div class="tool-card">
+        <div class="tool-card" style="text-align:left;">
           <h3>VOO Calculator</h3>
-          <p>Use this if you already lean toward VOO and want a more focused planning page.</p>
-          <a href="/voo-calculator.html">Build a simple VOO plan →</a>
+          <p>Use this if you already lean toward VOO and want a more focused plan.</p>
+          <a href="/voo-calculator.html">Build a simple VOO path →</a>
         </div>
 
-        <div class="tool-card">
+        <div class="tool-card" style="text-align:left;">
           <h3>DCA Calculator</h3>
           <p>Use this if you want a steady investing process instead of trying to time the market.</p>
           <a href="/dca-calculator.html">Start a consistent investing plan →</a>
@@ -568,7 +572,7 @@ h3{
       <p class="section-intro">
         It needs to be simple enough for you to trust, strong enough for you to survive, and practical enough for you to keep going.
       </p>
-      <div class="hero-note">
+      <div class="hero-mini">
         <span>Think clearly</span>
         <span>Keep costs low</span>
         <span>Stay invested</span>
@@ -576,32 +580,32 @@ h3{
       </div>
     </section>
 
-    <section class="section-card">
+    <section class="section-card text-center">
       <div class="eyebrow">FAQ</div>
-      <h2 class="text-center">FAQ for first-time ETF buyers</h2>
+      <h2>FAQ for first-time ETF buyers</h2>
 
-      <div class="faq-item">
+      <div class="faq-item" style="text-align:left;">
         <h3>What if I still feel unsure?</h3>
         <p>
           That is normal. If you want the simplest strong default, VOO is a solid starting point. If you want broader market exposure, VTI is also reasonable. The key is choosing one you can keep holding with confidence.
         </p>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item" style="text-align:left;">
         <h3>Is VTI better than VOO for beginners?</h3>
         <p>
-          Not automatically. VTI is broader because it holds the full U.S. market, while VOO is simpler and more direct. For most beginners, this is usually a preference decision, not a massive quality gap.
+          Not automatically. VTI is broader because it holds the full U.S. market, while VOO is simpler and more direct. For most beginners, this is usually a preference decision, not a major quality gap.
         </p>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item" style="text-align:left;">
         <h3>Is QQQ too risky for beginners?</h3>
         <p>
           It often can be. QQQ may look attractive after strong growth periods, but its concentration and volatility are much higher. It is not usually the beginner default unless you fully accept that trade-off.
         </p>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item" style="text-align:left;">
         <h3>Is SCHD only for dividend investors?</h3>
         <p>
           Mostly yes. It is generally a better fit for people who care more about dividend behavior, cash-flow feel, and steadier holding experience than for people seeking the fastest growth path.
@@ -617,9 +621,9 @@ h3{
       </p>
 
       <div class="hero-actions">
-        <a class="button" href="/etf-calculator.html">Build your plan now</a>
-        <a class="button-secondary" href="/voo-calculator.html">Start simple with VOO</a>
-        <a class="button-secondary" href="/dca-calculator.html">Build with DCA</a>
+        <a class="button" href="/etf-calculator.html">Build your plan now →</a>
+        <a class="button-secondary" href="/voo-calculator.html">Start simple with VOO →</a>
+        <a class="button-secondary" href="/dca-calculator.html">Start with DCA →</a>
       </div>
 
       <div class="site-mini">
