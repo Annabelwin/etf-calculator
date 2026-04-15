@@ -1,244 +1,732 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best ETFs for Long-Term Investing | ETF Calculator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best ETFs for Long-Term Investing | ETF Calculator</title>
+  <meta name="description" content="A calm, practical guide to the best ETFs for long-term investing. Learn how VOO, VTI, QQQ, SCHD, and VYM fit different long-term structures." />
+  <style>
+    :root{
+      --bg:#edf1f5;
+      --card:rgba(255,255,255,.78);
+      --card-solid:#ffffff;
+      --text:#18212b;
+      --muted:#61707f;
+      --soft:#8e98a6;
+      --line:#dde5ed;
+      --shadow:0 10px 30px rgba(15,23,42,.05);
+      --radius-xl:24px;
+      --radius-lg:18px;
+      --radius-md:14px;
+      --max:760px;
+    }
 
-<style>
-/* 直接复用你上一页的CSS（保持统一） */
-body{
-  margin:0;
-  background:#edf1f5;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;
-  color:#18212b;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
 
-.page{
-  width:min(calc(100% - 44px), 760px);
-  margin:0 auto;
-  padding:20px 0 60px;
-}
+    a{
+      color:#4f647b;
+      text-decoration:none;
+    }
 
-.section-card{
-  background:rgba(255,255,255,.78);
-  border-radius:24px;
-  padding:36px 40px;
-  margin:22px 0;
-  box-shadow:0 10px 30px rgba(0,0,0,.05);
-}
+    a:hover{ text-decoration:underline; }
 
-.content-narrow{
-  max-width:620px;
-  margin:0 auto;
-  text-align:center;
-}
+    .page{
+      width:min(calc(100% - 44px), var(--max));
+      margin:0 auto;
+      padding:18px 0 60px;
+    }
 
-.content-mid{
-  max-width:660px;
-  margin:0 auto;
-  text-align:center;
-}
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
 
-h1{
-  font-size:2.4rem;
-  font-weight:700;
-  margin-bottom:14px;
-}
+    .section-card{
+      background:var(--card);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(221,229,237,.95);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:38px 40px;
+      margin:22px 0;
+    }
 
-h2{
-  font-size:1.9rem;
-  font-weight:650;
-  margin-bottom:12px;
-}
+    .hero{
+      text-align:center;
+      padding:42px 44px 36px;
+    }
 
-p{
-  color:#5f6c79;
-  line-height:1.8;
-  font-size:15px;
-}
+    .content-narrow{
+      max-width:620px;
+      margin:0 auto;
+    }
 
-.grid-2{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:16px;
-  margin-top:20px;
-}
+    .content-mid{
+      max-width:660px;
+      margin:0 auto;
+    }
 
-.mini-card{
-  background:white;
-  border-radius:16px;
-  padding:20px;
-  text-align:left;
-}
+    .content-wide{
+      max-width:700px;
+      margin:0 auto;
+    }
 
-.button{
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:999px;
-  background:#6c8097;
-  color:white;
-  font-size:13px;
-  margin:6px;
-}
+    .eyebrow{
+      display:inline-block;
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#98a3af;
+      font-weight:700;
+      margin-bottom:10px;
+    }
 
-</style>
+    h1,h2,h3{
+      margin:0;
+      letter-spacing:-0.03em;
+      line-height:1.12;
+      text-wrap:balance;
+    }
+
+    h1{
+      font-size:clamp(2rem,4.2vw,3.05rem);
+      font-weight:700;
+      margin-bottom:16px;
+      line-height:1.08;
+      letter-spacing:-0.032em;
+    }
+
+    h2{
+      font-size:clamp(1.62rem,2.8vw,2.05rem);
+      font-weight:670;
+      margin-bottom:14px;
+      line-height:1.16;
+    }
+
+    h3{
+      font-size:16px;
+      font-weight:680;
+      margin-bottom:8px;
+    }
+
+    p{
+      margin:0 0 16px;
+      font-size:15px;
+      color:var(--muted);
+      line-height:1.86;
+    }
+
+    .hero-sub{
+      max-width:600px;
+      margin:0 auto;
+      font-size:16px;
+      line-height:1.82;
+      color:var(--muted);
+    }
+
+    .hero-support{
+      max-width:590px;
+      margin:14px auto 0;
+      font-size:14px;
+      line-height:1.85;
+      color:#7d8795;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin:22px 0 12px;
+    }
+
+    .button,
+    .button-secondary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 18px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:650;
+      transition:.18s ease;
+      box-shadow:var(--shadow);
+    }
+
+    .button{
+      color:#fff;
+      background:linear-gradient(180deg,#72859a 0%,#647990 100%);
+    }
+
+    .button:hover{
+      text-decoration:none;
+      transform:translateY(-1px);
+      background:linear-gradient(180deg,#6b7f93 0%,#596d82 100%);
+    }
+
+    .button-secondary{
+      background:#fff;
+      color:#50647c;
+      border:1px solid var(--line);
+    }
+
+    .button-secondary:hover{
+      text-decoration:none;
+      transform:translateY(-1px);
+      background:#fff;
+    }
+
+    .hero-mini{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:16px;
+      font-size:12px;
+      color:#7f8997;
+      margin-top:10px;
+    }
+
+    .text-center{ text-align:center; }
+
+    .section-intro{
+      max-width:620px;
+      margin:0 auto 16px;
+      text-align:center;
+      font-size:15px;
+      line-height:1.82;
+      color:var(--muted);
+    }
+
+    .impact-line{
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+      font-size:15px;
+      line-height:1.82;
+      font-weight:620;
+      color:var(--text);
+      max-width:620px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .mini-card{
+      background:var(--card-solid);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:22px 20px;
+    }
+
+    .mini-card p,
+    .tool-card p,
+    .faq-item p{
+      margin:0;
+      font-size:14px;
+      line-height:1.78;
+      color:var(--muted);
+    }
+
+    .small-tag{
+      display:inline-block;
+      margin-bottom:8px;
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#99a3b0;
+      font-weight:700;
+    }
+
+    .decision-line{
+      margin-top:10px;
+      font-size:13px;
+      line-height:1.72;
+      color:#697686;
+      font-weight:600;
+    }
+
+    .soft-note{
+      text-align:center;
+      padding:18px 26px;
+      border-radius:18px;
+      border:1px solid rgba(221,229,237,.85);
+      background:rgba(255,255,255,.48);
+      box-shadow:var(--shadow);
+      color:#556272;
+      font-size:14px;
+      line-height:1.82;
+      margin:18px 0 0;
+    }
+
+    .tool-card{
+      background:var(--card-solid);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:22px 20px;
+    }
+
+    .tool-card a{
+      display:inline-block;
+      margin-top:10px;
+      font-size:14px;
+      font-weight:650;
+    }
+
+    .faq-item{
+      padding:18px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .faq-item:first-of-type{
+      border-top:none;
+      padding-top:0;
+    }
+
+    .faq-item h3{
+      margin-bottom:8px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .footer-links a{
+      display:inline-flex;
+      align-items:center;
+      min-height:38px;
+      padding:0 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:13px;
+      font-weight:650;
+      color:#4f647b;
+    }
+
+    .site-mini{
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      font-size:12px;
+      color:#7e8897;
+    }
+
+    .back-home{
+      text-align:center;
+      margin-top:18px;
+    }
+
+    .back-home a{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    @media (max-width:760px){
+      .page{
+        width:min(calc(100% - 22px), 760px);
+        padding-top:14px;
+      }
+
+      .section-card{
+        padding:24px 20px;
+        border-radius:20px;
+      }
+
+      .hero{
+        padding:30px 20px 26px;
+      }
+
+      h1{
+        font-size:clamp(1.9rem,8.2vw,2.5rem);
+      }
+
+      .section-intro,
+      .hero-sub,
+      .hero-support,
+      .impact-line,
+      .content-narrow,
+      .content-mid,
+      .content-wide{
+        max-width:100%;
+      }
+
+      .grid-2,
+      .grid-3{
+        grid-template-columns:1fr;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .button,
+      .button-secondary{
+        width:100%;
+        max-width:320px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <main class="page">
+    <a class="back-link" href="/">← Back to home</a>
 
-<main class="page">
+    <section class="section-card hero">
+      <div class="content-narrow">
+        <div class="eyebrow">Long-Term Investing Guide</div>
+        <h1>Best ETFs for Long-Term Investing</h1>
+        <p class="hero-sub">
+          Long-term investing is not about finding the most exciting ETF. It is about choosing a structure you can stay invested in for 10, 20, or 30 years.
+        </p>
+        <p class="hero-support">
+          The best ETF is usually not the one with the most exciting recent return. It is the one that is simple enough to trust, durable enough to survive real market cycles, and practical enough to keep buying over time.
+        </p>
 
-<section class="section-card">
-<div class="content-narrow">
-<h1>Best ETFs for Long-Term Investing</h1>
+        <div class="hero-actions">
+          <a class="button" href="/etf-calculator.html">Build your ETF plan →</a>
+          <a class="button-secondary" href="/which-etf-should-i-buy.html">Start with decision guide →</a>
+        </div>
 
-<p>
-Long-term investing is not about finding the highest return ETF.
-It is about choosing a structure you can stay invested in for 10, 20, or 30 years.
-</p>
+        <div class="hero-mini">
+          <span>Keep costs low</span>
+          <span>Respect cycles</span>
+          <span>Stay invested</span>
+        </div>
+      </div>
+    </section>
 
-<p>
-The best ETF is usually not the most exciting one —
-it is the one that survives real market cycles with you.
-</p>
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">Why this page exists</div>
+        <h2>This is not about picking the “best ETF”</h2>
+        <p class="section-intro">
+          Most investors fail not because they picked a terrible ETF, but because they picked something they could not hold.
+        </p>
+        <p>
+          Long-term investing looks simple from a distance, but in real life it is a behavior problem. The wrong structure creates doubt, switching, panic, and endless second-guessing.
+        </p>
+        <p>
+          So this page is not built around excitement. It is built around survivability. The better question is not “Which ETF is best?” but “What kind of structure can I actually stay invested in through good markets and bad markets?”
+        </p>
+        <p class="impact-line">
+          Long-term success usually comes from a strategy you can continue, not from a ticker that looks impressive for a while.
+        </p>
+      </div>
+    </section>
 
-<div>
-<a class="button" href="/etf-calculator.html">Build your ETF plan →</a>
-<a class="button" href="/which-etf-should-i-buy.html">Start with decision guide →</a>
-</div>
+    <section class="section-card text-center">
+      <div class="content-mid">
+        <div class="eyebrow">Four long-term paths</div>
+        <h2>The strongest long-term ETF structures usually start simple</h2>
+        <p class="section-intro">
+          Not every long-term ETF plays the same role. Some are core holdings. Others are optional tilts.
+        </p>
 
-</div>
-</section>
+        <div class="grid-2">
+          <div class="mini-card" style="text-align:left;">
+            <div class="small-tag">Core default</div>
+            <h3>VOO · Simple core</h3>
+            <p>Broad S&amp;P 500 exposure, low cost, easy to understand, and easy to keep holding.</p>
+            <div class="decision-line">Best for a clean, long-term default.</div>
+          </div>
 
+          <div class="mini-card" style="text-align:left;">
+            <div class="small-tag">Core default</div>
+            <h3>VTI · Total market</h3>
+            <p>Own the full U.S. stock market, including smaller companies, in one simple fund.</p>
+            <div class="decision-line">Broader than VOO, still strong as a core.</div>
+          </div>
 
-<section class="section-card">
-<div class="content-narrow">
+          <div class="mini-card" style="text-align:left;">
+            <div class="small-tag">Optional tilt</div>
+            <h3>QQQ · Growth tilt</h3>
+            <p>Higher upside potential, but also more concentration, more volatility, and more behavior risk.</p>
+            <div class="decision-line">Not the default. Only for investors who accept bigger drawdowns.</div>
+          </div>
 
-<h2>This is not about picking the “best ETF”</h2>
+          <div class="mini-card" style="text-align:left;">
+            <div class="small-tag">Optional tilt</div>
+            <h3>SCHD / VYM · Income tilt</h3>
+            <p>Dividend-focused funds that may feel steadier for investors who value income and cash-flow behavior.</p>
+            <div class="decision-line">Useful for some investors, but not automatically better than a simple core.</div>
+          </div>
+        </div>
 
-<p>
-Most investors fail not because they picked a bad ETF,
-but because they picked something they could not hold.
-</p>
+        <div class="soft-note">
+          For most long-term investors, the strongest structure begins with a simple core. Tilts can come later — only if you understand what they add, and what they cost.
+        </div>
+      </div>
+    </section>
 
-<p>
-The real question is:
-</p>
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">What long-term investors actually need</div>
+        <h2>Four ideas matter more than chasing the hottest ETF</h2>
+        <p class="section-intro">
+          The best long-term ETF decision usually comes from a better framework, not a more exciting ticker.
+        </p>
+        <p>
+          <strong>Bogle:</strong> keep costs low, keep the structure simple, and let compounding do the heavy lifting.
+        </p>
+        <p>
+          <strong>Munger:</strong> avoid unnecessary mistakes. A strategy that is a little less exciting but much easier to hold is often the smarter choice.
+        </p>
+        <p>
+          <strong>Taleb:</strong> build something that can survive volatility. The first job of a long-term portfolio is not to look brilliant — it is to remain alive and intact through disorder.
+        </p>
+        <p>
+          <strong>Marks:</strong> respect cycles. Risk is not constant, sentiment changes, and a long-term strategy must still make sense when the environment turns against you.
+        </p>
+        <p class="impact-line">
+          The best long-term ETF is usually the one that balances simplicity, survivability, discipline, and cycle awareness.
+        </p>
+      </div>
+    </section>
 
-<p style="font-weight:600;">
-What structure can you stay invested in through good markets and bad markets?
-</p>
+    <div class="soft-note">
+      Long-term investing does not require the most complicated portfolio. It usually rewards a structure that is durable on the left side, with optional tilts only where you truly understand the trade-offs.
+    </div>
 
-</div>
-</section>
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">The barbell logic</div>
+        <h2>A strong long-term portfolio usually has a strong core and only selective tilts</h2>
+        <p class="section-intro">
+          This is where the barbell structure becomes useful.
+        </p>
+        <p>
+          On one side, you keep the portfolio strong, simple, and durable. That usually means a core like <strong>VOO</strong> or <strong>VTI</strong> — low cost, broad exposure, and easier behavior.
+        </p>
+        <p>
+          On the other side, you may add a controlled tilt only if it serves a clear purpose. That could mean a measured growth tilt like <strong>QQQ</strong>, or an income tilt like <strong>SCHD</strong> or <strong>VYM</strong>.
+        </p>
+        <p>
+          What you do not want is a fragile middle: too many moving parts, too much optimization, and too much dependence on ideal conditions.
+        </p>
+        <p class="impact-line">
+          The barbell idea is not “own everything.” It is “protect the core, and make every extra tilt earn its place.”
+        </p>
+      </div>
+    </section>
 
+    <section class="section-card text-center">
+      <div class="content-mid">
+        <div class="eyebrow">A better long-term decision</div>
+        <h2>The best long-term ETF decision usually starts with a simpler question</h2>
+        <p class="section-intro">
+          These questions often lead to better long-term outcomes than asking which ETF has the highest return.
+        </p>
 
-<section class="section-card">
-<div class="content-mid">
+        <div class="grid-2">
+          <div class="mini-card" style="text-align:left;">
+            <h3>Start here if you want the strongest default</h3>
+            <p>Choose VOO or VTI if you want a core you can keep buying for years with minimal complexity.</p>
+            <div class="decision-line">Start with the structure you are most likely to hold.</div>
+          </div>
 
-<h2>Four simple long-term ETF paths</h2>
+          <div class="mini-card" style="text-align:left;">
+            <h3>Ask before adding anything else</h3>
+            <p>Do I truly need more growth or more income — or am I just reacting to recent performance?</p>
+            <div class="decision-line">Extra tilts should solve a real need, not create more noise.</div>
+          </div>
+        </div>
 
-<div class="grid-2">
+        <p class="impact-line">
+          In long-term investing, staying invested is not a side benefit. It is the edge.
+        </p>
+      </div>
+    </section>
 
-<div class="mini-card">
-<h3>VOO · Simple core</h3>
-<p>Broad S&P 500 exposure, low cost, easy to hold.</p>
-</div>
+    <section class="section-card text-center">
+      <div class="content-mid">
+        <div class="eyebrow">What usually fits whom</div>
+        <h2>Which long-term ETF path usually fits which kind of investor?</h2>
 
-<div class="mini-card">
-<h3>VTI · Total market</h3>
-<p>Own the full U.S. market, including smaller companies.</p>
-</div>
+        <div class="grid-2">
+          <div class="mini-card" style="text-align:left;">
+            <h3>VOO · Best for the clean default</h3>
+            <p>Strong for investors who want broad U.S. exposure, low cost, and the least friction.</p>
+            <div class="decision-line">Usually the clearest starting point.</div>
+          </div>
 
-<div class="mini-card">
-<h3>QQQ · Growth tilt</h3>
-<p>Higher upside, but more volatility and concentration.</p>
-</div>
+          <div class="mini-card" style="text-align:left;">
+            <h3>VTI · Best for the full-market mindset</h3>
+            <p>Fits investors who want to own the whole U.S. market, not just large caps.</p>
+            <div class="decision-line">Broader, but still simple enough for a core.</div>
+          </div>
 
-<div class="mini-card">
-<h3>SCHD / VYM · Income tilt</h3>
-<p>Dividend-focused, smoother for some investors.</p>
-</div>
+          <div class="mini-card" style="text-align:left;">
+            <h3>QQQ · Best as a measured growth tilt</h3>
+            <p>Fits investors who can tolerate deeper drawdowns and understand concentration risk.</p>
+            <div class="decision-line">Usually better as a tilt than as a full long-term core.</div>
+          </div>
 
-</div>
+          <div class="mini-card" style="text-align:left;">
+            <h3>SCHD / VYM · Best as an income tilt</h3>
+            <p>Fits investors who care more about dividend behavior, income feel, and steadier holding psychology.</p>
+            <div class="decision-line">Useful when income matters more than maximum growth speed.</div>
+          </div>
+        </div>
 
-<p style="margin-top:18px;">
-Most long-term investors succeed with a simple core first,
-then adjust only if they truly understand the trade-offs.
-</p>
+        <div class="soft-note">
+          For most long-term investors, the question is not “Which ETF wins?” but “Which structure can I keep following without losing discipline?”
+        </div>
+      </div>
+    </section>
 
-</div>
-</section>
+    <section class="section-card text-center">
+      <div class="content-mid">
+        <div class="eyebrow">Turn structure into action</div>
+        <h2>A strong ETF choice becomes valuable only when it turns into a repeatable plan</h2>
+        <p class="section-intro">
+          Picking a long-term ETF is only the beginning. The real value comes from building a contribution plan you can continue through different market environments.
+        </p>
 
+        <div class="grid-3">
+          <div class="tool-card" style="text-align:left;">
+            <h3>ETF Calculator</h3>
+            <p>Compare long-term outcomes, contribution amounts, growth scenarios, and different ETF assumptions.</p>
+            <a href="/etf-calculator.html">See your long-term growth →</a>
+          </div>
 
-<section class="section-card">
-<div class="content-narrow">
+          <div class="tool-card" style="text-align:left;">
+            <h3>VOO Calculator</h3>
+            <p>Use this if you already lean toward VOO and want a more focused long-term planning page.</p>
+            <a href="/voo-calculator.html">Build a simple VOO plan →</a>
+          </div>
 
-<h2>What actually matters in long-term investing</h2>
+          <div class="tool-card" style="text-align:left;">
+            <h3>DCA Calculator</h3>
+            <p>Use this if you want to turn your ETF choice into a calm, repeatable investing process.</p>
+            <a href="/dca-calculator.html">Start a DCA plan →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>
-Low cost matters. Staying invested matters more.
-</p>
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">Calm reminder</div>
+        <h2>The best long-term ETF is often the one that makes long-term behavior easier</h2>
+        <p class="section-intro">
+          Long-term investing does not need to feel exciting. It needs to feel durable, understandable, and easy enough to continue for years.
+        </p>
+        <div class="hero-mini">
+          <span>Keep costs low</span>
+          <span>Build a strong core</span>
+          <span>Add tilts carefully</span>
+          <span>Respect cycles</span>
+        </div>
+      </div>
+    </section>
 
-<p>
-Diversification helps, but behavior decides outcomes.
-</p>
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">FAQ</div>
+        <h2>FAQ for long-term ETF investors</h2>
 
-<p>
-Markets move in cycles. Your strategy must survive them.
-</p>
+        <div class="faq-item" style="text-align:left;">
+          <h3>Is VOO or VTI better for long-term investing?</h3>
+          <p>
+            For most investors, both are strong long-term core choices. VOO is simpler and more direct. VTI is broader because it includes smaller companies too. The difference is usually smaller than people think.
+          </p>
+        </div>
 
-</div>
-</section>
+        <div class="faq-item" style="text-align:left;">
+          <h3>Is QQQ a good long-term ETF?</h3>
+          <p>
+            It can be, but usually not as the default answer for most people. QQQ has higher upside potential, but it also brings more concentration and bigger drawdowns. It often works better as a growth tilt than as a full core.
+          </p>
+        </div>
 
+        <div class="faq-item" style="text-align:left;">
+          <h3>Are SCHD and VYM good for long-term investing?</h3>
+          <p>
+            They can be useful for investors who value dividend behavior and income more than maximum growth. But they are not automatically better than a simple broad-market core. Their role is usually more specific.
+          </p>
+        </div>
 
-<section class="section-card">
-<div class="content-mid">
+        <div class="faq-item" style="text-align:left;">
+          <h3>What is the biggest long-term investing mistake?</h3>
+          <p>
+            Often it is not choosing the “wrong” ETF once. It is building a structure you cannot stick with, then switching too often, reacting to noise, and breaking the compounding process.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<h2>A better way to decide</h2>
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">Next step</div>
+        <h2>Start with a long-term ETF plan you can actually follow</h2>
+        <p class="section-intro">
+          You do not need the perfect ETF before you begin. You need a clear enough structure, a repeatable process, and the discipline to stay with it long enough for compounding to matter.
+        </p>
 
-<div class="grid-2">
+        <div class="hero-actions">
+          <a class="button" href="/etf-calculator.html">Build your long-term plan →</a>
+          <a class="button-secondary" href="/which-etf-should-i-buy.html">Compare your ETF style →</a>
+          <a class="button-secondary" href="/dca-calculator.html">Start with DCA →</a>
+        </div>
 
-<div class="mini-card">
-<h3>Start here</h3>
-<p>Choose VOO or VTI if you want a strong default.</p>
-</div>
+        <div class="site-mini">
+          <span>Which ETF Should I Buy?</span>
+          <span>ETF Comparisons</span>
+          <span>Long-term decision making</span>
+          <span>VOO</span>
+          <span>VTI</span>
+          <span>QQQ</span>
+          <span>SCHD</span>
+        </div>
 
-<div class="mini-card">
-<h3>Ask yourself</h3>
-<p>Can I hold this through a 30–50% drawdown?</p>
-</div>
+        <div class="footer-links">
+          <a href="/best-etfs.html">Best ETFs →</a>
+          <a href="/best-etfs-for-beginners.html">Best ETFs for Beginners →</a>
+          <a href="/which-etf-should-i-buy.html">Which ETF Should I Buy? →</a>
+        </div>
+      </div>
+    </section>
 
-</div>
-
-<p style="margin-top:16px;font-weight:600;">
-Staying invested is the real edge.
-</p>
-
-</div>
-</section>
-
-
-<section class="section-card">
-<div class="content-narrow">
-
-<h2>Turn your ETF choice into a real plan</h2>
-
-<p>
-Choosing an ETF is only the first step.
-A repeatable investing process is what creates long-term results.
-</p>
-
-<div>
-<a class="button" href="/etf-calculator.html">See your long-term growth →</a>
-<a class="button" href="/dca-calculator.html">Start a DCA plan →</a>
-</div>
-
-</div>
-</section>
-
-</main>
-
+    <div class="back-home">
+      <a href="/">← Back to home</a>
+    </div>
+  </main>
 </body>
 </html>
