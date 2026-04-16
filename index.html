@@ -259,6 +259,68 @@
       color:#344256;
     }
 
+    .decision-flow-note{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:4px 0 18px;
+  font-size:.82rem;
+  font-weight:700;
+  color:#6f7c8d;
+  text-transform:none;
+}
+
+.flow-arrow{
+  color:#9aa5b3;
+  font-weight:800;
+}
+
+.path-preview{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid #e5ebf2;
+  font-size:.82rem;
+  line-height:1.5;
+  color:#748091;
+}
+
+.path-preview strong{
+  color:#3c495c;
+  font-weight:700;
+}
+
+.decision-card{
+  position:relative;
+}
+
+.decision-card .card-link{
+  margin-top:14px;
+}
+
+.decision-card-highlight{
+  background:linear-gradient(180deg,#ffffff 0%, #f4f8fd 100%);
+  border-color:#cfd9e5;
+  box-shadow:0 14px 30px rgba(15,23,42,0.06);
+}
+
+.decision-card-highlight:hover{
+  border-color:#bcc9d8;
+  box-shadow:0 16px 34px rgba(15,23,42,0.08);
+}
+
+@media (max-width: 640px){
+  .decision-flow-note{
+    gap:8px;
+    font-size:.78rem;
+    margin-bottom:16px;
+  }
+
+  .path-preview{
+    font-size:.8rem;
+  }
+}
     .micro-note{
       text-align:center;
       margin-top:14px;
