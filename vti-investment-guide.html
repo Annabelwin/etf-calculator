@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VTI Investment Guide | Is VTI Right for You?</title>
+  <meta
+    name="description"
+    content="A practical VTI investment guide for long-term investors. Learn when VTI fits, what risks to expect, and how to connect VTI to a real investing plan."
+  />
+  <link rel="canonical" href="https://etfcalculator.net/vti-investment-guide.html" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    :root{
+      --bg:#eef2f6;
+      --surface:#ffffff;
+      --surface-2:#f7f9fc;
+      --text:#18202a;
+      --muted:#667085;
+      --line:#d9e0e8;
+      --line-strong:#cbd5e1;
+      --shadow:0 20px 50px rgba(15,23,42,0.08);
+      --radius:24px;
+      --radius-sm:18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .page{
+      width:min(980px, calc(100% - 56px));
+      margin:0 auto;
+      padding:32px 0 52px;
+    }
+
+    .section-card{
+      background:rgba(255,255,255,0.88);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(210,218,230,0.9);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:40px 38px;
+      margin:0 0 22px;
+    }
+
+    .hero{
+      text-align:center;
+      padding:54px 42px 40px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#7a8798;
+      margin-bottom:12px;
+    }
+
+    .hero h1,
+    .section-title{
+      margin:0;
+      font-size:clamp(2rem,4vw,3.35rem);
+      line-height:1.04;
+      letter-spacing:-0.04em;
+      text-wrap:balance;
+    }
+
+    .hero-sub{
+      max-width:760px;
+      margin:14px auto 0;
+      font-size:1.03rem;
+      color:var(--muted);
+      text-wrap:balance;
+    }
+
+    .hero-note{
+      max-width:760px;
+      margin:12px auto 0;
+      font-size:.93rem;
+      color:#8a94a3;
+      text-wrap:balance;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+      margin-top:24px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid var(--line-strong);
+      font-size:.95rem;
+      font-weight:700;
+      transition:all .18s ease;
+      background:#fff;
+      color:var(--text);
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:#b8c4d3;
+      box-shadow:0 10px 24px rgba(15,23,42,0.08);
+    }
+
+    .btn-primary{
+      background:#44526a;
+      color:#fff;
+      border-color:#44526a;
+    }
+
+    .btn-primary:hover{
+      background:#3a475c;
+      border-color:#3a475c;
+    }
+
+    .inline-links{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-top:16px;
+      font-size:.88rem;
+      color:#7b8796;
+    }
+
+    .inline-links a{
+      font-weight:600;
+    }
+
+    .section-head{
+      text-align:center;
+      margin-bottom:18px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(1.7rem,3vw,2.55rem);
+      line-height:1.1;
+      letter-spacing:-0.035em;
+      text-wrap:balance;
+    }
+
+    .section-head p{
+      max-width:760px;
+      margin:10px auto 0;
+      color:var(--muted);
+      font-size:.98rem;
+      text-wrap:balance;
+    }
+
+    .decision-flow{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:6px 0 20px;
+      font-size:.82rem;
+      font-weight:700;
+      color:#6f7c8d;
+    }
+
+    .flow-arrow{
+      color:#9aa5b3;
+      font-weight:800;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .feature-card,
+    .decision-card,
+    .fit-card,
+    .list-card,
+    .principle-card,
+    .cta-card{
+      background:linear-gradient(180deg,#ffffff 0%, #f8fafc 100%);
+      border:1px solid #dde5ee;
+      border-radius:22px;
+      padding:26px 24px;
+      min-height:100%;
+      transition:all .18s ease;
+    }
+
+    .feature-card:hover,
+    .decision-card:hover,
+    .fit-card:hover,
+    .list-card:hover,
+    .principle-card:hover,
+    .cta-card:hover{
+      transform:translateY(-2px);
+      border-color:#c9d4e0;
+      box-shadow:0 12px 28px rgba(15,23,42,0.07);
+    }
+
+    .card-label{
+      display:block;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#7f8a99;
+      margin-bottom:10px;
+    }
+
+    .feature-card h3,
+    .decision-card h3,
+    .fit-card h3,
+    .list-card h3,
+    .principle-card h3,
+    .cta-card h3{
+      margin:0 0 10px;
+      font-size:1.18rem;
+      line-height:1.16;
+      letter-spacing:-0.02em;
+      text-wrap:balance;
+    }
+
+    .feature-card p,
+    .decision-card p,
+    .fit-card p,
+    .list-card p,
+    .principle-card p,
+    .cta-card p{
+      margin:0;
+      font-size:.94rem;
+      line-height:1.72;
+      color:var(--muted);
+    }
+
+    .card-link{
+      display:inline-block;
+      margin-top:14px;
+      font-weight:700;
+      font-size:.92rem;
+      color:#344256;
+      transition:transform .16s ease,color .16s ease;
+    }
+
+    .feature-card:hover .card-link,
+    .decision-card:hover .card-link,
+    .fit-card:hover .card-link,
+    .list-card:hover .card-link,
+    .principle-card:hover .card-link,
+    .cta-card:hover .card-link{
+      transform:translateX(2px);
+      color:#223247;
+    }
+
+    .micro-note{
+      text-align:center;
+      margin-top:14px;
+      font-size:.84rem;
+      color:#7d8897;
+      text-wrap:balance;
+    }
+
+    .quick-answer{
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    .quick-answer-box{
+      background:linear-gradient(180deg,#ffffff 0%, #f7fafd 100%);
+      border:1px solid #dbe4ee;
+      border-radius:22px;
+      padding:24px 24px 22px;
+      text-align:center;
+    }
+
+    .quick-answer-box h3{
+      margin:0;
+      font-size:1.34rem;
+      line-height:1.15;
+      letter-spacing:-0.025em;
+      text-wrap:balance;
+    }
+
+    .quick-answer-box p{
+      max-width:720px;
+      margin:12px auto 0;
+      font-size:.97rem;
+      color:var(--muted);
+      text-wrap:balance;
+    }
+
+    .answer-pills{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      min-height:36px;
+      padding:0 14px;
+      border-radius:999px;
+      border:1px solid #d9e1ea;
+      background:#fff;
+      color:#536071;
+      font-size:.85rem;
+      font-weight:700;
+    }
+
+    .fit-list{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:.93rem;
+    }
+
+    .fit-list li{
+      margin:8px 0;
+    }
+
+    .impact-line{
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px solid #e5ebf2;
+      font-size:.84rem;
+      line-height:1.45;
+      color:#738092;
+    }
+
+    .impact-line strong{
+      color:#334155;
+    }
+
+    .route-links{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .footer-feedback{
+      text-align:center;
+      color:#7e8a99;
+      font-size:.83rem;
+      margin-top:18px;
+    }
+
+    .footer-feedback a{
+      font-weight:700;
+      color:#4d5b70;
+    }
+
+    @media (max-width: 980px){
+      .grid-4{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .grid-3,
+      .grid-2,
+      .route-links{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .page{
+        width:min(980px, calc(100% - 20px));
+        padding:18px 0 34px;
+      }
+
+      .section-card{
+        border-radius:22px;
+        padding:28px 18px;
+        margin-bottom:16px;
+      }
+
+      .hero{
+        padding:36px 20px 26px;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .inline-links{
+        gap:10px 14px;
+        font-size:.84rem;
+      }
+
+      .grid-4{
+        grid-template-columns:1fr;
+      }
+
+      .feature-card,
+      .decision-card,
+      .fit-card,
+      .list-card,
+      .principle-card,
+      .cta-card{
+        padding:22px 18px 20px;
+      }
+
+      .decision-flow{
+        gap:8px;
+        font-size:.78rem;
+        margin-bottom:16px;
+      }
+
+      .hero h1,
+      .section-title{
+        font-size:clamp(1.8rem,6.8vw,2.4rem);
+        line-height:1.08;
+      }
+
+      .section-head h2{
+        font-size:clamp(1.55rem,6vw,2rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <section class="section-card hero">
+      <div class="eyebrow">ETF guide · Broader market path</div>
+      <h1>VTI investment guide</h1>
+      <p class="hero-sub">
+        A practical guide for investors who want broader U.S. market exposure than VOO and want to know when that extra breadth actually matters.
+      </p>
+      <p class="hero-note">
+        VTI is not automatically better than VOO. Its main difference is that it includes the full U.S. stock market, not just large-cap companies. That can be useful — but only if that broader structure truly fits what you want.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/etf-calculator.html">Validate the VTI path →</a>
+        <a class="btn" href="/dca-calculator.html">Turn VTI into a DCA plan →</a>
+      </div>
+
+      <div class="inline-links">
+        <a href="/which-etf-should-i-buy.html">Back to ETF decision guide</a>
+        <a href="/best-total-market-etfs.html">See the total market structure</a>
+        <a href="/index.html">Back to home</a>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div class="eyebrow">Decision flow</div>
+        <h2>Use VTI if you want broader exposure — then test whether that extra breadth actually matters to you</h2>
+        <p>
+          This page is not here to claim that broader is always better. It is here to show when VTI is rational, when VOO may still be enough, and what to do next if VTI fits.
+        </p>
+      </div>
+
+      <div class="decision-flow">
+        <span>Broader choice</span>
+        <span class="flow-arrow">→</span>
+        <span>Fit check</span>
+        <span class="flow-arrow">→</span>
+        <span>Validation</span>
+        <span class="flow-arrow">→</span>
+        <span>Plan</span>
+      </div>
+
+      <div class="quick-answer">
+        <div class="quick-answer-box">
+          <h3>VTI is strongest for investors who specifically want the full U.S. market rather than only the S&amp;P 500.</h3>
+          <p>
+            It includes large-cap, mid-cap, and small-cap stocks in one fund. That makes it broader than VOO, but broader is only valuable if that additional exposure matters to you.
+          </p>
+
+          <div class="answer-pills">
+            <span class="pill">Broader market</span>
+            <span class="pill">One-fund simplicity</span>
+            <span class="pill">Full U.S. exposure</span>
+            <span class="pill">Long-term friendly</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="micro-note">
+        A broader ETF is not automatically superior. The real question is whether the broader structure improves your fit without making your plan harder to understand or follow.
+      </p>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div class="eyebrow">Why VTI works</div>
+        <h2>Why VTI can be a strong choice for investors who want the whole market</h2>
+        <p>
+          VTI appeals to investors who want a broader version of U.S. equity exposure without building a more complex portfolio themselves.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="feature-card">
+          <span class="card-label">Full U.S. market</span>
+          <h3>VTI goes beyond large-cap stocks</h3>
+          <p>
+            VTI includes not only the biggest U.S. companies, but also mid-cap and small-cap exposure. That changes the structure even if the overlap with VOO remains very high.
+          </p>
+          <div class="impact-line">
+            <strong>Why it matters:</strong> if you care about total-market completeness, VTI may feel more aligned than VOO.
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="card-label">Simple breadth</span>
+          <h3>VTI offers broader exposure without extra complexity</h3>
+          <p>
+            Instead of combining multiple ETFs to approximate the total market, VTI gives you one broader fund that still remains simple to hold.
+          </p>
+          <div class="impact-line">
+            <strong>Why it matters:</strong> you get more breadth without turning the plan into a management project.
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="card-label">Behavior fit</span>
+          <h3>VTI can appeal to investors who dislike “missing part of the market”</h3>
+          <p>
+            Some investors feel more psychologically comfortable owning the whole market rather than only the S&amp;P 500.
+          </p>
+          <div class="impact-line">
+            <strong>Why it matters:</strong> peace of mind matters if it helps you stay invested consistently.
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="card-label">Core role</span>
+          <h3>VTI still fits the left side of a strong structure</h3>
+          <p>
+            It remains a broad, low-cost, long-term core. The key difference is not risk elimination — it is a slightly different structural definition of “the market.”
+          </p>
+          <div class="impact-line">
+            <strong>Why it matters:</strong> it still belongs on the stable side of the barbell, not the speculative side.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div class="eyebrow">Decision fit</div>
+        <h2>When VTI usually fits — and when VOO may still be enough</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="fit-card">
+          <span class="card-label">VTI usually fits if...</span>
+          <h3>You want full-market coverage in one ETF</h3>
+          <ul class="fit-list">
+            <li>You want large-cap, mid-cap, and small-cap exposure together.</li>
+            <li>You care about owning the total U.S. market rather than only the S&amp;P 500.</li>
+            <li>You prefer one broad ETF instead of stitching together multiple funds.</li>
+            <li>You want a long-term core with slightly more structural breadth than VOO.</li>
+            <li>You feel more comfortable knowing smaller companies are included too.</li>
+          </ul>
+          <a class="card-link" href="/etf-calculator.html">See what a broader one-fund path looks like →</a>
+        </div>
+
+        <div class="fit-card">
+          <span class="card-label">VTI may not add much if...</span>
+          <h3>You are already comfortable with VOO’s scope</h3>
+          <ul class="fit-list">
+            <li>You do not strongly care about owning mid-cap and small-cap stocks separately.</li>
+            <li>You want the simplest popular default and feel no “missing piece” with VOO.</li>
+            <li>You are not looking for small structural differences to solve emotional uncertainty.</li>
+            <li>You care more about holding discipline than fine distinctions between similar core ETFs.</li>
+            <li>You are comparing VTI and VOO but treating the decision as larger than it really is.</li>
+          </ul>
+          <a class="card-link" href="/voo-vs-vti.html">Compare VTI and VOO directly →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div class="eyebrow">What most people miss</div>
+        <h2>VTI is broader than VOO — but broader is not automatically more important</h2>
+        <p>
+          Many investors overestimate the practical difference between “very broad” and “even broader.” Sometimes the distinction matters. Sometimes it mainly feeds decision anxiety.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="list-card">
+          <h3>Broader does not mean lower emotional risk</h3>
+          <p>
+            VTI still carries full equity market risk. It is not safer in the sense that matters most during market stress.
+          </p>
+        </div>
+
+        <div class="list-card">
+          <h3>Structure matters only when it changes behavior or goals</h3>
+          <p>
+            If broader exposure helps you trust the plan more, VTI may be better for you. If not, the difference may not be worth overthinking.
+          </p>
+        </div>
+
+        <div class="list-card">
+          <h3>The real question is fit, not completeness for its own sake</h3>
+          <p>
+            Owning “more of the market” sounds better, but the advantage is only meaningful if it improves your real investing experience.
+          </p>
+        </div>
+
+        <div class="list-card">
+          <h3>Decision quality still matters more than tiny structural differences</h3>
+          <p>
+            The bigger mistake is often paralysis, switching, or abandoning the plan — not choosing between two very similar core ETFs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div class="eyebrow">Four thinkers, one practical lesson</div>
+        <h2>Why VTI also fits the philosophy behind this platform</h2>
+      </div>
+
+      <div class="grid-4">
+        <div class="principle-card">
+          <span class="card-label">Bogle</span>
+          <h3>Broad ownership still matters.</h3>
+          <p>
+            VTI reflects the logic of low-cost, diversified market exposure without turning investing into a product hunt.
+          </p>
+        </div>
+
+        <div class="principle-card">
+          <span class="card-label">Munger</span>
+          <h3>Avoid making small differences feel huge.</h3>
+          <p>
+            A rational investor sees VTI vs VOO as a structural choice, not a drama-filled identity decision.
+          </p>
+        </div>
+
+        <div class="principle-card">
+          <span class="card-label">Taleb</span>
+          <h3>Keep the core broad and survivable.</h3>
+          <p>
+            VTI belongs on the stable side of the structure: broad, understandable, and not dependent on narrow prediction.
+          </p>
+        </div>
+
+        <div class="principle-card">
+          <span class="card-label">Marks</span>
+          <h3>Context matters more than slogans.</h3>
+          <p>
+            The right choice depends on whether extra breadth actually improves your fit, not whether it sounds more complete on paper.
+          </p>
+        </div>
+      </div>
+
+      <p class="micro-note">
+        VTI is not “better because broader.” It is better only when its broader structure matches the way you want your core portfolio to work.
+      </p>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div class="eyebrow">Barbell structure</div>
+        <h2>Use VTI as a broad core — then decide whether anything beyond it is truly necessary</h2>
+        <p>
+          In this platform’s barbell logic, VTI still belongs on the left side: the strong base. The right side remains optional and should never destabilize the core.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="feature-card">
+          <span class="card-label">Left side · strong base</span>
+          <h3>VTI can be the whole U.S. core in one move</h3>
+          <p>
+            If you want the total market without piecing together multiple funds, VTI gives you a clean, durable center.
+          </p>
+          <a class="card-link" href="/etf-calculator.html">See the broader core in numbers →</a>
+        </div>
+
+        <div class="feature-card">
+          <span class="card-label">Right side · optional exploration</span>
+          <h3>Comparisons and ETF niches should stay optional</h3>
+          <p>
+            Growth tilts, dividend ideas, and niche funds can be explored later — but not at the cost of losing clarity in the core.
+          </p>
+          <a class="card-link" href="/etf-comparisons.html">Explore ETF options without losing your base →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div class="eyebrow">Next step</div>
+        <h2>If VTI fits, do not stop at agreement — turn it into a real plan</h2>
+        <p>
+          The next move is validation, execution, and behavior support.
+        </p>
+      </div>
+
+      <div class="route-links">
+        <a class="cta-card" href="/etf-calculator.html">
+          <span class="card-label">Validation</span>
+          <h3>Use the ETF Calculator</h3>
+          <p>
+            Estimate what a VTI path could look like over time and see whether the broader structure changes your outcome meaningfully.
+          </p>
+          <span class="card-link">Validate the VTI path →</span>
+        </a>
+
+        <a class="cta-card" href="/dca-calculator.html">
+          <span class="card-label">Plan</span>
+          <h3>Turn VTI into a DCA process</h3>
+          <p>
+            Build a steady investing rhythm that does not depend on perfect timing and keeps the broader core working quietly in the background.
+          </p>
+          <span class="card-link">Build your DCA plan →</span>
+        </a>
+
+        <a class="cta-card" href="/voo-vs-vti.html">
+          <span class="card-label">Cross-check</span>
+          <h3>Compare before you commit</h3>
+          <p>
+            If you still want extra clarity, compare VTI directly against VOO and see whether the broader exposure matters enough for you.
+          </p>
+          <span class="card-link">Compare VTI and VOO →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div class="eyebrow">Related paths</div>
+        <h2>If VTI is not the right fit, here is where to go next</h2>
+      </div>
+
+      <div class="grid-3">
+        <a class="cta-card" href="/voo-investment-guide.html">
+          <span class="card-label">Large-cap default path</span>
+          <h3>Consider VOO</h3>
+          <p>
+            Better if you are comfortable with S&amp;P 500 exposure and want the clearest mainstream default.
+          </p>
+          <span class="card-link">Explore the VOO guide →</span>
+        </a>
+
+        <a class="cta-card" href="/qqq-investment-guide.html">
+          <span class="card-label">Growth-heavy path</span>
+          <h3>Consider QQQ</h3>
+          <p>
+            Better if you deliberately want more concentration and are willing to accept the volatility that comes with it.
+          </p>
+          <span class="card-link">Explore the QQQ guide →</span>
+        </a>
+
+        <a class="cta-card" href="/schd-investment-guide.html">
+          <span class="card-label">Dividend-focused path</span>
+          <h3>Consider SCHD</h3>
+          <p>
+            Better if dividend quality and income emphasis matter more to you than owning the whole market.
+          </p>
+          <span class="card-link">Explore the SCHD guide →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-card hero" style="padding-top:38px;">
+      <div class="eyebrow">Final step</div>
+      <h2 class="section-title" style="font-size:clamp(1.85rem,3.2vw,2.7rem);">A broader default is only useful if it improves your real fit</h2>
+      <p class="hero-sub">
+        VTI can be a rational core for investors who want the full U.S. market in one ETF. But the real edge still comes from clarity, discipline, and long-term execution.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/etf-calculator.html">Start with the ETF Calculator →</a>
+        <a class="btn" href="/dca-calculator.html">Build your DCA plan →</a>
+        <a class="btn" href="/voo-vs-vti.html">Compare VTI before deciding →</a>
+      </div>
+
+      <p class="hero-note" style="margin-top:18px;">
+        This guide is built to reduce hesitation, clarify whether broader exposure matters to you, and connect that choice to a practical next step.
+      </p>
+
+      <div class="footer-feedback">
+        ETF tools for clearer thinking, stronger compounding, and calmer long-term investing decisions.<br />
+        Help us improve this platform for real investors.<br />
+        <a href="mailto:feedback@etfcalculator.net?subject=Feedback%20for%20VTI%20Investment%20Guide">Send feedback →</a>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
