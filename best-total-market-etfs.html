@@ -1,278 +1,742 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Total Market ETFs | ETF Calculator</title>
+  <meta name="description" content="A calm, practical guide to total market ETFs like VTI. Learn when total market exposure makes sense, how it compares with the S&P 500, and how to turn that choice into a long-term plan." />
 
-<title>Best Total Market ETFs | Should You Choose VTI?</title>
+  <style>
+    :root{
+      --bg:#edf1f5;
+      --card:rgba(255,255,255,.78);
+      --card-solid:#ffffff;
+      --text:#18212b;
+      --muted:#61707f;
+      --soft:#8e98a6;
+      --line:#dde5ed;
+      --shadow:0 10px 30px rgba(15,23,42,.05);
+      --radius-xl:24px;
+      --radius-lg:18px;
+      --radius-md:14px;
+      --max:760px;
+    }
 
-<meta name="description" content="Understand whether total market ETFs like VTI make sense for long-term investors. Learn the trade-off between broader diversification and simplicity.">
+    *,
+    *::before,
+    *::after{
+      box-sizing:border-box;
+    }
 
-<style>
-body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:#f6f7fb;
-    margin:0;
-    color:#1d1d1f;
-}
+    html{
+      scroll-behavior:smooth;
+      -webkit-text-size-adjust:100%;
+    }
 
-.container{
-    max-width:680px;
-    margin:0 auto;
-    padding:40px 20px 80px;
-}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
 
-.card{
-    background:#fff;
-    border-radius:20px;
-    padding:28px 26px;
-    margin-bottom:22px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.04);
-}
+    img{
+      max-width:100%;
+      display:block;
+    }
 
-.eyebrow{
-    font-size:12px;
-    color:#8e8e93;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    margin-bottom:10px;
-}
+    a{
+      color:#4f647b;
+      text-decoration:none;
+      transition:color .18s ease, opacity .18s ease, transform .18s ease;
+    }
 
-h1{
-    font-size:32px;
-    line-height:1.2;
-    margin:0 0 14px;
-    font-weight:600;
-}
+    a:hover{
+      text-decoration:underline;
+    }
 
-h2{
-    font-size:22px;
-    margin:0 0 12px;
-    font-weight:600;
-}
+    .page{
+      width:min(calc(100% - 44px), var(--max));
+      margin:0 auto;
+      padding:18px 0 60px;
+    }
 
-p{
-    font-size:15px;
-    line-height:1.7;
-    color:#4a4a4a;
-}
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
 
-.grid-2{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
+    .section-card{
+      background:var(--card);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(221,229,237,.95);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:38px 40px;
+      margin:22px 0;
+    }
 
-.mini-card{
-    background:#f9f9fb;
-    padding:16px;
-    border-radius:14px;
-}
+    .hero{
+      text-align:center;
+      padding:42px 44px 36px;
+    }
 
-.mini-card h3{
-    font-size:14px;
-    margin-bottom:6px;
-    font-weight:600;
-}
+    .content-narrow{
+      max-width:620px;
+      margin:0 auto;
+    }
 
-.button{
-    display:inline-block;
-    padding:10px 16px;
-    border-radius:999px;
-    background:#2f3a4a;
-    color:#fff;
-    text-decoration:none;
-    font-size:14px;
-    margin-right:8px;
-}
+    .content-mid{
+      max-width:660px;
+      margin:0 auto;
+    }
 
-.button.secondary{
-    background:#eef0f5;
-    color:#2f3a4a;
-}
+    .content-wide{
+      max-width:700px;
+      margin:0 auto;
+    }
 
-.footer-links{
-    margin-top:12px;
-    font-size:13px;
-    color:#6e6e73;
-}
+    .eyebrow{
+      display:inline-block;
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#98a3af;
+      font-weight:700;
+      margin-bottom:10px;
+    }
 
-.footer-links a{
-    color:#6e6e73;
-    text-decoration:none;
-    margin-right:10px;
-}
-</style>
+    h1,h2,h3,h4{
+      margin:0;
+      color:var(--text);
+      letter-spacing:-0.03em;
+      line-height:1.12;
+      text-wrap:balance;
+    }
+
+    h1{
+      font-size:clamp(2rem,4.2vw,3.1rem);
+      font-weight:700;
+      margin-bottom:16px;
+      line-height:1.08;
+      letter-spacing:-0.032em;
+    }
+
+    h2{
+      font-size:clamp(1.62rem,2.8vw,2.05rem);
+      font-weight:670;
+      margin-bottom:14px;
+      line-height:1.16;
+    }
+
+    h3{
+      font-size:16px;
+      font-weight:680;
+      margin-bottom:8px;
+    }
+
+    h4{
+      font-size:14px;
+      font-weight:680;
+      margin-bottom:6px;
+    }
+
+    p{
+      margin:0 0 16px;
+      font-size:15px;
+      color:var(--muted);
+      line-height:1.86;
+    }
+
+    strong{
+      color:var(--text);
+      font-weight:650;
+    }
+
+    .hero-sub{
+      max-width:600px;
+      margin:0 auto;
+      font-size:16px;
+      line-height:1.82;
+      color:var(--muted);
+    }
+
+    .hero-support{
+      max-width:590px;
+      margin:14px auto 0;
+      font-size:14px;
+      line-height:1.85;
+      color:#7d8795;
+    }
+
+    .hero-mini{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:16px;
+      font-size:12px;
+      color:#7f8997;
+      margin-top:10px;
+    }
+
+    .hero-actions,
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin:22px 0 12px;
+    }
+
+    .button,
+    .button-secondary,
+    .button-ghost{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 18px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:650;
+      transition:.18s ease;
+      box-shadow:0 6px 18px rgba(15,23,42,.035);
+      white-space:nowrap;
+    }
+
+    .button{
+      color:#fff;
+      background:linear-gradient(180deg,#72859a 0%,#647990 100%);
+    }
+
+    .button:hover{
+      text-decoration:none;
+      transform:translateY(-1px);
+      background:linear-gradient(180deg,#6b7f93 0%,#596d82 100%);
+    }
+
+    .button-secondary{
+      background:#fff;
+      color:#50647c;
+      border:1px solid var(--line);
+    }
+
+    .button-secondary:hover{
+      text-decoration:none;
+      transform:translateY(-1px);
+      background:#fff;
+    }
+
+    .text-center{
+      text-align:center;
+    }
+
+    .text-left{
+      text-align:left;
+    }
+
+    .section-intro{
+      max-width:620px;
+      margin:0 auto 16px;
+      text-align:center;
+      font-size:15px;
+      line-height:1.82;
+      color:var(--muted);
+    }
+
+    .impact-line{
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+      font-size:15px;
+      line-height:1.82;
+      font-weight:620;
+      color:var(--text);
+      max-width:620px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .mini-card,
+    .tool-card,
+    .cta-card{
+      background:var(--card-solid);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:22px 20px;
+    }
+
+    .mini-card p,
+    .tool-card p,
+    .faq-item p{
+      margin:0;
+      font-size:14px;
+      line-height:1.78;
+      color:var(--muted);
+    }
+
+    .small-tag{
+      display:inline-block;
+      margin-bottom:8px;
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#99a3b0;
+      font-weight:700;
+    }
+
+    .decision-line{
+      margin-top:10px;
+      font-size:13px;
+      line-height:1.72;
+      color:#697686;
+      font-weight:600;
+    }
+
+    .soft-note{
+      text-align:center;
+      padding:18px 26px;
+      border-radius:18px;
+      border:1px solid rgba(221,229,237,.85);
+      background:rgba(255,255,255,.48);
+      box-shadow:0 6px 18px rgba(15,23,42,.035);
+      color:#556272;
+      font-size:14px;
+      line-height:1.82;
+      margin:18px 0 0;
+    }
+
+    .tool-card a,
+    .cta-card a{
+      display:inline-block;
+      margin-top:10px;
+      font-size:14px;
+      font-weight:650;
+    }
+
+    .faq-item{
+      padding:18px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .faq-item:first-of-type{
+      border-top:none;
+      padding-top:0;
+    }
+
+    .faq-item h3{
+      margin-bottom:8px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .footer-links a{
+      display:inline-flex;
+      align-items:center;
+      min-height:38px;
+      padding:0 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:13px;
+      font-weight:650;
+      color:#4f647b;
+    }
+
+    .site-mini{
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      font-size:12px;
+      color:#7e8897;
+    }
+
+    .back-home{
+      text-align:center;
+      margin-top:18px;
+    }
+
+    .back-home a{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    @media (max-width:760px){
+      .page{
+        width:min(calc(100% - 22px), 760px);
+        padding-top:14px;
+      }
+
+      .section-card{
+        padding:24px 20px;
+        border-radius:20px;
+      }
+
+      .hero{
+        padding:30px 20px 26px;
+      }
+
+      h1{
+        font-size:clamp(1.9rem,8.2vw,2.5rem);
+      }
+
+      .section-intro,
+      .hero-sub,
+      .hero-support,
+      .impact-line,
+      .content-narrow,
+      .content-mid,
+      .content-wide{
+        max-width:100%;
+      }
+
+      .grid-2,
+      .grid-3{
+        grid-template-columns:1fr;
+      }
+
+      .hero-actions,
+      .cta-row{
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .button,
+      .button-secondary,
+      .button-ghost{
+        width:100%;
+        max-width:320px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <main class="page">
+    <a class="back-link" href="/">← Back to home</a>
 
-<div class="container">
+    <section class="section-card hero">
+      <div class="content-narrow">
+        <div class="eyebrow">ETF Structure Guide</div>
+        <h1>Best Total Market ETFs</h1>
+        <p class="hero-sub">
+          A total market ETF gives you more than the S&amp;P 500. The real question is whether that broader exposure actually improves your long-term decision.
+        </p>
+        <p class="hero-support">
+          For many investors, total market ETFs such as VTI are attractive because they feel more complete. But completeness is not automatically the same as a better investing structure.
+        </p>
 
-<!-- HERO -->
-<div class="card">
-<div class="eyebrow">ETF STRUCTURE GUIDE</div>
-<h1>Should you choose a total market ETF?</h1>
+        <div class="hero-actions">
+          <a class="button" href="/etf-calculator.html">Compare ETF outcomes →</a>
+          <a class="button-secondary" href="/best-etfs-for-long-term-investing.html">See the long-term structure →</a>
+        </div>
 
-<p>
-A total market ETF like VTI includes not just the largest companies, but also mid and small-cap stocks. 
-It sounds more complete — but the real question is whether that extra complexity actually matters for you.
-</p>
+        <div class="hero-mini">
+          <span>Broader than S&amp;P 500</span>
+          <span>Still simple enough for a core</span>
+          <span>Best judged by structure, not excitement</span>
+        </div>
+      </div>
+    </section>
 
-<a class="button" href="/etf-calculator.html">Compare outcomes →</a>
-<a class="button secondary" href="/best-sp500-etfs.html">Compare with S&P 500 →</a>
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">Why this page exists</div>
+        <h2>More exposure is not always a better decision</h2>
+        <p class="section-intro">
+          Many investors assume that owning the “entire market” must be better than owning only the largest companies. In real life, the difference is often smaller than people expect.
+        </p>
+        <p>
+          A total market ETF usually adds mid and small-cap exposure on top of the large-cap core. That sounds more complete — and in one sense it is. But the real decision is not about completeness alone.
+        </p>
+        <p>
+          The better question is whether that broader structure makes your long-term investing clearer, calmer, and easier to stick with through real market cycles.
+        </p>
+        <p class="impact-line">
+          The real issue is not “Do I own everything?” It is “Does this structure help me stay invested for decades?”
+        </p>
+      </div>
+    </section>
 
-<p style="margin-top:12px;font-size:13px;color:#8e8e93;">
-Broader exposure · Slightly more complex · Built for long-term investors
-</p>
-</div>
+    <section class="section-card text-center">
+      <div class="content-mid">
+        <div class="eyebrow">What total market actually means</div>
+        <h2>A total market ETF is usually a broader core, not a completely different strategy</h2>
+        <p class="section-intro">
+          The biggest mistake is to imagine VTI and a simple S&amp;P 500 ETF as opposites. They are usually closer cousins than many investors think.
+        </p>
 
+        <div class="grid-2">
+          <div class="mini-card text-left">
+            <div class="small-tag">Total market core</div>
+            <h3>VTI</h3>
+            <p>Owns large, mid, and small-cap U.S. companies in one fund.</p>
+            <div class="decision-line">Broader than the S&amp;P 500, but still simple enough to serve as a long-term core.</div>
+          </div>
 
-<!-- WHY THIS PAGE -->
-<div class="card">
-<div class="eyebrow">WHY THIS PAGE EXISTS</div>
-<h2>More exposure is not always a better decision</h2>
+          <div class="mini-card text-left">
+            <div class="small-tag">Large-cap core</div>
+            <h3>VOO / S&amp;P 500 ETFs</h3>
+            <p>Focuses only on the largest U.S. companies.</p>
+            <div class="decision-line">Less complete in theory, but often just as effective in practice for many long-term investors.</div>
+          </div>
 
-<p>
-Many investors assume that owning the “entire market” must be better than owning just the S&P 500.
-But in practice, the difference is often smaller than expected — while the complexity is higher.
-</p>
+          <div class="mini-card text-left">
+            <div class="small-tag">What VTI adds</div>
+            <h3>Mid and small caps</h3>
+            <p>More breadth, slightly more diversification, and more of the market outside the very largest companies.</p>
+            <div class="decision-line">This can matter philosophically more than it changes the whole experience.</div>
+          </div>
 
-<p>
-The real decision is not about coverage. It is about behavior.
-Will owning more of the market actually help you stay invested, or just make the decision harder?
-</p>
+          <div class="mini-card text-left">
+            <div class="small-tag">What usually does not change</div>
+            <h3>The role of the portfolio</h3>
+            <p>For most investors, it is still a long-term U.S. equity core.</p>
+            <div class="decision-line">The real distinction is simplicity versus broader coverage — not a totally different investing philosophy.</div>
+          </div>
+        </div>
 
-<p style="margin-top:10px;font-weight:500;">
-The real question is: does broader exposure improve your outcome — or just your feeling of completeness?
-</p>
-</div>
+        <div class="soft-note">
+          A total market ETF is usually best understood as a broader core, not as an aggressive bet or a special strategy.
+        </div>
+      </div>
+    </section>
 
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">What usually matters more</div>
+        <h2>This is not mainly about returns. It is about simplicity versus completeness.</h2>
+        <p class="section-intro">
+          Total market ETFs are often attractive because they feel more complete. But better investing decisions usually come from a stronger structure, not from a stronger feeling.
+        </p>
+        <p>
+          <strong>Bogle</strong> would push you to keep costs low and the structure simple. <strong>Munger</strong> would remind you that avoiding unnecessary complexity is often smarter than searching for the perfect answer.
+        </p>
+        <p>
+          <strong>Marks</strong> would tell you that cycles matter. A structure must still make sense when markets are uncomfortable. <strong>Taleb</strong> would ask whether the structure is durable enough to survive disorder without forcing you into bad behavior.
+        </p>
+        <p>
+          That is why the practical trade-off is not “better ETF versus worse ETF.” It is usually:
+        </p>
+        <p>
+          <strong>VOO</strong> = cleaner simplicity<br>
+          <strong>VTI</strong> = broader completeness
+        </p>
+        <p class="impact-line">
+          The biggest mistake is usually not missing a small-cap allocation. It is abandoning your strategy because the structure was never clear enough to hold.
+        </p>
+      </div>
+    </section>
 
-<!-- STRUCTURE -->
-<div class="card">
-<div class="eyebrow">STRUCTURE DIFFERENCE</div>
-<h2>What you actually get with total market ETFs</h2>
+    <div class="soft-note">
+      For many long-term investors, both VTI and VOO are reasonable. The better choice is usually the one that makes your structure easier to trust and easier to continue.
+    </div>
 
-<div class="grid-2">
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">How to decide</div>
+        <h2>A better total market decision starts with a simpler question</h2>
+        <p class="section-intro">
+          The question is not “Which one is mathematically broader?” The question is “Which core structure do I actually want to live with for the next 10 to 30 years?”
+        </p>
 
-<div class="mini-card">
-<h3>VTI · Total market</h3>
-<p>
-Includes large, mid, and small-cap U.S. companies.
-</p>
-</div>
+        <div class="grid-2">
+          <div class="mini-card text-left">
+            <h3>Choose VTI if:</h3>
+            <p>You want to own the full U.S. market in one fund and you like the idea of broader exposure beyond the largest companies.</p>
+            <div class="decision-line">VTI fits investors who want “the whole market” without adding real complexity elsewhere.</div>
+          </div>
 
-<div class="mini-card">
-<h3>VOO · S&P 500</h3>
-<p>
-Focuses only on the largest 500 companies.
-</p>
-</div>
+          <div class="mini-card text-left">
+            <h3>Choose VOO if:</h3>
+            <p>You prefer maximum simplicity and you do not feel a strong need to hold mid and small caps separately.</p>
+            <div class="decision-line">VOO fits investors who want a cleaner large-cap core and fewer moving parts in how they explain the portfolio to themselves.</div>
+          </div>
+        </div>
 
-<div class="mini-card">
-<h3>What’s added</h3>
-<p>
-Small and mid caps — more diversification in theory.
-</p>
-</div>
+        <p class="impact-line">
+          For most people, this is not a performance decision. It is a structure preference.
+        </p>
+      </div>
+    </section>
 
-<div class="mini-card">
-<h3>What changes</h3>
-<p>
-Slightly more volatility, but not dramatically different long-term.
-</p>
-</div>
+    <section class="section-card text-center">
+      <div class="content-mid">
+        <div class="eyebrow">How total market fits into the system</div>
+        <h2>Total market ETFs usually belong on the strong side of the barbell</h2>
+        <p class="section-intro">
+          In your website’s structure, VTI is not a speculative tilt. It belongs on the durable side — the part designed to survive and compound.
+        </p>
 
-</div>
+        <div class="grid-3">
+          <div class="mini-card text-left">
+            <div class="small-tag">Strong side</div>
+            <h3>VTI as a core</h3>
+            <p>A total market ETF is usually a broad, low-friction long-term core.</p>
+          </div>
 
-<p style="margin-top:14px;">
-For many investors, the difference is marginal. But for some, owning the full market creates more psychological comfort.
-</p>
-</div>
+          <div class="mini-card text-left">
+            <div class="small-tag">What it is not</div>
+            <h3>Not an excitement trade</h3>
+            <p>VTI is not for chasing upside. Its role is steadiness, breadth, and consistency.</p>
+          </div>
 
+          <div class="mini-card text-left">
+            <div class="small-tag">Barbell logic</div>
+            <h3>Core first, tilts later</h3>
+            <p>If you add anything more aggressive later, the core should usually already be strong.</p>
+          </div>
+        </div>
 
-<!-- WHAT MATTERS -->
-<div class="card">
-<div class="eyebrow">WHAT USUALLY MATTERS MORE</div>
-<h2>This is not about returns. It is about simplicity vs completeness.</h2>
+        <div class="soft-note">
+          The purpose of a total market ETF is not to make the portfolio more exciting. It is to make the core broader while keeping the structure intact.
+        </div>
+      </div>
+    </section>
 
-<p>
-A total market ETF is not strictly better — it is simply broader.
-The trade-off is between:
-</p>
+    <section class="section-card text-center">
+      <div class="content-mid">
+        <div class="eyebrow">Turn structure into action</div>
+        <h2>A good total market decision becomes useful only when it turns into a real plan</h2>
+        <p class="section-intro">
+          Once the structure is clear, the next step is simple: decide how much to invest, how often to invest, and what assumptions you want to test.
+        </p>
 
-<p>
-* Simplicity (VOO)<br>
-* Completeness (VTI)
-</p>
+        <div class="grid-3">
+          <div class="tool-card text-left">
+            <h3>ETF Calculator</h3>
+            <p>Compare long-term growth, contribution levels, and different assumptions across ETF structures.</p>
+            <a href="/etf-calculator.html">See ETF outcomes →</a>
+          </div>
 
-<p>
-In real life, simplicity often wins — because simpler structures are easier to hold during difficult markets.
-</p>
+          <div class="tool-card text-left">
+            <h3>DCA Calculator</h3>
+            <p>Turn a total market decision into a calmer, repeatable process instead of a one-time choice.</p>
+            <a href="/dca-calculator.html">Build a DCA plan →</a>
+          </div>
 
-<p style="margin-top:10px;font-weight:500;">
-The biggest mistake is not missing small caps — it is abandoning your strategy.
-</p>
-</div>
+          <div class="tool-card text-left">
+            <h3>S&amp;P 500 Comparison</h3>
+            <p>See when a large-cap core may still be enough, and when broader exposure genuinely matters to you.</p>
+            <a href="/best-sp500-etfs.html">Compare with S&amp;P 500 →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">Calm reminder</div>
+        <h2>A total market ETF does not need to be “better” to be useful</h2>
+        <p class="section-intro">
+          It only needs to fit your structure, reduce confusion, and make it easier for you to keep buying through time.
+        </p>
+        <div class="hero-mini">
+          <span>Broader core</span>
+          <span>Still simple</span>
+          <span>Built for long-term holding</span>
+        </div>
+      </div>
+    </section>
 
-<!-- DECISION -->
-<div class="card">
-<div class="eyebrow">HOW TO DECIDE</div>
-<h2>A simple way to think about it</h2>
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">FAQ</div>
+        <h2>FAQ for total market ETF investors</h2>
 
-<div class="grid-2">
+        <div class="faq-item text-left">
+          <h3>Is VTI better than VOO for long-term investing?</h3>
+          <p>
+            Not automatically. VTI is broader because it includes mid and small caps, but for many investors the practical difference is smaller than expected. The better choice is usually the one you understand and can hold with more confidence.
+          </p>
+        </div>
 
-<div class="mini-card">
-<h3>Choose VTI if:</h3>
-<p>
-You want full market exposure and prefer broader diversification.
-</p>
-</div>
+        <div class="faq-item text-left">
+          <h3>Do total market ETFs usually outperform the S&amp;P 500?</h3>
+          <p>
+            Sometimes they may, and sometimes they may not. That is not the strongest reason to choose them. The stronger reason is structural preference: you want to own the entire U.S. market in one simple fund.
+          </p>
+        </div>
 
-<div class="mini-card">
-<h3>Choose VOO if:</h3>
-<p>
-You prefer simplicity and want a structure that is easier to follow.
-</p>
-</div>
+        <div class="faq-item text-left">
+          <h3>Does owning more of the market reduce risk?</h3>
+          <p>
+            It can increase diversification, but it does not remove equity risk. In bad market environments, a total market ETF can still fall substantially. The main benefit is broader exposure, not immunity from drawdowns.
+          </p>
+        </div>
 
-</div>
+        <div class="faq-item text-left">
+          <h3>Who is a total market ETF best for?</h3>
+          <p>
+            Usually investors who want a simple long-term U.S. equity core, but who prefer to own more than just the biggest companies. It is often a philosophical preference more than a radically different investing result.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<p style="margin-top:12px;">
-For most investors, both work. The difference is not performance — it is which one you can stick with.
-</p>
-</div>
+    <section class="section-card text-center">
+      <div class="content-narrow">
+        <div class="eyebrow">Next step</div>
+        <h2>Start with a structure you can actually follow</h2>
+        <p class="section-intro">
+          You do not need the perfect ETF before you begin. You need a core structure that is clear enough to trust and durable enough to keep buying through time.
+        </p>
 
+        <div class="hero-actions">
+          <a class="button" href="/etf-calculator.html">Build your ETF plan →</a>
+          <a class="button-secondary" href="/best-etfs-for-long-term-investing.html">See the long-term framework →</a>
+          <a class="button-secondary" href="/which-etf-should-i-buy.html">Compare ETF paths →</a>
+        </div>
 
-<!-- ACTION -->
-<div class="card">
-<div class="eyebrow">TURN DECISION INTO ACTION</div>
-<h2>See how total market exposure plays out</h2>
+        <div class="site-mini">
+          <span>Total market structure</span>
+          <span>Long-term investing</span>
+          <span>VTI</span>
+          <span>VOO</span>
+          <span>Broad core first</span>
+        </div>
 
-<a class="button" href="/etf-calculator.html">Run ETF scenarios →</a>
-<a class="button secondary" href="/dca-calculator.html">Build a DCA plan →</a>
-</div>
+        <div class="footer-links">
+          <a href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs →</a>
+          <a href="/best-etfs-for-long-term-investing.html">Best ETFs for Long-Term Investing →</a>
+          <a href="/which-etf-should-i-buy.html">Which ETF Should I Buy? →</a>
+        </div>
+      </div>
+    </section>
 
-
-<!-- FINAL -->
-<div class="card">
-<div class="eyebrow">CALM REMINDER</div>
-<h2>A good ETF does not need to be perfect</h2>
-
-<p>
-It needs to be simple enough for you to trust, strong enough for you to survive, and practical enough for you to keep buying over time.
-</p>
-
-<div class="footer-links">
-<a href="/best-etfs-for-long-term-investing.html">Long-term investing</a>
-<a href="/which-etf-should-i-buy.html">Which ETF?</a>
-<a href="/best-sp500-etfs.html">S&P 500 ETFs</a>
-</div>
-</div>
-
-</div>
-
+    <div class="back-home">
+      <a href="/">← Back to home</a>
+    </div>
+  </main>
 </body>
 </html>
