@@ -3,656 +3,337 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ETF Comparison Center | Compare ETFs With a Clearer Decision</title>
-  <meta name="description" content="Compare ETFs by the real investing decision you need to make: core ETF choice, diversification vs simplicity, growth vs discipline, or income vs total return." />
-  <link rel="canonical" href="https://etfcalculator.net/etf-comparisons.html" />
-
-  <style>
-    :root {
-      --bg: #f5f6f8;
-      --card: #ffffff;
-      --text: #111111;
-      --muted: #5f6368;
-      --soft: #eef1f4;
-      --line: #e5e7eb;
-      --accent: #1f3a5f;
-      --accent-2: #284b75;
-      --accent-soft: #eef4fb;
-      --shadow: 0 10px 30px rgba(17, 17, 17, 0.05);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --radius-sm: 12px;
-      --max: 760px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a {
-      color: #294f8a;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .page {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 28px 18px 56px;
-    }
-
-    .section-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 30px 24px;
-      margin-bottom: 18px;
-    }
-
-    .hero {
-      padding: 34px 24px 28px;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #7a7f87;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    h1, h2, h3 {
-      margin: 0 0 10px;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      text-wrap: balance;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 3.55rem);
-      max-width: 11ch;
-    }
-
-    h2 {
-      font-size: clamp(1.65rem, 3vw, 2.25rem);
-      max-width: 18ch;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      line-height: 1.2;
-    }
-
-    p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .hero-sub {
-      font-size: 1.12rem;
-      max-width: 36ch;
-      margin-top: 12px;
-    }
-
-    .hero-note,
-    .soft-note {
-      background: #f7f8fa;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-      font-size: 0.96rem;
-      color: #4d545c;
-      margin-top: 16px;
-    }
-
-    .hero-actions,
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid #d6dbe1;
-      background: #fff;
-      color: var(--text);
-      font-weight: 600;
-      font-size: 0.98rem;
-      text-decoration: none;
-      transition: 0.18s ease;
-    }
-
-    .btn:hover {
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(180deg, var(--accent-2), var(--accent));
-      color: #fff;
-      border-color: transparent;
-      box-shadow: 0 8px 18px rgba(31, 58, 95, 0.18);
-    }
-
-    .btn-strong {
-      background: var(--accent-soft);
-      border-color: #c9d9ee;
-      color: #18395c;
-    }
-
-    .inline-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      margin-top: 14px;
-      font-size: 0.96rem;
-    }
-
-    .impact-line,
-    .decision-line {
-      padding: 14px 16px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--line);
-      background: #fbfbfc;
-      color: #47505a;
-      font-size: 0.97rem;
-      margin-top: 14px;
-    }
-
-    .impact-line strong,
-    .decision-line strong {
-      color: var(--text);
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .mini-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 18px 16px;
-      background: #fff;
-    }
-
-    .mini-card p {
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-    }
-
-    ul {
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .link-list {
-      list-style: disc;
-      padding-left: 18px;
-      margin-top: 12px;
-    }
-
-    .link-list li a {
-      font-weight: 600;
-    }
-
-    .priority-link {
-      background: linear-gradient(180deg, #f6f9fd, #eef4fb);
-      border: 1px solid #d7e3f1;
-      border-radius: var(--radius-lg);
-      padding: 18px 18px;
-      margin-top: 18px;
-    }
-
-    .priority-link .eyebrow {
-      margin-bottom: 8px;
-    }
-
-    .priority-link a {
-      font-weight: 700;
-      color: #1d4572;
-    }
-
-    .masters {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .master-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      background: #fcfcfd;
-    }
-
-    .master-card h3 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
-
-    .master-card p {
-      font-size: 0.94rem;
-      margin-bottom: 0;
-    }
-
-    .barbell {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      background: #fff;
-      margin-top: 16px;
-    }
-
-    .barbell-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .barbell-side {
-      border-radius: var(--radius-md);
-      padding: 16px;
-      border: 1px solid var(--line);
-      background: #fbfbfc;
-    }
-
-    .barbell-side h3 {
-      margin-bottom: 8px;
-    }
-
-    .cta-card {
-      text-align: left;
-    }
-
-    .feedback {
-      text-align: center;
-      padding: 20px 18px;
-      font-size: 0.95rem;
-      color: #6a7179;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 10px;
-      font-size: 0.96rem;
-      font-weight: 500;
-    }
-
-    .path-note {
-      font-size: 0.93rem;
-      color: #69717a;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 720px) {
-      .page {
-        padding: 18px 14px 40px;
-      }
-
-      .section-card,
-      .hero {
-        padding: 24px 18px;
-        border-radius: 24px;
-      }
-
-      .grid-2,
-      .masters,
-      .barbell-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        max-width: 12ch;
-      }
-
-      h2 {
-        max-width: 14ch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .inline-links {
-        flex-direction: column;
-        gap: 8px;
-      }
-    }
-  </style>
+  <title>ETF Comparisons: compare ETFs with a clearer decision</title>
+  <meta name="description" content="Compare ETFs with a clearer decision. Start with the ETF decision you are actually trying to make—cost, diversification, growth, income, or concentration." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="page">
 
-    <section class="section-card hero">
-      <div class="eyebrow">Comparison Center</div>
-      <h1>Compare ETFs with a clearer decision.</h1>
-      <p class="hero-sub">
-        Most investors do not need more ETF names. They need a clearer way to decide between simplicity, diversification, growth, and behavior they can actually stick with.
-      </p>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Compare ETFs with a clearer decision.</h1>
 
-      <div class="hero-note">
-        This page is the decision hub for our ETF comparison library. Start with the question you are actually trying to answer, not just the ticker you happen to be looking at.
-      </div>
+        <p class="hero-sub">
+          Most ETF decisions are not about finding the single “best” fund. They are about choosing a structure you can understand, hold, and keep.
+        </p>
 
-      <div class="impact-line">
-        <strong>For most long-term investors, the first and most important comparison is still
-          <a href="/voo-vs-spy.html">VOO vs SPY</a>.</strong>
-        It looks like a small fee and structure choice, but it often becomes the default decision that shapes the entire portfolio path.
-      </div>
+        <div class="hero-note">
+          <p>
+            This page is the decision router for all ETF comparison pages. Start with the decision you are actually trying to make — not just the ticker that feels familiar.
+          </p>
 
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/voo-vs-spy.html">Start with VOO vs SPY →</a>
-        <a class="btn btn-strong" href="/which-etf-should-i-buy.html">Not sure where to start? →</a>
-        <a class="btn" href="/etf-calculator.html">See how it plays out →</a>
-      </div>
-
-      <div class="inline-links">
-        <a href="/best-etfs.html">Best ETFs</a>
-        <a href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs</a>
-        <a href="/investment-principles.html">Investment Principles</a>
-      </div>
-
-      <div class="path-note">
-        Upstream page: <a href="/which-etf-should-i-buy.html">Which ETF Should I Buy?</a> &nbsp;•&nbsp;
-        Downstream pages: <a href="/voo-vs-spy.html">VOO vs SPY</a>, <a href="/voo-vs-vti.html">VOO vs VTI</a>, <a href="/voo-vs-qqq.html">VOO vs QQQ</a>
+          <p style="margin-top:8px;">
+            For most long-term investors, the first and most important comparison is still VOO vs SPY — because that is where cost, structure, and holding behavior first start to matter.
+          </p>
+        </div>
       </div>
     </section>
 
+    <!-- START HERE -->
     <section class="section-card">
-      <div class="eyebrow">Quick Start</div>
-      <h2>What decision are you actually trying to make?</h2>
+      <div class="eyebrow">Start Here</div>
+      <h2>The first decision most investors should settle</h2>
+
       <p>
-        Most comparison questions are really about one of four things: choosing a core ETF, balancing diversification versus simplicity, deciding how much growth risk you can actually hold, or deciding whether income today is worth lower total return tomorrow.
+        If you are new to ETF comparisons, do not begin with the most exciting page. Begin with the one that clarifies how ETF decisions actually work.
       </p>
 
-      <div class="grid-2">
+      <div class="answer-grid">
         <div class="mini-card">
-          <h3>Pick a default core ETF</h3>
+          <div class="mini-label">Best First Step</div>
+          <h3>VOO vs SPY</h3>
           <p>
-            Start here if you want one sensible long-term fund and want to avoid overcomplicating the first decision.
+            Start here if you want to understand cost, structure, liquidity, and which core S&amp;P 500 ETF makes the cleaner long-term default.
           </p>
-          <ul class="link-list">
-            <li><a href="/voo-vs-spy.html">VOO vs SPY</a></li>
-            <li><a href="/voo-vs-ivv.html">VOO vs IVV</a></li>
-            <li><a href="/spy-vs-ivv.html">SPY vs IVV</a></li>
-          </ul>
+          <p style="margin-top:10px;">
+            <a class="cta-link" href="/voo-vs-spy.html">Start with VOO vs SPY →</a>
+          </p>
         </div>
 
         <div class="mini-card">
+          <div class="mini-label">Also Important</div>
+          <h3>VOO vs IVV</h3>
+          <p>
+            Read this next if you want to see what a near-non-decision looks like — and why some ETF differences are much smaller than they first appear.
+          </p>
+          <p style="margin-top:10px;">
+            <a class="cta-link" href="/voo-vs-ivv.html">See VOO vs IVV →</a>
+          </p>
+        </div>
+      </div>
+
+      <p class="impact-line">
+        Most investors do not need more ETF information first — they need the right first comparison.
+      </p>
+    </section>
+
+    <!-- PICK YOUR DECISION -->
+    <section class="section-card">
+      <div class="eyebrow">Decision Router</div>
+      <h2>Pick the decision you are actually trying to make</h2>
+
+      <div class="answer-grid">
+        <div class="mini-card">
+          <div class="mini-label">Core Choice</div>
+          <h3>Pick a simple long-term core</h3>
+          <p>
+            Start here if you want a broad, durable default and are choosing between similar “core” ETFs.
+          </p>
+          <div style="margin-top:10px; line-height:1.8;">
+            <a class="cta-link" href="/voo-vs-spy.html">VOO vs SPY</a><br />
+            <a class="cta-link" href="/voo-vs-ivv.html">VOO vs IVV</a><br />
+            <a class="cta-link" href="/voo-vs-splg.html">VOO vs SPLG</a><br />
+            <a class="cta-link" href="/ivv-vs-spy.html">IVV vs SPY</a>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-label">Diversification</div>
+          <h3>Choose your breadth of market exposure</h3>
+          <p>
+            Start here if the real question is whether broader ownership meaningfully improves your structure.
+          </p>
+          <div style="margin-top:10px; line-height:1.8;">
+            <a class="cta-link" href="/voo-vs-vti.html">VOO vs VTI</a><br />
+            <a class="cta-link" href="/voo-vs-schb.html">VOO vs SCHB</a><br />
+            <a class="cta-link" href="/vti-vs-ivv.html">VTI vs IVV</a><br />
+            <a class="cta-link" href="/vti-vs-schb.html">VTI vs SCHB</a>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-label">Growth vs Stability</div>
+          <h3>Take more growth — or less concentration</h3>
+          <p>
+            Start here if you are balancing upside, concentration, and how hard the structure may be to hold.
+          </p>
+          <div style="margin-top:10px; line-height:1.8;">
+            <a class="cta-link" href="/voo-vs-qqq.html">VOO vs QQQ</a><br />
+            <a class="cta-link" href="/voo-vs-qqqm.html">VOO vs QQQM</a><br />
+            <a class="cta-link" href="/vti-vs-qqq.html">VTI vs QQQ</a><br />
+            <a class="cta-link" href="/qqq-vs-spy.html">QQQ vs SPY</a>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-label">Income vs Compounding</div>
+          <h3>Visible income — or broader long-term growth</h3>
+          <p>
+            Start here if you are deciding between cash flow now and broader market compounding over time.
+          </p>
+          <div style="margin-top:10px; line-height:1.8;">
+            <a class="cta-link" href="/qqq-vs-vym.html">QQQ vs VYM</a><br />
+            <a class="cta-link" href="/vti-vs-vym.html">VTI vs VYM</a><br />
+            <a class="cta-link" href="/voo-vs-schd.html">VOO vs SCHD</a><br />
+            <a class="cta-link" href="/vti-vs-schd.html">VTI vs SCHD</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="impact-line">
+        The point is not to read every comparison. The point is to start with the one that matches your real decision.
+      </p>
+    </section>
+
+    <!-- MOST IMPORTANT STRUCTURES -->
+    <section class="section-card">
+      <div class="eyebrow">Most Important Structures</div>
+      <h2>What investors are really deciding</h2>
+
+      <p>
+        On the surface, ETF questions often look like ticker questions. At a deeper level, they are usually structure questions.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Decision type</th>
+            <th>What it really means</th>
+            <th>Best example page</th>
+          </tr>
+          <tr>
+            <td>Near-identical choice</td>
+            <td>Stop overthinking tiny differences</td>
+            <td><a class="cta-link" href="/voo-vs-ivv.html">VOO vs IVV</a></td>
+          </tr>
+          <tr>
+            <td>Cost &amp; structure</td>
+            <td>See why “same index” does not always mean same decision</td>
+            <td><a class="cta-link" href="/voo-vs-spy.html">VOO vs SPY</a></td>
+          </tr>
+          <tr>
+            <td>Core vs completeness</td>
+            <td>Choose how broad your base should be</td>
+            <td><a class="cta-link" href="/voo-vs-vti.html">VOO vs VTI</a></td>
+          </tr>
+          <tr>
+            <td>Growth vs concentration</td>
+            <td>Take more upside, but also more dependence</td>
+            <td><a class="cta-link" href="/voo-vs-qqq.html">VOO vs QQQ</a></td>
+          </tr>
+          <tr>
+            <td>Income vs compounding</td>
+            <td>Choose visible cash flow or broader market participation</td>
+            <td><a class="cta-link" href="/vti-vs-vym.html">VTI vs VYM</a></td>
+          </tr>
+          <tr>
+            <td>Sector bet vs core holding</td>
+            <td>Decide whether you are building a base or making a concentrated bet</td>
+            <td><a class="cta-link" href="/voo-vs-vgt.html">VOO vs VGT</a></td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="impact-line">
+        Most people think they are comparing ETFs. In reality, they are choosing a structure they will later need to defend emotionally.
+      </p>
+    </section>
+
+    <!-- DECISION PRINCIPLE -->
+    <section class="section-card">
+      <div class="eyebrow">Decision Principle</div>
+      <h2>The thinking behind this comparison center</h2>
+
+      <p>
+        This page is not organized as a random list of ETF pairs. It is organized around the actual decisions investors face.
+      </p>
+
+      <div class="answer-grid">
+        <div class="mini-card">
+          <div class="mini-label">Simple</div>
+          <h3>Start from the decision</h3>
+          <p>
+            Pick the page that matches your actual choice, not just the most familiar ticker.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-label">Practical</div>
+          <h3>Structure beats story</h3>
+          <p>
+            What looks exciting on the surface often matters less than what you can actually hold over time.
+          </p>
+        </div>
+      </div>
+
+      <p class="impact-line">
+        Most investors do not fail because they chose the wrong ETF. They fail because they never settle on one and start.
+      </p>
+    </section>
+
+    <!-- EXPLORE BY TYPE -->
+    <section class="section-card">
+      <div class="eyebrow">Explore by Type</div>
+      <h2>Explore the kind of decision you are making</h2>
+
+      <div class="answer-grid">
+        <div class="mini-card">
+          <div class="mini-label">S&amp;P 500 Core</div>
+          <h3>Choosing an S&amp;P 500 ETF</h3>
+          <p>
+            These comparisons are about fees, trading use, and what really matters inside the same core U.S. large-cap exposure.
+          </p>
+          <div style="margin-top:10px; line-height:1.8;">
+            <a class="cta-link" href="/voo-vs-spy.html">VOO vs SPY</a><br />
+            <a class="cta-link" href="/voo-vs-ivv.html">VOO vs IVV</a><br />
+            <a class="cta-link" href="/voo-vs-splg.html">VOO vs SPLG</a><br />
+            <a class="cta-link" href="/ivv-vs-spy.html">IVV vs SPY</a><br />
+            <a class="cta-link" href="/voo-vs-ivv-vs-spy.html">VOO vs IVV vs SPY</a>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-label">Broader Exposure</div>
           <h3>Diversification vs simplicity</h3>
           <p>
-            Start here if you are deciding whether broader market exposure matters more than staying focused on a familiar large-cap core.
+            These pages help you decide whether broader market exposure meaningfully improves your structure.
           </p>
-          <ul class="link-list">
-            <li><a href="/voo-vs-vti.html">VOO vs VTI</a></li>
-            <li><a href="/spy-vs-vti.html">SPY vs VTI</a></li>
-            <li><a href="/vti-vs-ivv.html">VTI vs IVV</a></li>
-          </ul>
-        </div>
-
-        <div class="mini-card">
-          <h3>Higher growth vs steadier behavior</h3>
-          <p>
-            Start here if you are tempted by stronger upside but want to see the real tradeoff in volatility, concentration, and holdability.
-          </p>
-          <ul class="link-list">
-            <li><a href="/voo-vs-qqq.html">VOO vs QQQ</a></li>
-            <li><a href="/voo-vs-qqqm.html">VOO vs QQQM</a></li>
-            <li><a href="/vti-vs-qqq.html">VTI vs QQQ</a></li>
-            <li><a href="/qqq-vs-spy.html">QQQ vs SPY</a></li>
-          </ul>
-        </div>
-
-        <div class="mini-card">
-          <h3>Income vs total return</h3>
-          <p>
-            Start here if dividend comfort matters to you, but you also want to understand the opportunity cost of choosing income over broader compounding.
-          </p>
-          <ul class="link-list">
-            <li><a href="/voo-vs-schd.html">VOO vs SCHD</a></li>
-            <li><a href="/voo-vs-vym.html">VOO vs VYM</a></li>
-            <li><a href="/schd-vs-vym.html">SCHD vs VYM</a></li>
-            <li><a href="/qqq-vs-schd.html">QQQ vs SCHD</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="decision-line">
-        <strong>Most people only need three starting points:</strong>
-        <a href="/voo-vs-spy.html">VOO vs SPY</a> for default S&amp;P 500 choice,
-        <a href="/voo-vs-vti.html">VOO vs VTI</a> for focus versus breadth,
-        and <a href="/voo-vs-qqq.html">VOO vs QQQ</a> for growth temptation versus long-term discipline.
-      </div>
-    </section>
-
-    <section class="section-card">
-      <div class="eyebrow">Priority Comparison</div>
-      <h2>The first comparison most investors should settle</h2>
-      <p>
-        Many investors think VOO vs SPY is too small a choice to matter. In practice, it is one of the most important “default decision” pages on the site because it helps investors choose a core S&amp;P 500 ETF with lower friction and clearer long-term logic.
-      </p>
-
-      <div class="priority-link">
-        <div class="eyebrow">Core ETF Decision</div>
-        <h3><a href="/voo-vs-spy.html">VOO vs SPY →</a></h3>
-        <p>
-          Read this first if you want a practical answer on cost, structure, liquidity, and which one makes more sense for most long-term buy-and-hold investors.
-        </p>
-      </div>
-
-      <ul class="link-list">
-        <li><a href="/voo-vs-ivv.html">VOO vs IVV</a> — another close S&amp;P 500 comparison, but usually a secondary decision after VOO vs SPY.</li>
-        <li><a href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs</a> — broader guide if you want the full context around the main S&amp;P 500 choices.</li>
-        <li><a href="/voo-calculator.html">VOO Calculator</a> — useful after the comparison if you want to see how a chosen core ETF fits your plan.</li>
-      </ul>
-    </section>
-
-    <section class="section-card">
-      <div class="eyebrow">Decision Support</div>
-      <h2>What investors are really deciding</h2>
-      <p>
-        On the surface, ETF comparison pages look like ticker-versus-ticker pages. The real decision is usually deeper than that.
-      </p>
-
-      <ul>
-        <li><strong>Not just fund vs fund</strong> — but simplicity vs complexity.</li>
-        <li><strong>Not just recent performance</strong> — but whether you can stay invested through disappointment.</li>
-        <li><strong>Not just growth potential</strong> — but concentration risk and behavioral fragility.</li>
-        <li><strong>Not just current income</strong> — but future total return and optionality.</li>
-      </ul>
-
-      <div class="decision-line">
-        <strong>The biggest mistake is often not choosing the “wrong” ETF.</strong>
-        It is choosing a structure that looks exciting today but becomes hard to hold when the market gets uncomfortable.
-      </div>
-    </section>
-
-    <section class="section-card">
-      <div class="eyebrow">The Four Masters</div>
-      <h2>The thinking behind this comparison center</h2>
-      <p>
-        These pages are not organized as a random list of tickers. They are organized around durable investing ideas that help people make better decisions.
-      </p>
-
-      <div class="masters">
-        <div class="master-card">
-          <h3>Bogle</h3>
-          <p>
-            Costs matter. Simplicity matters. A comparison only helps if it makes it easier to stay in a low-cost, sensible structure for decades.
-          </p>
-        </div>
-        <div class="master-card">
-          <h3>Buffett</h3>
-          <p>
-            A good decision should be understandable. If the structure is hard to explain, it is often hard to hold when markets get rough.
-          </p>
-        </div>
-        <div class="master-card">
-          <h3>Munger</h3>
-          <p>
-            Inversion matters. Ask not only “What has upside?” but also “What is most likely to make me do something foolish later?”
-          </p>
-        </div>
-        <div class="master-card">
-          <h3>Taleb</h3>
-          <p>
-            The goal is not to predict. The goal is to avoid fragility. Comparisons should help you reduce hidden downside while keeping long-term upside open.
-          </p>
-        </div>
-      </div>
-
-      <div class="barbell">
-        <div class="eyebrow">Barbell Structure</div>
-        <p>
-          The comparison center follows a barbell approach: one side helps you make a fast, calm default decision; the other side lets you go deeper into risk, behavior, and structural tradeoffs when needed.
-        </p>
-
-        <div class="barbell-grid">
-          <div class="barbell-side">
-            <h3>Left side: quick default answers</h3>
-            <p>
-              Start with pages like <a href="/voo-vs-spy.html">VOO vs SPY</a> or <a href="/voo-vs-vti.html">VOO vs VTI</a> if you want a simple decision path without noise.
-            </p>
+          <div style="margin-top:10px; line-height:1.8;">
+            <a class="cta-link" href="/voo-vs-vti.html">VOO vs VTI</a><br />
+            <a class="cta-link" href="/voo-vs-schb.html">VOO vs SCHB</a><br />
+            <a class="cta-link" href="/vti-vs-ivv.html">VTI vs IVV</a><br />
+            <a class="cta-link" href="/vti-vs-schb.html">VTI vs SCHB</a><br />
+            <a class="cta-link" href="/spy-vs-vti.html">SPY vs VTI</a>
           </div>
-          <div class="barbell-side">
-            <h3>Right side: deeper tradeoff analysis</h3>
-            <p>
-              Go into pages like <a href="/voo-vs-qqq.html">VOO vs QQQ</a> or <a href="/voo-vs-schd.html">VOO vs SCHD</a> if you need to think about concentration, behavior, income, and second-order effects.
-            </p>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-label">Growth</div>
+          <h3>Higher growth, higher concentration</h3>
+          <p>
+            These comparisons are about upside exposure, concentration risk, and how hard the structure may be to hold.
+          </p>
+          <div style="margin-top:10px; line-height:1.8;">
+            <a class="cta-link" href="/voo-vs-qqq.html">VOO vs QQQ</a><br />
+            <a class="cta-link" href="/voo-vs-qqqm.html">VOO vs QQQM</a><br />
+            <a class="cta-link" href="/voo-vs-vug.html">VOO vs VUG</a><br />
+            <a class="cta-link" href="/voo-vs-schg.html">VOO vs SCHG</a><br />
+            <a class="cta-link" href="/voo-vs-vgt.html">VOO vs VGT</a><br />
+            <a class="cta-link" href="/qqq-vs-vug.html">QQQ vs VUG</a><br />
+            <a class="cta-link" href="/qqq-vs-vgt.html">QQQ vs VGT</a>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-label">Income</div>
+          <h3>Income today vs full-market compounding</h3>
+          <p>
+            These pages are about what visible cash flow gives you — and what you may be giving up in return.
+          </p>
+          <div style="margin-top:10px; line-height:1.8;">
+            <a class="cta-link" href="/qqq-vs-vym.html">QQQ vs VYM</a><br />
+            <a class="cta-link" href="/vti-vs-vym.html">VTI vs VYM</a><br />
+            <a class="cta-link" href="/schd-vs-vym.html">SCHD vs VYM</a><br />
+            <a class="cta-link" href="/qqq-vs-schd.html">QQQ vs SCHD</a><br />
+            <a class="cta-link" href="/vti-vs-schd.html">VTI vs SCHD</a><br />
+            <a class="cta-link" href="/voo-vs-schd.html">VOO vs SCHD</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-card">
-      <div class="eyebrow">Comparison Library</div>
-      <h2>Explore by the kind of decision you face</h2>
-
-      <div class="mini-card" style="margin-bottom:14px;">
-        <div class="eyebrow">S&amp;P 500 Core</div>
-        <h3>Choosing a core U.S. equity ETF</h3>
-        <p>
-          These comparisons are mostly about cost, structure, liquidity, and what makes sense as a long-term default holding.
-        </p>
-        <ul class="link-list">
-          <li><a href="/voo-vs-spy.html">VOO vs SPY</a></li>
-          <li><a href="/voo-vs-ivv.html">VOO vs IVV</a></li>
-          <li><a href="/spy-vs-ivv.html">SPY vs IVV</a></li>
-          <li><a href="/voo-vs-splg.html">VOO vs SPLG</a></li>
-          <li><a href="/voo-vs-dia.html">VOO vs DIA</a></li>
-        </ul>
-      </div>
-
-      <div class="mini-card" style="margin-bottom:14px;">
-        <div class="eyebrow">Total Market</div>
-        <h3>Broad diversification vs simplicity</h3>
-        <p>
-          These pages help investors decide whether owning the whole U.S. market really changes the long-term decision.
-        </p>
-        <ul class="link-list">
-          <li><a href="/voo-vs-vti.html">VOO vs VTI</a></li>
-          <li><a href="/spy-vs-vti.html">SPY vs VTI</a></li>
-          <li><a href="/vti-vs-schb.html">VTI vs SCHB</a></li>
-          <li><a href="/vti-vs-ivv.html">VTI vs IVV</a></li>
-        </ul>
-      </div>
-
-      <div class="mini-card" style="margin-bottom:14px;">
-        <div class="eyebrow">Growth ETFs</div>
-        <h3>Higher growth, higher volatility</h3>
-        <p>
-          These comparisons are useful when the real question is not upside alone, but whether higher concentration is worth the behavioral cost.
-        </p>
-        <ul class="link-list">
-          <li><a href="/voo-vs-qqq.html">VOO vs QQQ</a></li>
-          <li><a href="/voo-vs-qqqm.html">VOO vs QQQM</a></li>
-          <li><a href="/qqq-vs-spy.html">QQQ vs SPY</a></li>
-          <li><a href="/vti-vs-qqq.html">VTI vs QQQ</a></li>
-          <li><a href="/voo-vs-vug.html">VOO vs VUG</a></li>
-          <li><a href="/voo-vs-vgt.html">VOO vs VGT</a></li>
-        </ul>
-      </div>
-
-      <div class="mini-card">
-        <div class="eyebrow">Dividend ETFs</div>
-        <h3>Income today vs total return tomorrow</h3>
-        <p>
-          These pages are for investors who want to compare the emotional comfort of dividends with the broader logic of long-term compounding.
-        </p>
-        <ul class="link-list">
-          <li><a href="/voo-vs-schd.html">VOO vs SCHD</a></li>
-          <li><a href="/voo-vs-vym.html">VOO vs VYM</a></li>
-          <li><a href="/schd-vs-vym.html">SCHD vs VYM</a></li>
-          <li><a href="/qqq-vs-schd.html">QQQ vs SCHD</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section-card cta-card">
-      <div class="eyebrow">Next Step</div>
+    <!-- CTA 1 -->
+    <section class="cta-card">
       <h2>Want to see how this plays out in your own plan?</h2>
-      <p>
-        Comparing ETFs is useful, but the real decision becomes clearer when you can see how fees, contributions, time horizon, and behavior shape the outcome.
+      <p class="cta-body">
+        Use the ETF Calculator to test assumptions, or build a DCA plan you can actually keep through market uncertainty.
       </p>
-
-      <div class="cta-row">
-        <a class="btn btn-primary" href="/etf-calculator.html">Try the ETF Calculator →</a>
-        <a class="btn" href="/dca-calculator.html">Build a DCA strategy →</a>
+      <div style="margin-top:12px; line-height:1.8;">
+        <a class="cta-link" href="/etf-calculator.html">Try the ETF Calculator →</a><br />
+        <a class="cta-link" href="/dca-calculator.html">Build a DCA strategy →</a>
       </div>
     </section>
 
-    <section class="section-card">
-      <div class="eyebrow">Related Guides</div>
-      <h2>Keep building the decision</h2>
-      <ul class="link-list">
-        <li><a href="/which-etf-should-i-buy.html">Which ETF Should I Buy?</a></li>
-        <li><a href="/best-etfs.html">Best ETFs</a></li>
-        <li><a href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs</a></li>
-        <li><a href="/investment-principles.html">Investment Principles</a></li>
-      </ul>
+    <!-- CTA 2 -->
+    <section class="cta-card">
+      <h2>Keep building the decision system</h2>
+      <p class="cta-body">
+        Once you know what comparison to start with, the next step is understanding the principles behind a durable ETF structure.
+      </p>
+      <div style="margin-top:12px; line-height:1.8;">
+        <a class="cta-link" href="/which-etf-should-i-buy.html">Which ETF should I buy?</a><br />
+        <a class="cta-link" href="/best-etfs.html">Best ETFs</a><br />
+        <a class="cta-link" href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs</a><br />
+        <a class="cta-link" href="/investment-principles.html">Investment Principles</a>
+      </div>
     </section>
 
-    <section class="section-card feedback">
-      <p>Help us improve this platform for real investors.</p>
-      <a href="mailto:feedback@etfcalculator.net?subject=ETF%20Comparison%20Center%20Feedback">Send feedback →</a>
+    <!-- FEEDBACK -->
+    <section class="cta-card">
+      <h2>Help us improve this platform for real investors.</h2>
+      <p class="cta-body">
+        If a comparison was missing, unclear, or especially helpful, your feedback helps us build better decision pages.
+      </p>
+      <a class="cta-link" href="mailto:feedback@etfcalculator.net?subject=ETF%20Comparisons%20Feedback">Send feedback →</a>
     </section>
 
-    <a class="back-link" href="/">← Back to Home</a>
+    <!-- BACK -->
+    <div class="back-home">
+      <a href="/index.html">← Back to Home</a>
+    </div>
+
   </main>
 </body>
 </html>
