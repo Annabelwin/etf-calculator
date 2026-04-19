@@ -1,845 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Best S&amp;P 500 ETFs | How to Choose the Right One</title>
-  <meta
-    name="description"
-    content="A practical guide to the best S&P 500 ETFs. Learn how to compare VOO, IVV, and SPY, understand the real structural differences, and choose the S&P 500 ETF path you can actually keep."
-  />
-  <link rel="canonical" href="https://etfcalculator.net/best-s-p-500-etfs.html" />
-  <link rel="stylesheet" href="/style.css" />
-  <style>
-    :root{
-      --bg:#eef2f6;
-      --surface:#ffffff;
-      --surface-2:#f7f9fc;
-      --text:#18202a;
-      --muted:#667085;
-      --line:#d9e0e8;
-      --line-strong:#cbd5e1;
-      --shadow:0 20px 50px rgba(15,23,42,0.08);
-      --radius:24px;
-      --radius-sm:18px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    .page{
-      width:min(980px, calc(100% - 56px));
-      margin:0 auto;
-      padding:32px 0 52px;
-    }
-
-    .section-card{
-      background:rgba(255,255,255,0.88);
-      backdrop-filter:blur(10px);
-      border:1px solid rgba(210,218,230,0.9);
-      border-radius:24px;
-      box-shadow:var(--shadow);
-      padding:40px 38px;
-      margin:0 0 22px;
-    }
-
-    .hero{
-      text-align:center;
-      padding:54px 42px 40px;
-    }
-
-    .eyebrow{
-      display:inline-block;
-      font-size:11px;
-      font-weight:700;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:#7a8798;
-      margin-bottom:12px;
-    }
-
-    .hero h1,
-    .section-title{
-      margin:0;
-      font-size:clamp(2rem,4vw,3.35rem);
-      line-height:1.04;
-      letter-spacing:-0.04em;
-      text-wrap:balance;
-    }
-
-    .hero-sub{
-      max-width:760px;
-      margin:14px auto 0;
-      font-size:1.03rem;
-      color:var(--muted);
-      text-wrap:balance;
-    }
-
-    .hero-note{
-      max-width:760px;
-      margin:12px auto 0;
-      font-size:.93rem;
-      color:#8a94a3;
-      text-wrap:balance;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      justify-content:center;
-      margin-top:24px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:46px;
-      padding:0 18px;
-      border-radius:999px;
-      border:1px solid var(--line-strong);
-      font-size:.95rem;
-      font-weight:700;
-      transition:all .18s ease;
-      background:#fff;
-      color:var(--text);
-    }
-
-    .btn:hover{
-      transform:translateY(-1px);
-      border-color:#b8c4d3;
-      box-shadow:0 10px 24px rgba(15,23,42,0.08);
-    }
-
-    .btn-primary{
-      background:#44526a;
-      color:#fff;
-      border-color:#44526a;
-    }
-
-    .btn-primary:hover{
-      background:#3a475c;
-      border-color:#3a475c;
-    }
-
-    .inline-links{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:16px;
-      margin-top:16px;
-      font-size:.88rem;
-      color:#7b8796;
-    }
-
-    .inline-links a{
-      font-weight:600;
-    }
-
-    .section-head{
-      text-align:center;
-      margin-bottom:18px;
-    }
-
-    .section-head h2{
-      margin:0 auto;
-      max-width:780px;
-      font-size:clamp(1.7rem,3vw,2.55rem);
-      line-height:1.1;
-      letter-spacing:-0.035em;
-      text-wrap:balance;
-    }
-
-    .section-head p{
-      max-width:760px;
-      margin:10px auto 0;
-      color:var(--muted);
-      font-size:.98rem;
-      text-wrap:balance;
-    }
-
-    .decision-flow{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:10px;
-      margin:6px 0 20px;
-      font-size:.82rem;
-      font-weight:700;
-      color:#6f7c8d;
-    }
-
-    .flow-arrow{
-      color:#9aa5b3;
-      font-weight:800;
-    }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .grid-4{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .feature-card,
-    .decision-card,
-    .fit-card,
-    .list-card,
-    .principle-card,
-    .cta-card,
-    .summary-card{
-      background:linear-gradient(180deg,#ffffff 0%, #f8fafc 100%);
-      border:1px solid #dde5ee;
-      border-radius:22px;
-      padding:26px 24px;
-      min-height:100%;
-      transition:all .18s ease;
-    }
-
-    .feature-card:hover,
-    .decision-card:hover,
-    .fit-card:hover,
-    .list-card:hover,
-    .principle-card:hover,
-    .cta-card:hover,
-    .summary-card:hover{
-      transform:translateY(-2px);
-      border-color:#c9d4e0;
-      box-shadow:0 12px 28px rgba(15,23,42,0.07);
-    }
-
-    .decision-card-highlight{
-      background:linear-gradient(180deg,#ffffff 0%, #f3f7fc 100%);
-      border:1.5px solid #c7d3e1;
-      box-shadow:0 16px 34px rgba(15,23,42,0.08);
-    }
-
-    .card-label{
-      display:block;
-      font-size:10px;
-      font-weight:700;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:#7f8a99;
-      margin-bottom:10px;
-    }
-
-    .decision-card-highlight .card-label{
-      color:#5f6f84;
-    }
-
-    .feature-card h3,
-    .decision-card h3,
-    .fit-card h3,
-    .list-card h3,
-    .principle-card h3,
-    .cta-card h3,
-    .summary-card h3{
-      margin:0 0 10px;
-      font-size:1.18rem;
-      line-height:1.16;
-      letter-spacing:-0.02em;
-      text-wrap:balance;
-    }
-
-    .feature-card p,
-    .decision-card p,
-    .fit-card p,
-    .list-card p,
-    .principle-card p,
-    .cta-card p,
-    .summary-card p{
-      margin:0;
-      font-size:.94rem;
-      line-height:1.72;
-      color:var(--muted);
-    }
-
-    .card-link{
-      display:inline-block;
-      margin-top:14px;
-      font-weight:700;
-      font-size:.92rem;
-      color:#344256;
-      transition:transform .16s ease,color .16s ease;
-    }
-
-    .feature-card:hover .card-link,
-    .decision-card:hover .card-link,
-    .fit-card:hover .card-link,
-    .list-card:hover .card-link,
-    .principle-card:hover .card-link,
-    .cta-card:hover .card-link,
-    .summary-card:hover .card-link{
-      transform:translateX(2px);
-      color:#223247;
-    }
-
-    .micro-note{
-      text-align:center;
-      margin-top:14px;
-      font-size:.84rem;
-      color:#7d8897;
-      text-wrap:balance;
-    }
-
-    .quick-answer{
-      max-width:820px;
-      margin:0 auto;
-    }
-
-    .quick-answer-box{
-      background:linear-gradient(180deg,#ffffff 0%, #f7fafd 100%);
-      border:1px solid #dbe4ee;
-      border-radius:22px;
-      padding:24px 24px 22px;
-      text-align:center;
-    }
-
-    .quick-answer-box h3{
-      margin:0;
-      font-size:1.34rem;
-      line-height:1.15;
-      letter-spacing:-0.025em;
-      text-wrap:balance;
-    }
-
-    .quick-answer-box p{
-      max-width:720px;
-      margin:12px auto 0;
-      font-size:.97rem;
-      color:var(--muted);
-      text-wrap:balance;
-    }
-
-    .answer-pills{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:10px;
-      margin-top:18px;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      min-height:36px;
-      padding:0 14px;
-      border-radius:999px;
-      border:1px solid #d9e1ea;
-      background:#fff;
-      color:#536071;
-      font-size:.85rem;
-      font-weight:700;
-    }
-
-    .fit-list{
-      margin:12px 0 0;
-      padding-left:18px;
-      color:var(--muted);
-      font-size:.93rem;
-    }
-
-    .fit-list li{
-      margin:8px 0;
-    }
-
-    .impact-line{
-      margin-top:12px;
-      padding-top:12px;
-      border-top:1px solid #e5ebf2;
-      font-size:.84rem;
-      line-height:1.45;
-      color:#738092;
-    }
-
-    .impact-line strong{
-      color:#334155;
-    }
-
-    .route-links{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:16px;
-    }
-
-    @media (max-width: 980px){
-      .grid-4{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-
-      .grid-3,
-      .grid-2,
-      .route-links{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width: 640px){
-      .page{
-        width:min(980px, calc(100% - 20px));
-        padding:18px 0 34px;
-      }
-
-      .section-card{
-        border-radius:22px;
-        padding:28px 18px;
-        margin-bottom:16px;
-      }
-
-      .hero{
-        padding:36px 20px 26px;
-      }
-
-      .hero-actions{
-        flex-direction:column;
-        align-items:stretch;
-      }
-
-      .btn{
-        width:100%;
-      }
-
-      .inline-links{
-        gap:10px 14px;
-        font-size:.84rem;
-      }
-
-      .grid-4{
-        grid-template-columns:1fr;
-      }
-
-      .feature-card,
-      .decision-card,
-      .fit-card,
-      .list-card,
-      .principle-card,
-      .cta-card,
-      .summary-card{
-        padding:22px 18px 20px;
-      }
-
-      .decision-flow{
-        gap:8px;
-        font-size:.78rem;
-        margin-bottom:16px;
-      }
-
-      .hero h1,
-      .section-title{
-        font-size:clamp(1.8rem,6.8vw,2.4rem);
-        line-height:1.08;
-      }
-
-      .section-head h2{
-        font-size:clamp(1.55rem,6vw,2rem);
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best S&P 500 ETFs</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <main class="page">
+<main class="page">
 
-    <section class="section-card hero">
-      <div class="eyebrow">ETF structure · S&amp;P 500 path</div>
-      <h1>Best S&amp;P 500 ETFs</h1>
+<!-- HERO -->
+<section class="section-card hero">
+  <div class="eyebrow">ETF STRUCTURE · S&P 500</div>
+  <h1>Best S&P 500 ETFs</h1>
+  <p class="hero-sub">
+    The “best” S&P 500 ETF is not about performance — it’s about choosing a structure you can actually follow over time.
+  </p>
 
-      <p class="hero-sub">
-        The “best” S&amp;P 500 ETF is usually not about finding a hidden winner. It is about choosing the version of the S&amp;P 500 structure that best fits your costs, your use case, and your long-term behavior.
-      </p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="/voo-investment-guide.html">Start with VOO →</a>
+    <a class="btn" href="/etf-calculator.html">Test your plan →</a>
+  </div>
 
-      <p class="hero-note">
-        For most long-term investors, VOO, IVV, and SPY are more similar than different. That does not mean the choice is meaningless. It means the right decision comes from understanding what actually matters — and what does not.
-      </p>
+  <p class="hero-note">
+    Compare VOO / IVV / SPY → or go back to <a href="/which-etf-should-i-buy.html">ETF decision guide</a>
+  </p>
+</section>
 
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/voo-investment-guide.html">Start with the VOO guide →</a>
-        <a class="btn" href="/which-etf-should-i-buy.html">See ETF paths →</a>
-      </div>
+<!-- CORE IDEA -->
+<section class="section-card">
+  <div class="eyebrow">Core idea</div>
+  <h2 class="section-title">Most investors do not need the “best” S&P 500 ETF — they need the strongest fit</h2>
 
-      <div class="inline-links">
-        <a href="/voo-vs-spy.html">Compare VOO vs SPY</a>
-        <a href="/voo-vs-ivv.html">Compare VOO vs IVV</a>
-        <a href="/voo-calculator.html">Use the VOO Calculator</a>
-        <a href="/index.html">Back to home</a>
-      </div>
-    </section>
+  <div class="quick-answer">
+    For most long-term investors, <strong>VOO is the strongest simple default</strong> among S&P 500 ETFs.
+  </div>
 
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Decision flow</div>
-        <h2>Most investors do not need the “best” S&amp;P 500 ETF — they need the strongest fit</h2>
-        <p>
-          This page is not a ranking page. It is a decision page. The goal is to help you understand why most S&amp;P 500 ETFs are structurally close, where the real differences are, and which version makes the most sense for your situation.
-        </p>
-      </div>
+  <p class="section-sub">
+    The differences between these ETFs are small. The real decision is about structure, cost, and behavior.
+  </p>
+</section>
 
-      <div class="decision-flow">
-        <span>Structure</span>
-        <span class="flow-arrow">→</span>
-        <span>Fit</span>
-        <span class="flow-arrow">→</span>
-        <span>Validation</span>
-        <span class="flow-arrow">→</span>
-        <span>Plan</span>
-      </div>
+<!-- PATHS -->
+<section class="section-card">
+  <div class="eyebrow">Main paths</div>
+  <h2 class="section-title">The three S&P 500 ETF paths that matter most</h2>
 
-      <div class="quick-answer">
-        <div class="quick-answer-box">
-          <h3>For most long-term investors, VOO is the strongest simple default among S&amp;P 500 ETFs.</h3>
-          <p>
-            It gives you the same broad S&amp;P 500 exposure as the major alternatives, with a low-cost structure and a clean long-term default role. SPY and IVV can still make sense — but usually for narrower reasons.
-          </p>
+  <div class="grid-3">
 
-          <div class="answer-pills">
-            <span class="pill">VOO = default</span>
-            <span class="pill">IVV = similar alternative</span>
-            <span class="pill">SPY = trading-oriented</span>
-          </div>
-        </div>
-      </div>
+    <div class="card">
+      <div class="eyebrow">Default</div>
+      <h3>VOO</h3>
+      <p>Low cost, simple, and widely used as the long-term default.</p>
+      <span class="card-link">Explore VOO →</span>
+    </div>
 
-      <p class="micro-note">
-        The real edge here is not finding a magical ETF. It is avoiding confusion when the practical differences are small but the usage differences still matter.
-      </p>
-    </section>
+    <div class="card">
+      <div class="eyebrow">Alternative</div>
+      <h3>IVV</h3>
+      <p>Nearly identical to VOO. Differences are minimal in practice.</p>
+      <span class="card-link">Compare VOO vs IVV →</span>
+    </div>
 
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Main paths</div>
-        <h2>The three S&amp;P 500 ETF paths that matter most</h2>
-        <p>
-          These ETFs all track the same index, but they do not play the same role equally well.
-        </p>
-      </div>
+    <div class="card">
+      <div class="eyebrow">Trading-focused</div>
+      <h3>SPY</h3>
+      <p>Higher liquidity, often used for trading rather than long-term holding.</p>
+      <span class="card-link">Compare VOO vs SPY →</span>
+    </div>
 
-      <div class="grid-3">
-        <a class="decision-card decision-card-highlight" href="/voo-investment-guide.html">
-          <span class="card-label">Default path</span>
-          <h3>VOO</h3>
-          <p>
-            Usually the strongest default for long-term investors who want low cost, simplicity, and a clean core holding.
-          </p>
-          <div class="path-preview">
-            <strong>Best for:</strong> buy-and-hold investors, simple long-term plans
-          </div>
-          <span class="card-link">Explore the VOO guide →</span>
-        </a>
+  </div>
+</section>
 
-        <a class="decision-card" href="/voo-vs-ivv.html">
-          <span class="card-label">Near-identical alternative</span>
-          <h3>IVV</h3>
-          <p>
-            Very close to VOO in structure and cost. Usually a reasonable alternative when VOO is not the chosen wrapper.
-          </p>
-          <div class="path-preview">
-            <strong>Best for:</strong> investors comparing equivalent S&amp;P 500 exposure
-          </div>
-          <span class="card-link">Compare VOO vs IVV →</span>
-        </a>
+<!-- BEHAVIOR -->
+<section class="section-card">
+  <div class="eyebrow">What matters more</div>
+  <h2 class="section-title">Returns matter — but behavior matters more</h2>
 
-        <a class="decision-card" href="/voo-vs-spy.html">
-          <span class="card-label">Trading-oriented path</span>
-          <h3>SPY</h3>
-          <p>
-            Still a valid S&amp;P 500 ETF, but less attractive as a pure long-term default because of structure and cost relative to VOO.
-          </p>
-          <div class="path-preview">
-            <strong>Best for:</strong> investors who specifically need SPY’s trading profile
-          </div>
-          <span class="card-link">Compare VOO vs SPY →</span>
-        </a>
-      </div>
+  <div class="grid-2">
 
-      <p class="micro-note">
-        If your goal is long-term compounding, the best S&amp;P 500 ETF is usually the one that gives you the cleanest structure with the fewest unnecessary frictions.
-      </p>
-    </section>
+    <div class="card">
+      <h3>The best ETF can still fail you</h3>
+      <p>If you cannot stay invested during volatility, returns don’t matter.</p>
+    </div>
 
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">What most people miss</div>
-        <h2>Most S&amp;P 500 ETF decisions are not about performance — they are about structure and friction</h2>
-        <p>
-          Investors often spend too much energy comparing tiny differences in ETFs that own the same index. The better question is whether those differences actually change the outcome enough to matter for the kind of investor you are.
-        </p>
-      </div>
+    <div class="card">
+      <h3>The wrong ETF is often a behavior mismatch</h3>
+      <p>Small structural differences matter less than your ability to hold.</p>
+    </div>
 
-      <div class="grid-2">
-        <div class="feature-card">
-          <span class="card-label">Similarity</span>
-          <h3>VOO, IVV, and SPY are much closer than they first appear</h3>
-          <p>
-            All three give exposure to the same S&amp;P 500 companies. For long-term investors, the overlap is enormous.
-          </p>
-          <div class="impact-line">
-            <strong>Why it matters:</strong> many people exaggerate the decision because they mistake small differences for structural gaps.
-          </div>
-        </div>
+    <div class="card">
+      <h3>Simple often beats “optimal”</h3>
+      <p>The more complex your decision, the harder it is to stay consistent.</p>
+    </div>
 
-        <div class="feature-card">
-          <span class="card-label">Friction</span>
-          <h3>Small frictions matter more over decades than over weeks</h3>
-          <p>
-            When the holdings are nearly identical, cost and structural efficiency become more meaningful for a long-term path.
-          </p>
-          <div class="impact-line">
-            <strong>Why it matters:</strong> the long-term edge often comes from reducing what quietly drags on compounding.
-          </div>
-        </div>
+    <div class="card">
+      <h3>Clarity creates staying power</h3>
+      <p>A clear default reduces hesitation and helps you actually invest.</p>
+    </div>
 
-        <div class="feature-card">
-          <span class="card-label">Use case</span>
-          <h3>SPY is not “bad” — it is just not the strongest default</h3>
-          <p>
-            SPY can still make sense for certain trading-oriented uses. It simply answers a different question from long-term default investing.
-          </p>
-        </div>
+  </div>
+</section>
 
-        <div class="feature-card">
-          <span class="card-label">Behavior</span>
-          <h3>The best S&amp;P 500 ETF is the one that keeps your process simple</h3>
-          <p>
-            When differences are small, clarity matters. Clear default decisions reduce overthinking and help you stay with the plan.
-          </p>
-        </div>
-      </div>
-    </section>
+<!-- DECISION (压缩后的关键块) -->
+<section class="section-card">
+  <div class="eyebrow">Decision</div>
+  <h2 class="section-title">How to choose between VOO, IVV, and SPY</h2>
 
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Decision fit</div>
-        <h2>How to decide which S&amp;P 500 ETF fits you best</h2>
-      </div>
+  <div class="quick-answer">
+    • Choose <strong>VOO</strong> if you want the simplest long-term default<br>
+    • Choose <strong>IVV</strong> if you want a nearly identical alternative<br>
+    • Choose <strong>SPY</strong> only if liquidity or trading matters to you
+  </div>
 
-      <div class="grid-3">
-        <div class="fit-card">
-          <span class="card-label">VOO usually fits if...</span>
-          <h3>You want the strongest simple default</h3>
-          <ul class="fit-list">
-            <li>You care about low cost and long-term clarity.</li>
-            <li>You want a clean S&amp;P 500 core that is easy to keep.</li>
-          </ul>
-          <a class="card-link" href="/voo-investment-guide.html">See why VOO works as a default →</a>
-        </div>
+  <p class="section-sub">
+    This is not a performance decision — it is a structure and usage decision.
+  </p>
+</section>
 
-        <div class="fit-card">
-          <span class="card-label">IVV usually fits if...</span>
-          <h3>You want nearly the same structure as VOO</h3>
-          <ul class="fit-list">
-            <li>You need a close alternative with similar exposure and cost.</li>
-            <li>You are making a practical choice, not chasing a big difference.</li>
-          </ul>
-          <a class="card-link" href="/voo-vs-ivv.html">Compare IVV directly →</a>
-        </div>
+<!-- BARBELL -->
+<section class="section-card">
+  <div class="eyebrow">Barbell structure</div>
+  <h2 class="section-title">For most investors, the S&P 500 belongs on the stable side of the barbell</h2>
 
-        <div class="fit-card">
-          <span class="card-label">SPY usually fits if...</span>
-          <h3>You specifically need SPY’s trading profile</h3>
-          <ul class="fit-list">
-            <li>You have a reason tied to liquidity or trading.</li>
-            <li>You know that “popular” is not the same as “best long-term default.”</li>
-          </ul>
-          <a class="card-link" href="/voo-vs-spy.html">See when SPY makes sense →</a>
-        </div>
-      </div>
-    </section>
+  <div class="grid-2">
 
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Four thinkers, one practical lesson</div>
-        <h2>Why the best S&amp;P 500 ETF decision usually becomes simpler after you understand the structure</h2>
-      </div>
+    <div class="card">
+      <h3>Use S&P 500 as your core</h3>
+      <p>VOO or IVV can act as a durable, long-term foundation.</p>
+      <span class="card-link">See the VOO guide →</span>
+    </div>
 
-      <div class="grid-4">
-        <div class="principle-card">
-          <span class="card-label">Bogle</span>
-          <h3>Broad low-cost ownership matters more than brand preference.</h3>
-          <p>
-            When ETFs track the same index, the strongest long-term default is usually the one that removes unnecessary friction.
-          </p>
-        </div>
+    <div class="card">
+      <h3>Add complexity only if needed</h3>
+      <p>Growth or dividend ETFs should be optional layers, not the base.</p>
+      <span class="card-link">Compare ETF paths →</span>
+    </div>
 
-        <div class="principle-card">
-          <span class="card-label">Munger</span>
-          <h3>Do not make a small difference bigger than it is.</h3>
-          <p>
-            A rational investor sees that many S&amp;P 500 ETF comparisons are about practical details, not dramatic structural differences.
-          </p>
-        </div>
+  </div>
+</section>
 
-        <div class="principle-card">
-          <span class="card-label">Taleb</span>
-          <h3>Strong structures beat seductive narratives.</h3>
-          <p>
-            When choices are extremely similar, the stronger path is the one with fewer hidden frictions and more survivability over time.
-          </p>
-        </div>
+<!-- NEXT STEP -->
+<section class="section-card">
+  <div class="eyebrow">Next step</div>
+  <h2 class="section-title">Once you choose, turn it into a real plan</h2>
 
-        <div class="principle-card">
-          <span class="card-label">Marks</span>
-          <h3>Good investing is often about choosing what matters enough.</h3>
-          <p>
-            The key is not whether an ETF is technically “best” in isolation, but whether the difference is meaningful for your specific use.
-          </p>
-        </div>
-      </div>
+  <div class="grid-3">
 
-      <p class="micro-note">
-        The best S&amp;P 500 ETF decision is usually not dramatic. It becomes easier once you stop asking which ETF sounds best and start asking which structure matters enough.
-      </p>
-    </section>
+    <div class="card">
+      <h3>Test your ETF path</h3>
+      <p>Estimate outcomes and build confidence.</p>
+      <span class="card-link">Use ETF Calculator →</span>
+    </div>
 
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Barbell structure</div>
-        <h2>For most long-term investors, the S&amp;P 500 ETF belongs on the stable side of the barbell</h2>
-        <p>
-          In this platform’s structure, the left side is about durability, clarity, and survivability. A broad S&amp;P 500 ETF usually fits there. More concentrated paths can still exist on the right side, but they should not replace the core by default.
-        </p>
-      </div>
+    <div class="card">
+      <h3>Build a DCA plan</h3>
+      <p>Turn your choice into a repeatable investing process.</p>
+      <span class="card-link">Build your DCA plan →</span>
+    </div>
 
-      <div class="grid-2">
-        <div class="feature-card">
-          <span class="card-label">Left side · stable core</span>
-          <h3>Use a strong S&amp;P 500 ETF as your clean base</h3>
-          <p>
-            For many investors, VOO is the cleanest long-term default because it keeps the core simple and reduces unnecessary complications.
-          </p>
-          <a class="card-link" href="/voo-investment-guide.html">See the strongest S&amp;P 500 default →</a>
-        </div>
+    <div class="card">
+      <h3>Compare before committing</h3>
+      <p>Validate your choice against alternatives.</p>
+      <span class="card-link">Compare ETFs →</span>
+    </div>
 
-        <div class="feature-card">
-          <span class="card-label">Right side · optional layer</span>
-          <h3>Add more concentrated paths only if the structure truly calls for it</h3>
-          <p>
-            QQQ or other specialized ETFs may make sense later — but only as deliberate optionality, not as a replacement for a stable core.
-          </p>
-          <a class="card-link" href="/qqq-investment-guide.html">See the optional upside path →</a>
-        </div>
-      </div>
-    </section>
+  </div>
+</section>
 
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Next step</div>
-        <h2>Once you choose your S&amp;P 500 ETF path, turn it into a real plan</h2>
-        <p>
-          The next move is not more comparison for its own sake. It is validation, execution, and a repeatable structure you can actually keep.
-        </p>
-      </div>
+<!-- LINK BACK -->
+<section class="section-card">
+  <div class="eyebrow">Where to go next</div>
+  <h2 class="section-title">The strongest next step for most investors is the VOO investment guide</h2>
 
-      <div class="route-links">
-        <a class="cta-card" href="/voo-calculator.html">
-          <span class="card-label">Validation</span>
-          <h3>Use the VOO Calculator</h3>
-          <p>
-            Test what a simple S&amp;P 500 path can look like over time when contributions, compounding, and long-term holding work together.
-          </p>
-          <span class="card-link">Open the VOO Calculator →</span>
-        </a>
+  <div class="grid-3">
 
-        <a class="cta-card" href="/dca-calculator.html">
-          <span class="card-label">Plan</span>
-          <h3>Build a disciplined DCA plan</h3>
-          <p>
-            A strong ETF becomes much more powerful when the process around it is calm, simple, and repeatable.
-          </p>
-          <span class="card-link">Build your DCA plan →</span>
-        </a>
+    <div class="card">
+      <h3>Continue to VOO</h3>
+      <p>Understand why it works as a long-term default.</p>
+      <span class="card-link">Open VOO guide →</span>
+    </div>
 
-        <a class="cta-card" href="/voo-vs-spy.html">
-          <span class="card-label">Cross-check</span>
-          <h3>Compare before you commit</h3>
-          <p>
-            If you still feel uncertain, compare the main S&amp;P 500 choices directly and remove any remaining confusion.
-          </p>
-          <span class="card-link">Compare VOO vs SPY →</span>
-        </a>
-      </div>
-    </section>
+    <div class="card">
+      <h3>Compare VOO and IVV</h3>
+      <p>See how small differences actually matter.</p>
+      <span class="card-link">VOO vs IVV →</span>
+    </div>
 
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Where to go next</div>
-        <h2>The strongest next page for most investors is the VOO investment guide</h2>
-        <p>
-          This page sits between the structural S&amp;P 500 overview and the ETF-specific guide layer. For most long-term investors, the strongest next move is to continue into the VOO path.
-        </p>
-      </div>
+    <div class="card">
+      <h3>Explore broader market</h3>
+      <p>Look beyond the S&P 500 if needed.</p>
+      <span class="card-link">See VTI guide →</span>
+    </div>
 
-      <div class="grid-3">
-        <a class="cta-card" href="/voo-investment-guide.html">
-          <span class="card-label">Primary downstream page</span>
-          <h3>Continue to the VOO guide</h3>
-          <p>
-            Best for investors who want the strongest default S&amp;P 500 path and a structure they can actually keep.
-          </p>
-          <span class="card-link">Open the VOO guide →</span>
-        </a>
+  </div>
+</section>
 
-        <a class="cta-card" href="/voo-vs-ivv.html">
-          <span class="card-label">Alternative branch</span>
-          <h3>Compare VOO and IVV</h3>
-          <p>
-            Best if you want to understand whether the practical difference between the two matters enough for your situation.
-          </p>
-          <span class="card-link">Open VOO vs IVV →</span>
-        </a>
+<!-- FINAL -->
+<section class="section-card hero" style="padding-top:38px;">
+  <div class="eyebrow">Final step</div>
+  <h2 class="section-title">A strong S&P 500 ETF only works if you keep following it</h2>
 
-        <a class="cta-card" href="/best-total-market-etfs.html">
-          <span class="card-label">Lateral structure page</span>
-          <h3>Explore total market ETFs next</h3>
-          <p>
-            Best if you want to move from the S&amp;P 500 structure into the broader total-market layer.
-          </p>
-          <span class="card-link">See total market ETFs →</span>
-        </a>
-      </div>
-    </section>
+  <p class="hero-sub">
+    You don’t need the perfect ETF. You need a decision you can stay with.
+  </p>
 
-    <section class="section-card hero" style="padding-top:38px;">
-      <div class="eyebrow">Final step</div>
-      <h2 class="section-title" style="font-size:clamp(1.85rem,3.2vw,2.7rem);">A strong S&amp;P 500 ETF is only useful if you keep following it</h2>
-      <p class="hero-sub">
-        You do not need a perfect ETF story. You need a strong structure, a repeatable plan, and a path that stays understandable after the first excitement disappears.
-      </p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="/voo-investment-guide.html">Start with VOO →</a>
+    <a class="btn" href="/etf-calculator.html">Test your plan →</a>
+    <a class="btn" href="/which-etf-should-i-buy.html">See all paths →</a>
+  </div>
+</section>
 
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/voo-investment-guide.html">Start with VOO →</a>
-        <a class="btn" href="/voo-calculator.html">Test your plan →</a>
-        <a class="btn" href="/which-etf-should-i-buy.html">See all ETF paths →</a>
-      </div>
-    </section>
-
-  </main>
+</main>
 </body>
 </html>
