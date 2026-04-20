@@ -11,42 +11,51 @@
     .hub-page{
       max-width: 900px;
       margin: 0 auto;
-      padding: 32px 20px 72px;
+      padding: 28px 20px 72px;
     }
 
-    .hub-hero{
-      text-align:center;
-      margin: 0 auto 20px;
+    .hub-hero-card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 28px 28px 24px;
+      margin: 0 auto 18px;
+      box-shadow: 0 10px 28px rgba(15,23,42,.04);
+    }
+
+    .hub-hero-inner{
       max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .hub-hero h1{
-      margin:0;
-      font-size: clamp(2.2rem, 4.6vw, 3.9rem);
-      line-height: 1.03;
-      letter-spacing: -0.04em;
+    .hub-hero-inner h1{
+      margin: 0;
+      font-size: clamp(2.2rem, 4.8vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
       text-wrap: balance;
     }
 
     .hub-sub{
       max-width: 680px;
       margin: 14px auto 0;
-      font-size: 1.05rem;
+      font-size: 1.04rem;
       line-height: 1.65;
       color: var(--muted);
       text-wrap: balance;
     }
 
     .hub-note{
-      max-width: 720px;
+      max-width: 700px;
       margin: 18px auto 0;
-      padding: 16px 18px;
+      padding: 15px 16px;
       border: 1px solid var(--line);
-      background: var(--card);
+      background: rgba(255,255,255,.72);
       border-radius: 18px;
       text-align: left;
       color: var(--text-soft);
-      font-size: 0.97rem;
+      font-size: .96rem;
       line-height: 1.7;
     }
 
@@ -54,7 +63,7 @@
       display:grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 12px;
-      max-width: 720px;
+      max-width: 700px;
       margin: 18px auto 0;
     }
 
@@ -62,7 +71,7 @@
       display:block;
       text-decoration:none;
       color:inherit;
-      background: var(--card);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 18px 18px 16px;
@@ -79,33 +88,33 @@
     .hub-action-label{
       display:block;
       margin-bottom:8px;
-      font-size: .72rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 700;
+      font-size:.72rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:700;
     }
 
     .hub-action-title{
       display:block;
-      font-size: 1.04rem;
-      line-height: 1.3;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 6px;
+      font-size:1.03rem;
+      line-height:1.3;
+      font-weight:800;
+      color:var(--text);
+      margin-bottom:6px;
     }
 
     .hub-action-text{
       display:block;
-      color: var(--text-soft);
-      line-height: 1.6;
-      font-size: .94rem;
+      color:var(--text-soft);
+      line-height:1.6;
+      font-size:.94rem;
     }
 
     .hub-stack{
       display:grid;
-      gap: 16px;
-      margin-top: 18px;
+      gap:16px;
+      margin-top:18px;
     }
 
     .hub-card{
@@ -116,15 +125,15 @@
     }
 
     .hub-card h2{
-      margin: 0;
-      font-size: 1.8rem;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      text-wrap: balance;
+      margin:0;
+      font-size:1.8rem;
+      line-height:1.08;
+      letter-spacing:-0.03em;
+      text-wrap:balance;
     }
 
     .hub-card .eyebrow{
-      margin-bottom: 8px;
+      margin-bottom:8px;
     }
 
     .hub-card > p{
@@ -136,15 +145,15 @@
     .hub-grid-2{
       display:grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 12px;
-      margin-top: 16px;
+      gap:12px;
+      margin-top:16px;
     }
 
     .hub-grid-4{
       display:grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 12px;
-      margin-top: 16px;
+      gap:12px;
+      margin-top:16px;
     }
 
     .hub-mini{
@@ -155,70 +164,68 @@
     }
 
     .hub-mini h3{
-      margin: 0;
-      font-size: 1.05rem;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
+      margin:0;
+      font-size:1.05rem;
+      line-height:1.25;
+      letter-spacing:-0.02em;
     }
 
     .hub-mini p{
-      margin: 8px 0 0;
-      color: var(--text-soft);
-      line-height: 1.65;
-      font-size: .94rem;
+      margin:8px 0 0;
+      color:var(--text-soft);
+      line-height:1.65;
+      font-size:.94rem;
     }
 
     .hub-links{
-      margin-top: 12px;
+      margin-top:12px;
       display:grid;
-      gap: 6px;
+      gap:6px;
     }
 
     .hub-links a{
-      color: var(--link);
-      text-decoration: none;
-      font-weight: 700;
+      color:var(--link);
+      text-decoration:none;
+      font-weight:700;
     }
 
     .hub-links a:hover{
-      text-decoration: underline;
+      text-decoration:underline;
     }
 
     .hub-first{
       display:grid;
       grid-template-columns: 1.08fr .92fr;
-      gap: 12px;
-      margin-top: 16px;
+      gap:12px;
+      margin-top:16px;
     }
 
-    .hub-first-main{
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 18px 16px;
+    .hub-first-main,
+    .hub-first-side{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 18px 16px;
       background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+    }
+
+    .hub-first-side{
+      background: linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.72));
     }
 
     .hub-first-main h3,
     .hub-first-side h3{
       margin:0;
-      font-size: 1.08rem;
+      font-size:1.08rem;
       line-height:1.25;
       letter-spacing:-0.02em;
     }
 
     .hub-first-main p,
     .hub-first-side p{
-      margin: 8px 0 0;
-      color: var(--text-soft);
-      line-height: 1.65;
-      font-size: .94rem;
-    }
-
-    .hub-first-side{
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 18px 16px;
-      background: linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.72));
+      margin:8px 0 0;
+      color:var(--text-soft);
+      line-height:1.65;
+      font-size:.94rem;
     }
 
     .hub-kicker{
@@ -232,45 +239,45 @@
     }
 
     .hub-impact{
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      font-weight: 800;
-      line-height: 1.6;
-      color: var(--text);
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      font-weight:800;
+      line-height:1.6;
+      color:var(--text);
     }
 
     .hub-table-wrap{
-      margin-top: 16px;
-      overflow-x: auto;
-      border: 1px solid var(--line);
-      border-radius: 18px;
+      margin-top:16px;
+      overflow-x:auto;
+      border:1px solid var(--line);
+      border-radius:18px;
       background: rgba(255,255,255,.75);
     }
 
     .hub-table{
       width:100%;
-      border-collapse: collapse;
-      min-width: 620px;
+      border-collapse:collapse;
+      min-width:620px;
     }
 
     .hub-table th,
     .hub-table td{
-      padding: 13px 14px;
-      border-bottom: 1px solid var(--line);
+      padding:13px 14px;
+      border-bottom:1px solid var(--line);
       text-align:left;
-      vertical-align: top;
-      font-size: .93rem;
-      line-height: 1.55;
+      vertical-align:top;
+      font-size:.93rem;
+      line-height:1.55;
     }
 
     .hub-table th{
       background: rgba(15,23,42,.03);
-      color: var(--muted);
-      font-size: .76rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-weight: 800;
+      color:var(--muted);
+      font-size:.76rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-weight:800;
     }
 
     .hub-table tr:last-child td{
@@ -278,7 +285,7 @@
     }
 
     .hub-principle{
-      margin-top: 16px;
+      margin-top:16px;
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 18px;
@@ -294,8 +301,8 @@
     .hub-cta-row{
       display:grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 12px;
-      margin-top: 16px;
+      gap:12px;
+      margin-top:16px;
     }
 
     .hub-cta{
@@ -306,42 +313,53 @@
     }
 
     .hub-cta h3{
-      margin: 0;
-      font-size: 1.18rem;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      text-wrap: balance;
+      margin:0;
+      font-size:1.18rem;
+      line-height:1.15;
+      letter-spacing:-0.02em;
+      text-wrap:balance;
     }
 
     .hub-cta p{
-      margin: 10px 0 0;
-      color: var(--text-soft);
-      line-height: 1.65;
-      font-size: .95rem;
+      margin:10px 0 0;
+      color:var(--text-soft);
+      line-height:1.65;
+      font-size:.95rem;
     }
 
     .hub-cta a{
       display:inline-block;
-      margin-top: 12px;
-      color: var(--link);
+      margin-top:12px;
+      color:var(--link);
       text-decoration:none;
-      font-weight: 800;
+      font-weight:800;
     }
 
     .hub-cta a:hover{
-      text-decoration: underline;
-    }
-
-    .hub-footer-note{
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: .9rem;
-      line-height: 1.65;
+      text-decoration:underline;
     }
 
     @media (max-width: 780px){
       .hub-page{
-        padding: 24px 14px 64px;
+        padding: 22px 14px 64px;
+      }
+
+      .hub-hero-card{
+        padding: 22px 16px 18px;
+        border-radius: 20px;
+      }
+
+      .hub-hero-inner h1{
+        font-size: clamp(2rem, 9vw, 3rem);
+      }
+
+      .hub-card{
+        padding:18px 16px 16px;
+        border-radius:18px;
+      }
+
+      .hub-card h2{
+        font-size:1.5rem;
       }
 
       .hub-actions,
@@ -352,22 +370,9 @@
         grid-template-columns: 1fr;
       }
 
-      .hub-card{
-        padding: 18px 16px 16px;
-        border-radius: 18px;
-      }
-
-      .hub-hero h1{
-        font-size: clamp(2rem, 9vw, 2.9rem);
-      }
-
-      .hub-card h2{
-        font-size: 1.5rem;
-      }
-
       .hub-note{
-        padding: 14px 14px;
-        border-radius: 16px;
+        padding:14px 14px;
+        border-radius:16px;
       }
     }
   </style>
@@ -376,29 +381,32 @@
   <main class="page hub-page">
 
     <!-- HERO -->
-    <section class="hub-hero">
-      <h1>Compare ETFs with a clearer decision.</h1>
+    <section class="hub-hero-card">
+      <div class="hub-hero-inner">
+        <div class="eyebrow">Comparison Center</div>
+        <h1>Compare ETFs with a clearer decision.</h1>
 
-      <p class="hub-sub">
-        Most ETF decisions are not about finding the “best” fund. They are about choosing a structure you can understand, hold, and keep.
-      </p>
+        <p class="hub-sub">
+          Most ETF decisions are not about finding the “best” fund. They are about choosing a structure you can understand, hold, and keep.
+        </p>
 
-      <div class="hub-note">
-        This page is the decision router for all ETF comparison pages. Start with the decision you are actually trying to make — not just the ticker that feels familiar. For most long-term investors, the first comparison to settle is still <strong>VOO vs SPY</strong>, because that is where cost, structure, and holding behavior first become real.
-      </div>
+        <div class="hub-note">
+          This page is the decision router for all ETF comparison pages. Start with the decision you are actually trying to make — not just the ticker that feels familiar. For most long-term investors, the first comparison to settle is still <strong>VOO vs SPY</strong>, because that is where cost, structure, and holding behavior first become real.
+        </div>
 
-      <div class="hub-actions">
-        <a class="hub-action" href="/voo-vs-spy.html">
-          <span class="hub-action-label">Start Here</span>
-          <span class="hub-action-title">I want a simple long-term core</span>
-          <span class="hub-action-text">Begin with the cleanest first comparison most investors should settle.</span>
-        </a>
+        <div class="hub-actions">
+          <a class="hub-action" href="/voo-vs-spy.html">
+            <span class="hub-action-label">Start Here</span>
+            <span class="hub-action-title">I want a simple long-term core</span>
+            <span class="hub-action-text">Begin with the cleanest first comparison most investors should settle.</span>
+          </a>
 
-        <a class="hub-action" href="/qqq-vs-vym.html">
-          <span class="hub-action-label">High-Intent Path</span>
-          <span class="hub-action-title">I am deciding between growth and income</span>
-          <span class="hub-action-text">Go straight to a real structure decision with visible trade-offs.</span>
-        </a>
+          <a class="hub-action" href="/qqq-vs-vym.html">
+            <span class="hub-action-label">High-Intent Path</span>
+            <span class="hub-action-title">I am deciding between growth and income</span>
+            <span class="hub-action-text">Go straight to a real structure decision with visible trade-offs.</span>
+          </a>
+        </div>
       </div>
     </section>
 
