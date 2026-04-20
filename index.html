@@ -3,954 +3,941 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ETF Calculator | Make Better Long-Term Investing Decisions</title>
-  <meta
-    name="description"
-    content="ETF tools for long-term investors. Compare ETFs, calculate returns, build a DCA plan, and make clearer investing decisions."
-  />
-  <link rel="canonical" href="https://etfcalculator.net/" />
-  <link rel="stylesheet" href="/style.css" />
+  <title>ETF Calculator | Build an investment plan you can actually follow</title>
+  <meta name="description" content="Use ETF Calculator to choose an ETF, compare options, build a plan, and stay invested with more clarity." />
+  <meta name="theme-color" content="#eef2f6" />
   <style>
-  :root{
-    --bg:#eef2f6;
-    --surface:#ffffff;
-    --surface-2:#f7f9fc;
-    --text:#18202a;
-    --muted:#667085;
-    --line:#d9e0e8;
-    --line-strong:#cbd5e1;
-    --shadow:0 20px 50px rgba(15,23,42,0.08);
-    --radius:24px;
-    --radius-sm:18px;
-    --max:1120px;
-  }
-
-  *{box-sizing:border-box}
-
-  html{scroll-behavior:smooth}
-
-  body{
-    margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-
-  a{
-    color:inherit;
-    text-decoration:none;
-  }
-
-  img{
-    max-width:100%;
-    display:block;
-  }
-
-  .page{
-    width:min(980px, calc(100% - 56px));
-    margin:0 auto;
-    padding:32px 0 52px;
-  }
-
-  .section-card{
-    background:rgba(255,255,255,0.88);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(210,218,230,0.9);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    padding:40px 38px;
-    margin:0 0 22px;
-  }
-
-  .section-card.compact{
-    padding:26px 24px;
-  }
-
-  .hero{
-    text-align:center;
-    padding:56px 42px 40px;
-  }
-
-  .eyebrow{
-    display:inline-block;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:#7a8798;
-    margin-bottom:12px;
-  }
-
-  .hero h1,
-  .section-title{
-    margin:0;
-    font-size:clamp(2.1rem,4vw,3.55rem);
-    line-height:1.04;
-    letter-spacing:-0.04em;
-    text-wrap:balance;
-  }
-
-  .hero-sub{
-    max-width:760px;
-    margin:14px auto 0;
-    font-size:1.05rem;
-    color:var(--muted);
-    text-wrap:balance;
-  }
-
-  .hero-note{
-    max-width:760px;
-    margin:12px auto 0;
-    font-size:.93rem;
-    color:#8a94a3;
-    text-wrap:balance;
-  }
-
-  .hero-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    justify-content:center;
-    margin-top:24px;
-  }
-
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:46px;
-    padding:0 18px;
-    border-radius:999px;
-    border:1px solid var(--line-strong);
-    font-size:.95rem;
-    font-weight:700;
-    transition:all .18s ease;
-    background:#fff;
-    color:var(--text);
-  }
-
-  .btn:hover{
-    transform:translateY(-1px);
-    border-color:#b8c4d3;
-    box-shadow:0 10px 24px rgba(15,23,42,0.08);
-  }
-
-  .btn-primary{
-    background:#44526a;
-    color:#fff;
-    border-color:#44526a;
-  }
-
-  .btn-primary:hover{
-    background:#3a475c;
-    border-color:#3a475c;
-  }
-
-  .inline-links{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:16px;
-    margin-top:16px;
-    font-size:.88rem;
-    color:#7b8796;
-  }
-
-  .inline-links a{
-    font-weight:600;
-  }
-
-  .section-head{
-    text-align:center;
-    margin-bottom:18px;
-  }
-
-  .section-head h2{
-    margin:0;
-    font-size:clamp(1.8rem,3vw,2.7rem);
-    line-height:1.1;
-    letter-spacing:-0.035em;
-    text-wrap:balance;
-  }
-
-  .section-head p{
-    max-width:760px;
-    margin:10px auto 0;
-    color:var(--muted);
-    font-size:.98rem;
-    text-wrap:balance;
-  }
-
-  .grid-2{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:16px;
-  }
-
-  .grid-3{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:16px;
-  }
-
-  .grid-4{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:16px;
-  }
-
-  .feature-card,
-  .decision-card,
-  .principle-card,
-  .list-card{
-    background:linear-gradient(180deg,#ffffff 0%, #f8fafc 100%);
-    border:1px solid #dde5ee;
-    border-radius:22px;
-    padding:26px 24px;
-    min-height:100%;
-    transition:all .18s ease;
-  }
-
-  .decision-card:hover,
-  .feature-card:hover,
-  .principle-card:hover,
-  .list-card:hover{
-    transform:translateY(-2px);
-    border-color:#c9d4e0;
-    box-shadow:0 12px 28px rgba(15,23,42,0.07);
-  }
-
-  .card-label{
-    display:block;
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:#7f8a99;
-    margin-bottom:10px;
-  }
-
-  .feature-card h3,
-  .decision-card h3,
-  .principle-card h3,
-  .list-card h3{
-    margin:0 0 8px;
-    font-size:1.18rem;
-    line-height:1.2;
-    letter-spacing:-0.02em;
-    text-wrap:balance;
-  }
-
-  .feature-card p,
-  .decision-card p,
-  .principle-card p,
-  .list-card p{
-    margin:0;
-    font-size:.94rem;
-    color:var(--muted);
-  }
-
-  .card-link{
-    display:inline-block;
-    margin-top:14px;
-    font-weight:700;
-    font-size:.92rem;
-    color:#344256;
-  }
-
-  .micro-note{
-    text-align:center;
-    margin-top:14px;
-    font-size:.84rem;
-    color:#7d8897;
-    text-wrap:balance;
-  }
-
-  .reminder{
-    text-align:center;
-    padding:30px 22px;
-  }
-
-  .reminder h2{
-    margin:0;
-    font-size:clamp(1.7rem,3vw,2.35rem);
-    line-height:1.1;
-    letter-spacing:-0.03em;
-    text-wrap:balance;
-  }
-
-  .reminder p{
-    max-width:700px;
-    margin:10px auto 0;
-    color:var(--muted);
-    font-size:.96rem;
-    text-wrap:balance;
-  }
-
-  .pill-row{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-    margin-top:18px;
-  }
-
-  .pill{
-    display:inline-flex;
-    align-items:center;
-    min-height:36px;
-    padding:0 14px;
-    border-radius:999px;
-    border:1px solid #d9e1ea;
-    background:#fff;
-    color:#536071;
-    font-size:.85rem;
-    font-weight:700;
-  }
-
-  .principles-note{
-    text-align:center;
-    margin-top:14px;
-    font-size:.84rem;
-    color:#7d8897;
-    text-wrap:balance;
-  }
-
-  .center-panel{
-    max-width:760px;
-    margin:0 auto;
-    text-align:center;
-  }
-
-  .comparison-list{
-    list-style:none;
-    padding:0;
-    margin:18px 0 0;
-    display:grid;
-    gap:10px;
-    justify-items:center;
-  }
-
-  .comparison-list a{
-    font-weight:700;
-    color:#334155;
-  }
-
-  .footer-feedback{
-    text-align:center;
-    color:#7e8a99;
-    font-size:.83rem;
-    margin-top:18px;
-  }
-
-  .footer-feedback a{
-    font-weight:700;
-    color:#4d5b70;
-  }
-
-  /* ===== Decision Router: homepage second section only ===== */
-  .decision-router{
-    padding-top:34px;
-    padding-bottom:34px;
-  }
-
-  .decision-router-head{
-    margin-bottom:14px;
-  }
-
-  .decision-router-head h2{
-    font-size:clamp(1.9rem,3.2vw,2.75rem);
-    line-height:1.08;
-    letter-spacing:-0.035em;
-    max-width:980px;
-    margin:0 auto;
-    text-wrap:balance;
-  }
-
-  .decision-router-head p{
-    max-width:780px;
-    margin:12px auto 0;
-    font-size:.98rem;
-    line-height:1.75;
-    color:var(--muted);
-    text-wrap:balance;
-  }
-
-  .decision-flow-note{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-    margin:4px 0 20px;
-    font-size:.82rem;
-    font-weight:700;
-    color:#6f7c8d;
-  }
-
-  .flow-arrow{
-    color:#9aa5b3;
-    font-weight:800;
-  }
-
-  .decision-router-grid{
-    align-items:stretch;
-  }
-
-  .decision-router .decision-card{
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    padding:24px 22px 22px;
-    border-radius:22px;
-  }
-
-  .decision-router .decision-card h3{
-    margin:0 0 10px;
-    font-size:1rem;
-    line-height:1.15;
-    letter-spacing:-0.02em;
-    text-wrap:balance;
-  }
-
-  .decision-router .decision-card p{
-    margin:0;
-    font-size:.92rem;
-    line-height:1.75;
-    color:var(--muted);
-  }
-
-  .decision-router .card-label{
-    margin-bottom:12px;
-    font-size:10px;
-    letter-spacing:.12em;
-  }
-
-  .path-preview{
-    margin-top:14px;
-    padding-top:11px;
-    border-top:1px solid #e5ebf2;
-    font-size:.79rem;
-    line-height:1.42;
-    color:#748091;
-  }
-
-  .path-preview strong{
-    color:#3c495c;
-    font-weight:700;
-  }
-
-  .decision-router .card-link{
-    display:inline-block;
-    margin-top:14px;
-    font-weight:700;
-    font-size:.92rem;
-    color:#344256;
-  }
-
-  .decision-card-highlight{
-    background:linear-gradient(180deg,#ffffff 0%, #f3f7fc 100%);
-    border:1.5px solid #c7d3e1;
-    box-shadow:0 16px 34px rgba(15,23,42,0.08);
-  }
-
-  .decision-card-highlight:hover{
-    border-color:#bcc9d8;
-    box-shadow:0 18px 36px rgba(15,23,42,0.10);
-  }
-
-  .decision-card-highlight .card-label{
-    color:#5f6f84;
-  }
-
-  .decision-router-note{
-    max-width:920px;
-    margin:18px auto 0;
-  }
-
-  @media (max-width: 980px){
-    .grid-4{
-      grid-template-columns:repeat(2,minmax(0,1fr));
+    :root{
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --line:#d9dee6;
+      --line-2:#e5e9ef;
+      --text:#172033;
+      --muted:#5f6b7d;
+      --soft:#7e8898;
+      --navy:#24324a;
+      --navy-2:#33425f;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(24,36,60,.06);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:18px;
+      --max:1180px;
     }
 
-    .grid-3{
-      grid-template-columns:1fr;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      line-height:1.55;
     }
 
-    .grid-2{
-      grid-template-columns:1fr;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
-    .decision-router .grid-4{
-      grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-  }
+    img{max-width:100%;display:block}
 
-  @media (max-width: 640px){
+    .wrap{
+      width:min(var(--max), calc(100% - 28px));
+      margin:0 auto;
+    }
+
     .page{
-      width:min(1040px, calc(100% - 20px));
-      padding:18px 0 34px;
+      padding:18px 0 42px;
     }
 
     .section-card{
-      border-radius:22px;
-      padding:28px 18px;
-      margin-bottom:16px;
+      background:var(--card);
+      border:1px solid rgba(36,50,74,.08);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:34px 30px;
+      margin:16px 0;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--soft);
+      font-weight:700;
     }
 
     .hero{
-      padding:36px 20px 26px;
+      padding:46px 34px 30px;
+      text-align:center;
+    }
+
+    .hero h1{
+      margin:0 auto 14px;
+      max-width:760px;
+      font-size:clamp(2rem, 4.6vw, 4.05rem);
+      line-height:1.02;
+      letter-spacing:-.04em;
+      text-wrap:balance;
+    }
+
+    .hero .hero-sub{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:1.03rem;
+    }
+
+    .hero .hero-note{
+      max-width:760px;
+      margin:14px auto 0;
+      color:var(--soft);
+      font-size:.92rem;
     }
 
     .hero-actions{
-      flex-direction:column;
-      align-items:stretch;
+      margin-top:24px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
     }
 
     .btn{
-      width:100%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      font-size:.96rem;
+      font-weight:700;
+      border:1px solid var(--line);
+      transition:.18s ease;
+      white-space:nowrap;
     }
 
-    .inline-links{
-      gap:10px 14px;
-      font-size:.84rem;
+    .btn-primary{
+      background:var(--navy);
+      color:var(--white);
+      border-color:var(--navy);
+    }
+
+    .btn-primary:hover{background:var(--navy-2);border-color:var(--navy-2)}
+    .btn-secondary{
+      background:var(--white);
+      color:var(--text);
+    }
+    .btn-secondary:hover{
+      border-color:#c8d0da;
+      background:#fdfefe;
+    }
+
+    .micro-links{
+      margin-top:16px;
+      display:flex;
+      gap:16px;
+      justify-content:center;
+      flex-wrap:wrap;
+      color:var(--soft);
+      font-size:.86rem;
+    }
+
+    .micro-links a:hover{color:var(--navy)}
+
+    .section-head{
+      max-width:760px;
+      margin:0 auto 26px;
+      text-align:center;
+    }
+
+    .section-head h2{
+      margin:0 0 10px;
+      font-size:clamp(1.7rem,3.4vw,2.6rem);
+      line-height:1.08;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
     }
 
     .grid-4{
-      grid-template-columns:1fr;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
     }
 
-    .decision-router{
-      padding-top:28px;
-      padding-bottom:28px;
+    .hub-card,
+    .tool-card,
+    .mini-card,
+    .route-card,
+    .principle-card,
+    .directory-card{
+      background:var(--white);
+      border:1px solid var(--line-2);
+      border-radius:var(--radius-lg);
+      padding:20px 18px;
+      transition:.18s ease;
+      min-height:100%;
     }
 
-    .decision-router-head h2{
-      font-size:clamp(1.7rem,6.6vw,2.15rem);
+    .hub-card:hover,
+    .tool-card:hover,
+    .mini-card:hover,
+    .route-card:hover,
+    .principle-card:hover,
+    .directory-card:hover{
+      transform:translateY(-1px);
+      border-color:#cfd6e0;
+      box-shadow:0 10px 24px rgba(24,36,60,.05);
+    }
+
+    .hub-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+    }
+
+    .hub-tag{
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+      font-weight:700;
+    }
+
+    .hub-role{
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .hub-card h3,
+    .tool-card h3,
+    .route-card h3,
+    .principle-card h3,
+    .directory-card h3{
+      margin:0 0 8px;
+      font-size:1.12rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .hub-card p,
+    .tool-card p,
+    .route-card p,
+    .principle-card p,
+    .directory-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .hub-links,
+    .directory-links{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .hub-links a,
+    .directory-links a,
+    .inline-link{
+      color:var(--navy);
+      font-weight:650;
+      font-size:.94rem;
+    }
+
+    .hub-links a:hover,
+    .directory-links a:hover,
+    .inline-link:hover{
+      color:var(--navy-2);
+    }
+
+    .barbell{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .barbell-side{
+      background:var(--white);
+      border:1px solid var(--line-2);
+      border-radius:var(--radius-xl);
+      padding:24px 22px;
+    }
+
+    .barbell-side h3{
+      margin:0 0 10px;
+      font-size:1.35rem;
+      letter-spacing:-.03em;
       line-height:1.1;
     }
 
-    .decision-router-head p{
+    .barbell-side p{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+      max-width:560px;
+    }
+
+    .barbell-list{
+      margin:18px 0 0;
+      display:grid;
+      gap:10px;
+    }
+
+    .barbell-item{
+      background:var(--card-2);
+      border:1px solid var(--line-2);
+      border-radius:18px;
+      padding:14px 14px;
+    }
+
+    .barbell-item strong{
+      display:block;
+      font-size:.97rem;
+      margin-bottom:4px;
+    }
+
+    .barbell-item span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .route-card{
+      padding:22px 18px;
+    }
+
+    .route-card .mini-label{
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+      font-weight:700;
+      margin-bottom:10px;
+      display:block;
+    }
+
+    .tool-card .tool-kicker{
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+      font-weight:700;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    .tool-card .tool-link,
+    .route-card .tool-link{
+      margin-top:14px;
+      display:inline-block;
+      color:var(--navy);
+      font-weight:700;
       font-size:.94rem;
-      line-height:1.68;
     }
 
-    .decision-flow-note{
-      gap:8px;
-      font-size:.78rem;
-      margin-bottom:16px;
+    .impact-strip{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
     }
 
-    .decision-router .grid-4{
-      grid-template-columns:1fr;
+    .impact-box{
+      background:var(--white);
+      border:1px solid var(--line-2);
+      border-radius:20px;
+      padding:18px 14px;
+      text-align:center;
     }
 
-    .decision-router .decision-card{
-      padding:22px 18px 20px;
+    .impact-box strong{
+      display:block;
+      font-size:1.06rem;
+      line-height:1.18;
+      letter-spacing:-.02em;
+      margin-bottom:6px;
     }
 
-    .decision-router .decision-card h3{
-      font-size:1.02rem;
+    .impact-box span{
+      color:var(--muted);
+      font-size:.89rem;
     }
 
-    .decision-router .decision-card p{
-      font-size:.91rem;
-      line-height:1.68;
+    .principle-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
     }
 
-    .path-preview{
-      font-size:.79rem;
+    .principle-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:1rem;
     }
-  }
-</style>
+
+    .directory{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .directory-card h3{
+      margin-bottom:10px;
+    }
+
+    .directory-card p{
+      margin-bottom:12px;
+      font-size:.9rem;
+    }
+
+    .feedback{
+      text-align:center;
+      padding:26px 24px;
+    }
+
+    .feedback p{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+    }
+
+    .feedback .feedback-actions{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .site-foot{
+      text-align:center;
+      color:var(--soft);
+      font-size:.84rem;
+      padding:8px 0 0;
+    }
+
+    @media (max-width: 1080px){
+      .grid-4,
+      .principle-grid,
+      .directory,
+      .impact-strip{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+      .barbell{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 760px){
+      .page{padding:12px 0 30px}
+      .section-card{padding:24px 18px;margin:12px 0;border-radius:24px}
+      .hero{padding:34px 18px 24px}
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .principle-grid,
+      .directory,
+      .impact-strip{
+        grid-template-columns:1fr;
+      }
+      .hero-actions{flex-direction:column}
+      .btn{width:100%}
+      .micro-links{gap:10px}
+      .barbell-side{padding:20px 18px}
+      .hub-card,
+      .tool-card,
+      .route-card,
+      .principle-card,
+      .directory-card{
+        padding:18px 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <main class="page">
+  <div class="page">
+    <main class="wrap">
 
-    <section class="section-card hero">
-      <div class="eyebrow">Long-term investing, made clear</div>
-      <h1>Build an investment plan you can actually follow.</h1>
-      <p class="hero-sub">
-        ETF tools for clearer thinking, stronger decisions, and steadier long-term investing.
-      </p>
-      <p class="hero-note">
-        You do not need to predict the market. You need a plan that is simple enough to understand, strong enough to trust, and practical enough to keep following.
-      </p>
+      <!-- HERO -->
+      <section class="section-card hero">
+        <div class="eyebrow">ETF Decision Platform</div>
+        <h1>Build an investment plan you can actually follow.</h1>
+        <p class="hero-sub">
+          Start with the decision you actually need to make, compare your options with more clarity,
+          and use simple tools to turn ideas into actions you can stick with.
+        </p>
+        <p class="hero-note">
+          This platform is built for long-term investors who want a better process — not more noise,
+          more prediction, or more complexity.
+        </p>
 
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/etf-calculator.html">Build your plan now →</a>
-        <a class="btn" href="/voo-calculator.html">Explore the VOO path →</a>
-       <a class="btn" href="/which-etf-should-i-buy.html">Start here: Which ETF should I buy? →</a>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/etf-calculator.html">Build your plan now →</a>
+          <a class="btn btn-secondary" href="/which-etf-should-i-buy.html">Start from “Which ETF should I buy?” →</a>
+          <a class="btn btn-secondary" href="/etf-comparisons.html">Explore ETF comparisons →</a>
+        </div>
+
+        <div class="micro-links">
+          <a href="/voo-calculator.html">Build a VOO plan</a>
+          <a href="/dca-calculator.html">Start with DCA</a>
+          <a href="/investment-principles.html">See the principles behind the platform</a>
+        </div>
+      </section>
+
+      <!-- BARBELL -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">The platform structure</div>
+          <h2>Built with a clear core and disciplined optionality.</h2>
+          <p>
+            The homepage stays simple on purpose. The left side helps you act with more clarity.
+            The right side helps you build a structure you can survive.
+          </p>
+        </div>
+
+        <div class="barbell">
+          <div class="barbell-side">
+            <div class="eyebrow">Left side · act with clarity</div>
+            <h3>Start from the decision in front of you.</h3>
+            <p>
+              Choose an ETF, compare two options, or build a simple contribution plan.
+              This side exists to reduce hesitation, reduce confusion, and get you moving.
+            </p>
+            <div class="barbell-list">
+              <div class="barbell-item">
+                <strong>Choose with more clarity</strong>
+                <span>Start from your actual question instead of random content or market noise.</span>
+              </div>
+              <div class="barbell-item">
+                <strong>Compare before you commit</strong>
+                <span>Use structured comparison pages to avoid superficial decisions.</span>
+              </div>
+              <div class="barbell-item">
+                <strong>Turn ideas into numbers</strong>
+                <span>Use calculators to make the choice concrete and actionable.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="barbell-side">
+            <div class="eyebrow">Right side · survive the journey</div>
+            <h3>Build something you can keep following.</h3>
+            <p>
+              A good ETF choice is not enough. Long-term outcomes depend on structure,
+              behavior, and the ability to stay invested across market cycles.
+            </p>
+            <div class="barbell-list">
+              <div class="barbell-item">
+                <strong>Structure matters</strong>
+                <span>Bogle reminds us to keep cost, diversification, and simplicity central.</span>
+              </div>
+              <div class="barbell-item">
+                <strong>Behavior matters</strong>
+                <span>Marks reminds us that cycles and psychology often matter more than forecasts.</span>
+              </div>
+              <div class="barbell-item">
+                <strong>Fragility matters</strong>
+                <span>Taleb reminds us that survival comes before upside.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DECISION ROUTES -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Start here</div>
+          <h2>Start from the question you actually have.</h2>
+          <p>
+            The goal is not to read everything. The goal is to enter the right path fast.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="route-card" href="/which-etf-should-i-buy.html">
+            <span class="mini-label">Start here</span>
+            <h3>Which ETF should I buy?</h3>
+            <p>Use a simpler decision path if you want a clearer default starting point.</p>
+            <span class="tool-link">Start here →</span>
+          </a>
+
+          <a class="route-card" href="/etf-comparisons.html">
+            <span class="mini-label">Compare</span>
+            <h3>Compare ETFs before you decide</h3>
+            <p>Use side-by-side comparison pages when your real problem is choosing between two options.</p>
+            <span class="tool-link">Compare ETFs →</span>
+          </a>
+
+          <a class="route-card" href="/etf-calculator.html">
+            <span class="mini-label">Plan</span>
+            <h3>Build your ETF plan</h3>
+            <p>Model contributions, returns, and outcomes so the decision becomes real.</p>
+            <span class="tool-link">Use ETF Calculator →</span>
+          </a>
+
+          <a class="route-card" href="/investment-principles.html">
+            <span class="mini-label">Understand</span>
+            <h3>See the principles behind the tools</h3>
+            <p>Understand the decision framework instead of relying on random opinions.</p>
+            <span class="tool-link">Read the principles →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- HUBS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Hub system</div>
+          <h2>A simple homepage. Clear hubs underneath.</h2>
+          <p>
+            Each hub groups one kind of decision. That keeps the homepage clean while making the full platform easier to navigate as it grows.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="hub-card">
+            <div class="hub-top">
+              <span class="hub-tag">Hub 01</span>
+              <span class="hub-role">Start Here</span>
+            </div>
+            <h3>Start Here Hub</h3>
+            <p>
+              Best for users who want a cleaner starting point before they go deeper.
+            </p>
+            <div class="hub-links">
+              <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
+              <a href="/best-etfs-for-beginners.html">Best ETFs for beginners →</a>
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+            </div>
+          </div>
+
+          <div class="hub-card">
+            <div class="hub-top">
+              <span class="hub-tag">Hub 02</span>
+              <span class="hub-role">Tools</span>
+            </div>
+            <h3>Calculator Hub</h3>
+            <p>
+              Best for users who already have an idea and now need numbers, trade-offs, and a plan.
+            </p>
+            <div class="hub-links">
+              <a href="/etf-calculator.html">ETF Calculator →</a>
+              <a href="/voo-calculator.html">VOO Calculator →</a>
+              <a href="/dca-calculator.html">DCA Calculator →</a>
+              <a href="/compound-interest-calculator.html">Compound Interest Calculator →</a>
+            </div>
+          </div>
+
+          <div class="hub-card">
+            <div class="hub-top">
+              <span class="hub-tag">Hub 03</span>
+              <span class="hub-role">Compare</span>
+            </div>
+            <h3>Comparison Hub</h3>
+            <p>
+              Best for users deciding between two ETFs and trying to avoid the wrong reason for choosing.
+            </p>
+            <div class="hub-links">
+              <a href="/etf-comparisons.html">Explore all ETF comparisons →</a>
+              <a href="/voo-vs-spy.html">VOO vs SPY →</a>
+              <a href="/voo-vs-vti.html">VOO vs VTI →</a>
+              <a href="/qqq-vs-spy.html">QQQ vs SPY →</a>
+            </div>
+          </div>
+
+          <div class="hub-card">
+            <div class="hub-top">
+              <span class="hub-tag">Hub 04</span>
+              <span class="hub-role">Guides</span>
+            </div>
+            <h3>ETF Guide Hub</h3>
+            <p>
+              Best for users who already like an ETF and now want to understand what it really does in a portfolio.
+            </p>
+            <div class="hub-links">
+              <a href="/voo-investment-guide.html">VOO investment guide →</a>
+              <a href="/vti-investment-guide.html">VTI investment guide →</a>
+              <a href="/qqq-investment-guide.html">QQQ investment guide →</a>
+              <a href="/schd-investment-guide.html">SCHD investment guide →</a>
+            </div>
+          </div>
+
+          <div class="hub-card">
+            <div class="hub-top">
+              <span class="hub-tag">Hub 05</span>
+              <span class="hub-role">Structures</span>
+            </div>
+            <h3>ETF Structure Hub</h3>
+            <p>
+              Best for users comparing categories and trying to understand what kind of ETF structure fits them.
+            </p>
+            <div class="hub-links">
+              <a href="/best-etfs.html">Best ETFs hub →</a>
+              <a href="/best-dividend-etfs.html">Best dividend ETFs →</a>
+              <a href="/best-growth-etfs.html">Best growth ETFs →</a>
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+            </div>
+          </div>
+
+          <div class="hub-card">
+            <div class="hub-top">
+              <span class="hub-tag">Hub 06</span>
+              <span class="hub-role">Principles</span>
+            </div>
+            <h3>Principles Hub</h3>
+            <p>
+              Best for users who want to understand the thinking layer: cost, structure, cycles, behavior, and long-term survival.
+            </p>
+            <div class="hub-links">
+              <a href="/investment-principles.html">Our investment principles →</a>
+              <a href="/best-etfs-for-long-term-investing.html">Long-term investing decisions →</a>
+              <a href="/dca-calculator.html">Build a repeatable contribution plan →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORE TOOLS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Core tools</div>
+          <h2>Turn ideas into decisions.</h2>
+          <p>
+            Good decisions become easier when your plan is concrete enough to see, compare, and follow.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <a class="tool-card" href="/etf-calculator.html">
+            <span class="tool-kicker">Flagship Tool</span>
+            <h3>ETF Calculator</h3>
+            <p>
+              Model contributions, growth assumptions, and long-term outcomes to build a plan with more clarity.
+            </p>
+            <span class="tool-link">See how your future may look →</span>
+          </a>
+
+          <a class="tool-card" href="/voo-calculator.html">
+            <span class="tool-kicker">Flagship Tool</span>
+            <h3>VOO Calculator</h3>
+            <p>
+              Explore what a simple VOO-based plan may look like over time and what discipline really means.
+            </p>
+            <span class="tool-link">Build a simple VOO plan →</span>
+          </a>
+
+          <a class="tool-card" href="/dca-calculator.html">
+            <span class="tool-kicker">Flagship Tool</span>
+            <h3>DCA Calculator</h3>
+            <p>
+              Build a contribution rhythm you can keep following instead of trying to time every market move.
+            </p>
+            <span class="tool-link">Create a DCA schedule →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- WHY THIS PLATFORM -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Why this platform exists</div>
+          <h2>Built to help you decide — not just to inform you.</h2>
+          <p>
+            Many sites give you ETF facts. This platform is built to help you make a better decision and keep following it.
+          </p>
+        </div>
+
+        <div class="impact-strip">
+          <div class="impact-box">
+            <strong>Not just information</strong>
+            <span>We focus on what changes a decision, not on filling a page with content.</span>
+          </div>
+          <div class="impact-box">
+            <strong>Not just tools</strong>
+            <span>The calculators are tied to real investor questions and decision paths.</span>
+          </div>
+          <div class="impact-box">
+            <strong>Not just comparison</strong>
+            <span>We compare ETFs in ways that connect to behavior, structure, and fit.</span>
+          </div>
+          <div class="impact-box">
+            <strong>A closed loop</strong>
+            <span>Start with a question, clarify the structure, then act with more confidence.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRINCIPLES -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Decision principles</div>
+          <h2>Our investment principles.</h2>
+          <p>
+            The platform is built around enduring ideas that help investors make clearer choices and avoid fragile decisions.
+          </p>
+        </div>
+
+        <div class="principle-grid">
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Munger</strong>
+            <p>Avoid obvious mistakes. A better process often matters more than a clever prediction.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Bogle</strong>
+            <p>Keep costs low, diversify broadly, and make the plan simple enough to stick with.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Taleb</strong>
+            <p>Protect against fragility. Survival comes first. Upside should not depend on precision.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Marks</strong>
+            <p>Markets move in cycles. Behavior and discipline often matter more than forecasts.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- DIRECTORY -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Full navigation</div>
+          <h2>Every important path starts here.</h2>
+          <p>
+            The homepage stays clean, but the full platform is still easy to navigate through grouped decision paths.
+          </p>
+        </div>
+
+        <div class="directory">
+          <div class="directory-card">
+            <h3>Start Here</h3>
+            <p>For users trying to simplify the first decision.</p>
+            <div class="directory-links">
+              <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
+              <a href="/best-etfs-for-beginners.html">Best ETFs for beginners →</a>
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+            </div>
+          </div>
+
+          <div class="directory-card">
+            <h3>Calculators</h3>
+            <p>For turning general ideas into a concrete plan.</p>
+            <div class="directory-links">
+              <a href="/etf-calculator.html">ETF Calculator →</a>
+              <a href="/voo-calculator.html">VOO Calculator →</a>
+              <a href="/dca-calculator.html">DCA Calculator →</a>
+              <a href="/compound-interest-calculator.html">Compound Interest Calculator →</a>
+            </div>
+          </div>
+
+          <div class="directory-card">
+            <h3>Guides & Structures</h3>
+            <p>For understanding what an ETF really means in practice.</p>
+            <div class="directory-links">
+              <a href="/voo-investment-guide.html">VOO investment guide →</a>
+              <a href="/vti-investment-guide.html">VTI investment guide →</a>
+              <a href="/qqq-investment-guide.html">QQQ investment guide →</a>
+              <a href="/schd-investment-guide.html">SCHD investment guide →</a>
+              <a href="/best-etfs.html">Best ETFs hub →</a>
+              <a href="/best-dividend-etfs.html">Best dividend ETFs →</a>
+              <a href="/best-growth-etfs.html">Best growth ETFs →</a>
+            </div>
+          </div>
+
+          <div class="directory-card">
+            <h3>Comparisons & Principles</h3>
+            <p>For clearer choices and stronger long-term thinking.</p>
+            <div class="directory-links">
+              <a href="/etf-comparisons.html">ETF comparisons hub →</a>
+              <a href="/voo-vs-spy.html">VOO vs SPY →</a>
+              <a href="/voo-vs-vti.html">VOO vs VTI →</a>
+              <a href="/voo-vs-ivv.html">VOO vs IVV →</a>
+              <a href="/voo-vs-qqq.html">VOO vs QQQ →</a>
+              <a href="/qqq-vs-spy.html">QQQ vs SPY →</a>
+              <a href="/schd-vs-vym.html">SCHD vs VYM →</a>
+              <a href="/investment-principles.html">Investment principles →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Start with a plan</div>
+          <h2>Start with a plan you can actually follow.</h2>
+          <p>
+            You do not need the perfect ETF or the perfect market moment.
+            You need a clear enough decision and a structure that helps you keep going.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/etf-calculator.html">Build your ETF plan →</a>
+          <a class="btn btn-secondary" href="/voo-calculator.html">Start with a VOO plan →</a>
+          <a class="btn btn-secondary" href="/dca-calculator.html">Build a DCA plan →</a>
+        </div>
+
+        <div class="micro-links">
+          <a href="/which-etf-should-i-buy.html">Need a starting point first?</a>
+          <a href="/etf-comparisons.html">Still deciding between two ETFs?</a>
+          <a href="/investment-principles.html">Want to see the thinking behind the platform?</a>
+        </div>
+      </section>
+
+      <!-- FEEDBACK -->
+      <section class="section-card feedback">
+        <div class="eyebrow">Feedback</div>
+        <h2 style="margin:0 0 10px;font-size:clamp(1.45rem,3vw,2rem);letter-spacing:-.03em;">Help us improve the platform.</h2>
+        <p>
+          If a page helped you decide more clearly — or if something still feels confusing —
+          send feedback. We use it to improve the decision paths, tools, and page structure.
+        </p>
+        <div class="feedback-actions">
+          <a class="btn btn-primary" href="mailto:feedback@etfcalculator.net?subject=ETF%20Calculator%20Feedback">Send feedback →</a>
+          <a class="btn btn-secondary" href="/which-etf-should-i-buy.html">Revisit the start-here path →</a>
+        </div>
+      </section>
+
+      <div class="site-foot">
+        Built for long-term investors who want more clarity, better structure, and decisions they can keep following.
       </div>
 
-      <div class="inline-links">
-        <a href="/dca-calculator.html">Build a DCA strategy</a>
-        <a href="/which-etf-should-i-buy.html">Which ETF should I buy?</a>
-        <a href="/investment-principles.html">See the investment principles</a>
-      </div>
-    </section>
-
-    <section class="section-card decision-router">
-  <div class="section-head decision-router-head">
-    <div class="eyebrow">Start here</div>
-    <h2>Start from the decision you actually need to make</h2>
-    <p>
-      This platform is built around real investor questions. Choose the path that matches where you are right now — then move forward step by step.
-    </p>
+    </main>
   </div>
-
-  <div class="decision-flow-note">
-    <span>Decision</span>
-    <span class="flow-arrow">→</span>
-    <span>Validation</span>
-    <span class="flow-arrow">→</span>
-    <span>Plan</span>
-    <span class="flow-arrow">→</span>
-    <span>Action</span>
-  </div>
-
-  <div class="grid-4 decision-router-grid">
-    <a class="decision-card" href="/which-etf-should-i-buy.html">
-      <span class="card-label">Simple starting point</span>
-      <h3>I want a simple starting point</h3>
-      <p>
-        Get a clear default ETF direction before you go deeper.
-      </p>
-
-      <div class="path-preview">
-        <strong>Path:</strong>
-        ETF decision guide → ETF Calculator → DCA plan
-      </div>
-
-      <span class="card-link">Start with a default plan →</span>
-    </a>
-
-    <a class="decision-card" href="/etf-comparisons.html">
-      <span class="card-label">Compare with clarity</span>
-      <h3>I want to compare ETFs</h3>
-      <p>
-        See the real differences and remove weaker choices.
-      </p>
-
-      <div class="path-preview">
-        <strong>Path:</strong>
-        Comparison pages → Calculator check → Investing plan
-      </div>
-
-      <span class="card-link">Compare ETF options →</span>
-    </a>
-
-    <a class="decision-card" href="/etf-calculator.html">
-      <span class="card-label">Test your decision</span>
-      <h3>I want to test my plan</h3>
-      <p>
-        See how contributions, compounding, and time may shape your outcome.
-      </p>
-
-      <div class="path-preview">
-        <strong>Path:</strong>
-        ETF Calculator → Fit check → DCA plan
-      </div>
-
-      <span class="card-link">Use the ETF Calculator →</span>
-    </a>
-
-    <a class="decision-card decision-card-highlight" href="/best-etfs-for-long-term-investing.html">
-      <span class="card-label">Long-term investing path</span>
-      <h3>I want a plan I can follow</h3>
-      <p>
-        Build a simple long-term investing system you can trust and keep.
-      </p>
-
-      <div class="path-preview">
-        <strong>Path:</strong>
-        Long-term ETF guide → VOO path → DCA plan
-      </div>
-
-      <span class="card-link">Build your long-term plan →</span>
-    </a>
-  </div>
-
-  <p class="micro-note decision-router-note">
-    No matter where you start, the goal is the same: move from uncertainty to a clearer decision, then turn that decision into a plan you can actually follow.
-  </p>
-</section>
-
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Core platform</div>
-        <h2>Start from the tools that turn ideas into decisions</h2>
-        <p>
-          These are not just calculators. They are the main engine of the platform — designed to move you from uncertainty to action.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <a class="feature-card" href="/etf-calculator.html">
-          <span class="card-label">Growth planning</span>
-          <h3>ETF Calculator</h3>
-          <p>
-            Estimate how contributions, compounding, growth assumptions, and time may shape long-term ETF outcomes.
-          </p>
-          <span class="card-link">See your long-term growth →</span>
-        </a>
-
-        <a class="feature-card" href="/voo-calculator.html">
-          <span class="card-label">Simple core path</span>
-          <h3>VOO Calculator</h3>
-          <p>
-            Explore what a simple, low-cost S&amp;P 500 path can look like when you keep investing with consistency.
-          </p>
-          <span class="card-link">Build a simple VOO plan →</span>
-        </a>
-
-        <a class="feature-card" href="/dca-calculator.html">
-          <span class="card-label">Investing discipline</span>
-          <h3>DCA Calculator</h3>
-          <p>
-            Build a steady investing process that does not depend on perfect timing and helps reduce timing anxiety.
-          </p>
-          <span class="card-link">Create a consistent plan →</span>
-        </a>
-      </div>
-
-      <p class="micro-note">
-        These are not just tools. They are where long-term investing becomes a real plan.
-      </p>
-    </section>
-
-    <section class="section-card reminder">
-      <div class="eyebrow">A calm reminder</div>
-      <h2>You are closer than you think.</h2>
-      <p>
-        A strong investing plan does not begin with certainty. It begins with a clear enough direction, a sensible structure, and the discipline to keep going.
-      </p>
-
-      <div class="pill-row">
-        <span class="pill">Think clearly</span>
-        <span class="pill">Keep costs low</span>
-        <span class="pill">Stay consistent</span>
-        <span class="pill">Respect risk</span>
-      </div>
-    </section>
-
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Why this platform feels different</div>
-        <h2>Built to help you decide — not just to inform you</h2>
-      </div>
-
-      <div class="grid-2">
-        <div class="list-card">
-          <h3>Not just information</h3>
-          <p>
-            Many investing pages explain ETFs. Fewer help investors turn that information into a calm, repeatable decision.
-          </p>
-        </div>
-
-        <div class="list-card">
-          <h3>Not just tools</h3>
-          <p>
-            Our calculators are not random utilities. They are designed to support real choices, real plans, and real investor behavior.
-          </p>
-        </div>
-
-        <div class="list-card">
-          <h3>Not just comparisons</h3>
-          <p>
-            Comparing ETFs matters, but only if the comparison helps you choose a path you can actually follow over time.
-          </p>
-        </div>
-
-        <div class="list-card">
-          <h3>A closed-loop platform</h3>
-          <p>
-            Guides, principles, comparison pages, and calculators work together — so every page can move you toward a practical next step.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Core philosophy</div>
-        <h2>Our investment principles</h2>
-        <p>
-          This platform is built for long-term investing ideas: clearer decisions, lower costs, resilience under uncertainty, and respect for market cycles.
-        </p>
-      </div>
-
-      <div class="grid-4">
-        <div class="principle-card">
-          <h3>Munger</h3>
-          <p>Avoid obvious mistakes. Better investing often begins with better decisions, not more complexity.</p>
-        </div>
-
-        <div class="principle-card">
-          <h3>Bogle</h3>
-          <p>Keep costs low, diversify broadly, and stay with a plan that is strong enough to hold.</p>
-        </div>
-
-        <div class="principle-card">
-          <h3>Taleb</h3>
-          <p>A fragile strategy depends on prediction. A stronger one can survive uncertainty and error.</p>
-        </div>
-
-        <div class="principle-card">
-          <h3>Marks</h3>
-          <p>Risk changes across moods and cycles. Better investors respect that context instead of ignoring it.</p>
-        </div>
-      </div>
-
-      <p class="principles-note">
-        These principles are not decoration. They explain why this platform is designed the way it is.
-        <a href="/investment-principles.html">Read the full investment principles →</a>
-      </p>
-    </section>
-
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">A stronger structure</div>
-        <h2>Build with a clear core and disciplined optionality</h2>
-        <p>
-          A strong long-term plan usually begins with a stable core you can keep following, while leaving room for thoughtful exploration instead of reckless complexity.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <div class="feature-card">
-          <span class="card-label">Core stability</span>
-          <h3>Start with the part of investing that helps you stay calm, stay disciplined, and keep compounding over time.</h3>
-          <span class="card-link" style="display:block;"><a href="/voo-calculator.html">Explore the VOO path →</a></span>
-          <span class="card-link" style="display:block;"><a href="/dca-calculator.html">Build a DCA process →</a></span>
-        </div>
-
-        <div class="feature-card">
-          <span class="card-label">Optional upside</span>
-          <h3>Then explore ideas, comparisons, and ETF niches with more structure — without turning your plan into chaos.</h3>
-          <span class="card-link" style="display:block;"><a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a></span>
-          <span class="card-link" style="display:block;"><a href="/etf-comparisons.html">Compare ETF options →</a></span>
-        </div>
-      </div>
-
-      <p class="micro-note">
-        This is not about chasing more complexity. It is about keeping your base strong while staying open to informed upside.
-      </p>
-    </section>
-
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Question-first navigation</div>
-        <h2>Start from the question you actually have</h2>
-        <p>
-          Different investors come with different decisions in mind. Start with the one that matches your situation.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <a class="feature-card" href="/which-etf-should-i-buy.html">
-          <h3>Which ETF should I buy?</h3>
-          <p>
-            Use a beginner-friendly decision guide to understand when VOO, VTI, QQQ, or SCHD may fit best.
-          </p>
-          <span class="card-link">Start with ETF basics →</span>
-        </a>
-
-        <a class="feature-card" href="/etf-comparisons.html">
-          <h3>How do I compare ETF options?</h3>
-          <p>
-            Explore side-by-side ETF comparison pages to see practical differences before you decide.
-          </p>
-          <span class="card-link">Compare ETF options →</span>
-        </a>
-
-        <a class="feature-card" href="/dca-calculator.html">
-          <h3>How do I turn a choice into a plan?</h3>
-          <p>
-            Use a calculator to test whether your ETF direction fits your time horizon, contributions, and investing style.
-          </p>
-          <span class="card-link">Build your plan →</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="section-card">
-      <div class="center-panel">
-        <div class="eyebrow">Comparison hub</div>
-        <h2 class="section-title" style="font-size:clamp(1.7rem,3vw,2.4rem);">Compare before you decide</h2>
-        <p class="hero-sub" style="margin-top:10px;">
-          Comparison pages help you move from vague preference to clearer choice.
-        </p>
-
-        <div class="feature-card" style="margin-top:20px;">
-          <span class="card-label">Popular ETF Comparisons</span>
-          <ul class="comparison-list">
-            <li><a href="/voo-vs-spy.html">VOO vs SPY</a></li>
-            <li><a href="/voo-vs-vti.html">VOO vs VTI</a></li>
-            <li><a href="/voo-vs-qqq.html">VOO vs QQQ</a></li>
-            <li><a href="/qqq-vs-spy.html">QQQ vs SPY</a></li>
-            <li><a href="/schd-vs-vym.html">SCHD vs VYM</a></li>
-          </ul>
-          <span class="card-link"><a href="/etf-comparisons.html">Explore all ETF comparisons →</a></span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-card">
-      <div class="section-head">
-        <div class="eyebrow">Guides and thinking</div>
-        <h2>Learn the thinking behind the tools</h2>
-        <p>
-          Strong investing decisions usually become easier when the logic behind them is clear.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <a class="feature-card" href="/which-etf-should-i-buy.html">
-          <h3>Which ETF should I buy?</h3>
-          <p>
-            A decision guide for beginners choosing between simple core, broad market, growth, and dividend ETF paths.
-          </p>
-          <span class="card-link">Read the guide →</span>
-        </a>
-
-        <a class="feature-card" href="/investment-principles.html">
-          <h3>Investment principles</h3>
-          <p>
-            See how Munger, Bogle, Taleb, and Marks shape the philosophy behind this ETF decision platform.
-          </p>
-          <span class="card-link">Read the principles →</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="section-card hero" style="padding-top:38px;">
-      <div class="eyebrow">Final step</div>
-      <h2 class="section-title" style="font-size:clamp(1.9rem,3.2vw,2.8rem);">Start with a plan you can actually follow</h2>
-      <p class="hero-sub">
-        You do not need the perfect ETF or the perfect market moment. You need a clear enough direction and a path that helps you keep going.
-      </p>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/etf-calculator.html">Build your plan now →</a>
-        <a class="btn" href="/voo-calculator.html">Start simple with VOO →</a>
-        <a class="btn" href="/dca-calculator.html">Start with DCA →</a>
-      </div>
-
-      <p class="hero-note" style="margin-top:18px;">
-        This platform is built for long-term investors. Every guide, comparison, and calculator is designed to move you toward a calmer, stronger next step.
-      </p>
-
-      <div class="footer-feedback">
-        ETF tools for clearer thinking, better compounding, and long-term investing decisions.<br />
-        Help us improve this platform for real investors.<br />
-        <a href="mailto:feedback@etfcalculator.net?subject=ETF%20Calculator%20Feedback">Send feedback →</a>
-      </div>
-    </section>
-
-  </main>
 </body>
 </html>
