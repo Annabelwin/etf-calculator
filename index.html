@@ -21,6 +21,7 @@
       --navy-2:#31415d;
       --white:#ffffff;
       --shadow:0 10px 30px rgba(23,35,57,.06);
+      --shadow-soft:0 6px 20px rgba(23,35,57,.04);
       --radius-xl:28px;
       --radius-lg:22px;
       --radius-md:18px;
@@ -197,7 +198,6 @@
     .hub-card,
     .tool-card,
     .principle-card,
-    .story-card,
     .nav-card{
       background:var(--white);
       border:1px solid var(--stroke-soft);
@@ -211,7 +211,6 @@
     .hub-card:hover,
     .tool-card:hover,
     .principle-card:hover,
-    .story-card:hover,
     .nav-card:hover{
       transform:translateY(-1px);
       border-color:#cfd6df;
@@ -232,7 +231,6 @@
     .hub-card h3,
     .tool-card h3,
     .principle-card h3,
-    .story-card h3,
     .nav-card h3{
       margin:0 0 8px;
       font-size:1.12rem;
@@ -244,7 +242,6 @@
     .hub-card p,
     .tool-card p,
     .principle-card p,
-    .story-card p,
     .nav-card p{
       margin:0;
       color:var(--muted);
@@ -390,6 +387,122 @@
       font-size:1rem;
     }
 
+    /* PLATFORM MAP — redesigned rhythm */
+    .platform-map-shell{
+      display:grid;
+      grid-template-columns:1.5fr .86fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:6px;
+    }
+
+    .platform-map-left{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .platform-map-right{
+      background:linear-gradient(180deg,#ffffff 0%, #f7f9fc 100%);
+      border:1px solid #d8e0ea;
+      border-radius:26px;
+      padding:22px 20px;
+      box-shadow:var(--shadow-soft);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .platform-map-right::before{
+      content:"";
+      position:absolute;
+      inset:0 auto 0 0;
+      width:4px;
+      background:linear-gradient(180deg,#233149 0%, #7c8796 100%);
+      opacity:.14;
+    }
+
+    .map-col{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:22px;
+      padding:18px 16px;
+      box-shadow:0 2px 10px rgba(23,35,57,.02);
+    }
+
+    .map-col h3,
+    .platform-map-right h3{
+      margin:0 0 8px;
+      font-size:1.16rem;
+      line-height:1.15;
+      letter-spacing:-.025em;
+    }
+
+    .map-col p,
+    .platform-map-right p{
+      margin:0;
+      color:var(--muted);
+      font-size:.93rem;
+    }
+
+    .map-kicker{
+      display:inline-block;
+      margin-bottom:10px;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .map-links{
+      margin-top:14px;
+      display:grid;
+      gap:8px;
+    }
+
+    .map-links a{
+      color:var(--navy);
+      font-size:.94rem;
+      font-weight:650;
+    }
+
+    .map-links a:hover{color:var(--navy-2)}
+
+    .map-links .coming{
+      color:var(--soft);
+      font-size:.93rem;
+      font-weight:600;
+      line-height:1.45;
+    }
+
+    .survive-group{
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px solid var(--stroke-soft);
+    }
+
+    .survive-group:first-of-type{
+      margin-top:14px;
+      padding-top:0;
+      border-top:none;
+    }
+
+    .survive-group h4{
+      margin:0 0 8px;
+      font-size:.9rem;
+      letter-spacing:-.01em;
+      color:var(--text);
+    }
+
+    .platform-note{
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px dashed #d6dde6;
+      color:var(--soft);
+      font-size:.84rem;
+      line-height:1.5;
+    }
+
     .feedback{
       text-align:center;
       padding:26px 24px;
@@ -425,6 +538,14 @@
       .barbell{
         grid-template-columns:1fr;
       }
+
+      .platform-map-shell{
+        grid-template-columns:1fr;
+      }
+
+      .platform-map-left{
+        grid-template-columns:1fr;
+      }
     }
 
     @media (max-width:760px){
@@ -457,8 +578,9 @@
       .hub-card,
       .tool-card,
       .principle-card,
-      .story-card,
-      .nav-card{
+      .nav-card,
+      .map-col,
+      .platform-map-right{
         padding:18px 16px;
       }
     }
@@ -469,7 +591,6 @@
   <div class="page">
     <main class="wrap">
 
-      <!-- HERO -->
       <section class="section-card hero">
         <div class="eyebrow">ETF Decision Platform</div>
         <h1>Build an investment plan you can actually follow.</h1>
@@ -495,7 +616,6 @@
         </div>
       </section>
 
-      <!-- BARBELL -->
       <section class="section-card">
         <div class="section-head">
           <div class="eyebrow">Platform structure</div>
@@ -557,7 +677,6 @@
         </div>
       </section>
 
-      <!-- START PATHS -->
       <section class="section-card">
         <div class="section-head">
           <div class="eyebrow">Start here</div>
@@ -598,7 +717,6 @@
         </div>
       </section>
 
-      <!-- HUBS -->
       <section class="section-card">
         <div class="section-head">
           <div class="eyebrow">Decision routes</div>
@@ -701,7 +819,6 @@
         </div>
       </section>
 
-      <!-- ACTION LAYER -->
       <section class="section-card">
         <div class="section-head">
           <div class="eyebrow">Action layer</div>
@@ -735,7 +852,6 @@
         </div>
       </section>
 
-      <!-- WHY THIS PLATFORM -->
       <section class="section-card">
         <div class="section-head">
           <div class="eyebrow">Why this platform exists</div>
@@ -765,7 +881,6 @@
         </div>
       </section>
 
-      <!-- PRINCIPLES -->
       <section class="section-card">
         <div class="section-head">
           <div class="eyebrow">Decision principles</div>
@@ -798,7 +913,6 @@
         </div>
       </section>
 
-      <!-- NAVIGATION -->
       <section class="section-card">
         <div class="section-head">
           <div class="eyebrow">Platform map</div>
@@ -808,68 +922,99 @@
           </p>
         </div>
 
-        <div class="grid-4">
-          <div class="nav-card">
-            <h3>Start Here</h3>
-            <p>For users trying to simplify the first ETF decision.</p>
-            <div class="nav-links">
-              <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
-              <a href="/best-etfs-for-beginners.html">Best ETFs for beginners →</a>
-              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+        <div class="platform-map-shell">
+          <div class="platform-map-left">
+
+            <div class="map-col">
+              <span class="map-kicker">Start</span>
+              <h3>Start Here</h3>
+              <p>For users trying to simplify the first ETF decision.</p>
+              <div class="map-links">
+                <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
+                <a href="/best-etfs-for-beginners.html">Best ETFs for beginners →</a>
+                <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+              </div>
             </div>
+
+            <div class="map-col">
+              <span class="map-kicker">Understand</span>
+              <h3>Structures &amp; Guides</h3>
+              <p>For understanding what an ETF structure or specific fund actually means.</p>
+              <div class="map-links">
+                <a href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs →</a>
+                <a href="/best-total-market-etfs.html">Best total market ETFs →</a>
+                <a href="/best-dividend-etfs.html">Best dividend ETFs →</a>
+                <a href="/best-growth-etfs.html">Best growth ETFs →</a>
+                <a href="/voo-investment-guide.html">VOO investment guide →</a>
+                <a href="/vti-investment-guide.html">VTI investment guide →</a>
+                <a href="/qqq-investment-guide.html">QQQ investment guide →</a>
+                <a href="/schd-investment-guide.html">SCHD investment guide →</a>
+              </div>
+            </div>
+
+            <div class="map-col">
+              <span class="map-kicker">Act</span>
+              <h3>Compare &amp; Act</h3>
+              <p>For choosing between options and turning decisions into plans.</p>
+              <div class="map-links">
+                <a href="/etf-comparisons.html">ETF comparisons hub →</a>
+                <a href="/voo-vs-spy.html">VOO vs SPY →</a>
+                <a href="/voo-vs-vti.html">VOO vs VTI →</a>
+                <a href="/voo-vs-ivv.html">VOO vs IVV →</a>
+                <a href="/voo-vs-qqq.html">VOO vs QQQ →</a>
+                <a href="/qqq-vs-spy.html">QQQ vs SPY →</a>
+                <a href="/schd-vs-vym.html">SCHD vs VYM →</a>
+                <a href="/etf-calculator.html">ETF Calculator →</a>
+                <a href="/voo-calculator.html">VOO Calculator →</a>
+                <a href="/dca-calculator.html">DCA Calculator →</a>
+              </div>
+            </div>
+
           </div>
 
-          <div class="nav-card">
-            <h3>Structures &amp; Guides</h3>
-            <p>For understanding what an ETF structure or specific fund actually means.</p>
-            <div class="nav-links">
-              <a href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs →</a>
-              <a href="/best-total-market-etfs.html">Best total market ETFs →</a>
-              <a href="/best-dividend-etfs.html">Best dividend ETFs →</a>
-              <a href="/best-growth-etfs.html">Best growth ETFs →</a>
-              <a href="/voo-investment-guide.html">VOO investment guide →</a>
-              <a href="/vti-investment-guide.html">VTI investment guide →</a>
-              <a href="/qqq-investment-guide.html">QQQ investment guide →</a>
-              <a href="/schd-investment-guide.html">SCHD investment guide →</a>
-            </div>
-          </div>
-
-          <div class="nav-card">
-            <h3>Compare &amp; Act</h3>
-            <p>For choosing between options and turning decisions into plans.</p>
-            <div class="nav-links">
-              <a href="/etf-comparisons.html">ETF comparisons hub →</a>
-              <a href="/voo-vs-spy.html">VOO vs SPY →</a>
-              <a href="/voo-vs-vti.html">VOO vs VTI →</a>
-              <a href="/voo-vs-ivv.html">VOO vs IVV →</a>
-              <a href="/voo-vs-qqq.html">VOO vs QQQ →</a>
-              <a href="/qqq-vs-spy.html">QQQ vs SPY →</a>
-              <a href="/schd-vs-vym.html">SCHD vs VYM →</a>
-              <a href="/etf-calculator.html">ETF Calculator →</a>
-              <a href="/voo-calculator.html">VOO Calculator →</a>
-              <a href="/dca-calculator.html">DCA Calculator →</a>
-            </div>
-          </div>
-
-          <div class="nav-card">
+          <aside class="platform-map-right">
+            <span class="map-kicker">Right side core</span>
             <h3>Build &amp; Survive</h3>
-            <p>For the right side of the system: structure, behavior, and long-term staying power.</p>
-            <div class="nav-links">
-              <span class="coming">How to build ETF portfolio — coming next</span>
-              <span class="coming">Core + satellite strategy — coming next</span>
-              <span class="coming">Barbell ETF strategy — coming next</span>
-              <span class="coming">Allocation examples — coming next</span>
-              <span class="coming">DCA strategy guide — coming next</span>
-              <span class="coming">Lump sum vs DCA — coming next</span>
-              <span class="coming">When to buy ETFs — coming next</span>
-              <span class="coming">Market cycles explained — coming next</span>
-              <a href="/investment-principles.html">Investment principles →</a>
+            <p>
+              This is where the platform becomes more than a directory.
+              It is the long-term decision layer: structure, behavior, survival, and staying invested.
+            </p>
+
+            <div class="survive-group">
+              <h4>Portfolio system</h4>
+              <div class="map-links">
+                <span class="coming">How to build ETF portfolio — coming next</span>
+                <span class="coming">Core + satellite strategy — coming next</span>
+                <span class="coming">Barbell ETF strategy — coming next</span>
+                <span class="coming">Allocation examples — coming next</span>
+              </div>
             </div>
-          </div>
+
+            <div class="survive-group">
+              <h4>Behavior &amp; cycles</h4>
+              <div class="map-links">
+                <span class="coming">DCA strategy guide — coming next</span>
+                <span class="coming">Lump sum vs DCA — coming next</span>
+                <span class="coming">When to buy ETFs — coming next</span>
+                <span class="coming">Market cycles explained — coming next</span>
+              </div>
+            </div>
+
+            <div class="survive-group">
+              <h4>Principles</h4>
+              <div class="map-links">
+                <a href="/investment-principles.html">Investment principles →</a>
+              </div>
+            </div>
+
+            <div class="platform-note">
+              The left side helps you start. The right side helps you keep going.
+              That is the full architecture the homepage is built around.
+            </div>
+          </aside>
         </div>
       </section>
 
-      <!-- FINAL CTA -->
       <section class="section-card">
         <div class="section-head">
           <div class="eyebrow">Start with a plan</div>
@@ -893,7 +1038,6 @@
         </div>
       </section>
 
-      <!-- FEEDBACK -->
       <section class="section-card feedback">
         <div class="eyebrow">Feedback</div>
         <h2 style="margin:0 0 10px;font-size:clamp(1.45rem,3vw,2rem);letter-spacing:-.03em;">Help us improve the platform.</h2>
