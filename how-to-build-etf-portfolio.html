@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Build an ETF Portfolio | ETF Calculator</title>
+  <meta name="description" content="Learn how to build an ETF portfolio you can actually hold. Compare one-fund, core-satellite, and barbell ETF portfolio structures with a clearer long-term decision framework." />
+  <meta name="theme-color" content="#eef2f6" />
+  <link rel="canonical" href="https://etfcalculator.net/how-to-build-etf-portfolio.html" />
+
+  <style>
+    :root{
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --stroke:#dbe1e8;
+      --stroke-soft:#e7ebf0;
+      --text:#182132;
+      --muted:#5d6778;
+      --soft:#7c8796;
+      --navy:#233149;
+      --navy-2:#31415d;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(23,35,57,.06);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:18px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .page{
+      padding:16px 0 34px;
+    }
+
+    .wrap{
+      width:min(var(--max), calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    .section-card{
+      background:var(--card);
+      border:1px solid rgba(24,33,50,.08);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:34px 30px;
+      margin:16px 0;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .hero{
+      text-align:center;
+      padding:46px 34px 30px;
+    }
+
+    .hero h1{
+      margin:0 auto 14px;
+      max-width:780px;
+      font-size:clamp(2rem, 4.8vw, 4rem);
+      line-height:1.02;
+      letter-spacing:-.045em;
+      text-wrap:balance;
+    }
+
+    .hero-sub{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:1.03rem;
+    }
+
+    .hero-note{
+      max-width:760px;
+      margin:14px auto 0;
+      color:var(--soft);
+      font-size:.92rem;
+    }
+
+    .hero-actions{
+      margin-top:24px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      font-size:.96rem;
+      font-weight:700;
+      white-space:nowrap;
+      border:1px solid var(--stroke);
+      transition:.18s ease;
+    }
+
+    .btn-primary{
+      background:var(--navy);
+      color:var(--white);
+      border-color:var(--navy);
+    }
+
+    .btn-primary:hover{
+      background:var(--navy-2);
+      border-color:var(--navy-2);
+    }
+
+    .btn-secondary{
+      background:var(--white);
+      color:var(--text);
+    }
+
+    .btn-secondary:hover{
+      background:#fdfefe;
+      border-color:#cad2dc;
+    }
+
+    .micro-links{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--soft);
+      font-size:.86rem;
+    }
+
+    .micro-links a:hover{color:var(--navy)}
+
+    .section-head{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 24px;
+    }
+
+    .section-head h2{
+      margin:0 0 10px;
+      font-size:clamp(1.7rem, 3.3vw, 2.6rem);
+      line-height:1.08;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .decision-card,
+    .info-card,
+    .link-card,
+    .principle-card,
+    .cta-card{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-lg);
+      padding:20px 18px;
+      min-height:100%;
+      transition:.18s ease;
+    }
+
+    .decision-card:hover,
+    .info-card:hover,
+    .link-card:hover,
+    .principle-card:hover,
+    .cta-card:hover{
+      transform:translateY(-1px);
+      border-color:#cfd6df;
+      box-shadow:0 10px 24px rgba(23,35,57,.05);
+    }
+
+    .mini-label{
+      display:block;
+      margin-bottom:10px;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .decision-card h3,
+    .info-card h3,
+    .link-card h3,
+    .principle-card h3,
+    .cta-card h3{
+      margin:0 0 8px;
+      font-size:1.14rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .decision-card p,
+    .info-card p,
+    .link-card p,
+    .principle-card p,
+    .cta-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .card-link{
+      display:inline-block;
+      margin-top:14px;
+      color:var(--navy);
+      font-weight:700;
+      font-size:.94rem;
+    }
+
+    .card-link:hover{color:var(--navy-2)}
+
+    .impact-line{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--stroke-soft);
+      color:var(--text);
+      font-size:.92rem;
+      font-weight:600;
+    }
+
+    .default-card{
+      background:linear-gradient(180deg,#ffffff 0%, #f7f9fc 100%);
+      border:1px solid #d8e0ea;
+      border-radius:26px;
+      padding:24px 22px;
+    }
+
+    .default-card h3{
+      margin:0 0 10px;
+      font-size:1.32rem;
+      line-height:1.1;
+      letter-spacing:-.03em;
+    }
+
+    .default-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+
+    .default-list{
+      margin-top:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .default-item{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:18px;
+      padding:14px 14px;
+    }
+
+    .default-item strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:.96rem;
+    }
+
+    .default-item span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .split-layout{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .principle-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:1rem;
+    }
+
+    .path-box{
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:22px;
+      padding:18px 16px;
+    }
+
+    .path-box h3{
+      margin:0 0 8px;
+      font-size:1.08rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .path-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .path-links{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .path-links a{
+      color:var(--navy);
+      font-size:.94rem;
+      font-weight:650;
+    }
+
+    .path-links a:hover{color:var(--navy-2)}
+
+    .feedback{
+      text-align:center;
+      padding:26px 24px;
+    }
+
+    .feedback p{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+    }
+
+    .feedback-actions{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .site-foot{
+      text-align:center;
+      color:var(--soft);
+      font-size:.84rem;
+      padding-top:6px;
+    }
+
+    @media (max-width:1080px){
+      .grid-4{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+      .split-layout{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:760px){
+      .page{padding:12px 0 28px}
+      .wrap{width:min(var(--max), calc(100% - 18px))}
+      .section-card{
+        padding:24px 18px;
+        border-radius:24px;
+        margin:12px 0;
+      }
+      .hero{
+        padding:34px 18px 24px;
+      }
+      .hero-actions,
+      .feedback-actions{
+        flex-direction:column;
+      }
+      .btn{
+        width:100%;
+      }
+      .grid-2,
+      .grid-3,
+      .grid-4{
+        grid-template-columns:1fr;
+      }
+      .decision-card,
+      .info-card,
+      .link-card,
+      .principle-card,
+      .cta-card,
+      .default-card,
+      .path-box{
+        padding:18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="wrap">
+
+      <!-- HERO -->
+      <section class="section-card hero">
+        <div class="eyebrow">Portfolio system</div>
+        <h1>How to build an ETF portfolio you can actually hold.</h1>
+        <p class="hero-sub">
+          A good portfolio is not the cleverest one. It is the one you can understand,
+          stay with through cycles, and keep funding over time.
+        </p>
+        <p class="hero-note">
+          For most long-term investors, the biggest mistake is not “too simple.”
+          It is building something that looks smart but becomes impossible to hold.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/etf-calculator.html">Build your ETF plan →</a>
+          <a class="btn btn-secondary" href="/which-etf-should-i-buy.html">Start from “Which ETF should I buy?” →</a>
+          <a class="btn btn-secondary" href="/investment-principles.html">See the principles behind this page →</a>
+        </div>
+
+        <div class="micro-links">
+          <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing</a>
+          <a href="/dca-calculator.html">Build a DCA plan</a>
+          <a href="/voo-calculator.html">Build a VOO plan</a>
+        </div>
+      </section>
+
+      <!-- QUICK ANSWER -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Quick answer</div>
+          <h2>Most investors do not need a complicated portfolio.</h2>
+          <p>
+            Start simple first. Add complexity only when it clearly improves fit, behavior, or staying power.
+          </p>
+        </div>
+
+        <div class="split-layout">
+          <div class="default-card">
+            <div class="eyebrow">Default path</div>
+            <h3>For most people, start with one strong core.</h3>
+            <p>
+              A single broad-market ETF or a very simple two-part structure is usually better than
+              a portfolio full of ideas you cannot consistently explain or maintain.
+            </p>
+
+            <div class="default-list">
+              <div class="default-item">
+                <strong>Start with a clear core</strong>
+                <span>Use one broad holding as the foundation before thinking about satellites.</span>
+              </div>
+              <div class="default-item">
+                <strong>Add only for a reason</strong>
+                <span>Do not add another ETF just because it sounds more sophisticated.</span>
+              </div>
+              <div class="default-item">
+                <strong>Behavior beats elegance</strong>
+                <span>A portfolio you can hold for 10–20 years is stronger than a clever one you abandon.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>You can explain your portfolio in one sentence.</h3>
+              <p>Your structure is clear enough to survive stress, not just good moods.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>You keep adding ETFs without solving a real problem.</h3>
+              <p>More funds often create more noise, overlap, and second-guessing.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>Your allocation matches your behavior.</h3>
+              <p>You own something you can keep buying when markets feel uncomfortable.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>Your portfolio looks smarter than it feels.</h3>
+              <p>If it increases anxiety, confusion, or drift, it may already be too complex.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DECISION PATHS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Choose your structure</div>
+          <h2>Pick the portfolio path that actually fits you.</h2>
+          <p>
+            The goal is not to maximize theoretical elegance. The goal is to match structure with behavior.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Default choice</span>
+            <h3>One-core portfolio</h3>
+            <p>
+              Best for most long-term investors who want simplicity, broad exposure, and lower decision fatigue.
+            </p>
+            <div class="impact-line">Best when: you value consistency more than complexity.</div>
+            <a class="card-link" href="/best-etfs-for-long-term-investing.html">See long-term ETF choices →</a>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Conditional choice</span>
+            <h3>Core + satellite portfolio</h3>
+            <p>
+              Best when you already have a strong core and want a small satellite for a very clear reason.
+            </p>
+            <div class="impact-line">Best when: the satellite is controlled and never replaces the core.</div>
+            <a class="card-link" href="/etf-calculator.html">Model a core + satellite plan →</a>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Advanced choice</span>
+            <h3>Barbell portfolio</h3>
+            <p>
+              Best when you want to keep the core durable while leaving a smaller part open to more optional upside.
+            </p>
+            <div class="impact-line">Best when: downside is controlled first and optionality stays disciplined.</div>
+            <a class="card-link" href="/investment-principles.html">See the logic behind barbell thinking →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT MOST PEOPLE GET WRONG -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">What most people get wrong</div>
+          <h2>Most portfolio mistakes are behavior mistakes in disguise.</h2>
+          <p>
+            Many investors think they have a diversification problem. Often they really have a clarity problem.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="info-card">
+            <h3>Too many holdings</h3>
+            <p>Adding more ETFs often creates overlap, not real diversification.</p>
+          </div>
+          <div class="info-card">
+            <h3>No clear core</h3>
+            <p>If everything is important, nothing is clearly carrying the portfolio.</p>
+          </div>
+          <div class="info-card">
+            <h3>Style drift</h3>
+            <p>People start with one strategy, then slowly build a portfolio of unrelated impulses.</p>
+          </div>
+          <div class="info-card">
+            <h3>Complexity without conviction</h3>
+            <p>A structure you cannot defend during a drawdown is already fragile.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOUR MASTERS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Decision principles</div>
+          <h2>The four ideas underneath a durable portfolio.</h2>
+          <p>
+            This page is not built on novelty. It is built on enduring principles that help you keep the structure sane.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Munger: remove obvious mistakes</strong>
+            <p>A portfolio full of overlapping ideas is usually not smarter. It is just harder to manage.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Bogle: simplify the core</strong>
+            <p>Low cost, broad diversification, and simplicity matter because they improve holdability.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Taleb: protect against fragility</strong>
+            <p>The portfolio must survive stress first. Optional upside only matters if the structure stays intact.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Marks: respect cycles and behavior</strong>
+            <p>The biggest portfolio failure often comes from what investors do during hard periods, not from the ETF label.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO EXAMPLES -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Simple examples</div>
+          <h2>Three ways investors usually build ETF portfolios.</h2>
+          <p>
+            These are not prescriptions. They are decision patterns to help you think more clearly.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Simplest path</span>
+            <h3>One-fund portfolio</h3>
+            <p>
+              One broad ETF used as the full core. Best for people who value clarity, low maintenance, and consistency.
+            </p>
+            <div class="impact-line">What it solves: overthinking, drift, and unnecessary complexity.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Balanced path</span>
+            <h3>Core + satellite portfolio</h3>
+            <p>
+              One dominant core plus one smaller satellite. Best when the satellite has a narrow, explicit role.
+            </p>
+            <div class="impact-line">What it solves: the need for focus without losing structural discipline.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Optionality path</span>
+            <h3>Barbell-style portfolio</h3>
+            <p>
+              A durable core on one side and a smaller higher-variance sleeve on the other side.
+            </p>
+            <div class="impact-line">What it solves: keeping the foundation calm while preserving some upside asymmetry.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW TO CHOOSE CORE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Choosing the core</div>
+          <h2>Before you add anything, choose what your core actually is.</h2>
+          <p>
+            Most portfolio quality is decided at the core level, not at the edge.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="link-card" href="/best-sp500-etfs.html">
+            <span class="mini-label">Structure</span>
+            <h3>S&amp;P 500 core</h3>
+            <p>Best for investors who want a highly recognizable large-cap U.S. core.</p>
+            <span class="card-link">See best S&amp;P 500 ETFs →</span>
+          </a>
+
+          <a class="link-card" href="/best-total-market-etfs.html">
+            <span class="mini-label">Structure</span>
+            <h3>Total market core</h3>
+            <p>Best for investors who want broader market coverage in one foundation.</p>
+            <span class="card-link">See best total market ETFs →</span>
+          </a>
+
+          <a class="link-card" href="/voo-investment-guide.html">
+            <span class="mini-label">Guide</span>
+            <h3>VOO as a core</h3>
+            <p>See when VOO works well as a default-style core and where its limits are.</p>
+            <span class="card-link">Read VOO guide →</span>
+          </a>
+
+          <a class="link-card" href="/vti-investment-guide.html">
+            <span class="mini-label">Guide</span>
+            <h3>VTI as a core</h3>
+            <p>See when a broader total-market core may fit better than a narrower one.</p>
+            <span class="card-link">Read VTI guide →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- BARBELL CTA / BEHAVIOR CTA -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Next decision</div>
+          <h2>A portfolio is only good if you can keep funding it.</h2>
+          <p>
+            Structure and behavior belong together. A clean portfolio needs a clean contribution plan too.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <a class="cta-card" href="/etf-calculator.html">
+            <span class="mini-label">Action</span>
+            <h3>Build your ETF portfolio plan</h3>
+            <p>Use the ETF Calculator to model contributions, return assumptions, and long-term outcomes.</p>
+            <span class="card-link">Use ETF Calculator →</span>
+          </a>
+
+          <a class="cta-card" href="/dca-calculator.html">
+            <span class="mini-label">Behavior</span>
+            <h3>Build a contribution rhythm you can keep</h3>
+            <p>Use the DCA Calculator to connect your portfolio structure with a repeatable investing habit.</p>
+            <span class="card-link">Use DCA Calculator →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- INTERNAL ROUTING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Keep exploring</div>
+          <h2>Go deeper from the right path.</h2>
+          <p>
+            This page sits between choosing an ETF and building a full long-term system.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="path-box">
+            <span class="mini-label">Upstream</span>
+            <h3>Start with the ETF decision</h3>
+            <p>If you still are not sure what belongs in the portfolio, start from the ETF choice first.</p>
+            <div class="path-links">
+              <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
+              <a href="/best-etfs-for-beginners.html">Best ETFs for beginners →</a>
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Lateral</span>
+            <h3>Compare competing structures</h3>
+            <p>If your portfolio decision depends on choosing between funds, compare them directly.</p>
+            <div class="path-links">
+              <a href="/etf-comparisons.html">ETF comparisons hub →</a>
+              <a href="/voo-vs-vti.html">VOO vs VTI →</a>
+              <a href="/voo-vs-qqq.html">VOO vs QQQ →</a>
+              <a href="/schd-vs-vym.html">SCHD vs VYM →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Downstream</span>
+            <h3>Turn structure into action</h3>
+            <p>Once the portfolio logic is clear, the next step is execution and contribution discipline.</p>
+            <div class="path-links">
+              <a href="/etf-calculator.html">ETF Calculator →</a>
+              <a href="/dca-calculator.html">DCA Calculator →</a>
+              <a href="/investment-principles.html">Investment principles →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEEDBACK -->
+      <section class="section-card feedback">
+        <div class="eyebrow">Feedback</div>
+        <h2 style="margin:0 0 10px;font-size:clamp(1.45rem,3vw,2rem);letter-spacing:-.03em;">Help us improve this page.</h2>
+        <p>
+          If this page helped you think more clearly about portfolio structure — or if something still feels incomplete —
+          send feedback. We use it to improve the decision system across the platform.
+        </p>
+
+        <div class="feedback-actions">
+          <a class="btn btn-primary" href="mailto:feedback@etfcalculator.net?subject=How%20to%20Build%20an%20ETF%20Portfolio%20Feedback">Send feedback →</a>
+          <a class="btn btn-secondary" href="/etf-calculator.html">Build your ETF plan →</a>
+        </div>
+      </section>
+
+      <div class="site-foot">
+        Built for long-term investors who want more clarity, stronger structure, and portfolios they can actually hold.
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>
