@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbell ETF Strategy | ETF Calculator</title>
+  <meta name="description" content="Learn when a barbell ETF strategy makes sense, when it does not, and how to build one without weakening the defensive side of the portfolio." />
+  <meta name="theme-color" content="#eef2f6" />
+  <link rel="canonical" href="https://etfcalculator.net/barbell-etf-strategy.html" />
+
+  <style>
+    :root{
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --stroke:#dbe1e8;
+      --stroke-soft:#e7ebf0;
+      --text:#182132;
+      --muted:#5d6778;
+      --soft:#7c8796;
+      --navy:#233149;
+      --navy-2:#31415d;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(23,35,57,.06);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:18px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .page{padding:16px 0 34px}
+    .wrap{
+      width:min(var(--max), calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    .section-card{
+      background:var(--card);
+      border:1px solid rgba(24,33,50,.08);
+      border-radius:var(--radius-xl);
+      box-shadow:0 10px 30px rgba(23,35,57,.06);
+      padding:34px 30px;
+      margin:16px 0;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .hero{
+      text-align:center;
+      padding:42px 34px 28px;
+    }
+
+    .hero h1{
+      margin:0 auto 14px;
+      max-width:760px;
+      font-size:clamp(1.7rem, 3.6vw, 3rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
+      text-wrap:balance;
+    }
+
+    .hero-sub{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .hero-note{
+      max-width:760px;
+      margin:14px auto 0;
+      color:var(--soft);
+      font-size:.92rem;
+    }
+
+    .hero-actions{
+      margin-top:24px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      font-size:.96rem;
+      font-weight:700;
+      white-space:nowrap;
+      border:1px solid var(--stroke);
+      transition:.18s ease;
+    }
+
+    .btn-primary{
+      background:var(--navy);
+      color:var(--white);
+      border-color:var(--navy);
+    }
+    .btn-primary:hover{
+      background:var(--navy-2);
+      border-color:var(--navy-2);
+    }
+
+    .btn-secondary{
+      background:var(--white);
+      color:var(--text);
+    }
+    .btn-secondary:hover{
+      background:#fdfefe;
+      border-color:#cad2dc;
+    }
+
+    .micro-links{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--soft);
+      font-size:.86rem;
+    }
+    .micro-links a:hover{color:var(--navy)}
+
+    .section-head{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 24px;
+    }
+
+    .section-head h2{
+      margin:0 0 10px;
+      font-size:clamp(1.55rem, 3vw, 2.4rem);
+      line-height:1.08;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .decision-card,
+    .info-card,
+    .link-card,
+    .principle-card,
+    .cta-card,
+    .path-box{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-lg);
+      padding:20px 18px;
+      min-height:100%;
+      transition:.18s ease;
+    }
+
+    .decision-card:hover,
+    .info-card:hover,
+    .link-card:hover,
+    .principle-card:hover,
+    .cta-card:hover,
+    .path-box:hover{
+      transform:translateY(-1px);
+      border-color:#cfd6df;
+      box-shadow:0 10px 24px rgba(23,35,57,.05);
+    }
+
+    .mini-label{
+      display:block;
+      margin-bottom:10px;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .decision-card h3,
+    .info-card h3,
+    .link-card h3,
+    .principle-card h3,
+    .cta-card h3,
+    .path-box h3{
+      margin:0 0 8px;
+      font-size:1.12rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .decision-card p,
+    .info-card p,
+    .link-card p,
+    .principle-card p,
+    .cta-card p,
+    .path-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .card-link{
+      display:inline-block;
+      margin-top:14px;
+      color:var(--navy);
+      font-weight:700;
+      font-size:.94rem;
+    }
+    .card-link:hover{color:var(--navy-2)}
+
+    .impact-line{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--stroke-soft);
+      color:var(--text);
+      font-size:.92rem;
+      font-weight:600;
+    }
+
+    .split-layout{
+      display:grid;
+      grid-template-columns:1.06fr .94fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .default-card{
+      background:linear-gradient(180deg,#ffffff 0%, #f7f9fc 100%);
+      border:1px solid #d8e0ea;
+      border-radius:26px;
+      padding:24px 22px;
+    }
+
+    .default-card h3{
+      margin:0 0 10px;
+      font-size:1.28rem;
+      line-height:1.1;
+      letter-spacing:-.03em;
+    }
+
+    .default-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+
+    .default-list{
+      margin-top:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .default-item{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:18px;
+      padding:14px 14px;
+    }
+
+    .default-item strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:.96rem;
+    }
+
+    .default-item span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .barbell-visual{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:14px;
+      align-items:stretch;
+      margin-top:18px;
+    }
+
+    .barbell-arm{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:22px;
+      padding:18px 16px;
+      min-height:100%;
+    }
+
+    .barbell-arm h4{
+      margin:0 0 8px;
+      font-size:1.02rem;
+      letter-spacing:-.02em;
+      line-height:1.2;
+    }
+
+    .barbell-arm p{
+      margin:0;
+      color:var(--muted);
+      font-size:.93rem;
+    }
+
+    .barbell-center{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-width:44px;
+      color:var(--soft);
+      font-size:1.1rem;
+      font-weight:700;
+    }
+
+    .principle-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:1rem;
+    }
+
+    .path-links{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .path-links a{
+      color:var(--navy);
+      font-size:.94rem;
+      font-weight:650;
+    }
+    .path-links a:hover{color:var(--navy-2)}
+
+    .site-foot{
+      text-align:center;
+      color:var(--soft);
+      font-size:.84rem;
+      padding-top:6px;
+    }
+
+    @media (max-width:1080px){
+      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .split-layout{grid-template-columns:1fr}
+    }
+
+    @media (max-width:760px){
+      .page{padding:12px 0 28px}
+      .wrap{width:min(var(--max), calc(100% - 18px))}
+      .section-card{
+        padding:24px 18px;
+        border-radius:24px;
+        margin:12px 0;
+      }
+      .hero{padding:34px 18px 24px}
+      .hero-actions{flex-direction:column}
+      .btn{width:100%}
+      .grid-2,
+      .grid-3,
+      .grid-4{grid-template-columns:1fr}
+      .barbell-visual{
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+      .barbell-center{
+        min-height:28px;
+      }
+      .decision-card,
+      .info-card,
+      .link-card,
+      .principle-card,
+      .cta-card,
+      .path-box,
+      .default-card,
+      .barbell-arm{
+        padding:18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="wrap">
+
+      <!-- HERO -->
+      <section class="section-card hero">
+        <div class="eyebrow">Portfolio system</div>
+        <h1>Barbell ETF strategy without turning the whole portfolio fragile.</h1>
+        <p class="hero-sub">
+          A barbell ETF strategy can be powerful, but only when the safe side is truly durable
+          and the aggressive side stays limited, intentional, and psychologically survivable.
+        </p>
+        <p class="hero-note">
+          The point of a barbell is not to make both sides equally exciting.
+          The point is to keep one side resilient so the other side can stay optional.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/etf-calculator.html">Model your portfolio plan →</a>
+          <a class="btn btn-secondary" href="/how-to-build-etf-portfolio.html">Back to portfolio structure →</a>
+          <a class="btn btn-secondary" href="/investment-principles.html">See the principles behind this page →</a>
+        </div>
+
+        <div class="micro-links">
+          <a href="/core-satellite-strategy.html">Compare with core + satellite</a>
+          <a href="/dca-calculator.html">Pair it with a DCA plan</a>
+          <a href="/best-etfs-for-long-term-investing.html">Start from durable ETF choices</a>
+        </div>
+      </section>
+
+      <!-- QUICK ANSWER -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Quick answer</div>
+          <h2>A barbell is not a balanced blend. It is an asymmetric structure.</h2>
+          <p>
+            One side is built to stay alive. The other side is built to leave room for upside.
+            If both sides are risky, it is not a barbell anymore.
+          </p>
+        </div>
+
+        <div class="split-layout">
+          <div class="default-card">
+            <div class="eyebrow">Default rule</div>
+            <h3>Protect the stable side first. Keep the risky side limited.</h3>
+            <p>
+              The barbell only works when the resilient side is strong enough that the aggressive side
+              does not destabilize the whole experience of holding the portfolio.
+            </p>
+
+            <div class="default-list">
+              <div class="default-item">
+                <strong>The left side must actually be durable</strong>
+                <span>It should reduce fragility, not just look conservative on paper.</span>
+              </div>
+              <div class="default-item">
+                <strong>The right side must stay controlled</strong>
+                <span>Its role is optional upside, not identity takeover.</span>
+              </div>
+              <div class="default-item">
+                <strong>The two sides are not equal jobs</strong>
+                <span>One side protects survival. The other side preserves asymmetry.</span>
+              </div>
+            </div>
+
+            <div class="barbell-visual">
+              <div class="barbell-arm">
+                <h4>Resilient side</h4>
+                <p>Broad, durable, holdable, and behavior-friendly enough to carry the structure through stress.</p>
+              </div>
+              <div class="barbell-center">↔</div>
+              <div class="barbell-arm">
+                <h4>Optional side</h4>
+                <p>Smaller, riskier, more convex or concentrated, but always limited enough not to break the core experience.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>You could still live with the portfolio if the aggressive side disappoints.</h3>
+              <p>The left side is doing real work.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>The exciting side is what you think about all the time.</h3>
+              <p>Then the optional side has already become the real portfolio.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>You know exactly why each side exists.</h3>
+              <p>The structure is intentional, not decorative.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>Both sides are just different forms of risk.</h3>
+              <p>That is diversification theater, not a barbell.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHEN IT MAKES SENSE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">When it makes sense</div>
+          <h2>A barbell works when safety and upside have clearly different jobs.</h2>
+          <p>
+            This structure makes sense when you want the foundation to stay durable while a smaller sleeve remains open to higher uncertainty.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>Keep the core behaviorally calm</h3>
+            <p>
+              You want most of the portfolio in something broad and holdable, so you can stay invested through difficult periods.
+            </p>
+            <div class="impact-line">Good use: the stable side still feels worth owning even when the optional side is volatile.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>Leave a small door open to asymmetry</h3>
+            <p>
+              You want some exposure to higher-variance upside without making the whole portfolio depend on it.
+            </p>
+            <div class="impact-line">Good use: upside remains uncapped, but the structure does not rely on precision.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>Separate survival from ambition</h3>
+            <p>
+              You do not want the same holding to carry both durability and aggressiveness at once.
+            </p>
+            <div class="impact-line">Good use: one side protects staying power, the other side expresses optionality.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHEN IT DOES NOT -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">When it does not</div>
+          <h2>Most people do not need a barbell as much as they think.</h2>
+          <p>
+            The most common mistake is calling something a barbell when it is really just a complicated portfolio with multiple risk sources.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="info-card">
+            <h3>No real safe side</h3>
+            <p>If the “defensive” side is still psychologically unstable, the structure loses its point.</p>
+          </div>
+          <div class="info-card">
+            <h3>Too much optional side</h3>
+            <p>If the risky sleeve can dominate emotions, it is already too large.</p>
+          </div>
+          <div class="info-card">
+            <h3>Barbell as performance excuse</h3>
+            <p>Using the word to justify performance chasing is usually just branding, not structure.</p>
+          </div>
+          <div class="info-card">
+            <h3>No behavioral fit</h3>
+            <p>If you cannot hold the optional side through volatility, the barbell will not work in practice.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- THREE BUILD RULES -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Build rules</div>
+          <h2>Three rules keep the barbell from collapsing into noise.</h2>
+          <p>
+            A barbell is only useful when the asymmetry stays clear: stable base, limited edge, distinct roles.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Rule 01</span>
+            <h3>Protect the left side first</h3>
+            <p>
+              Do not design the optional sleeve before you know what is carrying the structure through stress.
+            </p>
+            <div class="impact-line">If the safe side is weak, the barbell becomes a story instead of a system.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Rule 02</span>
+            <h3>Keep the right side truly limited</h3>
+            <p>
+              The optional sleeve must stay small enough that failure on that side does not destroy behavior.
+            </p>
+            <div class="impact-line">If a bad outcome changes your whole holding experience, it is too big.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Rule 03</span>
+            <h3>Do not confuse variety with asymmetry</h3>
+            <p>
+              Owning several ETFs does not create a barbell. Distinct functions do.
+            </p>
+            <div class="impact-line">The structure must be clear enough that each side can be defended in one sentence.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMON MISUNDERSTANDING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Common misunderstanding</div>
+          <h2>A barbell is not “half safe, half exciting.”</h2>
+          <p>
+            The real idea is not equal weight or equal attention. The real idea is reducing ruin on one side while preserving open upside on the other.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="decision-card">
+            <span class="mini-label">What people imagine</span>
+            <h3>“I just need one conservative ETF and one aggressive ETF.”</h3>
+            <p>
+              The investor treats the barbell like a neat visual split between comfort and excitement.
+            </p>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">What actually matters</span>
+            <h3>The resilient side must dominate survival, and the risky side must remain optional.</h3>
+            <p>
+              Without that asymmetry, the structure is not a barbell. It is just a mixed-risk portfolio with a better story.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOUR MASTERS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Decision principles</div>
+          <h2>The four ideas underneath a disciplined barbell.</h2>
+          <p>
+            This strategy only works when the philosophy stays stronger than the temptation to make every side exciting.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Munger: invert the mistake</strong>
+            <p>Ask what could quietly turn the barbell into a fragile mixed-risk portfolio, then remove that first.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Bogle: keep the base simple</strong>
+            <p>The durable side should remain broad, understandable, and easy enough to keep owning.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Taleb: protect survival, preserve optionality</strong>
+            <p>One side limits ruin. The other side leaves room for nonlinear upside.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Marks: behavior decides what survives</strong>
+            <p>If the volatile side causes panic, envy, or drift, the barbell has already failed behaviorally.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- CHOOSING THE LEFT SIDE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Choose the durable side first</div>
+          <h2>The barbell only works after the resilient side is real.</h2>
+          <p>
+            The defensive side is not decoration. It is what allows the optional side to remain optional.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="link-card" href="/best-sp500-etfs.html">
+            <span class="mini-label">Structure</span>
+            <h3>S&amp;P 500 foundation</h3>
+            <p>For investors who want a recognizable U.S. large-cap base before adding any edge.</p>
+            <span class="card-link">See best S&amp;P 500 ETFs →</span>
+          </a>
+
+          <a class="link-card" href="/best-total-market-etfs.html">
+            <span class="mini-label">Structure</span>
+            <h3>Total market foundation</h3>
+            <p>For investors who want a broader market base as the durable side of the structure.</p>
+            <span class="card-link">See best total market ETFs →</span>
+          </a>
+
+          <a class="link-card" href="/voo-investment-guide.html">
+            <span class="mini-label">Guide</span>
+            <h3>VOO as the resilient side</h3>
+            <p>See when a simple S&amp;P 500 core may already be strong enough for the left side.</p>
+            <span class="card-link">Read VOO guide →</span>
+          </a>
+
+          <a class="link-card" href="/vti-investment-guide.html">
+            <span class="mini-label">Guide</span>
+            <h3>VTI as the resilient side</h3>
+            <p>See when broader total-market exposure may better support the durable side.</p>
+            <span class="card-link">Read VTI guide →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- EXECUTION -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Execution</div>
+          <h2>A barbell only matters if you can keep funding both logic and behavior.</h2>
+          <p>
+            The next step is not to admire the asymmetry. The next step is to see whether the structure is still fundable and holdable.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <a class="cta-card" href="/etf-calculator.html">
+            <span class="mini-label">Action</span>
+            <h3>Model your barbell plan</h3>
+            <p>Use the ETF Calculator to test contribution levels, scenario assumptions, and long-term outcomes.</p>
+            <span class="card-link">Use ETF Calculator →</span>
+          </a>
+
+          <a class="cta-card" href="/dca-calculator.html">
+            <span class="mini-label">Behavior</span>
+            <h3>Make sure the structure can be funded repeatedly</h3>
+            <p>Use the DCA Calculator to connect the barbell with a contribution rhythm you can actually keep.</p>
+            <span class="card-link">Use DCA Calculator →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- INTERNAL ROUTING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Keep exploring</div>
+          <h2>Go deeper from the right path.</h2>
+          <p>
+            This page sits between the broader portfolio structure page and the deeper behavior or execution layer.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="path-box">
+            <span class="mini-label">Upstream</span>
+            <h3>Start from the portfolio foundation</h3>
+            <p>If you still need the larger structure first, go back to the main portfolio decision pages.</p>
+            <div class="path-links">
+              <a href="/how-to-build-etf-portfolio.html">How to build an ETF portfolio →</a>
+              <a href="/core-satellite-strategy.html">Core + satellite strategy →</a>
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Lateral</span>
+            <h3>Compare the durable core options</h3>
+            <p>If the left side depends on which anchor you choose, compare the core candidates directly.</p>
+            <div class="path-links">
+              <a href="/voo-vs-vti.html">VOO vs VTI →</a>
+              <a href="/voo-vs-qqq.html">VOO vs QQQ →</a>
+              <a href="/etf-comparisons.html">ETF comparisons hub →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Downstream</span>
+            <h3>Turn the barbell into a real plan</h3>
+            <p>Once the structure is clear, the next step is contribution discipline and scenario testing.</p>
+            <div class="path-links">
+              <a href="/etf-calculator.html">ETF Calculator →</a>
+              <a href="/dca-calculator.html">DCA Calculator →</a>
+              <a href="/investment-principles.html">Investment principles →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="site-foot">
+        Built for long-term investors who want more clarity, stronger structure, and portfolios they can actually hold.
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>
