@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lump Sum vs DCA | ETF Calculator</title>
+  <meta name="description" content="Compare lump sum vs DCA with a clearer long-term decision framework. Learn when each approach makes sense, what most investors get wrong, and how behavior changes the real outcome." />
+  <meta name="theme-color" content="#eef2f6" />
+  <link rel="canonical" href="https://etfcalculator.net/lump-sum-vs-dca.html" />
+
+  <style>
+    :root{
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --stroke:#dbe1e8;
+      --stroke-soft:#e7ebf0;
+      --text:#182132;
+      --muted:#5d6778;
+      --soft:#7c8796;
+      --navy:#233149;
+      --navy-2:#31415d;
+      --navy-3:#1b2435;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(23,35,57,.06);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:18px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .page{padding:16px 0 34px}
+    .wrap{
+      width:min(var(--max), calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    .section-card{
+      background:var(--card);
+      border:1px solid rgba(24,33,50,.08);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:34px 30px;
+      margin:16px 0;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .hero{
+      text-align:center;
+      padding:42px 34px 28px;
+    }
+
+    .hero h1{
+      margin:0 auto 14px;
+      max-width:760px;
+      font-size:clamp(1.75rem, 3.7vw, 3.02rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
+      text-wrap:balance;
+    }
+
+    .hero-sub{
+      max-width:780px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .hero-note{
+      max-width:760px;
+      margin:14px auto 0;
+      color:var(--soft);
+      font-size:.92rem;
+    }
+
+    .hero-actions{
+      margin-top:24px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      font-size:.96rem;
+      font-weight:700;
+      white-space:nowrap;
+      border:1px solid var(--stroke);
+      transition:.18s ease;
+    }
+
+    .btn-primary{
+      background:var(--navy);
+      color:var(--white);
+      border-color:var(--navy);
+    }
+
+    .btn-primary:hover{
+      background:var(--navy-2);
+      border-color:var(--navy-2);
+    }
+
+    .btn-secondary{
+      background:var(--white);
+      color:var(--text);
+    }
+
+    .btn-secondary:hover{
+      background:#fdfefe;
+      border-color:#cad2dc;
+    }
+
+    .micro-links{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--soft);
+      font-size:.86rem;
+    }
+
+    .micro-links a:hover{color:var(--navy)}
+
+    .section-head{
+      text-align:center;
+      max-width:780px;
+      margin:0 auto 24px;
+    }
+
+    .section-head h2{
+      margin:0 0 10px;
+      font-size:clamp(1.55rem, 3vw, 2.42rem);
+      line-height:1.08;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .decision-card,
+    .info-card,
+    .link-card,
+    .principle-card,
+    .cta-card,
+    .path-box{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-lg);
+      padding:20px 18px;
+      min-height:100%;
+      transition:.18s ease;
+    }
+
+    .decision-card:hover,
+    .info-card:hover,
+    .link-card:hover,
+    .principle-card:hover,
+    .cta-card:hover,
+    .path-box:hover{
+      transform:translateY(-1px);
+      border-color:#cfd6df;
+      box-shadow:0 10px 24px rgba(23,35,57,.05);
+    }
+
+    .mini-label{
+      display:block;
+      margin-bottom:10px;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .decision-card h3,
+    .info-card h3,
+    .link-card h3,
+    .principle-card h3,
+    .cta-card h3,
+    .path-box h3{
+      margin:0 0 8px;
+      font-size:1.12rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .decision-card p,
+    .info-card p,
+    .link-card p,
+    .principle-card p,
+    .cta-card p,
+    .path-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .card-link{
+      display:inline-block;
+      margin-top:14px;
+      color:var(--navy);
+      font-weight:700;
+      font-size:.94rem;
+    }
+
+    .card-link:hover{color:var(--navy-2)}
+
+    .impact-line{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--stroke-soft);
+      color:var(--text);
+      font-size:.92rem;
+      font-weight:600;
+    }
+
+    .split-layout{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .default-card{
+      background:linear-gradient(180deg,#ffffff 0%, #f7f9fc 100%);
+      border:1px solid #d8e0ea;
+      border-radius:26px;
+      padding:24px 22px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .default-card::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:4px;
+      background:linear-gradient(180deg,var(--navy) 0%, #7c8796 100%);
+      opacity:.14;
+    }
+
+    .default-card h3{
+      margin:0 0 10px;
+      font-size:1.3rem;
+      line-height:1.1;
+      letter-spacing:-.03em;
+    }
+
+    .default-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+
+    .default-list{
+      margin-top:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .default-item{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:18px;
+      padding:14px 14px;
+    }
+
+    .default-item strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:.96rem;
+    }
+
+    .default-item span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .compare-shell{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:14px;
+      align-items:stretch;
+      margin-top:18px;
+    }
+
+    .compare-side{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:22px;
+      padding:18px 16px;
+    }
+
+    .compare-side h4{
+      margin:0 0 8px;
+      font-size:1.02rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .compare-side p{
+      margin:0;
+      color:var(--muted);
+      font-size:.93rem;
+    }
+
+    .compare-center{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-width:44px;
+      color:var(--soft);
+      font-size:1.04rem;
+      font-weight:700;
+    }
+
+    .hard-stop{
+      background:var(--navy-3);
+      color:var(--white);
+      border-radius:24px;
+      padding:24px 22px;
+    }
+
+    .hard-stop .eyebrow{
+      color:rgba(255,255,255,.62);
+      margin-bottom:10px;
+    }
+
+    .hard-stop h3{
+      margin:0 0 10px;
+      font-size:1.28rem;
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .hard-stop p{
+      margin:0;
+      color:rgba(255,255,255,.82);
+      font-size:.96rem;
+    }
+
+    .hard-stop-list{
+      margin-top:16px;
+      display:grid;
+      gap:10px;
+    }
+
+    .hard-stop-item{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:10px;
+      color:rgba(255,255,255,.92);
+      font-size:.92rem;
+    }
+
+    .principle-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:1rem;
+    }
+
+    .path-links{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .path-links a{
+      color:var(--navy);
+      font-size:.94rem;
+      font-weight:650;
+    }
+
+    .path-links a:hover{color:var(--navy-2)}
+
+    .site-foot{
+      text-align:center;
+      color:var(--soft);
+      font-size:.84rem;
+      padding-top:6px;
+    }
+
+    @media (max-width:1080px){
+      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .split-layout{grid-template-columns:1fr}
+    }
+
+    @media (max-width:760px){
+      .page{padding:12px 0 28px}
+      .wrap{width:min(var(--max), calc(100% - 18px))}
+      .section-card{
+        padding:24px 18px;
+        border-radius:24px;
+        margin:12px 0;
+      }
+      .hero{padding:34px 18px 24px}
+      .hero-actions{flex-direction:column}
+      .btn{width:100%}
+      .grid-2,
+      .grid-3,
+      .grid-4{grid-template-columns:1fr}
+      .compare-shell{
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+      .compare-center{min-height:28px}
+      .decision-card,
+      .info-card,
+      .link-card,
+      .principle-card,
+      .cta-card,
+      .path-box,
+      .default-card,
+      .compare-side,
+      .hard-stop{
+        padding:18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="wrap">
+
+      <!-- HERO -->
+      <section class="section-card hero">
+        <div class="eyebrow">Behavior & cycles</div>
+        <h1>Lump sum vs DCA without pretending the choice is only mathematical.</h1>
+        <p class="hero-sub">
+          This is one of the most important decisions in long-term investing.
+          On paper, lump sum often wins when markets rise over time.
+          In real life, behavior, regret, fear, and the ability to stay invested can change what the better decision actually is.
+        </p>
+        <p class="hero-note">
+          The wrong frame is “Which one is superior in theory?”
+          The better frame is “Which one gives me the highest chance of getting invested and staying invested without breaking behavior?”
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/dca-calculator.html">Model a DCA plan →</a>
+          <a class="btn btn-secondary" href="/etf-calculator.html">Model a lump sum scenario →</a>
+          <a class="btn btn-secondary" href="/investment-principles.html">See the principles behind this page →</a>
+        </div>
+
+        <div class="micro-links">
+          <a href="/when-to-buy-etfs.html">When to buy ETFs</a>
+          <a href="/how-to-build-etf-portfolio.html">Build your ETF portfolio</a>
+          <a href="/best-etfs-for-long-term-investing.html">Start from long-term ETF choices</a>
+        </div>
+      </section>
+
+      <!-- QUICK ANSWER -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Quick answer</div>
+          <h2>For expected return, lump sum often wins. For behavior, DCA can be the better decision.</h2>
+          <p>
+            That is the real tension. Markets have historically tended to rise over long periods, which favors investing earlier.
+            But a mathematically better entry is not truly better if fear, regret, or delay keeps you from acting or staying invested.
+          </p>
+        </div>
+
+        <div class="split-layout">
+          <div class="default-card">
+            <div class="eyebrow">Default frame</div>
+            <h3>The best method is the one you can actually execute without breaking behavior.</h3>
+            <p>
+              Lump sum is usually the cleaner mathematical answer when you already have cash ready and a long time horizon.
+              DCA is often the cleaner behavioral answer when entering all at once would cause hesitation, panic, or future regret strong enough to damage execution.
+            </p>
+
+            <div class="default-list">
+              <div class="default-item">
+                <strong>Lump sum is usually stronger in theory</strong>
+                <span>Because more money gets to work earlier when markets tend to rise over time.</span>
+              </div>
+              <div class="default-item">
+                <strong>DCA is often stronger in behavior</strong>
+                <span>Because it reduces timing anxiety and helps hesitant investors actually enter the market.</span>
+              </div>
+              <div class="default-item">
+                <strong>The wrong choice is often delay</strong>
+                <span>Holding cash indefinitely while “waiting for a better entry” is usually worse than either disciplined option.</span>
+              </div>
+            </div>
+
+            <div class="compare-shell">
+              <div class="compare-side">
+                <h4>Lump sum</h4>
+                <p>More money invested sooner. Stronger expected return logic. Higher immediate emotional stress.</p>
+              </div>
+              <div class="compare-center">vs</div>
+              <div class="compare-side">
+                <h4>DCA</h4>
+                <p>Money enters gradually. Lower immediate emotional stress. Often easier to execute and continue.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>You can invest and then leave it alone.</h3>
+              <p>You may not need DCA as a psychological bridge.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>You want a perfect entry more than a clear plan.</h3>
+              <p>That usually leads to delay, not better decisions.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>DCA helps you act now instead of waiting forever.</h3>
+              <p>That can make it the better real-world choice.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>You call it DCA, but you are really just hesitating.</h3>
+              <p>A plan needs a real schedule, not vague delay.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HARD STOP -->
+      <section class="section-card">
+        <div class="hard-stop">
+          <div class="eyebrow">Before you go further</div>
+          <h3>The biggest mistake is often not choosing the “wrong” method. It is failing to get invested at all.</h3>
+          <p>
+            Many investors turn lump sum vs DCA into an endless intellectual debate and never build a real plan.
+            That is the trap. The market does not reward beautifully reasoned hesitation.
+          </p>
+
+          <div class="hard-stop-list">
+            <div class="hard-stop-item">If DCA is helping you move from cash to action, it is serving a real purpose.</div>
+            <div class="hard-stop-item">If DCA is only disguising fear with no schedule, it is not discipline. It is delay.</div>
+            <div class="hard-stop-item">If lump sum would cause panic strong enough to make you sell or freeze, then the theoretically better method may not be better for you.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHEN LUMP SUM MAKES SENSE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">When lump sum makes sense</div>
+          <h2>Lump sum works best when behavior is already under control.</h2>
+          <p>
+            The mathematical case is usually straightforward. The behavioral case is what matters.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>You already have the cash ready</h3>
+            <p>
+              You are not waiting for future income. The capital is already available and can be invested immediately.
+            </p>
+            <div class="impact-line">Good use: delay would mainly keep money uninvested, not improve the structure.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>You have a long enough horizon</h3>
+            <p>
+              Short-term entry regret matters less when the real plan is built around many years of compounding.
+            </p>
+            <div class="impact-line">Good use: you care more about time in the market than near-term emotional comfort.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>You can tolerate immediate drawdowns</h3>
+            <p>
+              You understand that bad short-term timing is possible and will not cause a strategy collapse.
+            </p>
+            <div class="impact-line">Good use: a drop after investing would hurt, but not change your plan.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHEN DCA MAKES SENSE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">When DCA makes sense</div>
+          <h2>DCA works best when it helps behavior, execution, and consistency.</h2>
+          <p>
+            DCA is not mainly about beating lump sum. It is about making a long-term investor actually enter the market and keep going.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>You are afraid of putting all the money in at once</h3>
+            <p>
+              A phased plan reduces the emotional shock of entry and makes action more likely.
+            </p>
+            <div class="impact-line">Good use: DCA becomes a bridge from fear to actual investing.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>Your money naturally arrives over time</h3>
+            <p>
+              When the capital is earned gradually, DCA is not a compromise. It is simply the natural structure of investing.
+            </p>
+            <div class="impact-line">Good use: your cash flow and your investing method match each other.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>You need a repeatable habit more than a perfect entry</h3>
+            <p>
+              The long-term advantage may come more from steady behavior than from winning the entry debate.
+            </p>
+            <div class="impact-line">Good use: the schedule becomes stronger than the emotion of the day.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOST PEOPLE GET WRONG -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">What most people get wrong</div>
+          <h2>Lump sum vs DCA is often really a question about regret management.</h2>
+          <p>
+            People usually do not fear being theoretically wrong. They fear investing and then watching the market fall.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="info-card">
+            <h3>They want certainty</h3>
+            <p>But neither method removes uncertainty. They only distribute it differently over time.</p>
+          </div>
+          <div class="info-card">
+            <h3>They confuse DCA with safety</h3>
+            <p>DCA does not eliminate market risk. It mainly spreads entry points and softens emotional shock.</p>
+          </div>
+          <div class="info-card">
+            <h3>They confuse lump sum with aggression</h3>
+            <p>It is often just the mathematically cleaner expression of a long-term plan.</p>
+          </div>
+          <div class="info-card">
+            <h3>They ignore the real enemy</h3>
+            <p>Indefinite cash holding while waiting for a perfect entry is usually the worst path of all.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMON MISUNDERSTANDING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Common misunderstanding</div>
+          <h2>DCA is not automatically more prudent, and lump sum is not automatically reckless.</h2>
+          <p>
+            The real question is not which one sounds safer. The real question is which one fits your structure, time horizon, and behavior strongly enough to keep you invested.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="decision-card">
+            <span class="mini-label">What people imagine</span>
+            <h3>“DCA is the responsible choice because it feels safer.”</h3>
+            <p>
+              The investor frames gradual entry as wisdom, regardless of whether it is actually increasing the chance of disciplined execution.
+            </p>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">What actually matters</span>
+            <h3>A method is only better if it helps you get invested and stay invested.</h3>
+            <p>
+              If DCA is helping behavior, it is valuable. If it is only delaying action, it is not discipline. If lump sum fits your behavior, it is often the cleaner choice.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOGLE SECTION -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Bogle comes first</div>
+          <h2>The foundation is still simple, broad, low-cost, and held for a long time.</h2>
+          <p>
+            John C. Bogle's core logic changes how this choice should be understood.
+            The main goal is not to win a timing argument. The main goal is to get into a durable structure and let compounding work over time.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Bogle lens</span>
+            <h3>Stay focused on the long game</h3>
+            <p>
+              The more the decision becomes about months, headlines, and perfect entry points, the easier it is to lose the real long-term frame.
+            </p>
+            <div class="impact-line">If you have the right ETF structure, the holding period matters more than the perfect first day.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Bogle lens</span>
+            <h3>Do not let cash drag become invisible</h3>
+            <p>
+              Money sitting uninvested while you wait for emotional certainty has a cost, even when it feels safe.
+            </p>
+            <div class="impact-line">An investor can be “careful” and still quietly reduce long-term compounding.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Bogle lens</span>
+            <h3>Choose the method you can repeat with discipline</h3>
+            <p>
+              Simplicity matters here too. A clean schedule is stronger than a clever but unstable emotional approach.
+            </p>
+            <div class="impact-line">If a method cannot survive real behavior, it is not truly simple.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOUR MASTERS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Decision principles</div>
+          <h2>The four ideas underneath a durable entry decision.</h2>
+          <p>
+            This page is not about predicting markets. It is about entering a long-term investment process in a way you can actually sustain.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Munger: avoid the avoidable error</strong>
+            <p>The most common mistake is not choosing the wrong method. It is staying in cash because the decision frame was wrong.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Bogle: get into the long-term structure</strong>
+            <p>The foundation is broad, low-cost, durable investing held for years, not a debate about perfect entry points.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Taleb: respect fragility in behavior</strong>
+            <p>If a mathematically elegant method breaks your behavior, it may not be the better real-world choice.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Marks: cycles change feelings, not your process</strong>
+            <p>Market conditions affect emotion, but a good decision process should not depend on emotional comfort.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- ACTION -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Execution</div>
+          <h2>The right answer is the one you can fund, follow, and survive.</h2>
+          <p>
+            A good decision should lead to a real plan, not another round of hesitation.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <a class="cta-card" href="/etf-calculator.html">
+            <span class="mini-label">If you are leaning lump sum</span>
+            <h3>Model the full amount getting invested now</h3>
+            <p>Use the ETF Calculator to see what earlier market exposure can mean over time.</p>
+            <span class="card-link">Use ETF Calculator →</span>
+          </a>
+
+          <a class="cta-card" href="/dca-calculator.html">
+            <span class="mini-label">If you are leaning DCA</span>
+            <h3>Build a schedule that turns hesitation into action</h3>
+            <p>Use the DCA Calculator to create a real plan instead of keeping the decision abstract.</p>
+            <span class="card-link">Use DCA Calculator →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- INTERNAL ROUTING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Keep exploring</div>
+          <h2>Go deeper from the right path.</h2>
+          <p>
+            This page sits between the broader ETF decision layer and the execution layer where structure becomes behavior.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="path-box">
+            <span class="mini-label">Upstream</span>
+            <h3>Start from the ETF foundation</h3>
+            <p>If you still need the larger structure first, go back to the core ETF decision pages.</p>
+            <div class="path-links">
+              <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+              <a href="/how-to-build-etf-portfolio.html">How to build an ETF portfolio →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Lateral</span>
+            <h3>Clarify the structure before the entry</h3>
+            <p>If your real uncertainty is about what to buy, settle that before optimizing the funding method.</p>
+            <div class="path-links">
+              <a href="/voo-investment-guide.html">VOO investment guide →</a>
+              <a href="/vti-investment-guide.html">VTI investment guide →</a>
+              <a href="/etf-comparisons.html">ETF comparisons hub →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Downstream</span>
+            <h3>Turn the decision into a real schedule</h3>
+            <p>Once the logic is clear, the next step is making the plan concrete and repeatable.</p>
+            <div class="path-links">
+              <a href="/dca-calculator.html">DCA Calculator →</a>
+              <a href="/etf-calculator.html">ETF Calculator →</a>
+              <a href="/investment-principles.html">Investment principles →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="site-foot">
+        Built for long-term investors who want more clarity, stronger structure, and decisions they can actually keep following.
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>
