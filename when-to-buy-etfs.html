@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>When to Buy ETFs | ETF Calculator</title>
+  <meta name="description" content="Learn when to buy ETFs with a clearer long-term decision framework. Understand why the real question is often not timing perfection, but structure, behavior, and getting invested without breaking discipline." />
+  <meta name="theme-color" content="#eef2f6" />
+  <link rel="canonical" href="https://etfcalculator.net/when-to-buy-etfs.html" />
+
+  <style>
+    :root{
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --stroke:#dbe1e8;
+      --stroke-soft:#e7ebf0;
+      --text:#182132;
+      --muted:#5d6778;
+      --soft:#7c8796;
+      --navy:#233149;
+      --navy-2:#31415d;
+      --navy-3:#1b2435;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(23,35,57,.06);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:18px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .page{padding:16px 0 34px}
+    .wrap{
+      width:min(var(--max), calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    .section-card{
+      background:var(--card);
+      border:1px solid rgba(24,33,50,.08);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:34px 30px;
+      margin:16px 0;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .hero{
+      text-align:center;
+      padding:42px 34px 28px;
+    }
+
+    .hero h1{
+      margin:0 auto 14px;
+      max-width:760px;
+      font-size:clamp(1.75rem, 3.7vw, 3rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
+      text-wrap:balance;
+    }
+
+    .hero-sub{
+      max-width:790px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .hero-note{
+      max-width:760px;
+      margin:14px auto 0;
+      color:var(--soft);
+      font-size:.92rem;
+    }
+
+    .hero-actions{
+      margin-top:24px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      font-size:.96rem;
+      font-weight:700;
+      white-space:nowrap;
+      border:1px solid var(--stroke);
+      transition:.18s ease;
+    }
+
+    .btn-primary{
+      background:var(--navy);
+      color:var(--white);
+      border-color:var(--navy);
+    }
+
+    .btn-primary:hover{
+      background:var(--navy-2);
+      border-color:var(--navy-2);
+    }
+
+    .btn-secondary{
+      background:var(--white);
+      color:var(--text);
+    }
+
+    .btn-secondary:hover{
+      background:#fdfefe;
+      border-color:#cad2dc;
+    }
+
+    .micro-links{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--soft);
+      font-size:.86rem;
+    }
+
+    .micro-links a:hover{color:var(--navy)}
+
+    .section-head{
+      text-align:center;
+      max-width:780px;
+      margin:0 auto 24px;
+    }
+
+    .section-head h2{
+      margin:0 0 10px;
+      font-size:clamp(1.55rem, 3vw, 2.42rem);
+      line-height:1.08;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .decision-card,
+    .info-card,
+    .link-card,
+    .principle-card,
+    .cta-card,
+    .path-box{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-lg);
+      padding:20px 18px;
+      min-height:100%;
+      transition:.18s ease;
+    }
+
+    .decision-card:hover,
+    .info-card:hover,
+    .link-card:hover,
+    .principle-card:hover,
+    .cta-card:hover,
+    .path-box:hover{
+      transform:translateY(-1px);
+      border-color:#cfd6df;
+      box-shadow:0 10px 24px rgba(23,35,57,.05);
+    }
+
+    .mini-label{
+      display:block;
+      margin-bottom:10px;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .decision-card h3,
+    .info-card h3,
+    .link-card h3,
+    .principle-card h3,
+    .cta-card h3,
+    .path-box h3{
+      margin:0 0 8px;
+      font-size:1.12rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .decision-card p,
+    .info-card p,
+    .link-card p,
+    .principle-card p,
+    .cta-card p,
+    .path-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .card-link{
+      display:inline-block;
+      margin-top:14px;
+      color:var(--navy);
+      font-weight:700;
+      font-size:.94rem;
+    }
+
+    .card-link:hover{color:var(--navy-2)}
+
+    .impact-line{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--stroke-soft);
+      color:var(--text);
+      font-size:.92rem;
+      font-weight:600;
+    }
+
+    .split-layout{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .default-card{
+      background:linear-gradient(180deg,#ffffff 0%, #f7f9fc 100%);
+      border:1px solid #d8e0ea;
+      border-radius:26px;
+      padding:24px 22px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .default-card::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:4px;
+      background:linear-gradient(180deg,var(--navy) 0%, #7c8796 100%);
+      opacity:.14;
+    }
+
+    .default-card h3{
+      margin:0 0 10px;
+      font-size:1.3rem;
+      line-height:1.1;
+      letter-spacing:-.03em;
+    }
+
+    .default-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+
+    .default-list{
+      margin-top:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .default-item{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:18px;
+      padding:14px 14px;
+    }
+
+    .default-item strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:.96rem;
+    }
+
+    .default-item span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .hard-stop{
+      background:var(--navy-3);
+      color:var(--white);
+      border-radius:24px;
+      padding:24px 22px;
+    }
+
+    .hard-stop .eyebrow{
+      color:rgba(255,255,255,.62);
+      margin-bottom:10px;
+    }
+
+    .hard-stop h3{
+      margin:0 0 10px;
+      font-size:1.28rem;
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .hard-stop p{
+      margin:0;
+      color:rgba(255,255,255,.82);
+      font-size:.96rem;
+    }
+
+    .hard-stop-list{
+      margin-top:16px;
+      display:grid;
+      gap:10px;
+    }
+
+    .hard-stop-item{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:10px;
+      color:rgba(255,255,255,.92);
+      font-size:.92rem;
+    }
+
+    .timing-shell{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:14px;
+      align-items:stretch;
+      margin-top:18px;
+    }
+
+    .timing-side{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:22px;
+      padding:18px 16px;
+    }
+
+    .timing-side h4{
+      margin:0 0 8px;
+      font-size:1.02rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .timing-side p{
+      margin:0;
+      color:var(--muted);
+      font-size:.93rem;
+    }
+
+    .timing-center{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-width:44px;
+      color:var(--soft);
+      font-size:1.04rem;
+      font-weight:700;
+    }
+
+    .principle-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:1rem;
+    }
+
+    .path-links{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .path-links a{
+      color:var(--navy);
+      font-size:.94rem;
+      font-weight:650;
+    }
+
+    .path-links a:hover{color:var(--navy-2)}
+
+    .site-foot{
+      text-align:center;
+      color:var(--soft);
+      font-size:.84rem;
+      padding-top:6px;
+    }
+
+    @media (max-width:1080px){
+      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .split-layout{grid-template-columns:1fr}
+    }
+
+    @media (max-width:760px){
+      .page{padding:12px 0 28px}
+      .wrap{width:min(var(--max), calc(100% - 18px))}
+      .section-card{
+        padding:24px 18px;
+        border-radius:24px;
+        margin:12px 0;
+      }
+      .hero{padding:34px 18px 24px}
+      .hero-actions{flex-direction:column}
+      .btn{width:100%}
+      .grid-2,
+      .grid-3,
+      .grid-4{grid-template-columns:1fr}
+      .timing-shell{
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+      .timing-center{min-height:28px}
+      .decision-card,
+      .info-card,
+      .link-card,
+      .principle-card,
+      .cta-card,
+      .path-box,
+      .default-card,
+      .hard-stop,
+      .timing-side{
+        padding:18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="wrap">
+
+      <!-- HERO -->
+      <section class="section-card hero">
+        <div class="eyebrow">Behavior & cycles</div>
+        <h1>When to buy ETFs without pretending anyone knows the perfect moment.</h1>
+        <p class="hero-sub">
+          This is one of the most emotionally loaded questions in investing.
+          But for long-term investors, the real answer is usually less about predicting the next move and more about choosing a structure and entry method you can actually follow.
+        </p>
+        <p class="hero-note">
+          The wrong question is “What is the perfect day to buy?”
+          The better question is “How do I get into the right ETF structure without letting timing anxiety take over the whole process?”
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/lump-sum-vs-dca.html">Compare lump sum vs DCA →</a>
+          <a class="btn btn-secondary" href="/dca-calculator.html">Build a DCA plan →</a>
+          <a class="btn btn-secondary" href="/investment-principles.html">See the principles behind this page →</a>
+        </div>
+
+        <div class="micro-links">
+          <a href="/which-etf-should-i-buy.html">Choose the ETF first</a>
+          <a href="/best-etfs-for-long-term-investing.html">Start from long-term ETF choices</a>
+          <a href="/how-to-build-etf-portfolio.html">Build your ETF portfolio</a>
+        </div>
+      </section>
+
+      <!-- QUICK ANSWER -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Quick answer</div>
+          <h2>For most long-term investors, the best time to buy is when the structure is clear and the plan is real.</h2>
+          <p>
+            Perfect timing is usually unavailable. Delay is very available.
+            That is why the real decision is often not about forecasting the market, but about avoiding the trap of waiting for certainty that never arrives.
+          </p>
+        </div>
+
+        <div class="split-layout">
+          <div class="default-card">
+            <div class="eyebrow">Default frame</div>
+            <h3>The market does not require perfect timing. It requires actual participation.</h3>
+            <p>
+              If you already know what you want to own and why you want to own it, then the timing decision is usually about behavior:
+              invest now if you can hold it, or use a structured phased entry if that is what gets you invested and keeps you invested.
+            </p>
+
+            <div class="default-list">
+              <div class="default-item">
+                <strong>Do not let timing replace structure</strong>
+                <span>If the ETF choice is still weak, solving the entry date first is solving the wrong problem.</span>
+              </div>
+              <div class="default-item">
+                <strong>Do not let fear disguise itself as prudence</strong>
+                <span>Waiting can feel intelligent even when it is quietly reducing long-term compounding.</span>
+              </div>
+              <div class="default-item">
+                <strong>Choose an entry method, not a fantasy moment</strong>
+                <span>A real plan beats a beautiful prediction that never becomes action.</span>
+              </div>
+            </div>
+
+            <div class="timing-shell">
+              <div class="timing-side">
+                <h4>Buy now</h4>
+                <p>Best when the structure is already clear, cash is ready, and behavior can survive normal drawdowns.</p>
+              </div>
+              <div class="timing-center">or</div>
+              <div class="timing-side">
+                <h4>Phase in</h4>
+                <p>Best when a schedule helps you act now, reduce entry anxiety, and stay consistent.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>You already know what ETF structure you want.</h3>
+              <p>That means the timing decision can stay in its proper place.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>You are asking when to buy because you still are not sure what to buy.</h3>
+              <p>That is a structure problem disguised as a timing problem.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>You have an actual entry method.</h3>
+              <p>Either invest now or follow a real phased schedule. Both are better than vague waiting.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>You are waiting for “things to feel safer.”</h3>
+              <p>That feeling may never arrive in a way that helps you.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HARD STOP -->
+      <section class="section-card">
+        <div class="hard-stop">
+          <div class="eyebrow">Before you go further</div>
+          <h3>The biggest timing mistake is often not buying at the wrong time. It is never really deciding how to enter.</h3>
+          <p>
+            Many investors do not actually have a buying strategy. They have a hope, a fear, and a desire to avoid regret.
+            That is not a process. A process says what you will buy, how you will buy it, and what you will do if the market falls right after.
+          </p>
+
+          <div class="hard-stop-list">
+            <div class="hard-stop-item">If you can buy now and hold, waiting for a better mood is usually not a serious edge.</div>
+            <div class="hard-stop-item">If a phased entry will get you invested and keep you disciplined, that is a legitimate timing method.</div>
+            <div class="hard-stop-item">If you are still choosing the ETF itself, timing should not be the headline question yet.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHEN TO BUY NOW -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">When buying now makes sense</div>
+          <h2>Buy now when the structure is ready and behavior is strong enough.</h2>
+          <p>
+            This is usually the cleaner answer when your capital is already available and your time horizon is long enough.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>You already have the cash ready</h3>
+            <p>
+              There is no need to wait for future income. The only question is whether you can actually commit.
+            </p>
+            <div class="impact-line">Good use: delay would mainly keep money out of a long-term compounding process.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>You can tolerate short-term regret</h3>
+            <p>
+              You understand that a drop after buying is possible and will not change the long-term plan.
+            </p>
+            <div class="impact-line">Good use: you are investing into a process, not trying to win the next month.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>The ETF decision is already settled</h3>
+            <p>
+              You are not using “when to buy” as a substitute for deciding what belongs in the portfolio.
+            </p>
+            <div class="impact-line">Good use: the entry question stays small because the structure question is clear.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHEN TO PHASE IN -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">When phasing in makes sense</div>
+          <h2>Phase in when a schedule helps behavior more than waiting hurts compounding.</h2>
+          <p>
+            This is where DCA becomes useful: not as a prediction tool, but as a way to lower emotional friction and turn intention into action.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>You are struggling to invest all at once</h3>
+            <p>
+              A phased entry makes the commitment small enough to begin immediately.
+            </p>
+            <div class="impact-line">Good use: the schedule removes paralysis and gets capital moving now.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>Your capital arrives gradually</h3>
+            <p>
+              In that case, phased buying is not a compromise. It is simply the natural structure of your cash flow.
+            </p>
+            <div class="impact-line">Good use: the contribution method and the money source match each other.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid use</span>
+            <h3>You want a rule stronger than your mood</h3>
+            <p>
+              A real schedule can keep the market from becoming a daily referendum on whether you should act.
+            </p>
+            <div class="impact-line">Good use: process replaces repeated emotional re-entry decisions.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT MOST PEOPLE GET WRONG -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">What most people get wrong</div>
+          <h2>“When should I buy?” is often really “How do I avoid regret?”</h2>
+          <p>
+            People do not usually ask this question because they discovered a hidden market edge. They ask it because they want emotional protection from being early.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="info-card">
+            <h3>They want certainty</h3>
+            <p>But markets do not offer certainty at the moment you need to act.</p>
+          </div>
+          <div class="info-card">
+            <h3>They overrate entry precision</h3>
+            <p>Entry matters, but usually less than years of disciplined holding and contribution.</p>
+          </div>
+          <div class="info-card">
+            <h3>They underweight delay risk</h3>
+            <p>Cash drag and repeated hesitation can quietly become the biggest cost.</p>
+          </div>
+          <div class="info-card">
+            <h3>They confuse caution with process</h3>
+            <p>Caution without a rule is not a strategy. It is just slower indecision.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMON MISUNDERSTANDING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Common misunderstanding</div>
+          <h2>The right time to buy is rarely a date. It is usually a condition.</h2>
+          <p>
+            That condition is often simple: the ETF structure is clear, the capital is ready or scheduled, and the process is defined strongly enough to survive discomfort.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="decision-card">
+            <span class="mini-label">What people imagine</span>
+            <h3>“I just need the market to come down a little first.”</h3>
+            <p>
+              The investor imagines that slightly better price levels will remove emotional risk from the decision.
+            </p>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">What actually matters</span>
+            <h3>The real improvement comes when the structure and process are finally clear.</h3>
+            <p>
+              A cleaner ETF choice, a real schedule, or a decision to commit now usually matters more than trying to guess the exact better week.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOGLE SECTION -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Bogle comes first</div>
+          <h2>The real long-term edge still comes from what you own and how long you keep owning it.</h2>
+          <p>
+            John C. Bogle's logic should keep this question in proportion.
+            Timing matters, but it should not outrank simplicity, diversification, low cost, and long holding periods.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Bogle lens</span>
+            <h3>Settle the structure before chasing the entry</h3>
+            <p>
+              A broad, low-cost, holdable ETF matters more than a beautiful buying date on the wrong asset.
+            </p>
+            <div class="impact-line">If the structure is weak, solving timing first is solving the wrong problem.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Bogle lens</span>
+            <h3>Keep timing in its proper place</h3>
+            <p>
+              The more the decision turns into a prediction exercise, the easier it is to lose the real long-term frame.
+            </p>
+            <div class="impact-line">A solid ETF held for years usually matters more than a perfectly staged entrance.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Bogle lens</span>
+            <h3>Participation beats elegant hesitation</h3>
+            <p>
+              A simple process that gets you invested is stronger than a clever process that leaves you in cash.
+            </p>
+            <div class="impact-line">Compounding only begins once the capital actually enters the structure.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOUR MASTERS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Decision principles</div>
+          <h2>The four ideas underneath a serious ETF entry decision.</h2>
+          <p>
+            This page is not about predicting short-term moves. It is about entering a long-term investment structure in a way strong enough to survive real behavior.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Munger: remove the avoidable mistake</strong>
+            <p>The common error is not buying on the wrong day. It is letting confusion or fear stop action entirely.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Bogle: own the durable structure</strong>
+            <p>The real edge is broad, low-cost, long-term ownership, not endless obsession with near-term entry.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Taleb: respect fragility in behavior</strong>
+            <p>If the chosen entry method breaks your discipline, it may not be the right method for you.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Marks: market cycles change feelings, not the need for process</strong>
+            <p>A strong process should not depend on whether the current environment feels emotionally comfortable.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- EXECUTION -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Execution</div>
+          <h2>The best time to buy is the time your process becomes real.</h2>
+          <p>
+            Once the ETF structure is clear, the next step is choosing an entry method and making it concrete.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <a class="cta-card" href="/lump-sum-vs-dca.html">
+            <span class="mini-label">Decision</span>
+            <h3>Choose between buying now and phasing in</h3>
+            <p>Use the comparison page to decide whether lump sum or DCA fits your behavior better.</p>
+            <span class="card-link">See lump sum vs DCA →</span>
+          </a>
+
+          <a class="cta-card" href="/dca-calculator.html">
+            <span class="mini-label">Action</span>
+            <h3>Turn timing anxiety into a real schedule</h3>
+            <p>Use the DCA Calculator if a phased plan is what gets you invested and keeps you moving.</p>
+            <span class="card-link">Use DCA Calculator →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- INTERNAL ROUTING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Keep exploring</div>
+          <h2>Go deeper from the right path.</h2>
+          <p>
+            This page sits between the broad ETF decision layer and the funding layer where timing becomes execution.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="path-box">
+            <span class="mini-label">Upstream</span>
+            <h3>Start from the ETF foundation</h3>
+            <p>If you still are not sure what to buy, settle that first before optimizing the entry question.</p>
+            <div class="path-links">
+              <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+              <a href="/how-to-build-etf-portfolio.html">How to build an ETF portfolio →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Lateral</span>
+            <h3>Clarify the entry method directly</h3>
+            <p>If your real question is how to enter, compare the execution methods head-on.</p>
+            <div class="path-links">
+              <a href="/lump-sum-vs-dca.html">Lump sum vs DCA →</a>
+              <a href="/dca-strategy-guide.html">DCA strategy guide →</a>
+              <a href="/investment-principles.html">Investment principles →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Downstream</span>
+            <h3>Turn the timing decision into a plan</h3>
+            <p>Once the logic is clear, the next step is a concrete schedule or a committed entry.</p>
+            <div class="path-links">
+              <a href="/dca-calculator.html">DCA Calculator →</a>
+              <a href="/etf-calculator.html">ETF Calculator →</a>
+              <a href="/voo-calculator.html">VOO Calculator →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="site-foot">
+        Built for long-term investors who want more clarity, stronger structure, and decisions they can actually keep following.
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>
