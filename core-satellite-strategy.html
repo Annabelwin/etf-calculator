@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core + Satellite Strategy | ETF Calculator</title>
+  <meta name="description" content="Learn when a core and satellite ETF strategy makes sense, when it does not, and how to build one without weakening the portfolio core." />
+  <meta name="theme-color" content="#eef2f6" />
+  <link rel="canonical" href="https://etfcalculator.net/core-satellite-strategy.html" />
+
+  <style>
+    :root{
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --stroke:#dbe1e8;
+      --stroke-soft:#e7ebf0;
+      --text:#182132;
+      --muted:#5d6778;
+      --soft:#7c8796;
+      --navy:#233149;
+      --navy-2:#31415d;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(23,35,57,.06);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:18px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .page{padding:16px 0 34px}
+    .wrap{
+      width:min(var(--max), calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    .section-card{
+      background:var(--card);
+      border:1px solid rgba(24,33,50,.08);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:34px 30px;
+      margin:16px 0;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .hero{
+      text-align:center;
+      padding:42px 34px 28px;
+    }
+
+    .hero h1{
+      margin:0 auto 14px;
+      max-width:760px;
+      font-size:clamp(1.7rem, 3.6vw, 3rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
+      text-wrap:balance;
+    }
+
+    .hero-sub{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .hero-note{
+      max-width:760px;
+      margin:14px auto 0;
+      color:var(--soft);
+      font-size:.92rem;
+    }
+
+    .hero-actions{
+      margin-top:24px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      font-size:.96rem;
+      font-weight:700;
+      white-space:nowrap;
+      border:1px solid var(--stroke);
+      transition:.18s ease;
+    }
+
+    .btn-primary{
+      background:var(--navy);
+      color:var(--white);
+      border-color:var(--navy);
+    }
+    .btn-primary:hover{
+      background:var(--navy-2);
+      border-color:var(--navy-2);
+    }
+
+    .btn-secondary{
+      background:var(--white);
+      color:var(--text);
+    }
+    .btn-secondary:hover{
+      background:#fdfefe;
+      border-color:#cad2dc;
+    }
+
+    .micro-links{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--soft);
+      font-size:.86rem;
+    }
+    .micro-links a:hover{color:var(--navy)}
+
+    .section-head{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 24px;
+    }
+
+    .section-head h2{
+      margin:0 0 10px;
+      font-size:clamp(1.55rem, 3vw, 2.4rem);
+      line-height:1.08;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .decision-card,
+    .info-card,
+    .link-card,
+    .principle-card,
+    .cta-card,
+    .path-box{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-lg);
+      padding:20px 18px;
+      min-height:100%;
+      transition:.18s ease;
+    }
+
+    .decision-card:hover,
+    .info-card:hover,
+    .link-card:hover,
+    .principle-card:hover,
+    .cta-card:hover,
+    .path-box:hover{
+      transform:translateY(-1px);
+      border-color:#cfd6df;
+      box-shadow:0 10px 24px rgba(23,35,57,.05);
+    }
+
+    .mini-label{
+      display:block;
+      margin-bottom:10px;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .decision-card h3,
+    .info-card h3,
+    .link-card h3,
+    .principle-card h3,
+    .cta-card h3,
+    .path-box h3{
+      margin:0 0 8px;
+      font-size:1.12rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .decision-card p,
+    .info-card p,
+    .link-card p,
+    .principle-card p,
+    .cta-card p,
+    .path-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .card-link{
+      display:inline-block;
+      margin-top:14px;
+      color:var(--navy);
+      font-weight:700;
+      font-size:.94rem;
+    }
+    .card-link:hover{color:var(--navy-2)}
+
+    .impact-line{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--stroke-soft);
+      color:var(--text);
+      font-size:.92rem;
+      font-weight:600;
+    }
+
+    .split-layout{
+      display:grid;
+      grid-template-columns:1.06fr .94fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .default-card{
+      background:linear-gradient(180deg,#ffffff 0%, #f7f9fc 100%);
+      border:1px solid #d8e0ea;
+      border-radius:26px;
+      padding:24px 22px;
+    }
+
+    .default-card h3{
+      margin:0 0 10px;
+      font-size:1.28rem;
+      line-height:1.1;
+      letter-spacing:-.03em;
+    }
+
+    .default-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+
+    .default-list{
+      margin-top:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .default-item{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:18px;
+      padding:14px 14px;
+    }
+
+    .default-item strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:.96rem;
+    }
+
+    .default-item span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .principle-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:1rem;
+    }
+
+    .path-links{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .path-links a{
+      color:var(--navy);
+      font-size:.94rem;
+      font-weight:650;
+    }
+    .path-links a:hover{color:var(--navy-2)}
+
+    .feedback{
+      text-align:center;
+      padding:26px 24px;
+    }
+
+    .feedback p{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+    }
+
+    .feedback-actions{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .site-foot{
+      text-align:center;
+      color:var(--soft);
+      font-size:.84rem;
+      padding-top:6px;
+    }
+
+    @media (max-width:1080px){
+      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .split-layout{grid-template-columns:1fr}
+    }
+
+    @media (max-width:760px){
+      .page{padding:12px 0 28px}
+      .wrap{width:min(var(--max), calc(100% - 18px))}
+      .section-card{
+        padding:24px 18px;
+        border-radius:24px;
+        margin:12px 0;
+      }
+      .hero{padding:34px 18px 24px}
+      .hero-actions,
+      .feedback-actions{flex-direction:column}
+      .btn{width:100%}
+      .grid-2,
+      .grid-3,
+      .grid-4{grid-template-columns:1fr}
+      .decision-card,
+      .info-card,
+      .link-card,
+      .principle-card,
+      .cta-card,
+      .path-box,
+      .default-card{
+        padding:18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="wrap">
+
+      <!-- HERO -->
+      <section class="section-card hero">
+        <div class="eyebrow">Portfolio system</div>
+        <h1>Core + satellite strategy without weakening the core.</h1>
+        <p class="hero-sub">
+          A core and satellite portfolio can work well, but only when the core stays dominant
+          and the satellite solves a real problem instead of feeding distraction.
+        </p>
+        <p class="hero-note">
+          For most investors, the mistake is not “having no satellite.”
+          It is letting the satellite quietly take over the portfolio.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/etf-calculator.html">Model your portfolio plan →</a>
+          <a class="btn btn-secondary" href="/how-to-build-etf-portfolio.html">Back to portfolio structure →</a>
+          <a class="btn btn-secondary" href="/investment-principles.html">See the principles behind this page →</a>
+        </div>
+
+        <div class="micro-links">
+          <a href="/voo-investment-guide.html">Use VOO as a core</a>
+          <a href="/vti-investment-guide.html">Use VTI as a core</a>
+          <a href="/dca-calculator.html">Pair it with a DCA plan</a>
+        </div>
+      </section>
+
+      <!-- QUICK ANSWER -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Quick answer</div>
+          <h2>Core + satellite is a conditional strategy, not a default one.</h2>
+          <p>
+            Start with a strong core first. Only add a satellite when it improves fit without increasing fragility.
+          </p>
+        </div>
+
+        <div class="split-layout">
+          <div class="default-card">
+            <div class="eyebrow">Default rule</div>
+            <h3>The core should carry the portfolio. The satellite should stay small.</h3>
+            <p>
+              If the satellite becomes the exciting center of attention, the portfolio usually becomes harder
+              to explain, harder to fund, and harder to hold in bad conditions.
+            </p>
+
+            <div class="default-list">
+              <div class="default-item">
+                <strong>Build the core first</strong>
+                <span>Use a broad, durable foundation before adding any extra exposure.</span>
+              </div>
+              <div class="default-item">
+                <strong>Add only for a clear reason</strong>
+                <span>A satellite should express a specific role, not a vague feeling.</span>
+              </div>
+              <div class="default-item">
+                <strong>Keep the weight controlled</strong>
+                <span>If the satellite can emotionally dominate the portfolio, it is already too large.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>You can explain the satellite in one sentence.</h3>
+              <p>Its purpose is narrow, explicit, and easy to defend.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>The satellite is there because it feels exciting.</h3>
+              <p>Excitement is not a portfolio role.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>The core still defines the experience.</h3>
+              <p>Your main holding determines behavior, not the edge position.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>You keep checking the satellite more than the core.</h3>
+              <p>That usually means the portfolio has already drifted psychologically.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHEN IT MAKES SENSE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">When it makes sense</div>
+          <h2>A satellite should solve one specific problem.</h2>
+          <p>
+            Core + satellite works best when the satellite has a narrow role and does not compete with the foundation.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Valid reason</span>
+            <h3>Add a style tilt</h3>
+            <p>
+              You want a small sleeve for a specific factor, theme, or style expression without replacing the core.
+            </p>
+            <div class="impact-line">Good use: the tilt stays modest and never becomes the real portfolio identity.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid reason</span>
+            <h3>Add optional upside</h3>
+            <p>
+              You want to leave a limited part of the portfolio open to higher-variance upside while protecting the base.
+            </p>
+            <div class="impact-line">Good use: the downside of the satellite is acceptable because the core remains stable.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Valid reason</span>
+            <h3>Improve personal fit</h3>
+            <p>
+              You need a portfolio that feels slightly more aligned with how you think, while keeping the structure disciplined.
+            </p>
+            <div class="impact-line">Good use: the adjustment increases conviction without making the structure messy.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHEN IT DOES NOT -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">When it does not</div>
+          <h2>Most people do not need a satellite as much as they think.</h2>
+          <p>
+            The most common mistake is using a satellite to fix boredom, impatience, or performance envy.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="info-card">
+            <h3>No clear role</h3>
+            <p>If the satellite does not solve one defined problem, it is probably just noise.</p>
+          </div>
+          <div class="info-card">
+            <h3>Overlap everywhere</h3>
+            <p>Many satellites add complexity without adding truly different exposure.</p>
+          </div>
+          <div class="info-card">
+            <h3>Performance chasing</h3>
+            <p>Adding a satellite because something recently outperformed is usually a bad foundation.</p>
+          </div>
+          <div class="info-card">
+            <h3>Emotional imbalance</h3>
+            <p>If the satellite becomes the emotional center, it is no longer a satellite in practice.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- THREE BUILD RULES -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Build rules</div>
+          <h2>Three rules keep core + satellite from becoming drift.</h2>
+          <p>
+            The strategy only works when the structure stays asymmetric: strong center, limited edge.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Rule 01</span>
+            <h3>Core first, satellite second</h3>
+            <p>
+              Do not begin by choosing the exciting ETF. Begin by deciding what will anchor the whole structure.
+            </p>
+            <div class="impact-line">The core should be chosen as if the satellite did not exist.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Rule 02</span>
+            <h3>One reason is enough</h3>
+            <p>
+              A good satellite does not need five justifications. One strong reason is usually better than many weak ones.
+            </p>
+            <div class="impact-line">If the role is hard to define, the position is probably unnecessary.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Rule 03</span>
+            <h3>Keep the edge from taking over</h3>
+            <p>
+              The portfolio should still feel like the core when markets are calm, hot, or painful.
+            </p>
+            <div class="impact-line">If the edge changes your behavior, the edge is too strong.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMON MISUNDERSTANDING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Common misunderstanding</div>
+          <h2>Core + satellite is not “more ETFs = better portfolio.”</h2>
+          <p>
+            In most cases, adding more funds creates more overlap, more second-guessing, and a weaker holding experience.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="decision-card">
+            <span class="mini-label">What people imagine</span>
+            <h3>“I am making the portfolio more complete.”</h3>
+            <p>
+              The investor thinks the satellite adds sophistication, nuance, and more ways to win.
+            </p>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">What often happens</span>
+            <h3>The portfolio becomes harder to understand and harder to stick with.</h3>
+            <p>
+              What looks like completion is often just hidden fragility, because it increases monitoring and emotional noise.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOUR MASTERS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Decision principles</div>
+          <h2>The four ideas underneath a disciplined satellite.</h2>
+          <p>
+            This strategy only works when the philosophy stays stronger than the temptation to keep adding.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Munger: remove what is unnecessary</strong>
+            <p>If the portfolio works without the satellite, the satellite must justify its existence very clearly.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Bogle: keep the core simple</strong>
+            <p>The main structure should remain low-cost, broad, and understandable enough to hold.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Taleb: keep optionality controlled</strong>
+            <p>The edge can take risk. The foundation cannot afford fragility.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Marks: behavior decides the result</strong>
+            <p>If the satellite increases anxiety or envy, it has already weakened the portfolio.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- CHOOSING A CORE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Choose the core first</div>
+          <h2>The satellite only makes sense after the core is right.</h2>
+          <p>
+            The core carries the long-term burden. The satellite only modifies the edge.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="link-card" href="/best-sp500-etfs.html">
+            <span class="mini-label">Structure</span>
+            <h3>S&amp;P 500 core</h3>
+            <p>For investors who want a recognizable U.S. large-cap core first.</p>
+            <span class="card-link">See best S&amp;P 500 ETFs →</span>
+          </a>
+
+          <a class="link-card" href="/best-total-market-etfs.html">
+            <span class="mini-label">Structure</span>
+            <h3>Total market core</h3>
+            <p>For investors who want broader market coverage before thinking about any tilt.</p>
+            <span class="card-link">See best total market ETFs →</span>
+          </a>
+
+          <a class="link-card" href="/voo-investment-guide.html">
+            <span class="mini-label">Guide</span>
+            <h3>VOO as a core</h3>
+            <p>See when a classic S&amp;P 500 core may already be enough.</p>
+            <span class="card-link">Read VOO guide →</span>
+          </a>
+
+          <a class="link-card" href="/vti-investment-guide.html">
+            <span class="mini-label">Guide</span>
+            <h3>VTI as a core</h3>
+            <p>See when broader total-market exposure may fit better as the anchor.</p>
+            <span class="card-link">Read VTI guide →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ACTION -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Execution</div>
+          <h2>A structure only matters if you can keep funding it.</h2>
+          <p>
+            The next step is not to admire the framework. The next step is to see whether the plan is actually holdable.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <a class="cta-card" href="/etf-calculator.html">
+            <span class="mini-label">Action</span>
+            <h3>Model your core + satellite plan</h3>
+            <p>Use the ETF Calculator to test contribution levels, growth assumptions, and long-term outcomes.</p>
+            <span class="card-link">Use ETF Calculator →</span>
+          </a>
+
+          <a class="cta-card" href="/dca-calculator.html">
+            <span class="mini-label">Behavior</span>
+            <h3>Make sure the plan can be funded repeatedly</h3>
+            <p>Use the DCA Calculator to connect the structure with a contribution rhythm you can actually keep.</p>
+            <span class="card-link">Use DCA Calculator →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- INTERNAL ROUTING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Keep exploring</div>
+          <h2>Go deeper from the right path.</h2>
+          <p>
+            This page sits between the basic portfolio structure page and more advanced right-side strategy decisions.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="path-box">
+            <span class="mini-label">Upstream</span>
+            <h3>Start from the portfolio foundation</h3>
+            <p>If you still need the big picture first, go back to the broader portfolio decision page.</p>
+            <div class="path-links">
+              <a href="/how-to-build-etf-portfolio.html">How to build an ETF portfolio →</a>
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+              <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Lateral</span>
+            <h3>Compare the possible core</h3>
+            <p>If the structure depends on which anchor you choose, compare the core candidates directly.</p>
+            <div class="path-links">
+              <a href="/voo-vs-vti.html">VOO vs VTI →</a>
+              <a href="/voo-vs-qqq.html">VOO vs QQQ →</a>
+              <a href="/etf-comparisons.html">ETF comparisons hub →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Downstream</span>
+            <h3>Turn the structure into a real plan</h3>
+            <p>Once the logic is clear, the next step is contribution discipline and scenario modeling.</p>
+            <div class="path-links">
+              <a href="/etf-calculator.html">ETF Calculator →</a>
+              <a href="/dca-calculator.html">DCA Calculator →</a>
+              <a href="/investment-principles.html">Investment principles →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEEDBACK -->
+      <section class="section-card feedback">
+        <div class="eyebrow">Feedback</div>
+        <h2 style="margin:0 0 10px;font-size:clamp(1.35rem,3vw,1.95rem);letter-spacing:-.03em;">Help us improve this page.</h2>
+        <p>
+          If this page helped you understand whether a satellite belongs in your portfolio — or if something still feels unclear —
+          send feedback. We use it to improve the decision system across the platform.
+        </p>
+
+        <div class="feedback-actions">
+          <a class="btn btn-primary" href="mailto:feedback@etfcalculator.net?subject=Core%20%2B%20Satellite%20Strategy%20Feedback">Send feedback →</a>
+          <a class="btn btn-secondary" href="/etf-calculator.html">Model your portfolio plan →</a>
+        </div>
+      </section>
+
+      <div class="site-foot">
+        Built for long-term investors who want more clarity, stronger structure, and portfolios they can actually hold.
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>
