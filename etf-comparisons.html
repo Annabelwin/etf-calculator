@@ -7,14 +7,10 @@
   <meta name="description" content="Compare ETFs with a clearer decision. Start with the ETF decision you are actually trying to make—cost, diversification, growth, income, or concentration." />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* =========================================================
-       Comparison Hub — homepage-aligned layout
-       ========================================================= */
-
     .hub-page{
       max-width: 980px;
       margin: 0 auto;
-      padding: 24px 18px 72px;
+      padding: 20px 18px 72px;
     }
 
     .hub-stack{
@@ -30,59 +26,65 @@
       box-shadow:0 10px 24px rgba(15,23,42,.03);
     }
 
-    .hub-section-inner{
-      max-width: 760px;
+    .hub-hero{
+      background:#ffffff;
+      border:1px solid rgba(15,23,42,.08);
+      border-radius:28px;
+      padding:24px 28px 22px;
+      box-shadow:0 18px 42px rgba(15,23,42,.06);
+      text-align:center;
+    }
+
+    .hub-hero-inner{
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hub-inner{
+      max-width: 780px;
       margin: 0 auto;
     }
 
     .hub-eyebrow{
       margin:0 0 10px;
-      font-size:.66rem;
+      font-size:.64rem;
       line-height:1;
-      letter-spacing:.16em;
+      letter-spacing:.15em;
       text-transform:uppercase;
       color:#8b93a1;
       font-weight:700;
     }
 
-    .hub-hero{
-      text-align:center;
-      padding-top:6px;
-      padding-bottom:4px;
-    }
-
-    .hub-hero-inner{
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
     .hub-hero h1{
       margin:0;
-      font-size:clamp(2.25rem,4.8vw,4.2rem);
-      line-height:.98;
-      letter-spacing:-0.05em;
+      font-size:clamp(1.95rem,4vw,3.15rem);
+      line-height:1.02;
+      letter-spacing:-0.045em;
       text-wrap:balance;
       color:#101826;
+      max-width: 720px;
+      margin-left:auto;
+      margin-right:auto;
     }
 
     .hub-hero-sub{
-      max-width: 620px;
-      margin:16px auto 0;
+      max-width: 660px;
+      margin:14px auto 0;
       color:#667085;
-      font-size:1.02rem;
-      line-height:1.66;
+      font-size:.98rem;
+      line-height:1.68;
       text-wrap:balance;
     }
 
     .hub-hero-note{
-      max-width: 670px;
+      max-width: 720px;
       margin:18px auto 0;
-      padding:16px 18px;
+      padding:14px 16px;
       border:1px solid rgba(15,23,42,.07);
       background:#fbfbfc;
       border-radius:18px;
       color:#4b5565;
-      font-size:.96rem;
+      font-size:.95rem;
       line-height:1.72;
       text-align:left;
     }
@@ -91,18 +93,22 @@
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:12px;
-      max-width:670px;
-      margin:18px auto 0;
+      max-width:720px;
+      margin:16px auto 0;
+      align-items:stretch;
     }
 
     .hub-hero-action{
-      display:block;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      min-height:132px;
       text-decoration:none;
       color:inherit;
       background:#ffffff;
       border:1px solid rgba(15,23,42,.08);
       border-radius:18px;
-      padding:18px 18px 16px;
+      padding:16px 16px 14px;
       text-align:left;
       transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
@@ -116,9 +122,9 @@
     .hub-hero-action-label{
       display:block;
       margin-bottom:8px;
-      font-size:.66rem;
+      font-size:.65rem;
       line-height:1;
-      letter-spacing:.16em;
+      letter-spacing:.14em;
       text-transform:uppercase;
       color:#8b93a1;
       font-weight:700;
@@ -127,31 +133,31 @@
     .hub-hero-action-title{
       display:block;
       margin-bottom:6px;
-      font-size:1.02rem;
-      line-height:1.28;
+      font-size:1rem;
+      line-height:1.25;
       font-weight:800;
       color:#101826;
-      letter-spacing:-0.02em;
     }
 
     .hub-hero-action-text{
       display:block;
       color:#667085;
       line-height:1.58;
-      font-size:.93rem;
+      font-size:.92rem;
     }
 
     .hub-title{
       margin:0;
-      font-size:clamp(1.55rem,2.6vw,2.2rem);
-      line-height:1.06;
-      letter-spacing:-0.035em;
+      font-size:clamp(1.42rem,2.4vw,2rem);
+      line-height:1.08;
+      letter-spacing:-0.03em;
       text-wrap:balance;
       color:#101826;
+      max-width: 760px;
     }
 
     .hub-intro{
-      max-width:680px;
+      max-width:760px;
       margin:12px 0 0;
       color:#667085;
       line-height:1.68;
@@ -160,8 +166,7 @@
 
     .hub-first,
     .hub-grid-2,
-    .hub-grid-4,
-    .hub-cta-row{
+    .hub-grid-4{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:12px;
@@ -169,15 +174,10 @@
     }
 
     .hub-box,
-    .hub-mini,
-    .hub-cta-card{
+    .hub-mini{
       background:#ffffff;
       border:1px solid rgba(15,23,42,.08);
       border-radius:18px;
-      padding:18px 18px 16px;
-    }
-
-    .hub-mini{
       padding:16px 16px 14px;
     }
 
@@ -188,19 +188,18 @@
     .hub-kicker{
       display:inline-block;
       margin-bottom:8px;
-      font-size:.66rem;
+      font-size:.64rem;
       line-height:1;
-      letter-spacing:.16em;
+      letter-spacing:.15em;
       text-transform:uppercase;
       color:#8b93a1;
       font-weight:700;
     }
 
     .hub-box h3,
-    .hub-mini h3,
-    .hub-cta-card h3{
+    .hub-mini h3{
       margin:0;
-      font-size:1.05rem;
+      font-size:1.02rem;
       line-height:1.24;
       letter-spacing:-0.02em;
       color:#101826;
@@ -212,7 +211,7 @@
     .hub-feedback p{
       margin:8px 0 0;
       color:#667085;
-      line-height:1.62;
+      line-height:1.64;
       font-size:.93rem;
     }
 
@@ -239,12 +238,13 @@
     }
 
     .hub-impact{
-      margin-top:14px;
+      max-width:760px;
+      margin:14px 0 0;
       padding-top:14px;
       border-top:1px solid rgba(15,23,42,.08);
       font-weight:800;
       color:#101826;
-      line-height:1.6;
+      line-height:1.62;
       font-size:.95rem;
       text-wrap:balance;
     }
@@ -289,7 +289,8 @@
     }
 
     .hub-principle{
-      margin-top:14px;
+      max-width:760px;
+      margin:14px 0 0;
       background:#ffffff;
       border:1px solid rgba(15,23,42,.08);
       border-radius:18px;
@@ -303,7 +304,39 @@
       color:#101826;
     }
 
+    /* CTA 改成窄中轴，不再太宽太扁 */
+    .hub-cta-wrap{
+      max-width:780px;
+      margin:0 auto;
+      display:grid;
+      gap:14px;
+    }
+
+    .hub-cta-card{
+      background:#f7f8fa;
+      border:1px solid rgba(15,23,42,.08);
+      border-radius:22px;
+      padding:20px 20px 18px;
+      box-shadow:0 8px 20px rgba(15,23,42,.025);
+    }
+
+    .hub-cta-card h3{
+      margin:0;
+      font-size:1.18rem;
+      line-height:1.18;
+      letter-spacing:-0.02em;
+      color:#101826;
+      text-wrap:balance;
+    }
+
+    .hub-cta-card a{
+      display:inline-block;
+      margin-top:10px;
+    }
+
     .hub-feedback{
+      max-width:780px;
+      margin:0 auto;
       background:#f7f8fa;
       border:1px solid rgba(15,23,42,.08);
       border-radius:22px;
@@ -312,7 +345,7 @@
 
     .hub-feedback h3{
       margin:0;
-      font-size:1.14rem;
+      font-size:1.12rem;
       line-height:1.2;
       color:#101826;
       letter-spacing:-0.02em;
@@ -345,33 +378,36 @@
       }
 
       .hub-section,
+      .hub-hero,
       .hub-cta-card,
       .hub-feedback{
         border-radius:20px;
       }
 
-      .hub-section{
+      .hub-section,
+      .hub-hero{
         padding:18px 16px 16px;
       }
 
       .hub-hero h1{
-        font-size:clamp(2rem,9vw,3.1rem);
+        font-size:clamp(1.9rem,9vw,2.8rem);
       }
 
       .hub-title{
-        font-size:1.5rem;
+        font-size:1.46rem;
       }
 
       .hub-hero-actions,
       .hub-first,
       .hub-grid-2,
-      .hub-grid-4,
-      .hub-cta-row{
+      .hub-grid-4{
         grid-template-columns:1fr;
       }
 
       .hub-section-inner,
-      .hub-hero-inner{
+      .hub-hero-inner,
+      .hub-cta-wrap,
+      .hub-feedback{
         max-width:none;
       }
     }
@@ -382,7 +418,7 @@
     <div class="hub-stack">
 
       <!-- HERO -->
-      <section class="hub-section hub-hero">
+      <section class="hub-hero">
         <div class="hub-hero-inner">
           <div class="hub-eyebrow">Comparison Center</div>
           <h1>Compare ETFs with a clearer decision.</h1>
@@ -601,7 +637,7 @@
         </div>
       </section>
 
-      <!-- EXPLORE BY TYPE -->
+      <!-- EXPLORE -->
       <section class="hub-section">
         <div class="hub-section-inner">
           <div class="hub-eyebrow">Explore by Type</div>
@@ -674,8 +710,8 @@
         </div>
       </section>
 
-      <!-- CTA -->
-      <div class="hub-cta-row">
+      <!-- CTA WRAP -->
+      <div class="hub-cta-wrap">
         <section class="hub-cta-card">
           <h3>Want to see how this plays out in your own plan?</h3>
           <p>
