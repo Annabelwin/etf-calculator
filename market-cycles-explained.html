@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Cycles Explained | ETF Calculator</title>
+  <meta name="description" content="Understand market cycles with a clearer long-term decision framework. Learn what cycles change, what they do not change, and how cycle awareness should improve behavior without turning into market prediction." />
+  <meta name="theme-color" content="#eef2f6" />
+  <link rel="canonical" href="https://etfcalculator.net/market-cycles-explained.html" />
+
+  <style>
+    :root{
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --stroke:#dbe1e8;
+      --stroke-soft:#e7ebf0;
+      --text:#182132;
+      --muted:#5d6778;
+      --soft:#7c8796;
+      --navy:#233149;
+      --navy-2:#31415d;
+      --navy-3:#1b2435;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(23,35,57,.06);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:18px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .page{padding:16px 0 34px}
+    .wrap{
+      width:min(var(--max), calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    .section-card{
+      background:var(--card);
+      border:1px solid rgba(24,33,50,.08);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:34px 30px;
+      margin:16px 0;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .hero{
+      text-align:center;
+      padding:42px 34px 28px;
+    }
+
+    .hero h1{
+      margin:0 auto 14px;
+      max-width:780px;
+      font-size:clamp(1.75rem, 3.7vw, 3rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
+      text-wrap:balance;
+    }
+
+    .hero-sub{
+      max-width:800px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .hero-note{
+      max-width:770px;
+      margin:14px auto 0;
+      color:var(--soft);
+      font-size:.92rem;
+    }
+
+    .hero-actions{
+      margin-top:24px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      font-size:.96rem;
+      font-weight:700;
+      white-space:nowrap;
+      border:1px solid var(--stroke);
+      transition:.18s ease;
+    }
+
+    .btn-primary{
+      background:var(--navy);
+      color:var(--white);
+      border-color:var(--navy);
+    }
+
+    .btn-primary:hover{
+      background:var(--navy-2);
+      border-color:var(--navy-2);
+    }
+
+    .btn-secondary{
+      background:var(--white);
+      color:var(--text);
+    }
+
+    .btn-secondary:hover{
+      background:#fdfefe;
+      border-color:#cad2dc;
+    }
+
+    .micro-links{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--soft);
+      font-size:.86rem;
+    }
+
+    .micro-links a:hover{color:var(--navy)}
+
+    .section-head{
+      text-align:center;
+      max-width:790px;
+      margin:0 auto 24px;
+    }
+
+    .section-head h2{
+      margin:0 0 10px;
+      font-size:clamp(1.55rem, 3vw, 2.42rem);
+      line-height:1.08;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .decision-card,
+    .info-card,
+    .link-card,
+    .principle-card,
+    .cta-card,
+    .path-box{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-lg);
+      padding:20px 18px;
+      min-height:100%;
+      transition:.18s ease;
+    }
+
+    .decision-card:hover,
+    .info-card:hover,
+    .link-card:hover,
+    .principle-card:hover,
+    .cta-card:hover,
+    .path-box:hover{
+      transform:translateY(-1px);
+      border-color:#cfd6df;
+      box-shadow:0 10px 24px rgba(23,35,57,.05);
+    }
+
+    .mini-label{
+      display:block;
+      margin-bottom:10px;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .decision-card h3,
+    .info-card h3,
+    .link-card h3,
+    .principle-card h3,
+    .cta-card h3,
+    .path-box h3{
+      margin:0 0 8px;
+      font-size:1.12rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .decision-card p,
+    .info-card p,
+    .link-card p,
+    .principle-card p,
+    .cta-card p,
+    .path-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .card-link{
+      display:inline-block;
+      margin-top:14px;
+      color:var(--navy);
+      font-weight:700;
+      font-size:.94rem;
+    }
+
+    .card-link:hover{color:var(--navy-2)}
+
+    .impact-line{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--stroke-soft);
+      color:var(--text);
+      font-size:.92rem;
+      font-weight:600;
+    }
+
+    .split-layout{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .default-card{
+      background:linear-gradient(180deg,#ffffff 0%, #f7f9fc 100%);
+      border:1px solid #d8e0ea;
+      border-radius:26px;
+      padding:24px 22px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .default-card::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:4px;
+      background:linear-gradient(180deg,var(--navy) 0%, #7c8796 100%);
+      opacity:.14;
+    }
+
+    .default-card h3{
+      margin:0 0 10px;
+      font-size:1.3rem;
+      line-height:1.1;
+      letter-spacing:-.03em;
+    }
+
+    .default-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+
+    .default-list{
+      margin-top:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .default-item{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:18px;
+      padding:14px 14px;
+    }
+
+    .default-item strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:.96rem;
+    }
+
+    .default-item span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .cycle-shell{
+      display:grid;
+      grid-template-columns:1fr auto 1fr auto 1fr;
+      gap:12px;
+      align-items:stretch;
+      margin-top:18px;
+    }
+
+    .cycle-step{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:20px;
+      padding:16px 14px;
+    }
+
+    .cycle-step h4{
+      margin:0 0 6px;
+      font-size:.98rem;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .cycle-step p{
+      margin:0;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .cycle-arrow{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--soft);
+      font-size:1rem;
+      font-weight:700;
+      min-width:22px;
+    }
+
+    .hard-stop{
+      background:var(--navy-3);
+      color:var(--white);
+      border-radius:24px;
+      padding:24px 22px;
+    }
+
+    .hard-stop .eyebrow{
+      color:rgba(255,255,255,.62);
+      margin-bottom:10px;
+    }
+
+    .hard-stop h3{
+      margin:0 0 10px;
+      font-size:1.28rem;
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .hard-stop p{
+      margin:0;
+      color:rgba(255,255,255,.82);
+      font-size:.96rem;
+    }
+
+    .hard-stop-list{
+      margin-top:16px;
+      display:grid;
+      gap:10px;
+    }
+
+    .hard-stop-item{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:10px;
+      color:rgba(255,255,255,.92);
+      font-size:.92rem;
+    }
+
+    .principle-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:1rem;
+    }
+
+    .path-links{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .path-links a{
+      color:var(--navy);
+      font-size:.94rem;
+      font-weight:650;
+    }
+
+    .path-links a:hover{color:var(--navy-2)}
+
+    .site-foot{
+      text-align:center;
+      color:var(--soft);
+      font-size:.84rem;
+      padding-top:6px;
+    }
+
+    @media (max-width:1080px){
+      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .split-layout{grid-template-columns:1fr}
+      .cycle-shell{grid-template-columns:1fr}
+      .cycle-arrow{min-height:22px}
+    }
+
+    @media (max-width:760px){
+      .page{padding:12px 0 28px}
+      .wrap{width:min(var(--max), calc(100% - 18px))}
+      .section-card{
+        padding:24px 18px;
+        border-radius:24px;
+        margin:12px 0;
+      }
+      .hero{padding:34px 18px 24px}
+      .hero-actions{flex-direction:column}
+      .btn{width:100%}
+      .grid-2,
+      .grid-3,
+      .grid-4{grid-template-columns:1fr}
+      .decision-card,
+      .info-card,
+      .link-card,
+      .principle-card,
+      .cta-card,
+      .path-box,
+      .default-card,
+      .hard-stop,
+      .cycle-step{
+        padding:18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="wrap">
+
+      <!-- HERO -->
+      <section class="section-card hero">
+        <div class="eyebrow">Behavior & cycles</div>
+        <h1>Market cycles explained without turning cycle awareness into prediction.</h1>
+        <p class="hero-sub">
+          This page is not about guessing the exact top or bottom.
+          It exists to explain what market cycles actually do to prices, confidence, fear, regret, and investor behavior —
+          and how that should improve your process without replacing it.
+        </p>
+        <p class="hero-note">
+          In this website's structure, this page sits above entry timing and contribution method pages.
+          Its role is not to tell users what the market will do next. Its role is to make them less behaviorally naive.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/when-to-buy-etfs.html">See how cycles affect timing decisions →</a>
+          <a class="btn btn-secondary" href="/dca-strategy-guide.html">Use DCA when cycles make entry harder →</a>
+          <a class="btn btn-secondary" href="/investment-principles.html">See the principles behind this page →</a>
+        </div>
+
+        <div class="micro-links">
+          <a href="/best-etfs-for-long-term-investing.html">Start from long-term ETF choices</a>
+          <a href="/how-to-build-etf-portfolio.html">Build your ETF portfolio</a>
+          <a href="/lump-sum-vs-dca.html">Compare entry methods</a>
+        </div>
+      </section>
+
+      <!-- QUICK ANSWER -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Quick answer</div>
+          <h2>Cycles should improve humility and process, not convince you that you can predict every turn.</h2>
+          <p>
+            Markets move through recurring shifts in sentiment, valuation pressure, confidence, and fear.
+            That matters. But the best use of cycle awareness is usually behavioral: it helps you prepare for emotional extremes without making your whole investment approach depend on precise market calls.
+          </p>
+        </div>
+
+        <div class="split-layout">
+          <div class="default-card">
+            <div class="eyebrow">Default frame</div>
+            <h3>Cycle awareness is most useful when it keeps you structurally steady during emotional change.</h3>
+            <p>
+              A market cycle changes how easy or difficult it feels to follow a plan.
+              It does not remove the importance of a strong ETF structure, low cost, broad diversification, and long holding periods.
+              The better lesson is not “predict the next phase perfectly.” The better lesson is “build a process that can survive all phases.”
+            </p>
+
+            <div class="default-list">
+              <div class="default-item">
+                <strong>Cycles change sentiment fast</strong>
+                <span>Confidence can expand too far. Fear can contract too far. Both distort judgment.</span>
+              </div>
+              <div class="default-item">
+                <strong>Cycles do not replace fundamentals of good investing</strong>
+                <span>A broad, durable, low-cost ETF structure still matters before, during, and after emotional swings.</span>
+              </div>
+              <div class="default-item">
+                <strong>The real gain is behavioral clarity</strong>
+                <span>You become less surprised by euphoria, less broken by panic, and less tempted to turn every mood shift into a strategy rewrite.</span>
+              </div>
+            </div>
+
+            <div class="cycle-shell">
+              <div class="cycle-step">
+                <h4>Optimism</h4>
+                <p>Risk feels smaller. Discipline feels less urgent.</p>
+              </div>
+              <div class="cycle-arrow">→</div>
+              <div class="cycle-step">
+                <h4>Excess</h4>
+                <p>Confidence rises. Valuation caution weakens.</p>
+              </div>
+              <div class="cycle-arrow">→</div>
+              <div class="cycle-step">
+                <h4>Fear</h4>
+                <p>Pain rises. Selling pressure and regret intensify.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>You use cycle awareness to prepare your behavior.</h3>
+              <p>The cycle becomes a planning tool, not a prediction game.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>You think understanding cycles means you can call the exact turn.</h3>
+              <p>Recognition is not precision.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>You understand that moods can move further than they feel reasonable.</h3>
+              <p>That makes your process more robust.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>You only respect cycles after the damage is already obvious.</h3>
+              <p>Then the lesson arrives too late to help the structure.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HARD STOP -->
+      <section class="section-card">
+        <div class="hard-stop">
+          <div class="eyebrow">Before you go further</div>
+          <h3>The biggest cycle mistake is not missing the exact turn. It is letting the cycle rewrite your discipline.</h3>
+          <p>
+            Most investors do not fail because they could not identify the perfect market phase in real time.
+            They fail because their process changes with the emotional weather faster than their principles do.
+            That is the problem this page is trying to solve.
+          </p>
+
+          <div class="hard-stop-list">
+            <div class="hard-stop-item">If cycle awareness makes you more humble, more prepared, and less emotionally naive, it is helping.</div>
+            <div class="hard-stop-item">If cycle awareness mainly increases your urge to predict, react, and redesign the portfolio constantly, it is hurting.</div>
+            <div class="hard-stop-item">A strong process is not one that avoids every drawdown. It is one that can survive changing moods without losing its center.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT CYCLES ACTUALLY CHANGE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">What cycles actually change</div>
+          <h2>Cycles change emotion, confidence, and pressure more reliably than they create easy forecasts.</h2>
+          <p>
+            This page is unique in the site because it is not mainly about what to buy or how to fund it.
+            It is about the psychological climate surrounding those decisions.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Cycle effect</span>
+            <h3>Good periods make risk feel smaller</h3>
+            <p>
+              Extended calm can make investors treat optimism as evidence, rather than as a phase.
+            </p>
+            <div class="impact-line">This is where overconfidence quietly weakens process discipline.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Cycle effect</span>
+            <h3>Bad periods make pain feel permanent</h3>
+            <p>
+              Falling markets compress time horizons and make temporary drawdowns feel like structural failure.
+            </p>
+            <div class="impact-line">This is where bad selling and abandoned plans become more likely.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Cycle effect</span>
+            <h3>Behavior often shifts faster than logic</h3>
+            <p>
+              The same ETF structure can feel brilliant in one phase and unbearable in another, even when the structure itself did not change.
+            </p>
+            <div class="impact-line">That is why process has to be stronger than emotional context.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT CYCLES SHOULD CHANGE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">What cycles should change</div>
+          <h2>Cycle awareness should change humility, sizing, and preparation.</h2>
+          <p>
+            It should make you more careful about extremes, more respectful of behavior risk, and more serious about building rules before the next emotional shift arrives.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Useful change</span>
+            <h3>More humility about certainty</h3>
+            <p>
+              Cycles remind you that confidence often peaks when caution should be rising.
+            </p>
+            <div class="impact-line">Good use: you stop treating near-term conviction as reliable knowledge.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Useful change</span>
+            <h3>More respect for behavior fragility</h3>
+            <p>
+              You recognize that the real danger is not just price movement, but how price movement changes decision quality.
+            </p>
+            <div class="impact-line">Good use: you choose position sizes and entry methods you can actually survive.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Useful change</span>
+            <h3>More preparation before pain arrives</h3>
+            <p>
+              You define what you will do in a downturn before you are emotionally inside one.
+            </p>
+            <div class="impact-line">Good use: the process exists before the stress tests it.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT CYCLES SHOULD NOT CHANGE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">What cycles should not change</div>
+          <h2>Cycles should not replace your long-term investment center.</h2>
+          <p>
+            If every cycle makes you rethink diversification, fees, holding period, and contribution discipline from scratch,
+            then the process never had a strong center to begin with.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="info-card">
+            <h3>Broad exposure still matters</h3>
+            <p>A fearful market does not make concentration automatically wise.</p>
+          </div>
+          <div class="info-card">
+            <h3>Low cost still matters</h3>
+            <p>Cycle stress does not cancel the long-term drag of unnecessary fees.</p>
+          </div>
+          <div class="info-card">
+            <h3>Long holding periods still matter</h3>
+            <p>A cycle is part of the journey, not proof the journey itself was wrong.</p>
+          </div>
+          <div class="info-card">
+            <h3>Contribution process still matters</h3>
+            <p>If the cycle destroys your schedule, the process may have been too fragile.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMON MISUNDERSTANDING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Common misunderstanding</div>
+          <h2>Understanding cycles is not the same as timing them.</h2>
+          <p>
+            This page should make the user less naive, not more aggressive.
+            That is its unique role in the website.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="decision-card">
+            <span class="mini-label">What people imagine</span>
+            <h3>“If I understand the cycle, I should be able to buy near the bottom and reduce near the top.”</h3>
+            <p>
+              The investor quietly turns emotional awareness into confidence about exact execution.
+            </p>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">What actually matters</span>
+            <h3>Cycle understanding is usually more useful for discipline than for perfect timing.</h3>
+            <p>
+              The stronger use is building an ETF structure, entry method, and contribution plan that can survive changing emotional climates.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARKS SECTION -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Marks comes first here</div>
+          <h2>Cycle thinking matters because extremes distort judgment.</h2>
+          <p>
+            Howard Marks is especially central on this page.
+            Not because he gives a magic formula for calling the next turn, but because he reminds us that pendulums swing,
+            extremes are emotionally blinding, and investor psychology becomes least reliable when it feels most convinced.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Marks lens</span>
+            <h3>Good times hide risk</h3>
+            <p>
+              Long stretches of calm can make caution feel unnecessary and discipline feel old-fashioned.
+            </p>
+            <div class="impact-line">That is exactly when humility becomes more valuable, not less.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Marks lens</span>
+            <h3>Bad times exaggerate permanence</h3>
+            <p>
+              Painful phases make it easier to treat temporary conditions as permanent truth.
+            </p>
+            <div class="impact-line">That is why process needs to be stronger than the current emotional climate.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Marks lens</span>
+            <h3>The payoff is better behavior, not smarter-sounding prediction</h3>
+            <p>
+              The point is not to impress yourself with cycle language. The point is to improve the quality of decisions across moods.
+            </p>
+            <div class="impact-line">If it only increases prediction talk, it is serving ego more than process.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOGLE SECTION -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Bogle comes next</div>
+          <h2>The durable answer still begins with broad, low-cost, long-term ownership.</h2>
+          <p>
+            Cycle awareness should sit on top of a Bogle-like foundation, not replace it.
+            This page exists to make users more behaviorally prepared, while keeping the core structure simple and durable.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Bogle lens</span>
+            <h3>Keep the ETF structure strong before the cycle turns</h3>
+            <p>
+              A broad, low-cost, holdable foundation matters before, during, and after changing emotional climates.
+            </p>
+            <div class="impact-line">If the structure is weak, cycle awareness mostly adds another layer of noise.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Bogle lens</span>
+            <h3>Do not let cycle language outrank long-term discipline</h3>
+            <p>
+              The point is not to become a market operator. The point is to stay inside a durable compounding structure.
+            </p>
+            <div class="impact-line">A good ETF held through cycles is stronger than a fragile strategy redesigned every phase.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Bogle lens</span>
+            <h3>Participation still matters more than emotional comfort</h3>
+            <p>
+              Compounding only works because capital stays in the structure long enough to matter.
+            </p>
+            <div class="impact-line">The cycle can change your mood. It should not erase your participation.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOUR MASTERS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Decision principles</div>
+          <h2>The four ideas underneath serious cycle awareness.</h2>
+          <p>
+            This page is not about forecasting. It is about understanding what cycles do to judgment, timing anxiety, and process strength.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Munger: remove the avoidable illusion</strong>
+            <p>The common error is not failing to label the cycle. It is acting as if awareness automatically created prediction skill.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Bogle: keep the durable structure in place</strong>
+            <p>The real edge still comes from broad, low-cost, long-term ownership that survives changing moods.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Taleb: respect fragility in behavior</strong>
+            <p>If a cycle makes you abandon your own process, the structure may have been more fragile than it looked.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Marks: cycles shape sentiment more reliably than prediction</strong>
+            <p>The better lesson is about extremes, pendulums, and humility — not about calling every turn exactly.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- EXECUTION -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Execution</div>
+          <h2>Cycle awareness is useful only if it improves the process below it.</h2>
+          <p>
+            The next step is not to admire the framework. The next step is to translate it into a better entry method, a stronger schedule, or a steadier holding process.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <a class="cta-card" href="/when-to-buy-etfs.html">
+            <span class="mini-label">Timing</span>
+            <h3>Use cycle awareness to frame timing decisions correctly</h3>
+            <p>See how cycles should influence entry thinking without becoming prediction theater.</p>
+            <span class="card-link">See when to buy ETFs →</span>
+          </a>
+
+          <a class="cta-card" href="/dca-strategy-guide.html">
+            <span class="mini-label">Behavior</span>
+            <h3>Use a schedule when cycles make entry emotionally harder</h3>
+            <p>If mood shifts make commitment difficult, a real contribution process may be the stronger answer.</p>
+            <span class="card-link">See DCA strategy guide →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- INTERNAL ROUTING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Keep exploring</div>
+          <h2>Go deeper from the right path.</h2>
+          <p>
+            This page is uniquely placed above timing and DCA pages. Its role is to explain the cycle layer without letting cycles become the whole investment philosophy.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="path-box">
+            <span class="mini-label">Upstream</span>
+            <h3>Start from the ETF foundation</h3>
+            <p>If the ETF structure is still unclear, settle that before putting cycle language on top of it.</p>
+            <div class="path-links">
+              <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+              <a href="/how-to-build-etf-portfolio.html">How to build an ETF portfolio →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Lateral</span>
+            <h3>Translate cycle awareness into entry decisions</h3>
+            <p>If your real question is how to act during changing moods, move into the timing and entry pages next.</p>
+            <div class="path-links">
+              <a href="/when-to-buy-etfs.html">When to buy ETFs →</a>
+              <a href="/lump-sum-vs-dca.html">Lump sum vs DCA →</a>
+              <a href="/investment-principles.html">Investment principles →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Downstream</span>
+            <h3>Turn cycle awareness into a repeatable process</h3>
+            <p>Once the framework is clear, build an entry and contribution method that can survive changing emotional climates.</p>
+            <div class="path-links">
+              <a href="/dca-strategy-guide.html">DCA strategy guide →</a>
+              <a href="/dca-calculator.html">DCA Calculator →</a>
+              <a href="/etf-calculator.html">ETF Calculator →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="site-foot">
+        Built for long-term investors who want more clarity, stronger structure, and decisions they can actually keep following.
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>
