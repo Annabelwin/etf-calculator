@@ -3,20 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ETF Allocation Examples | Portfolio Structures for Real Investors</title>
-  <meta
-    name="description"
-    content="See ETF allocation examples built to prevent different investor mistakes. Learn how one-core, core plus satellite, barbell, and income sleeve structures solve different portfolio problems."
-  />
-  <link rel="canonical" href="https://etfcalculator.net/allocation-examples.html" />
-
-  <meta property="og:title" content="ETF Allocation Examples | Portfolio Structures for Real Investors" />
-  <meta
-    property="og:description"
-    content="Four ETF allocation examples that show how different portfolio structures solve different investor mistakes."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://etfcalculator.net/allocation-examples.html" />
+  <title>ETF Allocation Examples | ETF Calculator</title>
+  <meta name="description" content="Explore ETF allocation examples with a clearer decision framework. Learn how different portfolio structures work, how barbell logic changes allocation, and how to choose an allocation you can actually hold." />
+  <meta name="theme-color" content="#eef2f6" />
+  <link rel="canonical" href="https://etfcalculator.net/etf-allocation-examples.html" />
 
   <style>
     :root{
@@ -30,145 +20,102 @@
       --soft:#7c8796;
       --navy:#233149;
       --navy-2:#31415d;
-      --navy-3:#1b263d;
+      --navy-3:#1b2435;
       --white:#ffffff;
       --shadow:0 10px 30px rgba(23,35,57,.06);
-      --shadow-soft:0 6px 20px rgba(23,35,57,.04);
       --radius-xl:28px;
       --radius-lg:22px;
       --radius-md:18px;
-      --radius-sm:14px;
-      --max:1180px;
-      --reading:760px;
+      --max:1120px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:linear-gradient(180deg,#f3f6f9 0%, #eef2f6 100%);
+      background:var(--bg);
       color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
 
-    a{
-      color:var(--navy);
-      text-decoration:none;
-    }
-    a:hover{color:var(--navy-2)}
+    a{color:inherit;text-decoration:none}
 
+    .page{padding:16px 0 34px}
     .wrap{
       width:min(var(--max), calc(100% - 28px));
       margin:0 auto;
     }
 
-    .site-top{
-      padding:18px 0 8px;
-    }
-
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .brand{
-      font-weight:700;
-      letter-spacing:.02em;
-      color:var(--navy);
-    }
-
-    .crumbs{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .crumbs span{color:#95a0ae}
-    .crumbs a{color:var(--muted)}
-    .crumbs a:hover{color:var(--navy)}
-
-    .hero{
-      padding:18px 0 18px;
-    }
-
-    .hero-card{
+    .section-card{
       background:var(--card);
-      border:1px solid var(--stroke-soft);
-      border-radius:32px;
+      border:1px solid rgba(24,33,50,.08);
+      border-radius:var(--radius-xl);
       box-shadow:var(--shadow);
-      padding:34px 28px 26px;
-      text-align:center;
+      padding:34px 30px;
+      margin:16px 0;
     }
 
     .eyebrow{
       display:inline-block;
+      margin-bottom:12px;
       font-size:11px;
-      letter-spacing:.18em;
+      font-weight:700;
+      letter-spacing:.16em;
       text-transform:uppercase;
       color:var(--soft);
-      font-weight:700;
-      margin-bottom:14px;
     }
 
-    h1{
-      margin:0 auto 16px;
-      max-width:880px;
-      font-size:clamp(2rem,4.6vw,4rem);
-      line-height:.98;
-      letter-spacing:-.045em;
+    .hero{
+      text-align:center;
+      padding:42px 34px 28px;
+    }
+
+    .hero h1{
+      margin:0 auto 14px;
+      max-width:790px;
+      font-size:clamp(1.75rem, 3.7vw, 3rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
       text-wrap:balance;
     }
 
     .hero-sub{
-      max-width:810px;
+      max-width:820px;
       margin:0 auto;
       color:var(--muted);
-      font-size:17px;
-      line-height:1.72;
-      text-wrap:pretty;
+      font-size:1.02rem;
     }
 
     .hero-note{
-      max-width:740px;
-      margin:18px auto 0;
+      max-width:780px;
+      margin:14px auto 0;
       color:var(--soft);
-      font-size:13px;
-      line-height:1.72;
+      font-size:.92rem;
     }
 
     .hero-actions{
-      margin-top:22px;
+      margin-top:24px;
       display:flex;
+      gap:10px;
       justify-content:center;
       flex-wrap:wrap;
-      gap:10px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:44px;
-      padding:0 16px;
+      min-height:46px;
+      padding:0 18px;
       border-radius:999px;
-      font-size:14px;
+      font-size:.96rem;
       font-weight:700;
+      white-space:nowrap;
       border:1px solid var(--stroke);
       transition:.18s ease;
-      background:var(--white);
-      color:var(--navy);
-    }
-
-    .btn:hover{
-      transform:translateY(-1px);
-      box-shadow:var(--shadow-soft);
     }
 
     .btn-primary{
@@ -176,91 +123,61 @@
       color:var(--white);
       border-color:var(--navy);
     }
-
     .btn-primary:hover{
-      color:var(--white);
       background:var(--navy-2);
       border-color:var(--navy-2);
     }
 
-    main{
-      padding:10px 0 42px;
+    .btn-secondary{
+      background:var(--white);
+      color:var(--text);
+    }
+    .btn-secondary:hover{
+      background:#fdfefe;
+      border-color:#cad2dc;
     }
 
-    .stack{
-      display:grid;
-      gap:18px;
+    .micro-links{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--soft);
+      font-size:.86rem;
     }
-
-    .section-card{
-      background:var(--card);
-      border:1px solid var(--stroke-soft);
-      border-radius:var(--radius-xl);
-      box-shadow:var(--shadow-soft);
-      padding:28px 22px;
-    }
-
-    .dark-card{
-      background:linear-gradient(180deg,#233149 0%, #1c2740 100%);
-      border:none;
-      color:#fff;
-      box-shadow:0 16px 36px rgba(23,35,57,.16);
-    }
+    .micro-links a:hover{color:var(--navy)}
 
     .section-head{
-      max-width:820px;
-      margin:0 auto 22px;
       text-align:center;
+      max-width:800px;
+      margin:0 auto 24px;
     }
 
-    .section-kicker{
-      font-size:11px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-weight:700;
-      color:var(--soft);
-      margin-bottom:10px;
-    }
-
-    .dark-card .section-kicker{
-      color:rgba(255,255,255,.66);
-    }
-
-    h2{
-      margin:0;
-      font-size:clamp(1.7rem,3vw,2.7rem);
-      line-height:1.06;
-      letter-spacing:-.04em;
+    .section-head h2{
+      margin:0 0 10px;
+      font-size:clamp(1.55rem, 3vw, 2.42rem);
+      line-height:1.08;
+      letter-spacing:-.035em;
       text-wrap:balance;
     }
 
-    .dark-card h2{
-      color:#fff;
-    }
-
-    .section-sub{
-      margin:12px auto 0;
-      max-width:760px;
+    .section-head p{
+      margin:0;
       color:var(--muted);
-      font-size:16px;
-      line-height:1.72;
-      text-wrap:pretty;
-    }
-
-    .dark-card .section-sub{
-      color:rgba(255,255,255,.74);
+      font-size:1rem;
     }
 
     .grid-2{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
+      gap:16px;
     }
 
     .grid-3{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
+      gap:16px;
     }
 
     .grid-4{
@@ -269,800 +186,733 @@
       gap:14px;
     }
 
-    .mini-card{
-      background:linear-gradient(180deg,var(--white),#f9fbfd);
+    .decision-card,
+    .info-card,
+    .link-card,
+    .principle-card,
+    .cta-card,
+    .path-box,
+    .example-card{
+      background:var(--white);
       border:1px solid var(--stroke-soft);
-      border-radius:20px;
-      padding:18px 16px;
+      border-radius:var(--radius-lg);
+      padding:20px 18px;
+      min-height:100%;
+      transition:.18s ease;
     }
 
-    .dark-mini{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
+    .decision-card:hover,
+    .info-card:hover,
+    .link-card:hover,
+    .principle-card:hover,
+    .cta-card:hover,
+    .path-box:hover,
+    .example-card:hover{
+      transform:translateY(-1px);
+      border-color:#cfd6df;
+      box-shadow:0 10px 24px rgba(23,35,57,.05);
     }
 
-    .mini-kicker{
+    .mini-label{
+      display:block;
+      margin-bottom:10px;
       font-size:10px;
-      letter-spacing:.16em;
+      font-weight:700;
+      letter-spacing:.14em;
       text-transform:uppercase;
       color:var(--soft);
-      font-weight:700;
-      margin-bottom:8px;
     }
 
-    .dark-mini .mini-kicker{
-      color:rgba(255,255,255,.66);
-    }
-
-    .mini-card h3{
-      margin:0 0 10px;
-      font-size:1.07rem;
-      line-height:1.22;
+    .decision-card h3,
+    .info-card h3,
+    .link-card h3,
+    .principle-card h3,
+    .cta-card h3,
+    .path-box h3,
+    .example-card h3{
+      margin:0 0 8px;
+      font-size:1.12rem;
+      line-height:1.2;
       letter-spacing:-.02em;
-      text-wrap:balance;
     }
 
-    .dark-mini h3{
-      color:#fff;
-    }
-
-    .mini-card p{
+    .decision-card p,
+    .info-card p,
+    .link-card p,
+    .principle-card p,
+    .cta-card p,
+    .path-box p,
+    .example-card p{
       margin:0;
       color:var(--muted);
-      font-size:14px;
-      line-height:1.68;
+      font-size:.95rem;
     }
 
-    .dark-mini p{
-      color:rgba(255,255,255,.76);
+    .card-link{
+      display:inline-block;
+      margin-top:14px;
+      color:var(--navy);
+      font-weight:700;
+      font-size:.94rem;
+    }
+    .card-link:hover{color:var(--navy-2)}
+
+    .impact-line{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--stroke-soft);
+      color:var(--text);
+      font-size:.92rem;
+      font-weight:600;
     }
 
-    .allocation-grid{
+    .split-layout{
       display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
+      grid-template-columns:1.08fr .92fr;
+      gap:18px;
+      align-items:stretch;
     }
 
-    .allocation-card{
-      background:linear-gradient(180deg,var(--white),#f8fafc);
-      border:1px solid var(--stroke-soft);
-      border-radius:24px;
-      padding:20px 18px 18px;
+    .default-card{
+      background:linear-gradient(180deg,#ffffff 0%, #f7f9fc 100%);
+      border:1px solid #d8e0ea;
+      border-radius:26px;
+      padding:24px 22px;
+      position:relative;
+      overflow:hidden;
     }
 
-    .allocation-card h3{
+    .default-card::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:4px;
+      background:linear-gradient(180deg,var(--navy) 0%, #7c8796 100%);
+      opacity:.14;
+    }
+
+    .default-card h3{
       margin:0 0 10px;
-      font-size:1.34rem;
+      font-size:1.3rem;
       line-height:1.1;
       letter-spacing:-.03em;
-      text-wrap:balance;
     }
 
-    .allocation-desc{
+    .default-card p{
+      margin:0;
       color:var(--muted);
-      font-size:15px;
-      line-height:1.72;
-      margin-bottom:16px;
+      font-size:.98rem;
     }
 
-    .bar-set{
+    .default-list{
+      margin-top:18px;
       display:grid;
       gap:10px;
-      margin:14px 0 16px;
     }
 
-    .bar-row{
+    .default-item{
+      background:var(--white);
+      border:1px solid var(--stroke-soft);
+      border-radius:18px;
+      padding:14px 14px;
+    }
+
+    .default-item strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:.96rem;
+    }
+
+    .default-item span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .hard-stop{
+      background:var(--navy-3);
+      color:var(--white);
+      border-radius:24px;
+      padding:24px 22px;
+    }
+
+    .hard-stop .eyebrow{
+      color:rgba(255,255,255,.62);
+      margin-bottom:10px;
+    }
+
+    .hard-stop h3{
+      margin:0 0 10px;
+      font-size:1.28rem;
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .hard-stop p{
+      margin:0;
+      color:rgba(255,255,255,.82);
+      font-size:.96rem;
+    }
+
+    .hard-stop-list{
+      margin-top:16px;
       display:grid;
-      grid-template-columns:110px minmax(0,1fr);
+      gap:10px;
+    }
+
+    .hard-stop-item{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:10px;
+      color:rgba(255,255,255,.92);
+      font-size:.92rem;
+    }
+
+    .allocation-bar{
+      margin-top:16px;
+      display:grid;
+      gap:10px;
+    }
+
+    .allocation-row{
+      display:grid;
+      grid-template-columns:120px 1fr;
       gap:12px;
       align-items:center;
     }
 
-    .bar-label{
-      font-size:14px;
-      color:var(--navy);
+    .allocation-label{
+      font-size:.9rem;
       font-weight:700;
+      color:var(--text);
     }
 
-    .bar-track{
+    .allocation-track{
       width:100%;
-      height:12px;
-      background:#e8edf3;
+      height:14px;
+      background:#eef2f6;
+      border:1px solid var(--stroke-soft);
       border-radius:999px;
       overflow:hidden;
-      box-shadow:inset 0 1px 1px rgba(20,30,50,.04);
+      display:flex;
     }
 
-    .bar-fill{
+    .allocation-fill{
       height:100%;
-      background:linear-gradient(90deg,var(--navy-3),#364969);
-      border-radius:999px;
     }
 
-    .bar-fill.soft{
-      background:linear-gradient(90deg,#8796ab,#bdc7d4);
+    .fill-core{background:#233149}
+    .fill-satellite{background:#8a97aa}
+    .fill-optional{background:#51627d}
+    .fill-broad{background:#233149}
+    .fill-income{background:#6f7d91}
+    .fill-growth{background:#8b95a2}
+
+    .principle-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:1rem;
     }
 
-    .fit-line{
-      font-size:14px;
-      line-height:1.72;
-      color:var(--text);
-      margin-top:2px;
-    }
-
-    .fit-line strong{
-      color:var(--navy);
-    }
-
-    .risk-box{
+    .path-links{
       margin-top:14px;
-      padding-top:14px;
-      border-top:1px solid var(--stroke-soft);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
     }
 
-    .risk-title{
-      font-size:10px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      color:var(--soft);
-      font-weight:700;
-      margin-bottom:8px;
-    }
-
-    .risk-box p{
-      margin:0;
-      color:var(--muted);
-      font-size:13.5px;
-      line-height:1.68;
-    }
-
-    .cta-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .cta-card{
-      background:linear-gradient(180deg,var(--white),#f8fafc);
-      border:1px solid var(--stroke);
-      border-radius:24px;
-      padding:22px 20px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .cta-card h3{
-      margin:0 0 10px;
-      font-size:1.22rem;
-      line-height:1.15;
-      letter-spacing:-.03em;
-    }
-
-    .cta-card p{
-      margin:0 0 16px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.72;
-    }
-
-    .card-link{
-      font-weight:800;
+    .path-links a{
       color:var(--navy);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
+      font-size:.94rem;
+      font-weight:650;
     }
+    .path-links a:hover{color:var(--navy-2)}
 
-    .link-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-    }
-
-    .link-card{
-      background:var(--card-2);
-      border:1px solid var(--stroke-soft);
-      border-radius:20px;
-      padding:18px 16px;
-    }
-
-    .link-card h3{
-      margin:0 0 8px;
-      font-size:1.05rem;
-      line-height:1.22;
-      letter-spacing:-.02em;
-    }
-
-    .link-card p{
-      margin:0 0 10px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.68;
-    }
-
-    .micro-note{
-      margin-top:14px;
-      font-size:12px;
-      line-height:1.7;
-      color:var(--soft);
-      text-align:center;
-    }
-
-    .back-home{
-      text-align:center;
-      padding:8px 0 26px;
-    }
-
-    .back-home a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:44px;
-      padding:0 18px;
-      border-radius:999px;
-      background:transparent;
-      border:1px solid var(--stroke);
-      color:var(--navy);
-      font-weight:700;
-    }
-
-    .back-home a:hover{
-      background:var(--white);
-      box-shadow:var(--shadow-soft);
-    }
-
-    footer{
-      padding:0 0 38px;
+    .site-foot{
       text-align:center;
       color:var(--soft);
-      font-size:12px;
-      line-height:1.7;
+      font-size:.84rem;
+      padding-top:6px;
     }
 
-    @media (max-width: 980px){
-      .grid-4,
-      .grid-3,
-      .link-grid{
-        grid-template-columns:1fr;
-      }
-
-      .allocation-grid,
-      .grid-2,
-      .cta-grid{
-        grid-template-columns:1fr;
-      }
+    @media (max-width:1080px){
+      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .split-layout{grid-template-columns:1fr}
     }
 
-    @media (max-width: 720px){
-      .wrap{width:min(var(--max), calc(100% - 20px))}
-      .hero-card,
-      .section-card,
-      .cta-card,
-      .allocation-card{
+    @media (max-width:760px){
+      .page{padding:12px 0 28px}
+      .wrap{width:min(var(--max), calc(100% - 18px))}
+      .section-card{
+        padding:24px 18px;
         border-radius:24px;
+        margin:12px 0;
       }
-
-      .hero-card{padding:28px 18px 22px}
-      .section-card{padding:22px 16px}
-
-      .topbar{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .bar-row{
+      .hero{padding:34px 18px 24px}
+      .hero-actions{flex-direction:column}
+      .btn{width:100%}
+      .grid-2,
+      .grid-3,
+      .grid-4{grid-template-columns:1fr}
+      .allocation-row{
         grid-template-columns:1fr;
         gap:8px;
       }
-
-      .bar-label{
-        font-size:13px;
+      .decision-card,
+      .info-card,
+      .link-card,
+      .principle-card,
+      .cta-card,
+      .path-box,
+      .default-card,
+      .hard-stop,
+      .example-card{
+        padding:18px 16px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="site-top">
-      <div class="topbar">
-        <div class="brand">ETF Calculator</div>
-        <nav class="crumbs" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span>•</span>
-          <a href="/etf-investment-principles.html">Principles</a>
-          <span>•</span>
-          <a href="/barbell-etf-strategy.html">Barbell Strategy</a>
-          <span>•</span>
-          <strong>Allocation Examples</strong>
-        </nav>
-      </div>
-    </header>
+  <div class="page">
+    <main class="wrap">
 
-    <section class="hero">
-      <div class="hero-card">
-        <div class="eyebrow">Allocation Examples</div>
-        <h1>ETF allocation examples without mistaking example portfolios for universal answers.</h1>
+      <!-- HERO -->
+      <section class="section-card hero">
+        <div class="eyebrow">Portfolio system</div>
+        <h1>ETF allocation examples that make portfolio structure visible.</h1>
         <p class="hero-sub">
-          This page is where portfolio principles become concrete. These examples do not tell you the one right mix.
-          They show how structural logic changes portfolio shape — because portfolio design is not about looking impressive,
-          but about building something you can actually live with.
+          This page is where the portfolio system becomes concrete.
+          Not because one model allocation is “the right one,” but because examples help users see how structure, concentration, optionality, and behavior actually show up inside a portfolio.
         </p>
         <p class="hero-note">
-          Start from the mistake you are trying to prevent. Then build the allocation that fits that problem.
-          That is closer to Bogle’s simplicity and closer to Taleb’s structural thinking than copying someone else’s percentages.
+          In the website structure, this page sits below the portfolio framework pages and above the calculators.
+          Its job is to turn abstract portfolio logic into visible examples users can compare, question, and adapt to their own behavior.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#frameworks">Start from the portfolio framework</a>
-          <a class="btn" href="#examples">Model your own allocation</a>
-          <a class="btn" href="/etf-investment-principles.html">See the principle behind this page →</a>
+          <a class="btn btn-primary" href="/how-to-build-etf-portfolio.html">Start from the portfolio framework →</a>
+          <a class="btn btn-secondary" href="/etf-calculator.html">Model your own allocation →</a>
+          <a class="btn btn-secondary" href="/investment-principles.html">See the principles behind this page →</a>
         </div>
 
-        <p class="micro-note">
-          Use it alongside
-          <a href="/barbell-etf-strategy.html">Barbell ETF Strategy</a>,
-          <a href="/etf-calculator.html">ETF Calculator</a>,
-          and
-          <a href="/dca-calculator.html">DCA Calculator</a>.
-        </p>
+        <div class="micro-links">
+          <a href="/core-satellite-strategy.html">Core + satellite strategy</a>
+          <a href="/barbell-etf-strategy.html">Barbell ETF strategy</a>
+          <a href="/best-etfs-for-long-term-investing.html">Start from long-term ETF choices</a>
+        </div>
+      </section>
+
+      <!-- QUICK ANSWER -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Quick answer</div>
+          <h2>The right allocation is not the cleverest one. It is the one you can actually hold.</h2>
+          <p>
+            Allocation examples are useful because they make structure visible.
+            But the page is not here to hand out magical percentages.
+            It is here to show how different portfolio philosophies create different allocation shapes — and what those shapes demand from real investor behavior.
+          </p>
+        </div>
+
+        <div class="split-layout">
+          <div class="default-card">
+            <div class="eyebrow">Default frame</div>
+            <h3>Read examples as structure, not as borrowed conviction.</h3>
+            <p>
+              A strong allocation must match three things at the same time:
+              the ETF structure itself, the role of each sleeve inside the portfolio, and the behavior of the person who has to live through stress with it.
+              That is why this page is different from a strategy page. It makes the abstract structure visible.
+            </p>
+
+            <div class="default-list">
+              <div class="default-item">
+                <strong>Examples are maps, not commands</strong>
+                <span>They help users see how core, satellite, and optionality can be arranged, but they do not remove the need for judgment.</span>
+              </div>
+              <div class="default-item">
+                <strong>The percentages matter less than the role clarity</strong>
+                <span>If the user cannot explain what each part is doing, the allocation is already weak.</span>
+              </div>
+              <div class="default-item">
+                <strong>The real test is holdability</strong>
+                <span>An elegant allocation that creates panic, drift, or constant second-guessing is structurally worse than a simpler one.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>You can describe the portfolio in one sentence.</h3>
+              <p>That usually means the structure is clear enough to survive real life.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>You copied an allocation before understanding why it was built.</h3>
+              <p>Borrowed percentages do not create borrowed conviction.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Good sign</span>
+              <h3>Each sleeve has a job.</h3>
+              <p>The portfolio is organized by function, not by random ETF accumulation.</p>
+            </div>
+
+            <div class="info-card">
+              <span class="mini-label">Warning sign</span>
+              <h3>The allocation looks diversified but feels confusing.</h3>
+              <p>That often means it is overbuilt rather than well structured.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HARD STOP -->
+      <section class="section-card">
+        <div class="hard-stop">
+          <div class="eyebrow">Before you go further</div>
+          <h3>The most dangerous mistake is treating example portfolios like recipes.</h3>
+          <p>
+            This page should help users think more clearly, not outsource the decision.
+            Two people can hold the same percentages for completely different reasons — one with real conviction, the other with none.
+            Only one of them is likely to survive the next hard period without changing the plan.
+          </p>
+
+          <div class="hard-stop-list">
+            <div class="hard-stop-item">If you still do not know what kind of ETF should be your core, go back before copying any allocation.</div>
+            <div class="hard-stop-item">If you do not know what each sleeve is for, then the example is too advanced for you right now.</div>
+            <div class="hard-stop-item">If the percentages feel elegant but the behavior feels fragile, the structure is not actually strong.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UNIQUE ROLE -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">What this page uniquely does</div>
+          <h2>This page makes portfolio structure visible.</h2>
+          <p>
+            That is its distinct role inside the site. The pages above explain the philosophy.
+            This page translates that philosophy into visible examples users can compare before moving into calculators.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Unique role</span>
+            <h3>Make structure visible</h3>
+            <p>
+              Users can see how a one-core portfolio looks different from a core + satellite portfolio and from a barbell allocation.
+            </p>
+            <div class="impact-line">This helps users understand shape, not just words.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Unique role</span>
+            <h3>Make tradeoffs visible</h3>
+            <p>
+              Every allocation expresses a tradeoff between simplicity, flexibility, concentration, and optionality.
+            </p>
+            <div class="impact-line">This helps users see what each example is demanding from behavior.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Unique role</span>
+            <h3>Bridge structure into action</h3>
+            <p>
+              Once the user sees an allocation shape that fits, the next step is modeling it in a calculator or implementing a contribution plan.
+            </p>
+            <div class="impact-line">This makes the page a bridge, not a destination.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXAMPLES -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Allocation examples</div>
+          <h2>Four allocation shapes, each solving a different investor problem.</h2>
+          <p>
+            These are examples, not prescriptions. The purpose is to show how structural logic changes portfolio shape.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="example-card">
+            <span class="mini-label">Example 01 · simplest</span>
+            <h3>One-core allocation</h3>
+            <p>
+              Built for investors who want maximum clarity, low maintenance, and the highest chance of staying with the plan over time.
+            </p>
+
+            <div class="allocation-bar">
+              <div class="allocation-row">
+                <div class="allocation-label">Core</div>
+                <div class="allocation-track"><div class="allocation-fill fill-core" style="width:100%"></div></div>
+              </div>
+            </div>
+
+            <div class="impact-line">Best for: users whose biggest risk is overcomplication, drift, or unnecessary second-guessing.</div>
+          </div>
+
+          <div class="example-card">
+            <span class="mini-label">Example 02 · balanced expansion</span>
+            <h3>Core + satellite allocation</h3>
+            <p>
+              Built for investors who already have a strong core and want one smaller sleeve with a very specific role.
+            </p>
+
+            <div class="allocation-bar">
+              <div class="allocation-row">
+                <div class="allocation-label">Core</div>
+                <div class="allocation-track"><div class="allocation-fill fill-core" style="width:80%"></div></div>
+              </div>
+              <div class="allocation-row">
+                <div class="allocation-label">Satellite</div>
+                <div class="allocation-track"><div class="allocation-fill fill-satellite" style="width:20%"></div></div>
+              </div>
+            </div>
+
+            <div class="impact-line">Best for: users who want some flexibility without letting the edge become the portfolio's identity.</div>
+          </div>
+
+          <div class="example-card">
+            <span class="mini-label">Example 03 · barbell logic</span>
+            <h3>Barbell allocation</h3>
+            <p>
+              Built for investors who want a durable broad base and a limited optional sleeve, with the two sides doing clearly different jobs.
+            </p>
+
+            <div class="allocation-bar">
+              <div class="allocation-row">
+                <div class="allocation-label">Durable side</div>
+                <div class="allocation-track"><div class="allocation-fill fill-broad" style="width:85%"></div></div>
+              </div>
+              <div class="allocation-row">
+                <div class="allocation-label">Optional side</div>
+                <div class="allocation-track"><div class="allocation-fill fill-optional" style="width:15%"></div></div>
+              </div>
+            </div>
+
+            <div class="impact-line">Best for: users who understand that the point is asymmetry, not equal excitement on both sides.</div>
+          </div>
+
+          <div class="example-card">
+            <span class="mini-label">Example 04 · income tilt</span>
+            <h3>Broad core + income sleeve</h3>
+            <p>
+              Built for investors who want a broad market base but also want a separate income-oriented sleeve without replacing the core.
+            </p>
+
+            <div class="allocation-bar">
+              <div class="allocation-row">
+                <div class="allocation-label">Broad core</div>
+                <div class="allocation-track"><div class="allocation-fill fill-broad" style="width:75%"></div></div>
+              </div>
+              <div class="allocation-row">
+                <div class="allocation-label">Income sleeve</div>
+                <div class="allocation-track"><div class="allocation-fill fill-income" style="width:25%"></div></div>
+              </div>
+            </div>
+
+            <div class="impact-line">Best for: users who know the sleeve is a tilt, not a replacement for the portfolio foundation.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW TO READ -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">How to read examples correctly</div>
+          <h2>Read the role before you read the percentage.</h2>
+          <p>
+            Users often get distracted by whether the split is 80/20 or 75/25. The more important question is usually: what role is each sleeve supposed to play?
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Read it this way</span>
+            <h3>Ask what the core is protecting</h3>
+            <p>
+              Is the core broad enough, durable enough, and holdable enough to carry the long-term burden?
+            </p>
+            <div class="impact-line">If the core is weak, the example is weak no matter how elegant the split looks.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Read it this way</span>
+            <h3>Ask what the small sleeve is allowed to do</h3>
+            <p>
+              Is it there for optionality, income, concentration, or style expression? One clear job is stronger than many vague ones.
+            </p>
+            <div class="impact-line">If the sleeve has no job, it is just decoration.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Read it this way</span>
+            <h3>Ask whether you could hold it through stress</h3>
+            <p>
+              A portfolio that looks smart in calm conditions but becomes intolerable in a drawdown is not well allocated.
+            </p>
+            <div class="impact-line">Holdability is the final filter, not a small detail.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BARBELL UNIQUE EMPHASIS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Barbell emphasis</div>
+          <h2>Barbell logic creates a different kind of allocation.</h2>
+          <p>
+            This is what makes the page uniquely important inside your site.
+            It does not just list percentages. It shows how barbell thinking creates a different allocation shape from ordinary “balanced” thinking.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="decision-card">
+            <span class="mini-label">Barbell logic</span>
+            <h3>The durable side should dominate survival</h3>
+            <p>
+              Its role is not to look respectable. Its role is to keep the whole portfolio behaviorally survivable.
+            </p>
+            <div class="impact-line">If the durable side is weak, the allocation is not really a barbell.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Barbell logic</span>
+            <h3>The optional side should stay optional</h3>
+            <p>
+              It should remain small enough that failure on that side does not rewrite the whole holding experience.
+            </p>
+            <div class="impact-line">If the edge becomes the emotional center, the allocation has drifted.</div>
+          </div>
+
+          <div class="decision-card">
+            <span class="mini-label">Barbell logic</span>
+            <h3>The point is asymmetry, not symmetry</h3>
+            <p>
+              This is why a barbell allocation should not be read like a “balanced split” portfolio with prettier language.
+            </p>
+            <div class="impact-line">The two sides do different jobs, so equal emotional weight is already a warning sign.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOGLE + MASTERS -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Decision principles</div>
+          <h2>The four ideas underneath a strong allocation.</h2>
+          <p>
+            Examples only become decision tools when they sit on top of the right principles.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Munger: remove what is unnecessary</strong>
+            <p>If an allocation needs too many justifications, it may already be too complicated.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Bogle: keep the core broad, low-cost, and holdable</strong>
+            <p>The allocation should begin from a durable foundation, not from the desire to make the page look sophisticated.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Taleb: control fragility at the structure level</strong>
+            <p>The risky or optional sleeve must never be large enough to destroy the whole holding experience.</p>
+          </a>
+
+          <a class="principle-card" href="/investment-principles.html">
+            <strong>Marks: behavior decides whether the allocation survives</strong>
+            <p>An allocation that cannot survive the next change in mood is weaker than it looks on paper.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- EXECUTION -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Execution</div>
+          <h2>An allocation becomes useful only when you can model and fund it.</h2>
+          <p>
+            The next step is not memorizing the percentages. The next step is testing whether the structure fits your time horizon, contribution pattern, and behavior.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <a class="cta-card" href="/etf-calculator.html">
+            <span class="mini-label">Action</span>
+            <h3>Model your own allocation</h3>
+            <p>Use the ETF Calculator to turn the example into a real structure with real contributions and assumptions.</p>
+            <span class="card-link">Use ETF Calculator →</span>
+          </a>
+
+          <a class="cta-card" href="/dca-calculator.html">
+            <span class="mini-label">Behavior</span>
+            <h3>Pair the allocation with a contribution plan</h3>
+            <p>Use the DCA Calculator if the right structure still needs a schedule strong enough to survive real moods.</p>
+            <span class="card-link">Use DCA Calculator →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- INTERNAL ROUTING -->
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Keep exploring</div>
+          <h2>Go deeper from the right path.</h2>
+          <p>
+            This page sits below the portfolio framework pages and above the calculators. It makes structure visible before the user turns it into an actual plan.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="path-box">
+            <span class="mini-label">Upstream</span>
+            <h3>Start from the framework first</h3>
+            <p>If you still need the bigger structural logic, go back before copying any example.</p>
+            <div class="path-links">
+              <a href="/how-to-build-etf-portfolio.html">How to build an ETF portfolio →</a>
+              <a href="/core-satellite-strategy.html">Core + satellite strategy →</a>
+              <a href="/barbell-etf-strategy.html">Barbell ETF strategy →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Lateral</span>
+            <h3>Clarify the ETF choices inside the sleeves</h3>
+            <p>If the structure is clear but the actual ETF selection is not, move into the ETF choice and comparison pages next.</p>
+            <div class="path-links">
+              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+              <a href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs →</a>
+              <a href="/etf-comparisons.html">ETF comparisons hub →</a>
+            </div>
+          </div>
+
+          <div class="path-box">
+            <span class="mini-label">Downstream</span>
+            <h3>Turn the example into a real plan</h3>
+            <p>Once the shape feels right, the next step is modeling returns, contributions, and entry rhythm.</p>
+            <div class="path-links">
+              <a href="/etf-calculator.html">ETF Calculator →</a>
+              <a href="/dca-calculator.html">DCA Calculator →</a>
+              <a href="/when-to-buy-etfs.html">When to buy ETFs →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="site-foot">
+        Built for long-term investors who want more clarity, stronger structure, and decisions they can actually keep following.
       </div>
-    </section>
 
-    <main>
-      <div class="stack">
-
-        <section class="section-card">
-          <div class="section-head">
-            <div class="section-kicker">Decision Standard</div>
-            <h2>A good allocation is not the most impressive one. It is the one you can actually hold.</h2>
-            <p class="section-sub">
-              Percentages do not create portfolio quality on their own. A useful allocation solves a real investor problem:
-              confusion, overreach, yield-chasing, or putting too much weight in the wrong place.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <div class="mini-card">
-              <div class="mini-kicker">Mistake 01</div>
-              <h3>Use examples to understand structure, not to borrow conviction you do not actually have.</h3>
-              <p>
-                A strong allocation can look calm from the outside while feeling unbearable from the inside.
-                If the structure does not match your actual temperament, it will not survive real market stress.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Mistake 02</div>
-              <h3>You can describe the portfolio in one sentence and still misunderstand it.</h3>
-              <p>
-                Many investors say they have a core plus a small sleeve, but emotionally the sleeve is what really drives the decision.
-                That is where drift begins.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Mistake 03</div>
-              <h3>You can understand visible income and still misunderstand why it was building.</h3>
-              <p>
-                An income sleeve can have a role, but if that role replaces structural breadth, the portfolio may start optimizing
-                for comfort instead of resilience.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-card dark-card">
-          <div class="section-head">
-            <div class="section-kicker">Core Principle</div>
-            <h2>The worst dangerous use of allocation examples is treating them like recipes instead of expressions of structure.</h2>
-            <p class="section-sub">
-              This page should help users think more clearly, not memorize one formula. If you copy percentages without understanding
-              the problem the structure was built to solve, you may inherit a portfolio shape that looks reasonable but behaves badly
-              for your actual risk, time horizon, or decision habits.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <div class="mini-card dark-mini">
-              <div class="mini-kicker">Step 01</div>
-              <h3>Start with the mistake</h3>
-              <p>
-                Overcomplication, concentration drift, yield temptation, or optionality confusion — name the real danger first.
-              </p>
-            </div>
-
-            <div class="mini-card dark-mini">
-              <div class="mini-kicker">Step 02</div>
-              <h3>Then assign roles</h3>
-              <p>
-                The durable sleeve should do durable work. The optional sleeve should not quietly become the portfolio’s identity.
-              </p>
-            </div>
-
-            <div class="mini-card dark-mini">
-              <div class="mini-kicker">Step 03</div>
-              <h3>Only then use percentages</h3>
-              <p>
-                Good numbers without clear structural logic still produce weak portfolios. The order matters.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-card" id="frameworks">
-          <div class="section-head">
-            <div class="section-kicker">Why This Page Exists</div>
-            <h2>This page does not explain the portfolio system. It shows what the system looks like.</h2>
-            <p class="section-sub">
-              Your structure becomes easier to trust when you can see it. These examples make portfolio logic visible,
-              so users understand not just what each sleeve contains, but what each sleeve is supposed to do.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <div class="mini-card">
-              <div class="mini-kicker">Make structure visible</div>
-              <h3>Almost all investor mistakes start before the market even moves.</h3>
-              <p>
-                Most portfolio failure begins in design: too many moving parts, unclear sleeve roles, or hidden contradiction
-                between what the investor wants and what the structure invites.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Make tradeoffs visible</div>
-              <h3>Every cleaner structure removes one kind of future confusion.</h3>
-              <p>
-                Simplicity is not lack of thought. It is often the result of strong thought. The right structure usually feels calmer
-                because fewer internal conflicts remain.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Bridge structure into action</div>
-              <h3>Once users can see the logic, they are more likely to hold through discomfort.</h3>
-              <p>
-                This page is not here to entertain. It is here to make the allocation more intelligible — and therefore more durable.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-card" id="examples">
-          <div class="section-head">
-            <div class="section-kicker">Allocation Examples</div>
-            <h2>Four allocation structures — each designed to prevent a different investor mistake.</h2>
-            <p class="section-sub">
-              These are examples, not prescriptions. The point is not to hand out universal percentages.
-              The point is to show how a change in structural logic changes portfolio shape.
-            </p>
-          </div>
-
-          <div class="allocation-grid">
-            <article class="allocation-card">
-              <div class="mini-kicker">Example 01 • Simplest</div>
-              <h3>One Core. No Distractions.</h3>
-              <div class="allocation-desc">
-                Built for investors whose biggest risk is not missing a clever edge, but losing clarity through too many decisions.
-                This is the cleanest structure for users who want maximum simplicity, low maintenance, and the highest chance of staying consistent.
-              </div>
-
-              <div class="bar-set">
-                <div class="bar-row">
-                  <div class="bar-label">Core</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
-                </div>
-              </div>
-
-              <div class="fit-line">
-                <strong>Best for:</strong> investors who tend to overthink, drift, second-guess, or abandon the plan when too many moving parts appear.
-              </div>
-
-              <div class="risk-box">
-                <div class="risk-title">Hidden risk if used wrong</div>
-                <p>
-                  Mistaking simplicity for certainty. A one-core allocation removes noise, but it still asks the investor to accept market volatility without escape routes.
-                </p>
-              </div>
-            </article>
-
-            <article class="allocation-card">
-              <div class="mini-kicker">Example 02 • Balanced Expansion</div>
-              <h3>Core First. Satellite Second.</h3>
-              <div class="allocation-desc">
-                Built for investors who already have a strong foundation and want one smaller sleeve with a very specific role.
-                The important idea is not the satellite itself. It is keeping the portfolio’s identity anchored in the core.
-              </div>
-
-              <div class="bar-set">
-                <div class="bar-row">
-                  <div class="bar-label">Core</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
-                </div>
-                <div class="bar-row">
-                  <div class="bar-label">Satellite</div>
-                  <div class="bar-track"><div class="bar-fill soft" style="width:20%"></div></div>
-                </div>
-              </div>
-
-              <div class="fit-line">
-                <strong>Best for:</strong> investors who want some flexibility without letting the edge become the portfolio’s identity.
-              </div>
-
-              <div class="risk-box">
-                <div class="risk-title">Hidden risk if used wrong</div>
-                <p>
-                  Letting the satellite quietly take over. Once the attention shifts from the core to the exciting sleeve, the structure stops being balanced.
-                </p>
-              </div>
-            </article>
-
-            <article class="allocation-card">
-              <div class="mini-kicker">Example 03 • Barbell Logic</div>
-              <h3>Barbell: Safety on One Side, Optionality on the Other.</h3>
-              <div class="allocation-desc">
-                Built for investors who want the two sides of the portfolio to do clearly different jobs: one side designed to be durable and survivable,
-                the other kept limited but open enough to preserve upside and optionality.
-              </div>
-
-              <div class="bar-set">
-                <div class="bar-row">
-                  <div class="bar-label">Durable side</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-                </div>
-                <div class="bar-row">
-                  <div class="bar-label">Optional side</div>
-                  <div class="bar-track"><div class="bar-fill soft" style="width:15%"></div></div>
-                </div>
-              </div>
-
-              <div class="fit-line">
-                <strong>Best for:</strong> investors who want downside protection without giving up exposure to meaningful upside.
-              </div>
-
-              <div class="risk-box">
-                <div class="risk-title">Hidden risk if used wrong</div>
-                <p>
-                  Mistaking speculation for optionality. The right side should stay small enough that failure does not damage the whole structure,
-                  yet meaningful enough that upside remains open.
-                </p>
-              </div>
-            </article>
-
-            <article class="allocation-card">
-              <div class="mini-kicker">Example 04 • Income Tilt</div>
-              <h3>Keep the Core. Add Income, Don’t Replace It.</h3>
-              <div class="allocation-desc">
-                Built for investors who want a broad market base but also want a separate income-oriented sleeve.
-                The critical principle is that income can complement the portfolio, but should not automatically replace the broad core.
-              </div>
-
-              <div class="bar-set">
-                <div class="bar-row">
-                  <div class="bar-label">Broad core</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
-                </div>
-                <div class="bar-row">
-                  <div class="bar-label">Income sleeve</div>
-                  <div class="bar-track"><div class="bar-fill soft" style="width:22%"></div></div>
-                </div>
-              </div>
-
-              <div class="fit-line">
-                <strong>Best for:</strong> investors who want income exposure without rebuilding the whole portfolio around yield.
-              </div>
-
-              <div class="risk-box">
-                <div class="risk-title">Hidden risk if used wrong</div>
-                <p>
-                  Chasing visible income at the cost of structural breadth. A higher payout can feel reassuring, but comfort signals are not the same as resilience.
-                </p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section-card">
-          <div class="section-head">
-            <div class="section-kicker">What Matters More</div>
-            <h2>The numbers are less important than the logic underneath them.</h2>
-            <p class="section-sub">
-              Users often get distracted by whether the split is 80/20, 85/15, or 90/10. The deeper question is:
-              what problem is this structure solving — and is the role of each sleeve still clear?
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <div class="mini-card">
-              <div class="mini-kicker">Rule 01</div>
-              <h3>Start with the user’s behavior, not the spreadsheet.</h3>
-              <p>
-                A portfolio that is mathematically elegant but emotionally unsustainable is not truly well designed.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Rule 02</div>
-              <h3>Add the small sleeve only when it solves a defined job.</h3>
-              <p>
-                If the extra sleeve has no clear role, it is usually complexity disguised as sophistication.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Rule 03</div>
-              <h3>Do not build your core around what feels exciting.</h3>
-              <p>
-                Most portfolio damage comes from promoting the appealing sleeve into the place where durability should have stayed.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-card">
-          <div class="section-head">
-            <div class="section-kicker">Barbell Meaning</div>
-            <h2>The barbell changes allocation logic by giving the two sides different responsibilities.</h2>
-            <p class="section-sub">
-              This is where the page quietly expresses the larger site philosophy. The left side is not there to be exciting.
-              It is there to make survival and continuity easier. The right side is not there to dominate the allocation.
-              It is there to preserve asymmetric upside.
-            </p>
-          </div>
-
-          <div class="grid-4">
-            <div class="mini-card">
-              <div class="mini-kicker">Left side</div>
-              <h3>The durable side should dominate.</h3>
-              <p>
-                Structural safety is not the same thing as prediction. It is the design choice that makes staying invested more realistic.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Right side</div>
-              <h3>The optional side should stay optional.</h3>
-              <p>
-                If it becomes the emotional center of the portfolio, the structure has already drifted.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Symmetry trap</div>
-              <h3>The point is asymmetry, not neatness.</h3>
-              <p>
-                A visually balanced portfolio can still be logically confused. Structural clarity matters more than aesthetic symmetry.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Role logic</div>
-              <h3>The role is different, not equal weight.</h3>
-              <p>
-                The allocation shape should reflect responsibilities. If every sleeve is trying to do everything, the design is weak.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-card">
-          <div class="section-head">
-            <div class="section-kicker">Ideas Under the Surface</div>
-            <h2>The four ideas underneath a useful allocation example.</h2>
-            <p class="section-sub">
-              Behind every clean portfolio example is a quieter set of principles. These are what make the structure durable.
-            </p>
-          </div>
-
-          <div class="grid-4">
-            <div class="mini-card">
-              <div class="mini-kicker">Bogle</div>
-              <h3>Simplicity deserves respect.</h3>
-              <p>
-                Simplicity is not the absence of thought. Often it is the highest form of structural discipline.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Taleb</div>
-              <h3>Keep the core broad. Keep the edge limited.</h3>
-              <p>
-                A durable base should absorb uncertainty. Optionality belongs in the smaller sleeve, not in the part that must survive.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Munger</div>
-              <h3>Tradeoffs should be visible before they are felt.</h3>
-              <p>
-                Good structure makes future regret less likely because hidden contradiction gets removed early.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Behavior</div>
-              <h3>Your behavior decides whether the allocation survives.</h3>
-              <p>
-                A portfolio is only as strong as the investor’s ability to stay with it during discomfort.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-card">
-          <div class="section-head">
-            <div class="section-kicker">Next Step</div>
-            <h2>An allocation example becomes useful only when you can model and fund it.</h2>
-            <p class="section-sub">
-              Seeing structure is the first step. The next step is turning that structure into a real plan:
-              expected outcomes, contribution rhythm, and what the decision looks like over time.
-            </p>
-          </div>
-
-          <div class="cta-grid">
-            <div class="cta-card">
-              <div class="mini-kicker">Model your allocation</div>
-              <h3>See how the structure behaves over time.</h3>
-              <p>
-                Use the ETF Calculator to test contribution plans, long-term growth, and how a simple structure compares with a more layered one.
-              </p>
-              <a class="card-link" href="/etf-calculator.html">Use the ETF Calculator →</a>
-            </div>
-
-            <div class="cta-card">
-              <div class="mini-kicker">Put it into a behavior plan</div>
-              <h3>Turn a good allocation into a repeatable investing system.</h3>
-              <p>
-                Use the DCA Calculator when the real question is not just what to hold, but how to keep buying through uncertainty.
-              </p>
-              <a class="card-link" href="/dca-calculator.html">Start your plan →</a>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-card">
-          <div class="section-head">
-            <div class="section-kicker">Keep Going</div>
-            <h2>Go deeper from the right path.</h2>
-            <p class="section-sub">
-              This page sits below the portfolio framework pages and above the action tools. If users still need more clarity,
-              these are the most natural next steps.
-            </p>
-          </div>
-
-          <div class="link-grid">
-            <div class="link-card">
-              <h3><a href="/barbell-etf-strategy.html">Start from the barbell framework first →</a></h3>
-              <p>
-                If this page felt intuitive, that is because the barbell logic is doing most of the hidden structural work.
-              </p>
-            </div>
-
-            <div class="link-card">
-              <h3><a href="/etf-investment-principles.html">Clarify the portfolio principles underneath →</a></h3>
-              <p>
-                See the broader investment logic behind simplicity, breadth, behavior durability, and role-based allocation.
-              </p>
-            </div>
-
-            <div class="link-card">
-              <h3><a href="/when-to-buy-etfs.html">Turn the example into a real plan →</a></h3>
-              <p>
-                Portfolio shape matters, but execution matters too. Connect the allocation to actual buying behavior and timing discipline.
-              </p>
-            </div>
-          </div>
-        </section>
-
-      </div>
     </main>
-
-    <div class="back-home">
-      <a href="/">Back to home</a>
-    </div>
-
-    <footer>
-      Built to help long-term investors make calmer decisions, clearer structures, and fewer avoidable mistakes.
-    </footer>
   </div>
 </body>
 </html>
