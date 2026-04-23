@@ -3,827 +3,845 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Investment Principles That Actually Work | ETF Decision Framework</title>
-  <meta name="description" content="Discover the investment principles behind a stronger ETF plan: clear thinking, low costs, resilience under uncertainty, and awareness of market cycles. Learn how Munger, Bogle, Taleb, and Marks shape a better long-term investing approach." />
+  <title>Investment Principles | ETF Calculator</title>
+  <meta
+    name="description"
+    content="Investment principles for ETF investors: Bogle, Buffett, Munger, and Marks combined into a practical system for building a simple, resilient, long-term investing plan."
+  />
+  <meta name="theme-color" content="#eef2f6" />
   <link rel="canonical" href="https://etfcalculator.net/investment-principles.html" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-
-  <meta property="og:title" content="Investment Principles That Actually Work | ETF Decision Framework" />
-  <meta property="og:description" content="Clear thinking, low costs, resilience under uncertainty, and respect for cycles — combined into one practical system for ETF investors." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://etfcalculator.net/investment-principles.html" />
 
   <style>
     :root{
-      --bg:#f4f7fb;
-      --bg-2:#edf2f7;
-      --card:#ffffff;
-      --card-soft:#f8fafc;
-      --text:#1f2937;
-      --title:#111827;
-      --muted:#667085;
-      --line:#e5e7eb;
-      --line-2:#dbe4ee;
-      --accent:#6d7f98;
-      --accent-dark:#56677b;
-      --shadow:0 14px 40px rgba(15,23,42,0.06);
-      --shadow-soft:0 8px 24px rgba(15,23,42,0.04);
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --stroke:#dbe1e8;
+      --stroke-soft:#e7ebf0;
+      --text:#182132;
+      --muted:#5d6778;
+      --soft:#7c8796;
+      --navy:#233149;
+      --navy-2:#31415d;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(23,35,57,.06);
+      --shadow-soft:0 6px 20px rgba(23,35,57,.04);
       --radius-xl:28px;
       --radius-lg:22px;
       --radius-md:18px;
-      --max:1120px;
+      --radius-sm:14px;
+      --max:1180px;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.95), rgba(255,255,255,0) 34%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
+      background:var(--bg);
       color:var(--text);
-      line-height:1.72;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
+      line-height:1.65;
     }
 
     a{
-      color:var(--accent-dark);
+      color:var(--navy);
       text-decoration:none;
     }
 
-    a:hover{ text-decoration:underline; }
+    a:hover{opacity:.82}
 
-    .container{
-      width:min(var(--max), calc(100% - 32px));
+    img{max-width:100%;display:block}
+
+    .wrap{
+      width:min(var(--max), calc(100% - 28px));
       margin:0 auto;
     }
 
     .topbar{
-      padding:20px 0 10px;
+      padding:18px 0 6px;
     }
 
-    .topbar a{
+    .back-link{
       display:inline-flex;
       align-items:center;
       gap:8px;
+      font-size:13px;
       color:var(--muted);
-      font-size:14px;
-      font-weight:700;
+      font-weight:600;
+      letter-spacing:.01em;
     }
 
     .page{
-      padding-bottom:42px;
+      padding:10px 0 72px;
+    }
+
+    .section{
+      background:rgba(251,252,254,.78);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow-soft);
+      padding:34px;
+      margin:18px 0;
     }
 
     .hero{
-      padding:14px 0 24px;
-    }
-
-    .hero-card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(248,250,252,0.95) 100%);
-      border:1px solid rgba(219,228,238,0.95);
-      border-radius:32px;
-      box-shadow:var(--shadow);
-      padding:56px 24px 40px;
-      text-align:center;
+      padding:42px 38px 34px;
     }
 
     .eyebrow{
-      display:inline-block;
-      margin-bottom:16px;
-      font-size:12px;
+      font-size:11px;
       font-weight:800;
-      letter-spacing:0.14em;
+      letter-spacing:.18em;
       text-transform:uppercase;
-      color:var(--accent);
+      color:var(--soft);
+      margin-bottom:14px;
     }
 
     h1,h2,h3{
       margin:0;
-      color:var(--title);
-      letter-spacing:-0.03em;
+      letter-spacing:-.03em;
+      line-height:1.06;
       text-wrap:balance;
     }
 
     h1{
-      max-width:760px;
-      margin:0 auto 16px;
-      font-size:clamp(34px, 5vw, 56px);
-      line-height:1.04;
+      font-size:clamp(2.3rem, 5vw, 4.35rem);
+      max-width:820px;
     }
 
     h2{
-      font-size:clamp(28px, 3.4vw, 38px);
-      line-height:1.12;
+      font-size:clamp(1.7rem, 3vw, 2.45rem);
+      margin-bottom:12px;
     }
 
     h3{
-      font-size:20px;
-      line-height:1.18;
+      font-size:1.12rem;
+      line-height:1.25;
+      margin-bottom:10px;
+    }
+
+    p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:15.5px;
     }
 
     .hero-sub{
-      max-width:700px;
-      margin:0 auto;
       font-size:18px;
-      color:#344054;
-      line-height:1.65;
+      max-width:760px;
+      margin-top:18px;
+      line-height:1.72;
     }
 
     .hero-note{
-      max-width:620px;
-      margin:18px auto 0;
-      font-size:15px;
-      color:var(--muted);
+      margin-top:18px;
+      max-width:720px;
+      font-size:14px;
+      color:var(--soft);
     }
 
-    .hero-actions{
-      margin-top:28px;
+    .button-row{
       display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:12px;
       flex-wrap:wrap;
+      gap:12px;
+      margin-top:26px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:46px;
+      min-height:48px;
       padding:0 18px;
       border-radius:999px;
-      border:1px solid transparent;
+      font-weight:700;
       font-size:14px;
-      font-weight:800;
-      transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
-      text-decoration:none !important;
-      white-space:nowrap;
-    }
-
-    .btn:hover{
-      transform:translateY(-1px);
+      border:1px solid var(--stroke);
+      background:var(--white);
+      color:var(--navy);
+      box-shadow:var(--shadow-soft);
     }
 
     .btn-primary{
-      color:#fff;
-      background:linear-gradient(180deg,#72839a 0%, #5b6b81 100%);
-      box-shadow:0 10px 22px rgba(91,107,129,0.18);
+      background:var(--navy);
+      color:var(--white);
+      border-color:transparent;
+      box-shadow:none;
     }
 
-    .btn-primary:hover{
-      background:linear-gradient(180deg,#6b7c92 0%, #536378 100%);
+    .btn:hover{transform:translateY(-1px)}
+    .btn{transition:.18s ease}
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.4fr .95fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:28px;
     }
 
-    .btn-secondary{
-      background:#fff;
-      border-color:var(--line-2);
-      color:var(--accent-dark);
+    .hero-side{
+      display:grid;
+      gap:16px;
+    }
+
+    .mini-panel{
+      background:var(--card);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-lg);
+      padding:20px 20px 18px;
       box-shadow:var(--shadow-soft);
     }
 
-    .btn-secondary:hover{
-      background:#fafcff;
+    .mini-label{
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:800;
+      color:var(--soft);
+      margin-bottom:10px;
     }
 
-    .inline-links{
-      margin-top:12px;
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:8px 12px;
+    .mini-panel p{
+      font-size:14px;
+      margin:0;
+    }
+
+    .master-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .master-card{
+      background:var(--card);
+      border:1px solid var(--stroke-soft);
+      border-radius:20px;
+      padding:20px 18px 18px;
+      box-shadow:var(--shadow-soft);
+      min-height:100%;
+    }
+
+    .master-name{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--soft);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .master-card h3{
+      font-size:1.03rem;
+      margin-bottom:10px;
+    }
+
+    .master-card ul,
+    .point-list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .master-card li,
+    .point-list li{
+      margin:0 0 8px;
+      font-size:14px;
+    }
+
+    .impact-strip{
+      margin-top:14px;
+      border:1px solid var(--stroke-soft);
+      background:linear-gradient(180deg, #fbfcfe 0%, #f5f8fb 100%);
+      border-radius:18px;
+      padding:14px 16px;
       font-size:13px;
       color:var(--muted);
+      text-align:center;
+      font-weight:600;
     }
 
-    .inline-links a{
-      color:var(--muted);
-      font-weight:700;
-    }
-
-    .section{
-      padding:24px 0;
-    }
-
-    .section-card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(249,250,251,0.96) 100%);
-      border:1px solid rgba(225,231,238,0.95);
+    .reading-block{
+      background:linear-gradient(180deg, #233149 0%, #1d2940 100%);
+      border:1px solid rgba(255,255,255,.08);
+      color:rgba(255,255,255,.94);
       border-radius:var(--radius-xl);
-      box-shadow:var(--shadow);
-      padding:32px 18px;
+      padding:30px 28px;
+      box-shadow:0 18px 38px rgba(17,28,45,.18);
     }
 
-    .section-header{
-      text-align:center;
+    .reading-block .eyebrow,
+    .reading-block p{
+      color:rgba(255,255,255,.76);
+    }
+
+    .reading-block h2{
+      color:#fff;
+      max-width:720px;
+    }
+
+    .reading-block .impact-line{
+      margin-top:16px;
+      font-size:15px;
+      color:rgba(255,255,255,.9);
       max-width:760px;
-      margin:0 auto 22px;
     }
 
-    .section-header p{
-      margin:10px 0 0;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    .reading{
-      max-width:680px;
-      margin:0 auto;
-    }
-
-    .reading p{
-      margin:0 0 15px;
-      color:#374151;
-      font-size:16px;
-      line-height:1.82;
-    }
-
-    .principles-grid{
-      max-width:900px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:18px;
-    }
-
-    .principle-card{
-      background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-      border:1px solid #e7edf4;
-      border-radius:24px;
-      box-shadow:var(--shadow-soft);
-      padding:22px 18px 20px;
-    }
-
-    .principle-label{
-      display:inline-block;
-      margin-bottom:10px;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      color:var(--accent);
-    }
-
-    .principle-core{
-      margin:10px 0 12px;
-      font-size:15px;
-      color:#475467;
-      line-height:1.68;
-    }
-
-    .mini-list{
-      margin:0;
-      padding-left:18px;
-    }
-
-    .mini-list li{
-      margin-bottom:7px;
-      font-size:14px;
-      color:#374151;
-    }
-
-    .system-line{
-      max-width:900px;
-      margin:20px auto 0;
-      text-align:center;
-      padding:16px 18px;
-      border-radius:18px;
-      border:1px solid #e4ebf2;
-      background:linear-gradient(180deg,#f8fafc 0%, #f3f6f9 100%);
-      font-size:15px;
-      color:#334155;
-    }
-
-    .bridge-card{
-      max-width:760px;
-      margin:0 auto;
-      padding:4px 0 0;
-    }
-
-    .bridge-card p{
-      margin:0 0 14px;
-      font-size:16px;
-      color:#374151;
-      line-height:1.82;
-    }
-
-    .split-grid{
-      max-width:860px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:18px;
-    }
-
-    .split-card{
-      background:linear-gradient(180deg,#ffffff 0%, #fafcff 100%);
-      border:1px solid #e7edf4;
-      border-radius:22px;
-      box-shadow:var(--shadow-soft);
-      padding:22px 18px;
-    }
-
-    .split-card h3{
-      margin-bottom:12px;
-    }
-
-    .split-card ul{
-      margin:0;
-      padding-left:18px;
-    }
-
-    .split-card li{
-      margin-bottom:9px;
-      font-size:15px;
-      color:#374151;
-    }
-
-    .mistakes-grid{
-      max-width:860px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:18px;
-    }
-
-    .mistake-card{
-      background:#fff;
-      border:1px solid #e7edf4;
-      border-radius:22px;
-      box-shadow:var(--shadow-soft);
-      padding:22px 18px;
-    }
-
-    .mistake-card h3{
-      font-size:18px;
-      line-height:1.26;
-      margin-bottom:10px;
-    }
-
-    .mistake-card p{
-      margin:0;
-      font-size:15px;
-      color:#4b5563;
-      line-height:1.72;
-    }
-
-    .tools-grid{
-      max-width:920px;
-      margin:0 auto;
+    .three-col{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
-      gap:18px;
+      gap:16px;
     }
 
-    .tool-card{
-      background:linear-gradient(180deg,#ffffff 0%, #f8fafc 100%);
-      border:1px solid #e7edf4;
-      border-radius:24px;
+    .two-col{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--stroke-soft);
+      border-radius:22px;
+      padding:22px 20px;
       box-shadow:var(--shadow-soft);
-      padding:24px 18px;
+      min-height:100%;
     }
 
-    .tool-card h3{
-      margin-bottom:10px;
-      font-size:21px;
+    .card p:last-child{margin-bottom:0}
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:end;
+      margin-bottom:18px;
     }
 
-    .tool-card p{
-      margin:0 0 14px;
-      font-size:15px;
-      color:#4b5563;
-      line-height:1.72;
+    .section-head .support{
+      max-width:680px;
+      margin:0;
     }
 
-    .tool-link{
+    .micro-note{
+      font-size:12.5px;
+      color:var(--soft);
+      margin-top:10px;
+    }
+
+    .mistake-grid,
+    .tool-grid,
+    .path-grid,
+    .link-grid{
+      display:grid;
+      gap:16px;
+    }
+
+    .mistake-grid{grid-template-columns:repeat(2, 1fr)}
+    .tool-grid{grid-template-columns:repeat(3, 1fr)}
+    .path-grid{grid-template-columns:repeat(4, 1fr)}
+    .link-grid{grid-template-columns:repeat(3, 1fr)}
+
+    .card-link{
       display:inline-flex;
       align-items:center;
-      gap:6px;
-      font-size:15px;
-      font-weight:800;
-      color:var(--accent-dark);
-    }
-
-    .statement{
-      max-width:640px;
-      margin:0 auto;
-      text-align:center;
-    }
-
-    .statement p{
-      margin:0;
-      font-size:22px;
-      line-height:1.5;
-      letter-spacing:-0.015em;
-      color:#1f2937;
-    }
-
-    .statement .small{
+      gap:8px;
       margin-top:10px;
       font-size:14px;
-      color:var(--muted);
+      font-weight:700;
+      color:var(--navy);
     }
 
-    .cta-panel{
-      max-width:860px;
-      margin:0 auto;
-      background:linear-gradient(180deg, rgba(249,251,253,0.98) 0%, rgba(240,245,249,0.96) 100%);
-      border:1px solid #e2e9f1;
-      border-radius:30px;
-      box-shadow:var(--shadow);
-      padding:30px 22px;
+    .subtle{
+      color:var(--soft);
+      font-size:13px;
+    }
+
+    .divider{
+      height:1px;
+      background:var(--stroke-soft);
+      margin:18px 0;
+    }
+
+    .footer-note{
       text-align:center;
+      color:var(--soft);
+      font-size:12.5px;
+      margin-top:16px;
     }
 
-    .cta-panel h2{
-      margin-bottom:12px;
+    .bottom-cta{
+      text-align:center;
+      padding:36px 28px;
     }
 
-    .cta-panel p{
-      max-width:660px;
-      margin:0 auto 16px;
-      font-size:15px;
-      color:#4b5563;
-      line-height:1.78;
-    }
-
-    .decision-final{
+    .bottom-cta h2{
       max-width:700px;
-      margin:20px auto 0;
-      padding:15px 16px;
-      border-radius:18px;
-      border:1px solid #e5ebf2;
-      background:linear-gradient(180deg,#fafbfc 0%, #f3f6f9 100%);
-      font-size:14px;
-      color:#475467;
-      text-align:center;
+      margin:0 auto 14px;
     }
 
-    .related-links{
-      margin-top:18px;
+    .bottom-cta p{
+      max-width:700px;
+      margin:0 auto 18px;
+    }
+
+    .tiny-links{
       display:flex;
       justify-content:center;
       flex-wrap:wrap;
-      gap:10px 16px;
+      gap:14px;
+      margin-top:16px;
+      font-size:12.5px;
+      color:var(--soft);
     }
 
-    .related-links a{
-      color:var(--muted);
-      font-size:13px;
-      font-weight:700;
+    .tiny-links a{
+      color:var(--soft);
+      font-weight:600;
     }
 
-    @media (max-width: 900px){
-      .tools-grid{
+    @media (max-width:1100px){
+      .master-grid,
+      .path-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .hero-grid{
         grid-template-columns:1fr;
       }
     }
 
-    @media (max-width: 760px){
-      .principles-grid,
-      .split-grid,
-      .mistakes-grid{
+    @media (max-width:860px){
+      .section,
+      .hero{
+        padding:26px 20px;
+        border-radius:24px;
+      }
+
+      .three-col,
+      .two-col,
+      .mistake-grid,
+      .tool-grid,
+      .path-grid,
+      .link-grid,
+      .master-grid{
         grid-template-columns:1fr;
       }
-    }
 
-    @media (max-width: 640px){
-      .container{
-        width:min(var(--max), calc(100% - 20px));
+      .section-head{
+        display:block;
       }
 
-      .hero-card{
-        padding:40px 16px 30px;
-        border-radius:26px;
+      h1{
+        font-size:2.3rem;
       }
 
-      .section-card{
-        padding:26px 14px;
+      .hero-sub{
+        font-size:16.5px;
       }
 
-      .statement p{
-        font-size:20px;
+      .btn{
+        width:100%;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="wrap topbar">
+    <a class="back-link" href="/index.html">← Back to home</a>
+  </div>
 
-    <div class="container topbar">
-      <a href="/index.html">← Back to home</a>
-    </div>
+  <main class="wrap page">
+    <section class="section hero">
+      <div class="eyebrow">Investment Principles</div>
+      <h1>Principles that hold up when markets do not.</h1>
+      <p class="hero-sub">
+        This is the foundation layer of the platform: where Bogle, Buffett, Munger, and Marks come together into one practical investing system — simple enough to follow, resilient enough to survive, and rational enough to keep working across real market cycles.
+      </p>
+      <p class="hero-note">
+        This page is not here to predict the market. It is here to make your decisions stronger before uncertainty arrives.
+      </p>
 
-    <header class="hero">
-      <div class="container">
-        <div class="hero-card">
-          <div class="eyebrow">Investment Principles</div>
-          <h1>Investment Principles That Actually Work</h1>
-          <p class="hero-sub">
-            Clear thinking from Munger, disciplined execution from Bogle, resilience under uncertainty from Taleb, and cycle awareness from Marks — combined into one practical system for ETF investors.
+      <div class="button-row">
+        <a class="btn btn-primary" href="#core-principles">See the principles →</a>
+        <a class="btn" href="#system-map">See how the system connects →</a>
+      </div>
+
+      <div class="hero-grid">
+        <div class="mini-panel">
+          <div class="mini-label">Why this page exists</div>
+          <p>
+            Most investing mistakes do not begin with bad math. They begin with weak principles: chasing noise, ignoring structure, underestimating cycles, or building a plan that cannot be held when reality gets uncomfortable.
           </p>
-          <p class="hero-note">
-            This is not about predicting the market. It is about building a plan you can follow through time, uncertainty, and cycles.
+          <p style="margin-top:12px;">
+            This page exists to define the beliefs underneath the platform, so every guide, comparison, portfolio page, and calculator rests on the same logic.
           </p>
+        </div>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="/etf-calculator.html">Start with ETF Calculator →</a>
-            <a class="btn btn-secondary" href="/voo-calculator.html">Explore the VOO path →</a>
+        <div class="hero-side">
+          <div class="mini-panel">
+            <div class="mini-label">This page sits here</div>
+            <p>
+              <strong>Principles layer →</strong> beneath guides, portfolio pages, comparisons, and tools.
+            </p>
           </div>
-
-          <div class="inline-links">
-            <a href="/dca-calculator.html">Build a DCA strategy</a>
-            <a href="/which-etf-should-i-buy.html">Read the beginner guide</a>
-            <a href="/etf-comparisons.html">Compare ETF options</a>
+          <div class="mini-panel">
+            <div class="mini-label">What it should do</div>
+            <p>
+              Clarify what matters, strip away what does not, and help investors build a plan they can still follow when prices rise, fall, stall, or surprise.
+            </p>
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-card">
-            <div class="section-header">
-              <h2>Why This Platform Exists</h2>
-              <p>
-                Most investors are not short of information. They are short of a calmer, clearer, more reliable decision system.
-              </p>
-            </div>
-
-            <div class="reading">
-              <p>
-                Prices, headlines, market opinions, and short-term predictions compete for attention every day. But having more noise does not lead to better decisions. What most investors need is not another opinion. They need a framework they can trust.
-              </p>
-              <p>
-                This platform is built to help investors think more clearly, choose more rationally, and follow a plan that can still make sense years from now. Instead of reacting to noise, we focus on decisions that remain valid across time.
-              </p>
-              <p>
-                That is why our calculators, comparison pages, and guides are connected. They are parts of one decision system designed to move you from uncertainty to clarity, and from clarity to action.
-              </p>
-            </div>
-          </div>
+    <section class="section" id="core-principles">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Four masters, one stronger system</div>
+          <h2>Different thinkers. Different angles. One investing logic.</h2>
+          <p class="support">
+            This page should not read like four separate biographies. Each thinker carries a different structural job inside the platform.
+          </p>
         </div>
-      </section>
+      </div>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-card">
-            <div class="section-header">
-              <h2>Four Perspectives, One Stronger Investment System</h2>
-              <p>
-                A reliable long-term ETF plan needs four things at once: decision quality, execution simplicity, resilience under uncertainty, and awareness of cycles.
-              </p>
-            </div>
+      <div class="master-grid">
+        <article class="master-card">
+          <div class="master-name">Bogle</div>
+          <h3>Keep it simple, broad, and low-cost.</h3>
+          <ul>
+            <li>Favor broad diversification over cleverness.</li>
+            <li>Reduce friction, cost, and decision fatigue.</li>
+            <li>Win by owning enough and holding long enough.</li>
+          </ul>
+        </article>
 
-            <div class="principles-grid">
-              <article class="principle-card">
-                <div class="principle-label">Munger</div>
-                <h3>Improve the Quality of Decisions</h3>
-                <p class="principle-core">
-                  Good investing often begins by avoiding obvious mistakes. Rational judgment matters more than complexity.
-                </p>
-                <ul class="mini-list">
-                  <li>Use a framework instead of emotion</li>
-                  <li>Do not confuse complexity with intelligence</li>
-                  <li>Remove what is likely to go wrong first</li>
-                </ul>
-              </article>
+        <article class="master-card">
+          <div class="master-name">Buffett</div>
+          <h3>Respect quality, patience, and disciplined action.</h3>
+          <ul>
+            <li>Good investing is often quiet, repeatable, and boring.</li>
+            <li>What matters is what you can stay with over time.</li>
+            <li>A sound plan beats emotional reaction.</li>
+          </ul>
+        </article>
 
-              <article class="principle-card">
-                <div class="principle-label">Bogle</div>
-                <h3>Keep It Simple and Low-Cost</h3>
-                <p class="principle-core">
-                  You cannot control the market, but you can control fees, discipline, and consistency.
-                </p>
-                <ul class="mini-list">
-                  <li>Favor broad diversification</li>
-                  <li>Respect expense ratios and fee drag</li>
-                  <li>Stay the course with a repeatable plan</li>
-                </ul>
-              </article>
+        <article class="master-card">
+          <div class="master-name">Munger</div>
+          <h3>Improve the quality of decisions.</h3>
+          <ul>
+            <li>Rational judgment matters more than market chatter.</li>
+            <li>Invert: avoid obvious mistakes before chasing upside.</li>
+            <li>Clarity compounds when noise is removed.</li>
+          </ul>
+        </article>
 
-              <article class="principle-card">
-                <div class="principle-label">Taleb</div>
-                <h3>Respect Uncertainty and Survive It</h3>
-                <p class="principle-core">
-                  A strategy that needs accurate prediction is fragile. A better one can absorb shocks and continue.
-                </p>
-                <ul class="mini-list">
-                  <li>Expect volatility instead of fearing it</li>
-                  <li>Do not rely on precise forecasts</li>
-                  <li>Build plans that can survive bad markets</li>
-                </ul>
-              </article>
+        <article class="master-card">
+          <div class="master-name">Marks</div>
+          <h3>Understand cycles, risk, and humility.</h3>
+          <ul>
+            <li>Risk is contextual, not constant.</li>
+            <li>Markets move through moods, not just numbers.</li>
+            <li>Strong investing survives changing conditions.</li>
+          </ul>
+        </article>
+      </div>
 
-              <article class="principle-card">
-                <div class="principle-label">Marks</div>
-                <h3>Understand Risk and Cycles</h3>
-                <p class="principle-core">
-                  Risk is not constant, and neither is market psychology. Cycles matter because behavior matters.
-                </p>
-                <ul class="mini-list">
-                  <li>Know that optimism and fear move in waves</li>
-                  <li>Do not ignore timing context completely</li>
-                  <li>Respect risk when others stop respecting it</li>
-                </ul>
-              </article>
-            </div>
+      <div class="impact-strip">
+        Bogle gives the structure. Buffett gives the discipline. Munger gives the decision logic. Marks gives the cycle awareness.
+      </div>
+    </section>
 
-            <div class="system-line">
-              <strong>Think clearly.</strong> Keep costs low. Survive uncertainty. Respect cycles.
-            </div>
-          </div>
+    <section class="section reading-block">
+      <div class="eyebrow">Structural principle</div>
+      <h2>Barbell logic belongs under the whole platform — not just one portfolio page.</h2>
+      <p class="impact-line">
+        In investing, the most dangerous place is often the seductive middle: too much complexity to stay calm, too much confidence to stay humble, and too little structure to survive surprises. The barbell is not just an allocation idea here. It is a design principle for decision-making itself.
+      </p>
+      <p>
+        On one side: simplicity, durability, broad exposure, controllable costs, and plans you can actually follow. On the other side: enough openness, flexibility, and upside to keep the future from being capped too early. What we avoid is the brittle middle — complicated plans that feel smart but fail under pressure.
+      </p>
+      <div class="button-row" style="margin-top:18px;">
+        <a class="btn btn-primary" href="/barbell-etf-strategy.html">See barbell ETF strategy →</a>
+        <a class="btn" href="/allocation-examples.html">See allocation examples →</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">What these principles turn into</div>
+          <h2>Good principles create a stronger investor before they create a portfolio.</h2>
+          <p class="support">
+            The purpose of principles is not to sound wise. It is to change what you do when markets test you.
+          </p>
         </div>
-      </section>
+      </div>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-card">
-            <div class="bridge-card">
-              <p>
-                These ideas are not meant to impress. They are meant to hold up under pressure.
-              </p>
-              <p>
-                In calm markets, almost any strategy can look reasonable. The real test comes when conditions change — when uncertainty rises, when volatility increases, and when confidence fades.
-              </p>
-              <p>
-                A strong investment approach does not depend on being right all the time. It depends on being structured well enough to continue.
-              </p>
-            </div>
-          </div>
+      <div class="two-col">
+        <article class="card">
+          <h3>What usually follows from strong principles</h3>
+          <ul class="point-list">
+            <li>Simple, low-cost, broadly diversified ETF choices.</li>
+            <li>A plan designed to survive stress, not just look good on paper.</li>
+            <li>More respect for risk, mood, and market cycles.</li>
+            <li>Less need to keep changing strategy every few months.</li>
+            <li>More consistency between belief, action, and behavior.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>What usually follows from weak principles</h3>
+          <ul class="point-list">
+            <li>Overtrading in response to headlines and price moves.</li>
+            <li>Confusing complexity with intelligence.</li>
+            <li>Buying whatever recently went up.</li>
+            <li>Ignoring fees, taxes, and behavior drag.</li>
+            <li>Building a plan that works only in calm markets.</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="micro-note">
+        Understanding principles is useful. Converting them into a durable investing framework is what makes them matter.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">The mistakes we want to help you avoid</div>
+          <h2>Most bad outcomes do not come from one dramatic mistake.</h2>
+          <p class="support">
+            They come from a chain of smaller errors that feel harmless in the moment.
+          </p>
         </div>
-      </section>
+      </div>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-card">
-            <div class="section-header">
-              <h2>What These Principles Usually Lead To</h2>
-              <p>
-                The goal is not to make investing sound complicated. It is to make good decisions easier to repeat.
-              </p>
-            </div>
+      <div class="mistake-grid">
+        <article class="card">
+          <h3>Making decisions that sound smart but are hard to hold</h3>
+          <p>
+            Complexity can feel sophisticated, but it often increases confusion, inconsistency, and behavior risk. If a strategy only works when you feel confident, it is weaker than it looks.
+          </p>
+        </article>
 
-            <div class="split-grid">
-              <div class="split-card">
-                <h3>In stronger plans, you usually see</h3>
-                <ul>
-                  <li>Simple, low-cost, broadly diversified ETFs</li>
-                  <li>A focus on long-term outcomes over short-term noise</li>
-                  <li>Consistency instead of waiting for a perfect entry point</li>
-                  <li>A strategy that can survive both calm and stressful markets</li>
-                </ul>
-              </div>
+        <article class="card">
+          <h3>Ignoring costs because they look small in the moment</h3>
+          <p>
+            Small fees compound into meaningful drag over time. What looks minor today can become expensive later — especially when the holding period is long.
+          </p>
+        </article>
 
-              <div class="split-card">
-                <h3>In weaker plans, you often see</h3>
-                <ul>
-                  <li>Overtrading in response to emotion</li>
-                  <li>Ignoring fee drag over long periods</li>
-                  <li>Relying too much on prediction</li>
-                  <li>Forgetting that cycles change how risk feels</li>
-                </ul>
-              </div>
-            </div>
+        <article class="card">
+          <h3>Building a strategy around prediction instead of resilience</h3>
+          <p>
+            Markets do not move on schedule. A strong plan should be able to continue even when the future refuses to cooperate with your forecast.
+          </p>
+        </article>
 
-            <div class="decision-final">
-              Understanding principles is useful. Converting them into a practical plan is what makes the difference.
-            </div>
-          </div>
+        <article class="card">
+          <h3>Forgetting that risk changes across moods and cycles</h3>
+          <p>
+            When confidence is high, risk is often underpriced. When fear is high, discipline becomes harder to keep. Good principles must still function in both states.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="system-map">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">How this page connects to the whole platform</div>
+          <h2>The principles layer should send people in the right direction.</h2>
+          <p class="support">
+            This page is not an endpoint. It is a foundation. After clarifying how to think, it should lead investors upward into structure pages, sideways into behavior pages, and forward into action tools.
+          </p>
         </div>
-      </section>
+      </div>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-card">
-            <div class="section-header">
-              <h2>The Mistakes We Aim to Help You Avoid</h2>
-              <p>
-                A strong decision platform should not only show what to do. It should also help investors avoid the errors that quietly damage long-term results.
-              </p>
-            </div>
+      <div class="path-grid">
+        <article class="card">
+          <div class="subtle">Start here</div>
+          <h3>Clarify the decision philosophy first</h3>
+          <p>
+            For investors who want to understand the core logic before choosing an ETF or building a portfolio.
+          </p>
+          <a class="card-link" href="/which-etf-should-i-buy.html">See which ETF should I buy →</a>
+          <p class="micro-note">
+            Also useful: <a href="/best-etf-for-beginners.html">Best ETF for beginners</a> ·
+            <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing</a>
+          </p>
+        </article>
 
-            <div class="mistakes-grid">
-              <article class="mistake-card">
-                <h3>Making decisions that sound smart but are hard to follow</h3>
-                <p>
-                  Complexity can feel sophisticated, but it often increases confusion, inconsistency, and bad judgment.
-                </p>
-              </article>
+        <article class="card">
+          <div class="subtle">Portfolio system</div>
+          <h3>Translate principles into allocation structure</h3>
+          <p>
+            Once the belief layer is clear, the next step is to understand how a portfolio should actually be built.
+          </p>
+          <a class="card-link" href="/how-to-build-etf-portfolio.html">Build your ETF portfolio →</a>
+          <p class="micro-note">
+            Also useful: <a href="/core-satellite-strategy.html">Core + satellite strategy</a> ·
+            <a href="/allocation-examples.html">Allocation examples</a>
+          </p>
+        </article>
 
-              <article class="mistake-card">
-                <h3>Ignoring costs because they look small in the moment</h3>
-                <p>
-                  Small fees compound into meaningful drag over time. What looks minor today can become expensive later.
-                </p>
-              </article>
+        <article class="card">
+          <div class="subtle">Behavior & cycles</div>
+          <h3>Learn why good plans still fail in real life</h3>
+          <p>
+            Principles become necessary when emotions, timing anxiety, and cycle pressure begin to interfere with execution.
+          </p>
+          <a class="card-link" href="/market-cycles-explained.html">Understand market cycles →</a>
+          <p class="micro-note">
+            Also useful: <a href="/dca-strategy-guide.html">DCA strategy guide</a> ·
+            <a href="/when-to-buy-etfs.html">When to buy ETFs</a>
+          </p>
+        </article>
 
-              <article class="mistake-card">
-                <h3>Building a strategy around prediction instead of resilience</h3>
-                <p>
-                  Markets do not move on schedule. A plan should be able to continue even when the future refuses to cooperate.
-                </p>
-              </article>
+        <article class="card">
+          <div class="subtle">Action layer</div>
+          <h3>Turn principle into numbers you can use</h3>
+          <p>
+            The platform becomes practical when the philosophy is translated into return assumptions, contribution plans, and long-term outcome modeling.
+          </p>
+          <a class="card-link" href="/etf-calculator.html">Use the ETF Calculator →</a>
+          <p class="micro-note">
+            Also useful: <a href="/voo-calculator.html">VOO Calculator</a> ·
+            <a href="/dca-calculator.html">DCA Calculator</a>
+          </p>
+        </article>
+      </div>
+    </section>
 
-              <article class="mistake-card">
-                <h3>Forgetting that risk changes across moods and cycles</h3>
-                <p>
-                  When confidence is high, risk is often underpriced. When fear is high, discipline becomes hardest to keep.
-                </p>
-              </article>
-            </div>
-          </div>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">How our core tools reflect these principles</div>
+          <h2>Tools are useful only when the thinking underneath them is sound.</h2>
+          <p class="support">
+            Each calculator should express a principle, not just produce a number.
+          </p>
         </div>
-      </section>
+      </div>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-card">
-            <div class="section-header">
-              <h2>How Our Core Tools Reflect These Principles</h2>
-              <p>
-                Each tool helps you turn these principles into a real, repeatable plan — based on your time horizon, contributions, and goals.
-              </p>
-            </div>
+      <div class="tool-grid">
+        <article class="card">
+          <h3>ETF Calculator</h3>
+          <p>
+            Helps you understand how time, contributions, growth assumptions, and fees shape long-term outcomes.
+          </p>
+          <p class="micro-note">
+            Principle underneath: control what you can, think long term, and let small structural differences become visible.
+          </p>
+          <a class="card-link" href="/etf-calculator.html">See your long-term growth →</a>
+        </article>
 
-            <div class="tools-grid">
-              <article class="tool-card">
-                <h3>ETF Calculator</h3>
-                <p>
-                  Helps you understand how time, contributions, growth assumptions, and fees shape long-term outcomes.
-                </p>
-                <a class="tool-link" href="/etf-calculator.html">See your long-term growth →</a>
-              </article>
+        <article class="card">
+          <h3>VOO Calculator</h3>
+          <p>
+            Keeps the decision simple for investors evaluating a broad U.S. market path with one clear ETF focus.
+          </p>
+          <p class="micro-note">
+            Principle underneath: simplicity has power when it reduces noise and helps you stay invested.
+          </p>
+          <a class="card-link" href="/voo-calculator.html">Build a simple VOO plan →</a>
+        </article>
 
-              <article class="tool-card">
-                <h3>VOO Calculator</h3>
-                <p>
-                  Shows what a simple, low-cost, broad-market path can look like over time.
-                </p>
-                <a class="tool-link" href="/voo-calculator.html">Build a simple VOO plan →</a>
-              </article>
+        <article class="card">
+          <h3>DCA Calculator</h3>
+          <p>
+            Shows how a repeatable investing process can keep action going even when timing feels uncertain.
+          </p>
+          <p class="micro-note">
+            Principle underneath: consistent behavior often matters more than finding the perfect entry point.
+          </p>
+          <a class="card-link" href="/dca-calculator.html">Start a consistent investing plan →</a>
+        </article>
+      </div>
+    </section>
 
-              <article class="tool-card">
-                <h3>DCA Calculator</h3>
-                <p>
-                  Helps you build a consistent investing process that does not depend on perfect timing.
-                </p>
-                <a class="tool-link" href="/dca-calculator.html">Create a consistent investing plan →</a>
-              </article>
-            </div>
-          </div>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Related pages this principles page should strengthen</div>
+          <h2>From worldview to decision to action.</h2>
+          <p class="support">
+            This is where the internal linking should feel intentional. Each page below is a natural next step from the foundation layer.
+          </p>
         </div>
-      </section>
+      </div>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-card">
-            <div class="statement">
-              <p>
-                A strong investment plan is simple enough to follow, rational enough to trust, resilient enough to survive, and aware enough to respect cycles.
-              </p>
-              <p class="small">
-                That is the core philosophy behind this platform.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div class="link-grid">
+        <article class="card">
+          <h3>For people still choosing a path</h3>
+          <p>
+            Start with pages that reduce confusion and define a reasonable default.
+          </p>
+          <a class="card-link" href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
+          <p class="micro-note">
+            <a href="/best-etf-for-beginners.html">Best ETF for beginners</a><br />
+            <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing</a>
+          </p>
+        </article>
 
-      <section class="section" style="padding-bottom:18px;">
-        <div class="container">
-          <div class="cta-panel">
-            <div class="eyebrow">Next Step</div>
-            <h2>Start with a plan you can actually follow</h2>
-            <p>
-              You don’t need the perfect strategy to start. You need a plan you can follow — and you can build one in seconds.
-            </p>
+        <article class="card">
+          <h3>For people building a portfolio</h3>
+          <p>
+            Move into structure pages once the belief layer is clear.
+          </p>
+          <a class="card-link" href="/how-to-build-etf-portfolio.html">How to build ETF portfolio →</a>
+          <p class="micro-note">
+            <a href="/core-satellite-strategy.html">Core + satellite strategy</a><br />
+            <a href="/barbell-etf-strategy.html">Barbell ETF strategy</a><br />
+            <a href="/allocation-examples.html">Allocation examples</a>
+          </p>
+        </article>
 
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="/etf-calculator.html">Build your plan now →</a>
-              <a class="btn btn-secondary" href="/voo-calculator.html">Start simple with VOO →</a>
-              <a class="btn btn-secondary" href="/dca-calculator.html">Start with DCA →</a>
-            </div>
+        <article class="card">
+          <h3>For people ready to model outcomes</h3>
+          <p>
+            Once a framework feels rational, turn it into a practical plan with numbers.
+          </p>
+          <a class="card-link" href="/etf-calculator.html">ETF Calculator →</a>
+          <p class="micro-note">
+            <a href="/voo-calculator.html">VOO Calculator</a><br />
+            <a href="/dca-calculator.html">DCA Calculator</a>
+          </p>
+        </article>
+      </div>
 
-            <div class="decision-final">
-              A sound investing plan does not begin with certainty. It begins with a clear enough direction, a sensible structure, and the discipline to continue.
-            </div>
+      <div class="divider"></div>
 
-            <div class="related-links">
-              <a href="/which-etf-should-i-buy.html">Which ETF Should I Buy?</a>
-              <a href="/etf-comparisons.html">Compare ETF options</a>
-              <a href="/voo-vs-spy.html">VOO vs SPY</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <p class="footer-note">
+        A strong investment plan is simple enough to follow, rational enough to trust, resilient enough to survive, and aware enough to respect cycles.
+      </p>
+    </section>
 
-    </main>
-  </div>
+    <section class="section bottom-cta">
+      <div class="eyebrow">Next step</div>
+      <h2>Start with a plan you can actually follow.</h2>
+      <p>
+        You do not need the perfect strategy. You need a plan built on sound principles — and a tool that helps you carry it through.
+      </p>
+
+      <div class="button-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="/etf-calculator.html">Build your plan now →</a>
+        <a class="btn" href="/voo-calculator.html">Start simple with VOO →</a>
+        <a class="btn" href="/dca-calculator.html">Start with DCA →</a>
+      </div>
+
+      <div class="tiny-links">
+        <a href="/which-etf-should-i-buy.html">Which ETF Should I Buy?</a>
+        <a href="/compare-etfs.html">Compare ETFs</a>
+        <a href="/voo-vs-spy.html">VOO vs SPY</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
