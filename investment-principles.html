@@ -78,7 +78,7 @@
   }
 
   .section{
-    background:rgba(251,252,254,.8);
+    background:rgba(251,252,254,.82);
     border:1px solid var(--stroke-soft);
     border-radius:var(--radius-xl);
     box-shadow:var(--shadow-soft);
@@ -276,60 +276,74 @@
     font-weight:600;
   }
 
-  /* 深色阅读块：外层白边空间 */
+  /* 深色阅读块外层：给足白边空间 */
+  .reading-shell{
+    padding:6px 0;
+  }
+
   .reading-wrap{
-    max-width:920px;
+    max-width:820px;
     margin:0 auto;
   }
 
-  /* 深色阅读块本体 */
+  /* 深色阅读块本体：真正缩小 */
   .reading-block{
-    background:linear-gradient(180deg, #233149 0%, #1f2b43 100%);
-    border:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(180deg, #223047 0%, #1d2940 100%);
+    border:1px solid rgba(255,255,255,.06);
     color:rgba(255,255,255,.94);
-    border-radius:24px;
-    padding:22px 22px 20px;
-    box-shadow:0 14px 30px rgba(17,28,45,.14);
+    border-radius:20px;
+    padding:20px 22px 18px;
+    box-shadow:0 10px 24px rgba(17,28,45,.12);
   }
 
   .reading-inner{
-    max-width:700px;
+    max-width:620px;
   }
 
-  .reading-block .eyebrow,
-  .reading-block p{
-    color:rgba(255,255,255,.76);
+  .reading-block .eyebrow{
+    color:rgba(255,255,255,.68);
+    margin-bottom:10px;
   }
 
   .reading-block h2{
     color:#fff;
-    max-width:650px;
-    font-size:clamp(1.55rem, 2.5vw, 2.05rem);
+    max-width:560px;
+    font-size:clamp(1.45rem, 2.2vw, 1.95rem);
+    line-height:1.12;
     margin-bottom:10px;
   }
 
   .reading-block p{
-    font-size:14.5px;
-    line-height:1.72;
-    margin-bottom:10px;
-    max-width:760px;
+    color:rgba(255,255,255,.74);
+    font-size:14px;
+    line-height:1.68;
+    margin-bottom:9px;
+    max-width:620px;
   }
 
   .reading-block .button-row{
-    margin-top:16px;
+    margin-top:14px;
+    gap:10px;
   }
 
   .reading-block .btn{
-    min-height:44px;
-    font-size:13.5px;
-    padding:0 16px;
+    min-height:38px;
+    padding:0 14px;
+    font-size:12.5px;
+    border-radius:999px;
+    box-shadow:none;
+  }
+
+  .reading-block .btn-primary{
+    background:rgba(255,255,255,.96);
+    color:#1f2b43;
+    border-color:transparent;
   }
 
   .reading-block .btn:not(.btn-primary){
     background:rgba(255,255,255,.08);
     color:#fff;
-    border-color:rgba(255,255,255,.14);
-    box-shadow:none;
+    border-color:rgba(255,255,255,.12);
   }
 
   .two-col{
@@ -432,7 +446,7 @@
     }
 
     .reading-wrap{
-      max-width:100%;
+      max-width:760px;
     }
   }
 
@@ -468,16 +482,25 @@
       width:100%;
     }
 
-    .reading-block .btn{
-      width:auto;
+    .reading-shell{
+      padding:2px 0;
+    }
+
+    .reading-wrap{
+      max-width:100%;
     }
 
     .reading-block{
-      padding:20px 18px 18px;
+      padding:18px 16px 16px;
+      border-radius:18px;
     }
 
     .reading-inner{
       max-width:100%;
+    }
+
+    .reading-block .btn{
+      width:auto;
     }
   }
 </style>
