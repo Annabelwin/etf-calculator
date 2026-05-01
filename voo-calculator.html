@@ -3,1055 +3,1009 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VOO Calculator | Build a Long-Term VOO Investing Plan</title>
-  <meta name="description" content="Free VOO calculator to estimate long-term Vanguard S&P 500 ETF growth with an initial investment, monthly contributions, low fund fees, and practical decision guidance." />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJLXTFDGCE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SJLXTFDGCE');
-  </script>
+  <title>VOO Calculator | Long-Term S&P 500 ETF Growth Tool</title>
+  <meta name="description" content="Use this VOO calculator to estimate long-term S&P 500 ETF growth, contributions, fees, drawdowns, and long-term investing behavior risk." />
+  <link rel="canonical" href="https://etfcalculator.net/voo-calculator.html" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
     :root{
-      --bg:#f5f7fa;
-      --card:#ffffff;
-      --muted:#6e6e73;
-      --text:#1d1d1f;
-      --line:#e5e7eb;
-      --accent:#2f3b52;
-      --link:#4f46e5;
-      --shadow:0 20px 50px rgba(15,23,42,0.08);
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --stroke:#dbe1e8;
+      --stroke-soft:#e8edf3;
+      --text:#182132;
+      --muted:#5f6b7a;
+      --soft:#8a96a6;
+      --navy:#22314a;
+      --navy-2:#2f405d;
+      --blue:#356d9f;
+      --shadow:0 12px 34px rgba(24,33,50,.07);
+      --radius-xl:26px;
+      --radius-lg:20px;
+      --radius-md:16px;
+      --max:520px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
 
     body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#f7f8fb 0%, #eef2f6 100%);
       margin:0;
-      padding:48px 20px 64px;
+      background:var(--bg);
       color:var(--text);
-      line-height:1.7;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",sans-serif;
+      line-height:1.55;
     }
+
+    a{
+      color:var(--blue);
+      text-decoration:none;
+      font-weight:650;
+    }
+
+    a:hover{text-decoration:underline}
 
     .page{
-      max-width:760px;
-      margin:0 auto;
-    }
-
-    .container{
-      background:rgba(255,255,255,0.92);
-      backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,0.7);
-      border-radius:28px;
+      width:min(var(--max), calc(100% - 28px));
+      margin:42px auto;
+      background:var(--card);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-xl);
       box-shadow:var(--shadow);
-      padding:42px 34px 34px;
+      padding:30px 22px 34px;
     }
 
-    .hero{
+    header{
       text-align:center;
-      margin-bottom:30px;
+      margin-bottom:24px;
     }
 
     h1{
-      font-size:38px;
-      line-height:1.1;
-      letter-spacing:-0.02em;
-      margin:0 0 12px;
+      margin:0;
+      font-size:28px;
+      letter-spacing:-.04em;
+      line-height:1.08;
     }
 
-    .sub{
-      max-width:600px;
-      margin:0 auto 18px;
+    .subtitle{
+      margin:10px auto 0;
+      max-width:430px;
       color:var(--muted);
-      font-size:17px;
-    }
-
-    .info{
-      max-width:600px;
-      margin:0 auto;
-      background:linear-gradient(180deg,#f8fafc 0%, #f2f4f7 100%);
-      border:1px solid #eceff3;
-      border-radius:16px;
-      padding:14px 18px;
-      font-size:14px;
-      color:#4b5563;
-    }
-
-    .form-card{
-      max-width:580px;
-      margin:0 auto 24px;
-      padding:24px 22px;
-      background:linear-gradient(180deg,#ffffff 0%, #fafbfc 100%);
-      border:1px solid #edf0f3;
-      border-radius:20px;
-      box-shadow:0 8px 20px rgba(15,23,42,0.04);
-    }
-
-    .form-row{
-      display:grid;
-      grid-template-columns:1fr 220px;
-      gap:18px;
-      align-items:center;
-      margin-bottom:14px;
-    }
-
-    .form-row label{
-      font-size:15px;
-      color:#374151;
-    }
-
-    .form-row input{
-      width:100%;
-      padding:11px 12px;
-      border-radius:10px;
-      border:1px solid #d7dce3;
-      background:#fff;
-      font-size:15px;
-      text-align:right;
-      color:#111827;
-      outline:none;
-      transition:all 0.18s ease;
-    }
-
-    .form-row input:focus{
-      border-color:#aab4c2;
-      box-shadow:0 0 0 4px rgba(148,163,184,0.12);
-    }
-
-    .assumption-note{
-      margin-top:14px;
-      padding:12px 14px;
-      border-radius:14px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#6b7280;
       font-size:13px;
-      line-height:1.6;
+    }
+
+    .notice{
+      margin:18px 0 22px;
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:18px;
+      padding:14px 16px;
+      text-align:center;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+
+    .form-grid{
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .field{
+      display:grid;
+      grid-template-columns:1fr 1.1fr;
+      align-items:center;
+      gap:12px;
+      font-size:13px;
+    }
+
+    label{
+      color:#334155;
+      font-weight:600;
+    }
+
+    input{
+      width:100%;
+      border:1px solid var(--stroke);
+      background:#fff;
+      border-radius:12px;
+      padding:10px 11px;
+      font-size:13px;
+      color:var(--text);
+      outline:none;
+    }
+
+    input:focus{
+      border-color:#9fb8d6;
+      box-shadow:0 0 0 4px rgba(53,109,159,.08);
+    }
+
+    input[type="range"]{
+      padding:0;
+      accent-color:var(--navy);
     }
 
     .buttons{
-      margin-top:22px;
-      text-align:center;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin:18px 0 12px;
     }
 
     button{
-      padding:11px 18px;
-      margin:6px;
-      border:none;
-      border-radius:10px;
-      font-size:14px;
+      border:0;
+      border-radius:999px;
+      padding:9px 16px;
+      font-weight:700;
+      font-size:12px;
       cursor:pointer;
-      transition:transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
     }
 
-    button:hover{
-      transform:translateY(-1px);
-      opacity:0.96;
-    }
-
-    .calculate{
-      background:linear-gradient(180deg,#3a4760 0%, #273246 100%);
+    .primary{
+      background:var(--navy);
       color:white;
-      box-shadow:0 8px 18px rgba(47,59,82,0.18);
     }
 
-    .example,.reset{
-      background:linear-gradient(180deg,#f3f4f6 0%, #e5e7eb 100%);
-      color:#111827;
+    .secondary{
+      background:#edf1f6;
+      color:#334155;
+    }
+
+    .disclaimer{
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:16px;
+      padding:12px 14px;
+      color:var(--muted);
+      font-size:11.5px;
+      margin-bottom:22px;
     }
 
     .results{
-      max-width:580px;
-      margin:0 auto 18px;
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:14px;
+      gap:10px;
+      margin:18px 0 24px;
     }
 
-    .result-box{
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-      padding:18px 16px;
-      border-radius:18px;
+    .result-card{
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:16px;
+      padding:13px 9px;
       text-align:center;
-      border:1px solid #edf0f3;
-      box-shadow:0 6px 16px rgba(15,23,42,0.04);
     }
 
     .result-label{
-      font-size:13px;
-      color:#6b7280;
-      margin-bottom:8px;
-      letter-spacing:0.01em;
+      display:block;
+      color:var(--soft);
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      margin-bottom:5px;
     }
 
     .result-value{
-      font-size:22px;
-      font-weight:700;
-      color:#111827;
-      letter-spacing:-0.02em;
-      word-break:break-word;
+      font-weight:800;
+      font-size:15px;
+      letter-spacing:-.02em;
     }
 
-    .decision-panel{
-      max-width:580px;
-      margin:0 auto 18px;
-      background:linear-gradient(180deg,#ffffff 0%, #fafbfd 100%);
-      border:1.5px solid #e6eaf0;
-      border-radius:22px;
-      padding:22px;
-      box-shadow:0 8px 20px rgba(15,23,42,0.03);
+    section{
+      margin-top:18px;
+      padding:20px 18px;
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-lg);
     }
 
-    .eyebrow{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      color:#8b93a1;
-      margin-bottom:8px;
-    }
-
-    .decision-title{
-      font-size:28px;
-      line-height:1.18;
-      letter-spacing:-0.02em;
-      font-weight:700;
+    h2{
       margin:0 0 8px;
-      color:#111827;
+      font-size:20px;
+      line-height:1.16;
+      letter-spacing:-.035em;
     }
 
-    .decision-sub{
-      font-size:15px;
-      color:#4b5563;
-      margin-bottom:18px;
+    h3{
+      margin:0 0 7px;
+      font-size:14px;
+      letter-spacing:-.02em;
     }
 
-    .decision-summary{
-      margin-top:16px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
-      font-size:15px;
-      font-weight:600;
-      line-height:1.7;
+    p{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:13px;
     }
 
-    .decision-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin-top:16px;
+    .kicker{
+      color:var(--soft);
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:8px;
     }
 
     .decision-box{
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      border-radius:18px;
-      padding:16px 15px;
-      box-shadow:0 6px 16px rgba(15,23,42,0.04);
-    }
-
-    .decision-label{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      color:#8b93a1;
-      margin-bottom:6px;
-    }
-
-    .decision-value{
-      font-size:18px;
-      font-weight:700;
-      letter-spacing:-0.02em;
-      color:#111827;
-      margin-bottom:4px;
-    }
-
-    .decision-desc{
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:16px;
+      padding:14px;
+      margin:14px 0;
       font-size:13px;
-      color:#6b7280;
-      line-height:1.55;
+      color:var(--muted);
     }
 
-    .decision-final{
-      margin-top:10px;
-      padding:12px 14px;
-      border-radius:14px;
-      background:linear-gradient(180deg,#f9fafb 0%, #f3f4f6 100%);
-      border:1px solid #eceff3;
-      font-size:15px;
-      color:#111827;
+    .decision-box strong{
+      color:var(--text);
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin:12px 0;
+    }
+
+    .mini-card{
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:16px;
+      padding:13px;
+      min-height:90px;
+    }
+
+    .mini-card strong{
+      display:block;
+      font-size:13px;
+      margin-bottom:5px;
+    }
+
+    .mini-card span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .deep-layer{
+      background:linear-gradient(180deg,#ffffff,#f7f9fc);
+    }
+
+    details{
+      margin-top:12px;
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:16px;
+      overflow:hidden;
+    }
+
+    summary{
+      cursor:pointer;
+      list-style:none;
+      padding:15px 14px;
+      font-weight:760;
+      font-size:13px;
+      color:var(--text);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+    }
+
+    summary::-webkit-details-marker{display:none}
+
+    summary span{
+      color:var(--muted);
+      font-size:12px;
       font-weight:500;
-      line-height:1.65;
-      text-align:center;
+      display:block;
+      margin-top:3px;
     }
 
-    .section-card{
-      margin:32px auto;
-      max-width:580px;
-      background:linear-gradient(180deg,#ffffff 0%, #fafbfd 100%);
-      border:1px solid #edf0f3;
-      border-radius:22px;
-      padding:22px;
-      box-shadow:0 8px 20px rgba(15,23,42,0.03);
+    summary::after{
+      content:"+";
+      color:var(--soft);
+      font-size:18px;
+      line-height:1;
+    }
+
+    details[open] summary::after{
+      content:"–";
+    }
+
+    .detail-body{
+      padding:0 14px 15px;
+      color:var(--muted);
+      font-size:13px;
     }
 
     .chart-wrap{
-      padding:20px 20px 14px;
-    }
-
-    .chart-title{
-      font-size:24px;
-      font-weight:700;
-      letter-spacing:-0.02em;
-      color:#111827;
-      margin:8px 0 6px;
-    }
-
-    .chart-sub{
-      font-size:14px;
-      color:#6b7280;
-      margin-bottom:18px;
-    }
-
-    .decision-line{
       margin-top:14px;
-      padding:14px 16px;
+      background:#fff;
       border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
-      font-size:15px;
-      font-weight:600;
-      line-height:1.65;
+      padding:6px 0 0;
     }
 
-    .text-card h2{
-      font-size:24px;
-      margin:8px 0 8px;
-      color:#111827;
-      letter-spacing:-0.02em;
+    .drawdown-panel{
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:22px;
+      padding:12px;
+      margin-top:18px;
     }
 
-    .text-card p{
-      margin:0;
-      color:#4b5563;
-      font-size:15px;
-    }
-
-    .feature-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:16px;
-    }
-
-    .feature-box{
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
+    .drawdown-dark{
+      background:linear-gradient(145deg, #22314a, #2f405d);
+      color:white;
       border-radius:18px;
-      padding:16px 15px;
-      box-shadow:0 6px 16px rgba(15,23,42,0.04);
+      padding:22px 20px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
     }
 
-    .feature-label{
+    .drawdown-dark .kicker{
+      color:rgba(255,255,255,.62);
+    }
+
+    .drawdown-dark h2{
+      color:white;
+      margin-bottom:10px;
+    }
+
+    .drawdown-dark p{
+      color:rgba(255,255,255,.78);
+    }
+
+    .drawdown-control{
+      margin:16px 0 12px;
+      padding:13px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+    }
+
+    .drawdown-control label{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      color:rgba(255,255,255,.78);
       font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      color:#8b93a1;
-      margin-bottom:6px;
+      margin-bottom:10px;
     }
 
-    .feature-value{
-      font-size:18px;
-      font-weight:700;
-      color:#111827;
-      letter-spacing:-0.02em;
-      margin-bottom:4px;
-    }
-
-    .feature-desc{
+    .drawdown-control strong{
+      color:#fff;
       font-size:13px;
-      color:#6b7280;
-      line-height:1.55;
     }
 
-    .callout{
-      margin-top:16px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
-      font-size:15px;
-      line-height:1.65;
-    }
-
-    .suggestion-list{
-      margin:14px 0 0;
-      padding-left:18px;
-      color:#374151;
-      font-size:15px;
-    }
-
-    .suggestion-list li{
-      margin-bottom:8px;
-    }
-
-    .next-step-grid{
+    .drawdown-numbers{
       display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin-top:16px;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin:16px 0;
     }
 
-    .next-step-card{
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      border-radius:18px;
-      padding:18px 16px;
-      box-shadow:0 6px 16px rgba(15,23,42,0.04);
+    .dark-stat{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      padding:13px;
     }
 
-    .next-step-card h3{
+    .dark-stat span{
+      display:block;
+      font-size:10px;
+      color:rgba(255,255,255,.58);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:5px;
+    }
+
+    .dark-stat strong{
+      color:#fff;
       font-size:18px;
-      margin:0 0 8px;
-      letter-spacing:-0.02em;
-      color:#111827;
+      letter-spacing:-.03em;
     }
 
-    .next-step-card p{
-      margin:0 0 12px;
-      color:#4b5563;
+    .behavior-line{
+      margin-top:16px;
+      padding-top:15px;
+      border-top:1px solid rgba(255,255,255,.14);
+      font-weight:760;
+      color:white;
       font-size:14px;
-      line-height:1.6;
+      line-height:1.45;
     }
 
-    .next-step-card a{
-      color:var(--link);
-      font-weight:600;
+    .list{
+      padding-left:18px;
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .list li{margin:6px 0}
+
+    .cta-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .cta-card{
+      display:block;
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:16px;
+      padding:14px;
+      min-height:98px;
+      transition:.18s ease;
+    }
+
+    .cta-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 20px rgba(24,33,50,.06);
       text-decoration:none;
     }
 
-    .faq{
-      max-width:580px;
-      margin:32px auto 0;
-      text-align:left;
-      padding:22px;
+    .cta-card strong{
+      display:block;
+      color:var(--text);
+      font-size:13px;
+      margin-bottom:5px;
     }
 
-    .faq h2{
-      font-size:28px;
-      margin:0 0 18px;
-      letter-spacing:-0.02em;
-      color:#111827;
+    .cta-card span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:500;
     }
 
     .faq-item{
-      padding:18px 0;
-      border-top:1px solid #eceff3;
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid var(--stroke-soft);
     }
 
     .faq-item:first-of-type{
-      border-top:none;
+      border-top:0;
       padding-top:0;
     }
 
-    .faq h3{
-      font-size:19px;
-      margin:0 0 8px;
-      color:#111827;
-      letter-spacing:-0.01em;
-    }
-
-    .faq p{
-      font-size:16px;
-      color:#374151;
-      margin:0;
-    }
-
-    .footer{
-      margin-top:30px;
+    .back{
       text-align:center;
+      margin-top:24px;
+      font-size:12px;
     }
 
-    .footer a{
-      color:var(--link);
-      text-decoration:none;
-      font-weight:600;
-      cursor:pointer;
-    }
-
-    @media (max-width:768px){
-      .container{
-        padding:28px 18px 24px;
+    @media(max-width:520px){
+      .page{
+        margin:18px auto;
+        padding:24px 16px 30px;
       }
 
-      h1{
-        font-size:32px;
-      }
-
-      .sub{
-        font-size:16px;
-      }
-
-      .form-card{
-        padding:18px 16px;
-      }
-
-      .form-row{
+      .field{
         grid-template-columns:1fr;
-        gap:8px;
+        gap:5px;
       }
 
       .results,
-      .decision-grid,
-      .feature-grid,
-      .next-step-grid{
+      .mini-grid,
+      .drawdown-numbers,
+      .cta-grid{
         grid-template-columns:1fr;
-      }
-
-      .result-value{
-        font-size:24px;
-      }
-
-      .chart-title,
-      .text-card h2,
-      .decision-title{
-        font-size:22px;
-      }
-
-      .faq h2{
-        font-size:24px;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <div class="container">
+  <main class="page">
+    <header>
+      <h1>VOO Calculator</h1>
+      <p class="subtitle">
+        Build a simple long-term VOO plan — not to predict the market perfectly,
+        but to judge whether steady investing in a low-cost S&P 500 ETF can fit
+        a calm holding plan.
+      </p>
+    </header>
 
-      <div class="hero">
-        <h1>VOO Calculator</h1>
-        <div class="sub">
-          Build a simple long-term VOO plan — not to predict the market perfectly, but to judge whether steady investing in a low-cost S&P 500 ETF is worth following over time.
-        </div>
-        <div class="info">
-          Use this calculator to estimate VOO growth with an initial investment, monthly contributions, and VOO’s low expense ratio — then decide whether the plan is practical for long-term investing.
-        </div>
-      </div>
-
-      <div class="form-card">
-        <div class="form-row">
-          <label for="initial">Initial Investment ($)</label>
-          <input id="initial" type="number" step="100" min="0" placeholder="10000" />
-        </div>
-
-        <div class="form-row">
-          <label for="monthly">Monthly Contribution ($)</label>
-          <input id="monthly" type="number" step="50" min="0" placeholder="500" />
-        </div>
-
-        <div class="form-row">
-          <label for="years">Years</label>
-          <input id="years" type="number" step="1" min="1" placeholder="20" />
-        </div>
-
-        <div class="form-row">
-          <label for="rate">Expected Annual Return (%)</label>
-          <input id="rate" type="number" step="0.1" min="0" placeholder="8" />
-        </div>
-
-        <div class="form-row">
-          <label for="fee">VOO Expense Ratio (%)</label>
-          <input id="fee" type="number" step="0.01" min="0" placeholder="0.03" />
-        </div>
-
-        <div class="buttons">
-          <button type="button" class="calculate" id="calculateBtn">Calculate</button>
-          <button type="button" class="example" id="exampleBtn">Try Example</button>
-          <button type="button" class="reset" id="resetBtn">Reset</button>
-        </div>
-
-        <div class="assumption-note">
-          Assumption: This projection uses a fixed annual return, VOO’s expense ratio, and regular monthly contributions. Real returns vary, markets fall, and this is not a guarantee — it is a planning tool.
-        </div>
-      </div>
-
-      <div class="results">
-        <div class="result-box">
-          <div class="result-label">Final Value</div>
-          <div class="result-value" id="final">$0.00</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Total Contributions</div>
-          <div class="result-value" id="contributions">$0.00</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Total Growth</div>
-          <div class="result-value" id="growth">$0.00</div>
-        </div>
-      </div>
-
-      <div class="decision-panel">
-        <div class="eyebrow">Quick Answer</div>
-        <div class="decision-title" id="decisionTitle">A practical long-term VOO plan</div>
-        <div class="decision-sub" id="decisionSub">
-          This plan is structurally sound — built on low cost, broad exposure, and long-term discipline.
-        </div>
-
-        <div class="decision-summary" id="planVerdict">
-          <strong>Decision confirmation:</strong> This is a practical and repeatable long-term investing plan.
-        </div>
-
-        <div class="decision-grid">
-          <div class="decision-box">
-            <div class="decision-label">Plan Type</div>
-            <div class="decision-value" id="profileType">Core Index Builder</div>
-            <div class="decision-desc" id="profileDesc">
-              You are following a classic index investing approach — broad market exposure with minimal complexity.
-            </div>
-          </div>
-
-          <div class="decision-box">
-            <div class="decision-label">Net Return</div>
-            <div class="decision-value" id="netReturn">0.0%</div>
-            <div class="decision-desc" id="netReturnDesc">
-              Your expected return after subtracting VOO’s low expense ratio.
-            </div>
-          </div>
-
-          <div class="decision-box">
-            <div class="decision-label">Biggest Driver</div>
-            <div class="decision-value" id="biggestDriver">Time + Compounding</div>
-            <div class="decision-desc" id="biggestDriverDesc">
-              The longer you stay invested, the more your results depend on compounding — not timing.
-            </div>
-          </div>
-
-          <div class="decision-box">
-            <div class="decision-label">Main Risk</div>
-            <div class="decision-value" id="mainRisk">Behavioral Risk</div>
-            <div class="decision-desc" id="mainRiskDesc">
-              The biggest risk is abandoning the plan during market declines — not the ETF itself.
-            </div>
-          </div>
-        </div>
-
-        <div class="decision-summary" id="improveFirst">
-          <strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping during difficult markets.
-        </div>
-
-        <div class="decision-summary" id="decisionSummary">
-          For most long-term investors, a simple VOO plan is a strong default path — especially when the goal is low-cost U.S. market exposure.
-        </div>
-
-        <div class="decision-final" id="decisionFinal">
-          You do not need a perfect ETF — you need a plan you can stick with.
-        </div>
-      </div>
-
-      <div class="section-card chart-wrap">
-        <div class="eyebrow">Projection</div>
-        <div class="chart-title">VOO Growth Over Time</div>
-        <div class="chart-sub">
-          A visual view of how your VOO portfolio value may grow over time compared with your total contributions.
-        </div>
-        <canvas id="growthChart" height="220"></canvas>
-        <div class="decision-line" id="decisionLine">
-          At this pace, time and compounding are becoming major drivers of your future VOO outcome.
-        </div>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Risk Reality</div>
-        <h2>VOO will decline — and that is normal</h2>
-        <p>
-          Even broad market ETFs like VOO go through significant drawdowns. A 20% decline is not unusual — and deeper declines can occur during major downturns.
-        </p>
-        <div class="callout" id="riskRealityText">
-          If a normal market decline would make you panic, the problem is not the ETF — it is whether the plan matches your behavior.
-        </div>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Cost Advantage</div>
-        <h2>Low cost is your structural edge</h2>
-
-        <div class="feature-grid">
-          <div class="feature-box">
-            <div class="feature-label">Gross Return</div>
-            <div class="feature-value" id="grossReturnBox">8.0%</div>
-            <div class="feature-desc">This is the return assumption before VOO’s expense ratio is subtracted.</div>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-label">Expense Ratio</div>
-            <div class="feature-value" id="feeBox">0.03%</div>
-            <div class="feature-desc">VOO’s expense ratio is extremely low, which helps more of your return stay invested.</div>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-label">Net Return</div>
-            <div class="feature-value" id="netReturnBox">7.97%</div>
-            <div class="feature-desc">This is what your plan compounds at after VOO’s fee is removed.</div>
-          </div>
-        </div>
-
-        <div class="callout" id="feeImpactText">
-          In long-term investing, cost is one of the few things you can control — and one of the most important.
-        </div>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Timing Anxiety</div>
-        <h2>You do not need to wait for the perfect moment</h2>
-        <p>
-          Many investors delay action because they are waiting for a better entry point. In reality, long-term investing works by starting and staying invested.
-        </p>
-        <div class="callout">
-          The bigger risk is often not starting at all — or waiting too long for certainty.
-        </div>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Behavior Guard</div>
-        <h2>What may cause this plan to fail</h2>
-        <ul class="suggestion-list" id="behaviorList">
-          <li>Panic selling during market declines.</li>
-          <li>Changing plans based on short-term noise.</li>
-          <li>Expecting VOO to remove uncertainty or volatility.</li>
-        </ul>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Decision Explanation</div>
-        <h2>Why this plan is worth following</h2>
-        <p>
-          VOO represents a low-cost, broad exposure to the U.S. economy. It removes the need to pick individual winners and focuses on long-term growth.
-        </p>
-        <p style="margin-top:12px;">
-          The strength of this plan comes from simplicity, cost efficiency, and the ability to stay invested over long periods.
-        </p>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Next Step</div>
-        <h2>What should you do next?</h2>
-        <p>
-          If this VOO plan looks reasonable, the next decision is whether to expand your strategy or focus on building a repeatable investing habit.
-        </p>
-
-        <div class="next-step-grid">
-          <div class="next-step-card">
-            <h3>Compare a broader ETF plan</h3>
-            <p>
-              If you want to test other ETFs or compare different structures, continue with the ETF Calculator.
-            </p>
-            <a href="/etf-calculator.html">Open ETF Calculator →</a>
-          </div>
-
-          <div class="next-step-card">
-            <h3>Focus on contribution discipline</h3>
-            <p>
-              If your main challenge is consistency, build a repeatable investing habit using DCA.
-            </p>
-            <a href="/dca-calculator.html">Open DCA Calculator →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-card faq">
-        <h2>VOO Calculator FAQ</h2>
-
-        <div class="faq-item">
-          <h3>What is VOO?</h3>
-          <p>VOO is Vanguard’s S&amp;P 500 ETF. It gives investors broad exposure to 500 of the largest publicly traded U.S. companies through one fund.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Why do many long-term investors choose VOO?</h3>
-          <p>Many investors choose VOO because it combines broad U.S. equity exposure, simplicity, and a very low expense ratio, which makes it appealing as a long-term core holding.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Is VOO good for beginners?</h3>
-          <p>Many beginners consider VOO a reasonable starting point because it is diversified across major U.S. companies and easy to understand as a long-term index ETF.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>How is this different from the ETF Calculator?</h3>
-          <p>This page is specifically about VOO. The ETF Calculator is broader and designed for modeling more general ETF investing plans and cost structures.</p>
-        </div>
-      </div>
-
-      <div class="footer">
-        <a href="https://etfcalculator.net">← Back to Home</a>
-      </div>
-
+    <div class="notice">
+      Use this calculator to estimate VOO growth after initial investment,
+      monthly contributions, and time. The goal is not precision — the goal is
+      long-term thinking.
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <form id="calculatorForm">
+      <div class="form-grid">
+        <div class="field">
+          <label for="initial">Initial Investment ($)</label>
+          <input id="initial" type="number" value="10000" min="0" />
+        </div>
+
+        <div class="field">
+          <label for="monthly">Monthly Contribution ($)</label>
+          <input id="monthly" type="number" value="500" min="0" />
+        </div>
+
+        <div class="field">
+          <label for="years">Years</label>
+          <input id="years" type="number" value="20" min="1" />
+        </div>
+
+        <div class="field">
+          <label for="returnRate">Expected Annual Return (%)</label>
+          <input id="returnRate" type="number" value="8" step="0.1" />
+        </div>
+
+        <div class="field">
+          <label for="fee">VOO Expense Ratio (%)</label>
+          <input id="fee" type="number" value="0.03" step="0.01" />
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary" onclick="calculateVOO()">Calculate</button>
+        <button type="button" class="secondary" onclick="tryExample()">Try Example</button>
+        <button type="reset" class="secondary">Reset</button>
+      </div>
+    </form>
+
+    <div class="disclaimer">
+      Assumption: This calculator uses a fixed annual return and monthly contribution.
+      Real VOO returns are volatile. This is not financial advice.
+    </div>
+
+    <div class="results">
+      <div class="result-card">
+        <span class="result-label">Invested</span>
+        <strong class="result-value" id="investedResult">$130,000</strong>
+      </div>
+      <div class="result-card">
+        <span class="result-label">Growth</span>
+        <strong class="result-value" id="growthResult">$142,389</strong>
+      </div>
+      <div class="result-card">
+        <span class="result-label">Final Value</span>
+        <strong class="result-value" id="finalResult">$272,389</strong>
+      </div>
+    </div>
+
+    <section>
+      <div class="kicker">Quick decision</div>
+      <h2>A practical long-term VOO plan</h2>
+      <p>
+        This plan is structurally sound — built on low cost, broad exposure,
+        and long-term discipline.
+      </p>
+
+      <div class="decision-box">
+        <strong>Decision confirmation:</strong>
+        This is a practical and repeatable long-term investing plan if you can
+        keep buying through normal market declines.
+      </div>
+
+      <div class="mini-grid">
+        <div class="mini-card">
+          <strong>Core Index Builder</strong>
+          <span>VOO gives broad exposure to large U.S. companies.</span>
+        </div>
+        <div class="mini-card">
+          <strong>Low Cost Edge</strong>
+          <span>The low expense ratio protects more of your return.</span>
+        </div>
+        <div class="mini-card">
+          <strong>Time + Compounding</strong>
+          <span>The longer you stay invested, the more compounding matters.</span>
+        </div>
+        <div class="mini-card">
+          <strong>Behavioral Risk</strong>
+          <span>The biggest risk is abandoning the plan during market declines.</span>
+        </div>
+      </div>
+
+      <p>
+        <strong>What to improve first:</strong> Stay consistent. The main risk is
+        not the math — it is stopping during difficult markets.
+      </p>
+    </section>
+
+    <section class="deep-layer">
+      <div class="kicker">Deep layer</div>
+      <h2>Want to go deeper?</h2>
+      <p>
+        If you only need a quick answer, the plan above is enough. If you want to
+        stress-test the plan, open the deeper layers below.
+      </p>
+
+      <details>
+        <summary>
+          <div>
+            Fee impact over 20 years
+            <span>See how low cost becomes a structural edge.</span>
+          </div>
+        </summary>
+        <div class="detail-body">
+          A small fee difference looks harmless in one year, but it compounds over
+          decades. VOO’s low expense ratio helps keep more of the market return
+          working for you.
+        </div>
+      </details>
+
+      <details open>
+        <summary>
+          <div>
+            What happens in market crashes
+            <span>Stress-test your plan before a real decline happens.</span>
+          </div>
+        </summary>
+        <div class="detail-body">
+          A smooth projection chart is not the real investing experience. The real
+          test is whether you can keep the plan when your portfolio temporarily
+          falls by 20%, 30%, or more.
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <div>
+            Behavioral mistakes investors make
+            <span>Understand why investors fail even with good ETFs.</span>
+          </div>
+        </summary>
+        <div class="detail-body">
+          Many investors choose good ETFs but still fail because they panic sell,
+          stop contributing, or change plans based on short-term news.
+        </div>
+      </details>
+    </section>
+
+    <section>
+      <div class="kicker">Growth chart</div>
+      <h2>VOO Growth Over Time</h2>
+      <p>
+        A visual view of how your VOO portfolio may grow if you stay invested
+        and continue contributing.
+      </p>
+
+      <div class="chart-wrap">
+        <canvas id="growthChart" height="250"></canvas>
+      </div>
+
+      <p>
+        At this pace, time and compounding become major drivers of your future
+        VOO outcome.
+      </p>
+    </section>
+
+    <div id="drawdown-reality" class="drawdown-panel">
+      <div class="drawdown-dark">
+        <div class="kicker">Drawdown reality</div>
+        <h2>What a real market decline feels like</h2>
+        <p>
+          If your portfolio reaches <strong id="drawdownBase">$272,389</strong>,
+          a market decline can feel very different from a smooth chart.
+        </p>
+
+        <div class="drawdown-control">
+          <label for="drawdownSlider">
+            Stress test decline
+            <strong id="drawdownPercent">-30%</strong>
+          </label>
+          <input id="drawdownSlider" type="range" min="10" max="60" value="30" step="5" oninput="updateDrawdown()" />
+        </div>
+
+        <div class="drawdown-numbers">
+          <div class="dark-stat">
+            <span>After decline</span>
+            <strong id="drawdownAfter">$190,672</strong>
+          </div>
+          <div class="dark-stat">
+            <span>Temporary loss</span>
+            <strong id="drawdownLoss">$81,717</strong>
+          </div>
+        </div>
+
+        <p>
+          This is not a prediction. It is a behavioral stress test. VOO is simple,
+          but holding it through declines is not always easy.
+        </p>
+
+        <div class="behavior-line">
+          Most investors do not fail because of bad ETFs.<br>
+          They fail because they sell here.
+        </div>
+      </div>
+    </div>
+
+    <section id="fee-impact">
+      <div class="kicker">Fee impact</div>
+      <h2>Low cost is your structural edge</h2>
+
+      <div class="mini-grid">
+        <div class="mini-card">
+          <strong id="grossReturn">8.00%</strong>
+          <span>Return before fees</span>
+        </div>
+        <div class="mini-card">
+          <strong id="feeResult">0.03%</strong>
+          <span>VOO expense ratio</span>
+        </div>
+        <div class="mini-card">
+          <strong id="netReturn">7.97%</strong>
+          <span>Approx. return after VOO fee</span>
+        </div>
+        <div class="mini-card">
+          <strong id="feeDrag">$0</strong>
+          <span>Estimated fee drag over this plan</span>
+        </div>
+      </div>
+
+      <p>
+        VOO’s low cost helps more of your return remain invested and compounding
+        over the long run.
+      </p>
+    </section>
+
+    <section>
+      <div class="kicker">Timing anxiety</div>
+      <h2>You do not need to wait for the perfect moment</h2>
+      <p>
+        Many investors delay action because they are waiting for a better entry
+        point. In reality, long-term investing usually rewards staying invested.
+      </p>
+      <div class="decision-box">
+        The bigger risk is often not starting at all — or waiting too long for certainty.
+      </div>
+    </section>
+
+    <section id="behavior-risk">
+      <div class="kicker">Behavior guard</div>
+      <h2>What may cause this plan to fail</h2>
+      <ul class="list">
+        <li>Panic selling during market declines.</li>
+        <li>Changing plans based on short-term news.</li>
+        <li>Expecting VOO to remove uncertainty or volatility.</li>
+        <li>Stopping contributions when prices are lower.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="kicker">Decision meaning</div>
+      <h2>Why this plan is worth following</h2>
+      <p>
+        VOO represents a low-cost, broad exposure to the U.S. economy. It removes
+        the need to pick individual winners and focuses on long-term growth.
+      </p>
+      <p>
+        The strength of this plan comes from simplicity, low cost, consistency,
+        and the ability to stay invested.
+      </p>
+    </section>
+
+    <section>
+      <div class="kicker">Next step</div>
+      <h2>What should you do next?</h2>
+      <p>
+        If this VOO plan looks reasonable, the next decision is whether to compare
+        your strategy or focus on contribution discipline.
+      </p>
+
+      <div class="cta-grid">
+        <a class="cta-card" href="/voo-vs-spy.html">
+          <strong>Compare a broader ETF path</strong>
+          <span>See whether VOO, SPY, or IVV better fits your plan.</span>
+        </a>
+
+        <a class="cta-card" href="/dca-calculator.html">
+          <strong>Focus on contribution discipline</strong>
+          <span>Use DCA to reduce timing anxiety.</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>VOO Calculator FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is VOO?</h3>
+        <p>
+          VOO is Vanguard’s S&P 500 ETF. It gives investors broad exposure to
+          500 of the largest publicly traded U.S. companies.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why do many long-term investors choose VOO?</h3>
+        <p>
+          Many investors choose VOO because it combines broad U.S. market exposure,
+          simplicity, and a very low expense ratio.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is VOO good for beginners?</h3>
+        <p>
+          VOO can be a reasonable starting point because it is diversified, simple,
+          and low cost. The main challenge is not choosing it — it is holding it
+          through volatility.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How is this different from the ETF Calculator?</h3>
+        <p>
+          This page is specifically about VOO. The ETF Calculator is broader and
+          designed for comparing more general ETF investing plans and cost structures.
+        </p>
+      </div>
+    </section>
+
+    <div class="back">
+      <a href="/">← Back to Home</a>
+    </div>
+  </main>
 
   <script>
-    let chartInstance = null;
+    let growthChart;
+    let latestBalance = 0;
 
-    function formatMoney(num){
-      return "$" + Number(num).toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+    function money(value){
+      return value.toLocaleString("en-US", {
+        style:"currency",
+        currency:"USD",
+        maximumFractionDigits:0
       });
     }
 
-    function formatPercent(num){
-      return Number(num).toLocaleString(undefined, {
-        minimumFractionDigits: 1,
-        maximumFractionDigits: 2
-      }) + "%";
+    function calculateFutureValue(initial, monthly, years, annualReturn){
+      const monthlyReturn = Math.pow(1 + annualReturn, 1 / 12) - 1;
+      const months = years * 12;
+      let balance = initial;
+
+      for(let i = 1; i <= months; i++){
+        balance = balance * (1 + monthlyReturn) + monthly;
+      }
+
+      return balance;
     }
 
-    function getProfileType(years, monthly, initial){
-      if(years >= 15 && (initial >= 5000 || monthly >= 300)){
-        return {
-          title: "Core Index Builder",
-          desc: "You are following a classic index investing approach — broad market exposure with minimal complexity."
-        };
+    function calculateVOO(){
+      const initial = Number(document.getElementById("initial").value) || 0;
+      const monthly = Number(document.getElementById("monthly").value) || 0;
+      const years = Number(document.getElementById("years").value) || 0;
+      const annualReturnPercent = Number(document.getElementById("returnRate").value) || 0;
+      const feePercent = Number(document.getElementById("fee").value) || 0;
+
+      const annualReturn = annualReturnPercent / 100;
+      const fee = feePercent / 100;
+      const netAnnualReturn = annualReturn - fee;
+      const monthlyReturn = Math.pow(1 + netAnnualReturn, 1 / 12) - 1;
+      const months = years * 12;
+
+      let balance = initial;
+      let invested = initial;
+
+      const labels = [0];
+      const valueData = [initial];
+      const contributionData = [initial];
+
+      for(let i = 1; i <= months; i++){
+        balance = balance * (1 + monthlyReturn) + monthly;
+        invested += monthly;
+
+        if(i % 12 === 0){
+          labels.push(i / 12);
+          valueData.push(Math.round(balance));
+          contributionData.push(Math.round(invested));
+        }
       }
-      if(years >= 10){
-        return {
-          title: "Steady VOO Investor",
-          desc: "This plan is built around steady investing and patience. Time matters more than tactical market timing."
-        };
-      }
-      return {
-        title: "Early-Stage VOO Investor",
-        desc: "At this stage, the plan depends more on contribution discipline than on fully developed long-term compounding."
-      };
+
+      const noFeeBalance = calculateFutureValue(initial, monthly, years, annualReturn);
+      const feeDrag = Math.max(0, noFeeBalance - balance);
+      const growth = balance - invested;
+
+      latestBalance = balance;
+
+      document.getElementById("investedResult").textContent = money(invested);
+      document.getElementById("growthResult").textContent = money(growth);
+      document.getElementById("finalResult").textContent = money(balance);
+
+      document.getElementById("drawdownBase").textContent = money(balance);
+
+      document.getElementById("grossReturn").textContent =
+        annualReturnPercent.toFixed(2) + "%";
+
+      document.getElementById("feeResult").textContent =
+        feePercent.toFixed(2) + "%";
+
+      document.getElementById("netReturn").textContent =
+        (netAnnualReturn * 100).toFixed(2) + "%";
+
+      document.getElementById("feeDrag").textContent = money(feeDrag);
+
+      updateDrawdown();
+      drawChart(labels, valueData, contributionData);
     }
 
-    function getBiggestDriver(years, growthShare){
-      if(years < 8){
-        return {
-          title: "Contribution Discipline",
-          desc: "At this stage, your plan depends more on what you keep investing than on compounding alone."
-        };
-      }
-      if(years >= 15 && growthShare >= 45){
-        return {
-          title: "Time + Compounding",
-          desc: "The longer you stay invested, the more your results depend on compounding — not timing."
-        };
-      }
-      return {
-        title: "Consistency",
-        desc: "For many VOO plans, the biggest driver is staying invested and continuing the process over time."
-      };
+    function updateDrawdown(){
+      const slider = document.getElementById("drawdownSlider");
+      const percent = Number(slider.value) || 30;
+      const decline = percent / 100;
+
+      document.getElementById("drawdownPercent").textContent = "-" + percent + "%";
+      document.getElementById("drawdownAfter").textContent = money(latestBalance * (1 - decline));
+      document.getElementById("drawdownLoss").textContent = money(latestBalance * decline);
     }
 
-    function getMainRisk(years, ratePercent){
-      if(ratePercent >= 11){
-        return {
-          title: "Optimistic Assumptions",
-          desc: "Your expected return may be too aggressive. A good VOO plan should still make sense under more conservative assumptions."
-        };
-      }
-      if(years >= 10){
-        return {
-          title: "Behavioral Risk",
-          desc: "The biggest risk is abandoning the plan during market declines — not the ETF itself."
-        };
-      }
-      return {
-        title: "Short Horizon",
-        desc: "With fewer years ahead, there is less time for compounding to work through volatility and mistakes."
-      };
-    }
+    function drawChart(labels, valueData, contributionData){
+      const ctx = document.getElementById("growthChart").getContext("2d");
 
-    function buildPlanVerdict(years, ratePercent){
-      if(ratePercent >= 11){
-        return "This plan is reasonable, but your expected return assumption may be too optimistic.";
-      }
-      if(years < 5){
-        return "This can still be a valid start, but the time horizon is short for a long-term VOO plan to show its full strength.";
-      }
-      if(years >= 10){
-        return "This is a practical and repeatable long-term investing plan.";
-      }
-      return "This is a workable VOO plan, but discipline matters more than mature compounding at this stage.";
-    }
-
-    function buildImproveFirst(years, monthly, ratePercent){
-      if(ratePercent >= 11){
-        return "Use a more conservative expected return so the plan still looks sensible under less optimistic conditions.";
-      }
-      if(monthly < 200){
-        return "Increase your monthly contribution if possible. At this stage, contribution size matters more than fine-tuning return assumptions.";
-      }
-      if(years < 8){
-        return "Extend your time horizon if your real goal is long-term compounding rather than a shorter-term projection.";
-      }
-      return "Stay consistent — your plan already works. The main risk is stopping during difficult markets.";
-    }
-
-    function buildDecisionTitle(years, ratePercent){
-      if(ratePercent >= 11){
-        return "A workable VOO plan — but your assumptions may be too optimistic";
-      }
-      if(years >= 15){
-        return "A practical long-term VOO plan";
-      }
-      if(years >= 8){
-        return "A solid VOO plan built around patience";
-      }
-      return "A simple VOO plan that depends on discipline";
-    }
-
-    function buildDecisionSub(years){
-      if(years < 8){
-        return "This plan can still work, but at this stage discipline matters more than mature long-term compounding.";
-      }
-      return "This plan is structurally sound — built on low cost, broad exposure, and long-term discipline.";
-    }
-
-    function buildDecisionSummary(ratePercent){
-      if(ratePercent >= 11){
-        return "A simple VOO plan is still a strong path — but your return assumption should be more conservative.";
-      }
-      return "For most long-term investors, a simple VOO plan is a strong default path — especially when the goal is low-cost U.S. market exposure.";
-    }
-
-    function buildDecisionLine(years, growthShare){
-      if(years >= 15 && growthShare >= 45){
-        return "At this pace, time and compounding are becoming major drivers of your future VOO outcome.";
-      }
-      if(years < 8){
-        return "At this stage, your result is still driven heavily by what you keep contributing, which is why consistency matters.";
-      }
-      return "At this pace, time and compounding are becoming major drivers of your future VOO outcome.";
-    }
-
-    function buildRiskRealityText(years){
-      if(years >= 10){
-        return "If a normal market decline would make you panic, the problem is not the ETF — it is whether the plan matches your behavior.";
-      }
-      return "Even with a shorter horizon, VOO still includes losses and uncertainty. A plan only works if you can emotionally tolerate that reality.";
-    }
-
-    function buildFeeImpactText(feePercent){
-      if(feePercent <= 0.10){
-        return "VOO’s low cost helps more of your return remain invested and compounding over the long run.";
-      }
-      return "Even with VOO, cost still matters. Lower fees are part of why long-term index investing works so well.";
-    }
-
-    function buildBehaviorList(ratePercent){
-      const items = [
-        "Panic selling during market declines.",
-        "Changing plans based on short-term noise.",
-        "Expecting VOO to remove uncertainty or volatility."
-      ];
-
-      if(ratePercent >= 11){
-        items.push("Depending too much on optimistic return assumptions.");
+      if(growthChart){
+        growthChart.destroy();
       }
 
-      return items;
-    }
-
-    function drawChart(labels, balanceData, contributionData){
-      const canvas = document.getElementById("growthChart");
-      const ctx = canvas.getContext("2d");
-
-      if(chartInstance){
-        chartInstance.destroy();
-      }
-
-      chartInstance = new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: labels,
-          datasets: [
+      growthChart = new Chart(ctx, {
+        type:"line",
+        data:{
+          labels:labels,
+          datasets:[
             {
-              label: "Portfolio Value",
-              data: balanceData,
-              borderColor: "#2563eb",
-              backgroundColor: "rgba(37,99,235,0.08)",
-              tension: 0.32,
-              borderWidth: 3,
-              pointRadius: 0,
-              pointHoverRadius: 4,
-              fill: false
+              label:"Portfolio Value",
+              data:valueData,
+              borderWidth:2,
+              tension:.28,
+              pointRadius:0
             },
             {
-              label: "Total Contributions",
-              data: contributionData,
-              borderColor: "#9ca3af",
-              backgroundColor: "rgba(156,163,175,0.08)",
-              tension: 0.25,
-              borderWidth: 2,
-              pointRadius: 0,
-              pointHoverRadius: 3,
-              fill: false
+              label:"Total Contributions",
+              data:contributionData,
+              borderWidth:1.6,
+              tension:.28,
+              pointRadius:0
             }
           ]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          plugins: {
-            legend: {
-              labels: {
-                color: "#374151",
-                boxWidth: 24
+        options:{
+          responsive:true,
+          maintainAspectRatio:false,
+          plugins:{
+            legend:{
+              display:true,
+              labels:{
+                boxWidth:10,
+                font:{size:10}
               }
             },
-            tooltip: {
-              callbacks: {
-                label: function(context){
-                  return context.dataset.label + ": " + formatMoney(context.raw);
+            tooltip:{
+              callbacks:{
+                label:function(context){
+                  return context.dataset.label + ": " + money(context.raw);
                 }
               }
             }
           },
-          scales: {
-            x: {
-              ticks: {
-                color: "#6b7280",
-                callback: function(value, index){
-                  const yearNumber = index + 1;
-                  return [1, 5, 10, 15, 20, 25, 30].includes(yearNumber) ? yearNumber : "";
-                },
-                maxRotation: 0,
-                autoSkip: false
+          scales:{
+            x:{
+              title:{
+                display:true,
+                text:"Years",
+                font:{size:10}
               },
-              title: {
-                display: true,
-                text: "Year",
-                color: "#6b7280",
-                font: { size: 12 }
-              },
-              grid: { display: false }
+              grid:{display:false},
+              ticks:{font:{size:10}}
             },
-            y: {
-              ticks: {
-                color: "#6b7280",
-                callback: function(value){
-                  return "$" + Number(value).toLocaleString();
+            y:{
+              ticks:{
+                font:{size:10},
+                callback:function(value){
+                  return "$" + value.toLocaleString();
                 }
-              },
-              grid: {
-                color: "rgba(0,0,0,0.05)"
               }
             }
           }
@@ -1059,173 +1013,21 @@
       });
     }
 
-    function calculate(){
-      const initial = parseFloat(document.getElementById("initial").value) || 0;
-      const monthly = parseFloat(document.getElementById("monthly").value) || 0;
-      const years = parseFloat(document.getElementById("years").value) || 0;
-      const grossRatePercent = parseFloat(document.getElementById("rate").value) || 0;
-      const feePercent = parseFloat(document.getElementById("fee").value) || 0;
-
-      const grossRate = grossRatePercent / 100;
-      const feeRate = feePercent / 100;
-      const netAnnualRate = Math.max(grossRate - feeRate, 0);
-
-      const months = Math.max(Math.round(years * 12), 0);
-
-      let balance = initial;
-      let contributions = initial;
-
-      const labels = [];
-      const balanceData = [];
-      const contributionData = [];
-
-      for(let i = 1; i <= months; i++){
-        balance *= (1 + netAnnualRate / 12);
-        balance += monthly;
-        contributions += monthly;
-
-        if(i % 12 === 0){
-          labels.push("Year " + (i / 12));
-          balanceData.push(Number(balance.toFixed(2)));
-          contributionData.push(Number(contributions.toFixed(2)));
-        }
-      }
-
-      if(months === 0){
-        balance = initial;
-        contributions = initial;
-      }
-
-      const growth = balance - contributions;
-      const growthShare = balance > 0 ? (growth / balance) * 100 : 0;
-      const netReturnPercent = Math.max(grossRatePercent - feePercent, 0);
-
-      document.getElementById("final").textContent = formatMoney(balance);
-      document.getElementById("contributions").textContent = formatMoney(contributions);
-      document.getElementById("growth").textContent = formatMoney(growth);
-
-      const profile = getProfileType(years, monthly, initial);
-      const biggestDriver = getBiggestDriver(years, growthShare);
-      const mainRisk = getMainRisk(years, grossRatePercent);
-
-      document.getElementById("decisionTitle").textContent = buildDecisionTitle(years, grossRatePercent);
-      document.getElementById("decisionSub").textContent = buildDecisionSub(years);
-
-      document.getElementById("profileType").textContent = profile.title;
-      document.getElementById("profileDesc").textContent = profile.desc;
-
-      document.getElementById("netReturn").textContent = formatPercent(netReturnPercent);
-      document.getElementById("netReturnDesc").textContent = "Your expected return after subtracting VOO’s low expense ratio.";
-
-      document.getElementById("biggestDriver").textContent = biggestDriver.title;
-      document.getElementById("biggestDriverDesc").textContent = biggestDriver.desc;
-
-      document.getElementById("mainRisk").textContent = mainRisk.title;
-      document.getElementById("mainRiskDesc").textContent = mainRisk.desc;
-
-      document.getElementById("planVerdict").innerHTML = "<strong>Decision confirmation:</strong> " + buildPlanVerdict(years, grossRatePercent);
-      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> " + buildImproveFirst(years, monthly, grossRatePercent);
-      document.getElementById("decisionSummary").textContent = buildDecisionSummary(grossRatePercent);
-      document.getElementById("decisionFinal").textContent = "You do not need a perfect ETF — you need a plan you can stick with.";
-      document.getElementById("decisionLine").textContent = buildDecisionLine(years, growthShare);
-
-      document.getElementById("grossReturnBox").textContent = formatPercent(grossRatePercent);
-      document.getElementById("feeBox").textContent = formatPercent(feePercent);
-      document.getElementById("netReturnBox").textContent = formatPercent(netReturnPercent);
-      document.getElementById("feeImpactText").textContent = buildFeeImpactText(feePercent);
-      document.getElementById("riskRealityText").textContent = buildRiskRealityText(years);
-
-      const behaviorList = document.getElementById("behaviorList");
-      const behaviorItems = buildBehaviorList(grossRatePercent);
-      behaviorList.innerHTML = "";
-      behaviorItems.forEach(function(item){
-        const li = document.createElement("li");
-        li.textContent = item;
-        behaviorList.appendChild(li);
-      });
-
-      drawChart(labels, balanceData, contributionData);
+    function tryExample(){
+      document.getElementById("initial").value = 10000;
+      document.getElementById("monthly").value = 500;
+      document.getElementById("years").value = 20;
+      document.getElementById("returnRate").value = 8;
+      document.getElementById("fee").value = 0.03;
+      document.getElementById("drawdownSlider").value = 30;
+      calculateVOO();
     }
 
-    function exampleData(){
-      document.getElementById("initial").value = "10000";
-      document.getElementById("monthly").value = "500";
-      document.getElementById("years").value = "20";
-      document.getElementById("rate").value = "8";
-      document.getElementById("fee").value = "0.03";
-      calculate();
-    }
-
-    function resetCalc(){
-      document.getElementById("initial").value = "";
-      document.getElementById("monthly").value = "";
-      document.getElementById("years").value = "";
-      document.getElementById("rate").value = "";
-      document.getElementById("fee").value = "";
-
-      document.getElementById("final").textContent = "$0.00";
-      document.getElementById("contributions").textContent = "$0.00";
-      document.getElementById("growth").textContent = "$0.00";
-
-      document.getElementById("decisionTitle").textContent = "A practical long-term VOO plan";
-      document.getElementById("decisionSub").textContent = "This plan is structurally sound — built on low cost, broad exposure, and long-term discipline.";
-
-      document.getElementById("profileType").textContent = "Core Index Builder";
-      document.getElementById("profileDesc").textContent = "You are following a classic index investing approach — broad market exposure with minimal complexity.";
-
-      document.getElementById("netReturn").textContent = "0.0%";
-      document.getElementById("netReturnDesc").textContent = "Your expected return after subtracting VOO’s low expense ratio.";
-
-      document.getElementById("biggestDriver").textContent = "Time + Compounding";
-      document.getElementById("biggestDriverDesc").textContent = "The longer you stay invested, the more your results depend on compounding — not timing.";
-
-      document.getElementById("mainRisk").textContent = "Behavioral Risk";
-      document.getElementById("mainRiskDesc").textContent = "The biggest risk is abandoning the plan during market declines — not the ETF itself.";
-
-      document.getElementById("planVerdict").innerHTML = "<strong>Decision confirmation:</strong> This is a practical and repeatable long-term investing plan.";
-      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping during difficult markets.";
-      document.getElementById("decisionSummary").textContent = "For most long-term investors, a simple VOO plan is a strong default path — especially when the goal is low-cost U.S. market exposure.";
-      document.getElementById("decisionFinal").textContent = "You do not need a perfect ETF — you need a plan you can stick with.";
-      document.getElementById("decisionLine").textContent = "At this pace, time and compounding are becoming major drivers of your future VOO outcome.";
-
-      document.getElementById("grossReturnBox").textContent = "8.0%";
-      document.getElementById("feeBox").textContent = "0.03%";
-      document.getElementById("netReturnBox").textContent = "7.97%";
-      document.getElementById("feeImpactText").textContent = "In long-term investing, cost is one of the few things you can control — and one of the most important.";
-      document.getElementById("riskRealityText").textContent = "If a normal market decline would make you panic, the problem is not the ETF — it is whether the plan matches your behavior.";
-
-      document.getElementById("behaviorList").innerHTML = `
-        <li>Panic selling during market declines.</li>
-        <li>Changing plans based on short-term noise.</li>
-        <li>Expecting VOO to remove uncertainty or volatility.</li>
-      `;
-
-      if(chartInstance){
-        chartInstance.destroy();
-        chartInstance = null;
-      }
-
-      const canvas = document.getElementById("growthChart");
-      const ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    document.addEventListener("DOMContentLoaded", function(){
-      document.getElementById("calculateBtn").addEventListener("click", calculate);
-      document.getElementById("exampleBtn").addEventListener("click", exampleData);
-      document.getElementById("resetBtn").addEventListener("click", resetCalc);
-
-      const inputs = document.querySelectorAll("input");
-      inputs.forEach(function(input){
-        input.addEventListener("keydown", function(event){
-          if(event.key === "Enter"){
-            calculate();
-          }
-        });
-      });
-
-      exampleData();
+    document.getElementById("calculatorForm").addEventListener("reset", function(){
+      setTimeout(calculateVOO, 0);
     });
+
+    calculateVOO();
   </script>
 </body>
 </html>
