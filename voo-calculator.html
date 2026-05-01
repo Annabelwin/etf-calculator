@@ -4,461 +4,647 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>VOO Calculator | Long-Term S&P 500 ETF Growth Tool</title>
-  <meta name="description" content="Use this VOO calculator to estimate long-term S&P 500 ETF growth, contributions, fees, drawdowns, and long-term investing behavior risk." />
+  <title>VOO Calculator | Build a VOO Plan You Can Actually Hold</title>
+  <meta name="description" content="Use this VOO calculator to estimate long-term S&P 500 ETF growth, test market declines, understand fee impact, and build a VOO plan you can actually hold." />
   <link rel="canonical" href="https://etfcalculator.net/voo-calculator.html" />
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
- <style>
-:root{
-  --bg:#eef2f6;
-  --card:#fbfcfe;
-  --card-2:#f6f8fb;
-  --stroke:#dbe1e8;
-  --stroke-soft:#e8edf3;
-
-  --text:#182132;
-  --muted:#5f6b7a;
-  --soft:#8a96a6;
-
-  --navy:#22314a;
-  --navy-2:#2f405d;
-  --blue:#356d9f;
-
-  --shadow:0 12px 34px rgba(24,33,50,.07);
-
-  --radius-xl:26px;
-  --radius-lg:20px;
-  --radius-md:16px;
-
-  --max:620px;
-
-  /* 字体系统 */
-  --fs-h1:34px;
-  --fs-h2:22px;
-  --fs-h3:15px;
-
-  --fs-body:14.5px;
-  --fs-small:13px;
-  --fs-micro:11px;
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",sans-serif;
-  line-height:1.65;
-}
-
-a{
-  color:var(--blue);
-  text-decoration:none;
-  font-weight:650;
-}
-a:hover{text-decoration:underline}
-
-/* ===== 页面容器 ===== */
-.page{
-  width:min(var(--max), calc(100% - 28px));
-  margin:42px auto;
-  background:var(--card);
-  border:1px solid var(--stroke-soft);
-  border-radius:var(--radius-xl);
-  box-shadow:var(--shadow);
-  padding:34px 28px 38px;
-}
-
-/* ===== Header ===== */
-header{
-  text-align:center;
-  margin-bottom:24px;
-}
-
-/* ===== 标题 ===== */
-h1{
-  margin:0;
-  font-size:var(--fs-h1);
-  line-height:1.15;
-  letter-spacing:-0.035em;
-  font-weight:800;
-}
-
-h2{
-  margin:0 0 10px;
-  font-size:var(--fs-h2);
-  line-height:1.2;
-  letter-spacing:-0.03em;
-  font-weight:750;
-}
-
-h3{
-  margin:0 0 8px;
-  font-size:var(--fs-h3);
-  letter-spacing:-0.02em;
-  font-weight:700;
-}
-
-/* ===== 副标题 ===== */
-.subtitle{
-  margin:12px auto 0;
-  max-width:480px;
-  font-size:15px;
-  line-height:1.7;
-  color:var(--muted);
-}
-
-/* ===== 段落 ===== */
-p{
-  margin:0 0 14px;
-  font-size:var(--fs-body);
-  line-height:1.75;
-  color:var(--muted);
-}
-
-/* ===== 小标签 ===== */
-.kicker{
-  font-size:var(--fs-micro);
-  font-weight:800;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--soft);
-  margin-bottom:8px;
-}
-
-/* ===== 提示块 ===== */
-.notice{
-  margin:20px 0 24px;
-  background:var(--card-2);
-  border:1px solid var(--stroke-soft);
-  border-radius:18px;
-  padding:13px 16px;
-  font-size:13.5px;
-  line-height:1.65;
-  color:var(--muted);
-  text-align:center;
-}
-
-/* ===== 表单 ===== */
-.form-grid{
-  display:grid;
-  gap:12px;
-}
-
-.field{
-  display:grid;
-  grid-template-columns:1fr 1.1fr;
-  gap:12px;
-  align-items:center;
-  font-size:13.5px;
-}
-
-label{
-  font-weight:600;
-  color:#334155;
-}
-
-input{
-  width:100%;
-  border:1px solid var(--stroke);
-  border-radius:12px;
-  padding:10px 12px;
-  font-size:14px;
-  outline:none;
-}
-
-input:focus{
-  border-color:#9fb8d6;
-  box-shadow:0 0 0 4px rgba(53,109,159,.08);
-}
-
-input[type="range"]{
-  padding:0;
-  accent-color:var(--navy);
-}
-
-/* ===== 按钮 ===== */
-.buttons{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin:18px 0;
-}
-
-button{
-  border:0;
-  border-radius:999px;
-  padding:9px 16px;
-  font-weight:700;
-  font-size:12px;
-  cursor:pointer;
-}
-
-.primary{
-  background:var(--navy);
-  color:#fff;
-}
-
-.secondary{
-  background:#edf1f6;
-  color:#334155;
-}
-
-/* ===== 说明 ===== */
-.disclaimer{
-  background:var(--card-2);
-  border:1px solid var(--stroke-soft);
-  border-radius:16px;
-  padding:12px 14px;
-  font-size:12px;
-  color:var(--muted);
-}
-
-/* ===== 结果 ===== */
-.results{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin:18px 0 24px;
-}
-
-.result-card{
-  background:#fff;
-  border:1px solid var(--stroke-soft);
-  border-radius:16px;
-  padding:13px;
-  text-align:center;
-}
-
-.result-label{
-  font-size:10px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--soft);
-}
-
-.result-value{
-  font-size:16px;
-  font-weight:800;
-}
-
-/* ===== section ===== */
-section{
-  margin-top:20px;
-  padding:22px 20px;
-  background:#fff;
-  border:1px solid var(--stroke-soft);
-  border-radius:var(--radius-lg);
-}
-
-/* ===== 决策块 ===== */
-.decision-box{
-  background:var(--card-2);
-  border:1px solid var(--stroke-soft);
-  border-radius:16px;
-  padding:16px;
-  font-size:14px;
-  line-height:1.7;
-}
-
-/* ===== mini 卡片 ===== */
-.mini-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin:12px 0;
-}
-
-.mini-card{
-  background:#fff;
-  border:1px solid var(--stroke-soft);
-  border-radius:16px;
-  padding:14px;
-}
-
-.mini-card strong{
-  display:block;
-  font-size:14px;
-  margin-bottom:5px;
-}
-
-.mini-card span{
-  font-size:13px;
-  color:var(--muted);
-}
-
-/* ===== deep layer ===== */
-.deep-layer{
-  background:linear-gradient(180deg,#ffffff,#f7f9fc);
-}
-
-details{
-  margin-top:12px;
-  border:1px solid var(--stroke-soft);
-  border-radius:16px;
-  overflow:hidden;
-}
-
-summary{
-  cursor:pointer;
-  padding:15px;
-  font-size:14px;
-  font-weight:700;
-  display:flex;
-  justify-content:space-between;
-}
-
-summary span{
-  display:block;
-  font-size:12.5px;
-  color:var(--muted);
-}
-
-summary::after{
-  content:"+";
-}
-details[open] summary::after{
-  content:"–";
-}
-
-.detail-body{
-  padding:0 15px 15px;
-  font-size:13.5px;
-}
-
-/* ===== 图表 ===== */
-.chart-wrap{
-  margin-top:14px;
-}
-
-/* ===== 回撤模块 ===== */
-.drawdown-panel{
-  background:var(--card-2);
-  border:1px solid var(--stroke-soft);
-  border-radius:22px;
-  padding:12px;
-  margin-top:18px;
-}
-
-.drawdown-dark{
-  background:linear-gradient(145deg,#22314a,#2f405d);
-  color:#fff;
-  border-radius:18px;
-  padding:22px;
-}
-
-.drawdown-control{
-  margin-top:14px;
-}
-
-.drawdown-numbers{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:12px;
-}
-
-.dark-stat{
-  background:rgba(255,255,255,.1);
-  padding:12px;
-  border-radius:14px;
-}
-
-.dark-stat strong{
-  font-size:18px;
-}
-
-.behavior-line{
-  margin-top:14px;
-  font-weight:700;
-}
-
-/* ===== CTA ===== */
-.cta-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.cta-card{
-  background:var(--card-2);
-  border:1px solid var(--stroke-soft);
-  border-radius:16px;
-  padding:14px;
-}
-
-.cta-card strong{
-  font-size:14px;
-}
-
-.cta-card span{
-  font-size:13px;
-}
-
-/* ===== FAQ ===== */
-.faq-item{
-  margin-top:14px;
-}
-
-.faq-item h3{
-  font-size:14px;
-}
-
-.faq-item p{
-  font-size:13.5px;
-}
-
-/* ===== back ===== */
-.back{
-  text-align:center;
-  margin-top:24px;
-  font-size:12px;
-}
-
-/* ===== mobile ===== */
-@media(max-width:520px){
-  .page{
-    margin:18px auto;
-    padding:26px 16px;
-  }
-
-  h1{font-size:28px}
-  .subtitle{font-size:14px}
-  p{font-size:14px}
-
-  .field{
-    grid-template-columns:1fr;
-  }
-
-  .results,
-  .mini-grid,
-  .drawdown-numbers,
-  .cta-grid{
-    grid-template-columns:1fr;
-  }
-}
-</style>
+  <style>
+    :root{
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --stroke:#dbe1e8;
+      --stroke-soft:#e8edf3;
+      --text:#182132;
+      --muted:#5f6b7a;
+      --soft:#8a96a6;
+      --navy:#22314a;
+      --navy-2:#2f405d;
+      --blue:#356d9f;
+      --green:#2f7d5c;
+      --red:#9d3d3d;
+      --shadow:0 18px 44px rgba(24,33,50,.08);
+      --radius-xl:30px;
+      --radius-lg:22px;
+      --radius-md:16px;
+      --max:620px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",sans-serif;
+      line-height:1.65;
+    }
+
+    a{
+      color:var(--blue);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    a:hover{text-decoration:underline}
+
+    .page{
+      width:min(var(--max), calc(100% - 28px));
+      margin:42px auto;
+      background:var(--card);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:42px 32px 40px;
+    }
+
+    header{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .hero-kicker{
+      color:var(--soft);
+      font-size:11px;
+      font-weight:850;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
+    h1{
+      margin:0 auto;
+      max-width:560px;
+      font-size:42px;
+      line-height:1.05;
+      letter-spacing:-.055em;
+      font-weight:850;
+    }
+
+    .subtitle{
+      margin:16px auto 0;
+      max-width:520px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.65;
+    }
+
+    .notice{
+      margin:24px 0 26px;
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:20px;
+      padding:15px 18px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.65;
+    }
+
+    .form-grid{
+      display:grid;
+      gap:13px;
+      margin-top:10px;
+    }
+
+    .field{
+      display:grid;
+      grid-template-columns:1fr 1.15fr;
+      align-items:center;
+      gap:14px;
+      font-size:14px;
+    }
+
+    label{
+      color:#334155;
+      font-weight:650;
+    }
+
+    input{
+      width:100%;
+      border:1px solid var(--stroke);
+      background:#fff;
+      border-radius:13px;
+      padding:11px 12px;
+      font-size:14px;
+      color:var(--text);
+      outline:none;
+    }
+
+    input:focus{
+      border-color:#9fb8d6;
+      box-shadow:0 0 0 4px rgba(53,109,159,.08);
+    }
+
+    input[type="range"]{
+      padding:0;
+      accent-color:var(--navy);
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin:20px 0 14px;
+    }
+
+    button{
+      border:0;
+      border-radius:999px;
+      padding:10px 17px;
+      font-weight:750;
+      font-size:12px;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    button:hover{
+      transform:translateY(-1px);
+    }
+
+    .primary{
+      background:var(--navy);
+      color:white;
+    }
+
+    .secondary{
+      background:#edf1f6;
+      color:#334155;
+    }
+
+    .disclaimer{
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      padding:13px 15px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+      margin-bottom:22px;
+    }
+
+    .results{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin:20px 0 26px;
+    }
+
+    .result-card{
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      padding:14px 10px;
+      text-align:center;
+    }
+
+    .result-label{
+      display:block;
+      color:var(--soft);
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.07em;
+      margin-bottom:6px;
+    }
+
+    .result-value{
+      font-weight:850;
+      font-size:16px;
+      letter-spacing:-.025em;
+    }
+
+    section{
+      margin-top:20px;
+      padding:24px 22px;
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-lg);
+    }
+
+    h2{
+      margin:0 0 10px;
+      font-size:24px;
+      line-height:1.16;
+      letter-spacing:-.04em;
+      font-weight:800;
+    }
+
+    h3{
+      margin:0 0 8px;
+      font-size:15px;
+      letter-spacing:-.025em;
+      font-weight:780;
+    }
+
+    p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.75;
+    }
+
+    .kicker{
+      color:var(--soft);
+      font-size:11px;
+      font-weight:850;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:9px;
+    }
+
+    .decision-box{
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      padding:16px;
+      margin:16px 0;
+      font-size:14px;
+      line-height:1.7;
+      color:var(--muted);
+    }
+
+    .decision-box strong{
+      color:var(--text);
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:11px;
+      margin:14px 0;
+    }
+
+    .mini-card{
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      padding:15px;
+      min-height:96px;
+    }
+
+    .mini-card strong{
+      display:block;
+      font-size:14px;
+      margin-bottom:6px;
+      letter-spacing:-.02em;
+    }
+
+    .mini-card span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    .deep-layer{
+      background:linear-gradient(180deg,#ffffff,#f7f9fc);
+    }
+
+    details{
+      margin-top:12px;
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      overflow:hidden;
+    }
+
+    summary{
+      cursor:pointer;
+      list-style:none;
+      padding:16px 15px;
+      font-weight:760;
+      font-size:14px;
+      color:var(--text);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+    }
+
+    summary::-webkit-details-marker{display:none}
+
+    summary span{
+      color:var(--muted);
+      font-size:12.5px;
+      font-weight:500;
+      display:block;
+      margin-top:4px;
+      line-height:1.5;
+    }
+
+    summary::after{
+      content:"+";
+      color:var(--soft);
+      font-size:19px;
+      line-height:1;
+    }
+
+    details[open] summary::after{
+      content:"–";
+    }
+
+    .detail-body{
+      padding:0 15px 16px;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.7;
+    }
+
+    .chart-wrap{
+      margin-top:16px;
+      background:#fff;
+      border-radius:16px;
+      padding:6px 0 0;
+    }
+
+    .drawdown-panel{
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:24px;
+      padding:13px;
+      margin-top:20px;
+    }
+
+    .drawdown-dark{
+      background:linear-gradient(145deg, #22314a, #2f405d);
+      color:white;
+      border-radius:20px;
+      padding:26px 23px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .drawdown-dark .kicker{
+      color:rgba(255,255,255,.62);
+    }
+
+    .drawdown-dark h2{
+      color:white;
+      margin-bottom:12px;
+    }
+
+    .drawdown-dark p{
+      color:rgba(255,255,255,.78);
+    }
+
+    .drawdown-control{
+      margin:18px 0 14px;
+      padding:15px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:17px;
+    }
+
+    .drawdown-control label{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      color:rgba(255,255,255,.78);
+      font-size:12.5px;
+      margin-bottom:11px;
+    }
+
+    .drawdown-control strong{
+      color:#fff;
+      font-size:13px;
+    }
+
+    .drawdown-numbers{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:11px;
+      margin:16px 0;
+    }
+
+    .dark-stat{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:17px;
+      padding:14px;
+    }
+
+    .dark-stat span{
+      display:block;
+      font-size:10px;
+      color:rgba(255,255,255,.58);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:6px;
+    }
+
+    .dark-stat strong{
+      color:#fff;
+      font-size:19px;
+      letter-spacing:-.03em;
+    }
+
+    .confirm-box{
+      margin-top:18px;
+      padding:16px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:18px;
+    }
+
+    .confirm-title{
+      color:white;
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:-.02em;
+      margin-bottom:6px;
+    }
+
+    .confirm-text{
+      color:rgba(255,255,255,.76);
+      font-size:13px;
+      line-height:1.65;
+      margin-bottom:14px;
+    }
+
+    .confirm-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .confirm-btn{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.09);
+      color:white;
+      border-radius:999px;
+      padding:10px 12px;
+      font-size:12px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .confirm-btn.active.yes{
+      background:rgba(65,145,105,.95);
+      border-color:rgba(255,255,255,.2);
+    }
+
+    .confirm-btn.active.no{
+      background:rgba(165,72,72,.95);
+      border-color:rgba(255,255,255,.2);
+    }
+
+    .confirm-result{
+      display:none;
+      margin-top:13px;
+      border-radius:15px;
+      padding:13px;
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    .confirm-result.show{
+      display:block;
+    }
+
+    .confirm-result.yes{
+      background:rgba(65,145,105,.16);
+      border:1px solid rgba(65,145,105,.25);
+      color:rgba(255,255,255,.86);
+    }
+
+    .confirm-result.no{
+      background:rgba(165,72,72,.16);
+      border:1px solid rgba(165,72,72,.28);
+      color:rgba(255,255,255,.86);
+    }
+
+    .behavior-line{
+      margin-top:17px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.14);
+      font-weight:800;
+      color:white;
+      font-size:14.5px;
+      line-height:1.5;
+    }
+
+    .list{
+      padding-left:18px;
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .list li{margin:6px 0}
+
+    .cta-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:11px;
+      margin-top:14px;
+    }
+
+    .cta-card{
+      display:block;
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      padding:15px;
+      min-height:104px;
+      transition:.18s ease;
+    }
+
+    .cta-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 20px rgba(24,33,50,.06);
+      text-decoration:none;
+    }
+
+    .cta-card strong{
+      display:block;
+      color:var(--text);
+      font-size:14px;
+      margin-bottom:6px;
+      letter-spacing:-.02em;
+    }
+
+    .cta-card span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:500;
+      line-height:1.55;
+    }
+
+    .faq-item{
+      margin-top:17px;
+      padding-top:16px;
+      border-top:1px solid var(--stroke-soft);
+    }
+
+    .faq-item:first-of-type{
+      border-top:0;
+      padding-top:0;
+    }
+
+    .faq-item p{
+      font-size:13.8px;
+    }
+
+    .back{
+      text-align:center;
+      margin-top:26px;
+      font-size:12px;
+    }
+
+    @media(max-width:520px){
+      .page{
+        margin:18px auto;
+        padding:28px 17px 32px;
+      }
+
+      h1{
+        font-size:32px;
+        letter-spacing:-.045em;
+      }
+
+      h2{
+        font-size:22px;
+      }
+
+      .subtitle{
+        font-size:14.5px;
+      }
+
+      p{
+        font-size:14px;
+      }
+
+      .field{
+        grid-template-columns:1fr;
+        gap:6px;
+      }
+
+      .results,
+      .mini-grid,
+      .drawdown-numbers,
+      .cta-grid,
+      .confirm-actions{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <main class="page">
     <header>
-      <h1>VOO Calculator</h1>
+      <div class="hero-kicker">VOO Calculator</div>
+      <h1>Build a VOO plan you can actually hold.</h1>
       <p class="subtitle">
-        Build a simple long-term VOO plan — not to predict the market perfectly,
-        but to judge whether steady investing in a low-cost S&P 500 ETF can fit
-        a calm holding plan.
+        Estimate long-term VOO growth, test market declines, and see whether your plan is simple enough to follow through bad markets.
       </p>
     </header>
 
     <div class="notice">
-      Use this calculator to estimate VOO growth after initial investment,
-      monthly contributions, and time. The goal is not precision — the goal is
-      long-term thinking.
+      This calculator is not about predicting the market perfectly. It is about building a repeatable plan you can keep following.
     </div>
 
     <form id="calculatorForm">
@@ -497,8 +683,7 @@ details[open] summary::after{
     </form>
 
     <div class="disclaimer">
-      Assumption: This calculator uses a fixed annual return and monthly contribution.
-      Real VOO returns are volatile. This is not financial advice.
+      Assumption: This calculator uses a fixed annual return and monthly contribution. Real VOO returns are volatile. This is not financial advice.
     </div>
 
     <div class="results">
@@ -520,14 +705,12 @@ details[open] summary::after{
       <div class="kicker">Quick decision</div>
       <h2>A practical long-term VOO plan</h2>
       <p>
-        This plan is structurally sound — built on low cost, broad exposure,
-        and long-term discipline.
+        This plan is structurally sound — built on low cost, broad exposure, and long-term discipline.
       </p>
 
       <div class="decision-box">
         <strong>Decision confirmation:</strong>
-        This is a practical and repeatable long-term investing plan if you can
-        keep buying through normal market declines.
+        This is a practical and repeatable long-term investing plan if you can keep buying through normal market declines.
       </div>
 
       <div class="mini-grid">
@@ -550,8 +733,7 @@ details[open] summary::after{
       </div>
 
       <p>
-        <strong>What to improve first:</strong> Stay consistent. The main risk is
-        not the math — it is stopping during difficult markets.
+        <strong>What to improve first:</strong> Stay consistent. The main risk is not the math — it is stopping during difficult markets.
       </p>
     </section>
 
@@ -559,8 +741,7 @@ details[open] summary::after{
       <div class="kicker">Deep layer</div>
       <h2>Want to go deeper?</h2>
       <p>
-        If you only need a quick answer, the plan above is enough. If you want to
-        stress-test the plan, open the deeper layers below.
+        The quick answer is above. The deeper question is whether the plan can survive fees, crashes, and your own behavior.
       </p>
 
       <details>
@@ -571,9 +752,7 @@ details[open] summary::after{
           </div>
         </summary>
         <div class="detail-body">
-          A small fee difference looks harmless in one year, but it compounds over
-          decades. VOO’s low expense ratio helps keep more of the market return
-          working for you.
+          A small fee difference looks harmless in one year, but it compounds over decades. VOO’s low expense ratio helps keep more of the market return working for you.
         </div>
       </details>
 
@@ -585,9 +764,7 @@ details[open] summary::after{
           </div>
         </summary>
         <div class="detail-body">
-          A smooth projection chart is not the real investing experience. The real
-          test is whether you can keep the plan when your portfolio temporarily
-          falls by 20%, 30%, or more.
+          A smooth projection chart is not the real investing experience. The real test is whether you can keep the plan when your portfolio temporarily falls by 20%, 30%, or more.
         </div>
       </details>
 
@@ -599,8 +776,7 @@ details[open] summary::after{
           </div>
         </summary>
         <div class="detail-body">
-          Many investors choose good ETFs but still fail because they panic sell,
-          stop contributing, or change plans based on short-term news.
+          Many investors choose good ETFs but still fail because they panic sell, stop contributing, or change plans based on short-term news.
         </div>
       </details>
     </section>
@@ -609,8 +785,7 @@ details[open] summary::after{
       <div class="kicker">Growth chart</div>
       <h2>VOO Growth Over Time</h2>
       <p>
-        A visual view of how your VOO portfolio may grow if you stay invested
-        and continue contributing.
+        A visual view of how your VOO portfolio may grow if you stay invested and continue contributing.
       </p>
 
       <div class="chart-wrap">
@@ -618,8 +793,7 @@ details[open] summary::after{
       </div>
 
       <p>
-        At this pace, time and compounding become major drivers of your future
-        VOO outcome.
+        At this pace, time and compounding become major drivers of your future VOO outcome.
       </p>
     </section>
 
@@ -628,8 +802,7 @@ details[open] summary::after{
         <div class="kicker">Drawdown reality</div>
         <h2>What a real market decline feels like</h2>
         <p>
-          If your portfolio reaches <strong id="drawdownBase">$272,389</strong>,
-          a market decline can feel very different from a smooth chart.
+          If your portfolio reaches <strong id="drawdownBase">$272,389</strong>, a market decline can feel very different from a smooth chart.
         </p>
 
         <div class="drawdown-control">
@@ -652,9 +825,26 @@ details[open] summary::after{
         </div>
 
         <p>
-          This is not a prediction. It is a behavioral stress test. VOO is simple,
-          but holding it through declines is not always easy.
+          This is not a prediction. It is a behavioral stress test. VOO is simple, but holding it through declines is not always easy.
         </p>
+
+        <div class="confirm-box">
+          <div class="confirm-title">Can you keep buying after a 30% decline?</div>
+          <div class="confirm-text">
+            Before you invest, answer this honestly. If the answer is no, the solution is not more prediction — it is a calmer plan.
+          </div>
+
+          <div class="confirm-actions">
+            <button type="button" class="confirm-btn yes" onclick="confirmBehavior('yes')">
+              Yes, I can hold
+            </button>
+            <button type="button" class="confirm-btn no" onclick="confirmBehavior('no')">
+              No, reduce risk
+            </button>
+          </div>
+
+          <div id="confirmResult" class="confirm-result"></div>
+        </div>
 
         <div class="behavior-line">
           Most investors do not fail because of bad ETFs.<br>
@@ -687,8 +877,7 @@ details[open] summary::after{
       </div>
 
       <p>
-        VOO’s low cost helps more of your return remain invested and compounding
-        over the long run.
+        VOO’s low cost helps more of your return remain invested and compounding over the long run.
       </p>
     </section>
 
@@ -696,8 +885,7 @@ details[open] summary::after{
       <div class="kicker">Timing anxiety</div>
       <h2>You do not need to wait for the perfect moment</h2>
       <p>
-        Many investors delay action because they are waiting for a better entry
-        point. In reality, long-term investing usually rewards staying invested.
+        Many investors delay action because they are waiting for a better entry point. In reality, long-term investing usually rewards staying invested.
       </p>
       <div class="decision-box">
         The bigger risk is often not starting at all — or waiting too long for certainty.
@@ -719,12 +907,10 @@ details[open] summary::after{
       <div class="kicker">Decision meaning</div>
       <h2>Why this plan is worth following</h2>
       <p>
-        VOO represents a low-cost, broad exposure to the U.S. economy. It removes
-        the need to pick individual winners and focuses on long-term growth.
+        VOO represents a low-cost, broad exposure to the U.S. economy. It removes the need to pick individual winners and focuses on long-term growth.
       </p>
       <p>
-        The strength of this plan comes from simplicity, low cost, consistency,
-        and the ability to stay invested.
+        The strength of this plan comes from simplicity, low cost, consistency, and the ability to stay invested.
       </p>
     </section>
 
@@ -732,8 +918,7 @@ details[open] summary::after{
       <div class="kicker">Next step</div>
       <h2>What should you do next?</h2>
       <p>
-        If this VOO plan looks reasonable, the next decision is whether to compare
-        your strategy or focus on contribution discipline.
+        If this VOO plan looks reasonable, the next decision is whether to compare your strategy or focus on contribution discipline.
       </p>
 
       <div class="cta-grid">
@@ -755,33 +940,28 @@ details[open] summary::after{
       <div class="faq-item">
         <h3>What is VOO?</h3>
         <p>
-          VOO is Vanguard’s S&P 500 ETF. It gives investors broad exposure to
-          500 of the largest publicly traded U.S. companies.
+          VOO is Vanguard’s S&P 500 ETF. It gives investors broad exposure to 500 of the largest publicly traded U.S. companies.
         </p>
       </div>
 
       <div class="faq-item">
         <h3>Why do many long-term investors choose VOO?</h3>
         <p>
-          Many investors choose VOO because it combines broad U.S. market exposure,
-          simplicity, and a very low expense ratio.
+          Many investors choose VOO because it combines broad U.S. market exposure, simplicity, and a very low expense ratio.
         </p>
       </div>
 
       <div class="faq-item">
         <h3>Is VOO good for beginners?</h3>
         <p>
-          VOO can be a reasonable starting point because it is diversified, simple,
-          and low cost. The main challenge is not choosing it — it is holding it
-          through volatility.
+          VOO can be a reasonable starting point because it is diversified, simple, and low cost. The main challenge is not choosing it — it is holding it through volatility.
         </p>
       </div>
 
       <div class="faq-item">
         <h3>How is this different from the ETF Calculator?</h3>
         <p>
-          This page is specifically about VOO. The ETF Calculator is broader and
-          designed for comparing more general ETF investing plans and cost structures.
+          This page is specifically about VOO. The ETF Calculator is broader and designed for comparing more general ETF investing plans and cost structures.
         </p>
       </div>
     </section>
@@ -858,15 +1038,9 @@ details[open] summary::after{
 
       document.getElementById("drawdownBase").textContent = money(balance);
 
-      document.getElementById("grossReturn").textContent =
-        annualReturnPercent.toFixed(2) + "%";
-
-      document.getElementById("feeResult").textContent =
-        feePercent.toFixed(2) + "%";
-
-      document.getElementById("netReturn").textContent =
-        (netAnnualReturn * 100).toFixed(2) + "%";
-
+      document.getElementById("grossReturn").textContent = annualReturnPercent.toFixed(2) + "%";
+      document.getElementById("feeResult").textContent = feePercent.toFixed(2) + "%";
+      document.getElementById("netReturn").textContent = (netAnnualReturn * 100).toFixed(2) + "%";
       document.getElementById("feeDrag").textContent = money(feeDrag);
 
       updateDrawdown();
@@ -881,6 +1055,28 @@ details[open] summary::after{
       document.getElementById("drawdownPercent").textContent = "-" + percent + "%";
       document.getElementById("drawdownAfter").textContent = money(latestBalance * (1 - decline));
       document.getElementById("drawdownLoss").textContent = money(latestBalance * decline);
+    }
+
+    function confirmBehavior(choice){
+      const yesBtn = document.querySelector(".confirm-btn.yes");
+      const noBtn = document.querySelector(".confirm-btn.no");
+      const result = document.getElementById("confirmResult");
+
+      yesBtn.classList.remove("active");
+      noBtn.classList.remove("active");
+      result.className = "confirm-result show";
+
+      if(choice === "yes"){
+        yesBtn.classList.add("active");
+        result.classList.add("yes");
+        result.innerHTML =
+          "<strong>Good.</strong> Your plan may be behaviorally realistic. Your next job is not to predict the next decline — it is to keep the contribution habit alive when the chart looks uncomfortable.";
+      }else{
+        noBtn.classList.add("active");
+        result.classList.add("no");
+        result.innerHTML =
+          "<strong>Then reduce risk before you invest.</strong> A smaller plan you can actually hold is better than an aggressive plan you abandon during the first real decline.";
+      }
     }
 
     function drawChart(labels, valueData, contributionData){
