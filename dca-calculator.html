@@ -3,1185 +3,1132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DCA Calculator | Build a Repeatable Long-Term Investing Habit</title>
-  <meta name="description" content="Free DCA calculator to estimate long-term dollar-cost averaging growth with monthly contributions, ETF fees, behavior guidance, and practical decision support." />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJLXTFDGCE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SJLXTFDGCE');
-  </script>
+  <title>DCA Calculator | Build a Contribution Plan You Can Keep</title>
+  <meta name="description" content="Use this DCA calculator to estimate long-term dollar-cost averaging growth, test drawdowns, understand contribution discipline, and build a plan you can keep following." />
+  <link rel="canonical" href="https://etfcalculator.net/dca-calculator.html" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
     :root{
-      --bg:#f5f7fa;
-      --card:#ffffff;
-      --muted:#6e6e73;
-      --text:#1d1d1f;
-      --line:#e5e7eb;
-      --accent:#2f3b52;
-      --link:#4f46e5;
-      --shadow:0 20px 50px rgba(15,23,42,0.08);
+      --bg:#eef2f6;
+      --card:#fbfcfe;
+      --card-2:#f6f8fb;
+      --stroke:#dbe1e8;
+      --stroke-soft:#e8edf3;
+      --text:#182132;
+      --muted:#5f6b7a;
+      --soft:#8a96a6;
+      --navy:#22314a;
+      --navy-2:#2f405d;
+      --blue:#356d9f;
+      --shadow:0 18px 44px rgba(24,33,50,.08);
+      --radius-xl:30px;
+      --radius-lg:22px;
+      --radius-md:16px;
+      --max:720px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
 
     body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#f7f8fb 0%, #eef2f6 100%);
       margin:0;
-      padding:48px 20px 64px;
+      background:var(--bg);
       color:var(--text);
-      line-height:1.7;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",sans-serif;
+      line-height:1.65;
     }
+
+    a{
+      color:var(--blue);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    a:hover{text-decoration:underline}
 
     .page{
-      max-width:760px;
-      margin:0 auto;
-    }
-
-    .container{
-      background:rgba(255,255,255,0.92);
-      backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,0.7);
-      border-radius:28px;
+      width:min(var(--max), calc(100% - 32px));
+      margin:42px auto;
+      background:var(--card);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-xl);
       box-shadow:var(--shadow);
-      padding:42px 34px 34px;
+      padding:44px 40px 42px;
     }
 
-    .hero{
+    header{
       text-align:center;
-      margin-bottom:30px;
+      margin-bottom:32px;
+    }
+
+    .hero-kicker{
+      color:var(--soft);
+      font-size:11px;
+      font-weight:850;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      margin-bottom:12px;
     }
 
     h1{
-      font-size:38px;
-      line-height:1.1;
-      letter-spacing:-0.02em;
-      margin:0 0 12px;
-    }
-
-    .sub{
-      max-width:600px;
-      margin:0 auto 18px;
-      color:var(--muted);
-      font-size:17px;
-    }
-
-    .info{
-      max-width:600px;
       margin:0 auto;
-      background:linear-gradient(180deg,#f8fafc 0%, #f2f4f7 100%);
-      border:1px solid #eceff3;
-      border-radius:16px;
-      padding:14px 18px;
-      font-size:14px;
-      color:#4b5563;
+      max-width:620px;
+      font-size:38px;
+      line-height:1.08;
+      letter-spacing:-.045em;
+      font-weight:780;
     }
 
-    .form-card{
-      max-width:580px;
-      margin:0 auto 24px;
-      padding:24px 22px;
-      background:linear-gradient(180deg,#ffffff 0%, #fafbfc 100%);
-      border:1px solid #edf0f3;
+    .subtitle{
+      margin:17px auto 0;
+      max-width:560px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.7;
+    }
+
+    .notice{
+      margin:24px 0 28px;
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
       border-radius:20px;
-      box-shadow:0 8px 20px rgba(15,23,42,0.04);
+      padding:16px 20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13.8px;
+      line-height:1.7;
     }
 
-    .form-row{
+    .form-grid{
       display:grid;
-      grid-template-columns:1fr 220px;
-      gap:18px;
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .field{
+      display:grid;
+      grid-template-columns:1fr 1.15fr;
       align-items:center;
-      margin-bottom:14px;
+      gap:16px;
+      font-size:14px;
     }
 
-    .form-row label{
-      font-size:15px;
-      color:#374151;
+    label{
+      color:#334155;
+      font-weight:650;
     }
 
-    .form-row input{
+    input{
       width:100%;
-      padding:11px 12px;
-      border-radius:10px;
-      border:1px solid #d7dce3;
+      border:1px solid var(--stroke);
       background:#fff;
-      font-size:15px;
-      text-align:right;
-      color:#111827;
+      border-radius:13px;
+      padding:11px 13px;
+      font-size:14px;
+      color:var(--text);
       outline:none;
-      transition:all 0.18s ease;
     }
 
-    .form-row input:focus{
-      border-color:#aab4c2;
-      box-shadow:0 0 0 4px rgba(148,163,184,0.12);
+    input:focus{
+      border-color:#9fb8d6;
+      box-shadow:0 0 0 4px rgba(53,109,159,.08);
     }
 
-    .assumption-note{
-      margin-top:14px;
-      padding:12px 14px;
-      border-radius:14px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#6b7280;
-      font-size:13px;
-      line-height:1.6;
+    input[type="range"]{
+      padding:0;
+      accent-color:var(--navy);
     }
 
     .buttons{
-      margin-top:22px;
-      text-align:center;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin:22px 0 16px;
     }
 
     button{
-      padding:11px 18px;
-      margin:6px;
-      border:none;
-      border-radius:10px;
-      font-size:14px;
+      border:0;
+      border-radius:999px;
+      padding:10px 17px;
+      font-weight:750;
+      font-size:12px;
       cursor:pointer;
-      transition:transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+      transition:.18s ease;
     }
 
     button:hover{
       transform:translateY(-1px);
-      opacity:0.96;
     }
 
-    .calculate{
-      background:linear-gradient(180deg,#3a4760 0%, #273246 100%);
+    .primary{
+      background:var(--navy);
       color:white;
-      box-shadow:0 8px 18px rgba(47,59,82,0.18);
+      box-shadow:0 8px 18px rgba(34,49,74,.16);
     }
 
-    .example,.reset{
-      background:linear-gradient(180deg,#f3f4f6 0%, #e5e7eb 100%);
-      color:#111827;
+    .secondary{
+      background:#edf1f6;
+      color:#334155;
+    }
+
+    .disclaimer{
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      padding:13px 15px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+      margin-bottom:22px;
     }
 
     .results{
-      max-width:580px;
-      margin:0 auto 18px;
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin:20px 0 28px;
     }
 
-    .result-box{
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-      padding:18px 16px;
-      border-radius:18px;
+    .result-card{
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      padding:15px 10px;
       text-align:center;
-      border:1px solid #edf0f3;
-      box-shadow:0 6px 16px rgba(15,23,42,0.04);
     }
 
     .result-label{
-      font-size:13px;
-      color:#6b7280;
-      margin-bottom:8px;
-      letter-spacing:0.01em;
+      display:block;
+      color:var(--soft);
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.07em;
+      margin-bottom:6px;
     }
 
     .result-value{
-      font-size:22px;
-      font-weight:700;
-      color:#111827;
-      letter-spacing:-0.02em;
-      word-break:break-word;
+      font-weight:850;
+      font-size:17px;
+      letter-spacing:-.025em;
     }
 
-    .decision-panel{
-      max-width:580px;
-      margin:0 auto 18px;
-      background:linear-gradient(180deg,#ffffff 0%, #fafbfd 100%);
-      border:1.5px solid #e6eaf0;
-      border-radius:22px;
-      padding:22px;
-      box-shadow:0 8px 20px rgba(15,23,42,0.03);
+    section{
+      margin-top:22px;
+      padding:26px 24px;
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-lg);
     }
 
-    .eyebrow{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      color:#8b93a1;
-      margin-bottom:8px;
-    }
-
-    .decision-title{
-      font-size:28px;
+    h2{
+      margin:0 0 10px;
+      font-size:24px;
       line-height:1.18;
-      letter-spacing:-0.02em;
-      font-weight:700;
+      letter-spacing:-.035em;
+      font-weight:760;
+    }
+
+    h3{
       margin:0 0 8px;
-      color:#111827;
-    }
-
-    .decision-sub{
       font-size:15px;
-      color:#4b5563;
-      margin-bottom:18px;
+      letter-spacing:-.02em;
+      font-weight:740;
     }
 
-    .decision-summary{
-      margin-top:16px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
-      font-size:15px;
-      font-weight:600;
-      line-height:1.7;
+    p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.75;
     }
 
-    .decision-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin-top:16px;
+    .kicker{
+      color:var(--soft);
+      font-size:11px;
+      font-weight:850;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:9px;
     }
 
     .decision-box{
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      border-radius:18px;
-      padding:16px 15px;
-      box-shadow:0 6px 16px rgba(15,23,42,0.04);
-    }
-
-    .decision-label{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      color:#8b93a1;
-      margin-bottom:6px;
-    }
-
-    .decision-value{
-      font-size:18px;
-      font-weight:700;
-      letter-spacing:-0.02em;
-      color:#111827;
-      margin-bottom:4px;
-    }
-
-    .decision-desc{
-      font-size:13px;
-      color:#6b7280;
-      line-height:1.55;
-    }
-
-    .decision-final{
-      margin-top:10px;
-      padding:12px 14px;
-      border-radius:14px;
-      background:linear-gradient(180deg,#f9fafb 0%, #f3f4f6 100%);
-      border:1px solid #eceff3;
-      font-size:15px;
-      color:#111827;
-      font-weight:500;
-      line-height:1.65;
-      text-align:center;
-    }
-
-    .section-card{
-      margin:32px auto;
-      max-width:580px;
-      background:linear-gradient(180deg,#ffffff 0%, #fafbfd 100%);
-      border:1px solid #edf0f3;
-      border-radius:22px;
-      padding:22px;
-      box-shadow:0 8px 20px rgba(15,23,42,0.03);
-    }
-
-    .chart-wrap{
-      padding:20px 20px 14px;
-    }
-
-    .chart-title{
-      font-size:24px;
-      font-weight:700;
-      letter-spacing:-0.02em;
-      color:#111827;
-      margin:8px 0 6px;
-    }
-
-    .chart-sub{
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      padding:16px;
+      margin:16px 0;
       font-size:14px;
-      color:#6b7280;
-      margin-bottom:18px;
+      line-height:1.7;
+      color:var(--muted);
     }
 
-    .decision-line{
-      margin-top:14px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
-      font-size:15px;
-      font-weight:600;
-      line-height:1.65;
-    }
+    .decision-box strong{color:var(--text)}
 
-    .text-card h2{
-      font-size:24px;
-      margin:8px 0 8px;
-      color:#111827;
-      letter-spacing:-0.02em;
-    }
-
-    .text-card p{
-      margin:0;
-      color:#4b5563;
-      font-size:15px;
-    }
-
-    .feature-grid{
+    .mini-grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:16px;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin:14px 0;
     }
 
-    .feature-box{
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      border-radius:18px;
-      padding:16px 15px;
-      box-shadow:0 6px 16px rgba(15,23,42,0.04);
+    .mini-card{
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      padding:16px;
+      min-height:96px;
     }
 
-    .feature-label{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      color:#8b93a1;
+    .mini-card strong{
+      display:block;
+      font-size:14px;
       margin-bottom:6px;
+      letter-spacing:-.02em;
     }
 
-    .feature-value{
-      font-size:18px;
-      font-weight:700;
-      color:#111827;
-      letter-spacing:-0.02em;
-      margin-bottom:4px;
-    }
-
-    .feature-desc{
+    .mini-card span{
+      color:var(--muted);
       font-size:13px;
-      color:#6b7280;
-      line-height:1.55;
-    }
-
-    .callout{
-      margin-top:16px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:linear-gradient(180deg,#f8fafc 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      color:#111827;
-      font-size:15px;
-      line-height:1.65;
-    }
-
-    .suggestion-list{
-      margin:14px 0 0;
-      padding-left:18px;
-      color:#374151;
-      font-size:15px;
-    }
-
-    .suggestion-list li{
-      margin-bottom:8px;
-    }
-
-    .scenario-table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:14px;
-      overflow:hidden;
-      border-radius:16px;
-      border:1px solid #edf0f3;
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-    }
-
-    .scenario-table th,
-    .scenario-table td{
-      padding:12px 10px;
-      text-align:left;
-      font-size:14px;
-      border-bottom:1px solid #edf0f3;
-    }
-
-    .scenario-table th{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      color:#8b93a1;
-      background:#f8fafc;
-    }
-
-    .scenario-table tr:last-child td{
-      border-bottom:none;
-    }
-
-    .next-step-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin-top:16px;
-    }
-
-    .next-step-card{
-      background:linear-gradient(180deg,#fbfcfd 0%, #f4f6f8 100%);
-      border:1px solid #edf0f3;
-      border-radius:18px;
-      padding:18px 16px;
-      box-shadow:0 6px 16px rgba(15,23,42,0.04);
-    }
-
-    .next-step-card h3{
-      font-size:18px;
-      margin:0 0 8px;
-      letter-spacing:-0.02em;
-      color:#111827;
-    }
-
-    .next-step-card p{
-      margin:0 0 12px;
-      color:#4b5563;
-      font-size:14px;
       line-height:1.6;
     }
 
-    .next-step-card a{
-      color:var(--link);
-      font-weight:600;
+    .deep-layer{
+      background:linear-gradient(180deg,#ffffff,#f7f9fc);
+    }
+
+    details{
+      margin-top:12px;
+      background:#fff;
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      overflow:hidden;
+    }
+
+    summary{
+      cursor:pointer;
+      list-style:none;
+      padding:16px 15px;
+      font-weight:720;
+      font-size:14px;
+      color:var(--text);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+    }
+
+    summary::-webkit-details-marker{display:none}
+
+    summary span{
+      color:var(--muted);
+      font-size:12.5px;
+      font-weight:500;
+      display:block;
+      margin-top:4px;
+      line-height:1.5;
+    }
+
+    summary::after{
+      content:"+";
+      color:var(--soft);
+      font-size:19px;
+      line-height:1;
+    }
+
+    details[open] summary::after{content:"–"}
+
+    .detail-body{
+      padding:0 15px 16px;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.7;
+    }
+
+    .chart-wrap{
+      margin-top:16px;
+      background:#fff;
+      border-radius:16px;
+      padding:6px 0 0;
+    }
+
+    .drawdown-panel{
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:24px;
+      padding:13px;
+      margin-top:22px;
+    }
+
+    .drawdown-dark{
+      background:linear-gradient(145deg, var(--navy), var(--navy-2));
+      color:white;
+      border-radius:20px;
+      padding:26px 24px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .drawdown-dark .kicker{
+      color:rgba(255,255,255,.62);
+    }
+
+    .drawdown-dark h2{
+      color:white;
+      margin-bottom:12px;
+      font-weight:700;
+      letter-spacing:-.025em;
+    }
+
+    .drawdown-dark p{
+      color:rgba(255,255,255,.82);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .drawdown-control{
+      margin:18px 0 14px;
+      padding:15px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:17px;
+    }
+
+    .drawdown-control label{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      color:rgba(255,255,255,.78);
+      font-size:12.5px;
+      margin-bottom:11px;
+    }
+
+    .drawdown-control strong{
+      color:#fff;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .drawdown-numbers{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin:16px 0;
+    }
+
+    .dark-stat{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:17px;
+      padding:14px;
+    }
+
+    .dark-stat span{
+      display:block;
+      font-size:10px;
+      color:rgba(255,255,255,.58);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:6px;
+    }
+
+    .dark-stat strong{
+      color:#fff;
+      font-size:19px;
+      font-weight:730;
+      letter-spacing:-.025em;
+    }
+
+    .confirm-box{
+      margin-top:18px;
+      padding:16px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:18px;
+    }
+
+    .confirm-title{
+      color:white;
+      font-size:15px;
+      font-weight:720;
+      letter-spacing:-.015em;
+      margin-bottom:6px;
+    }
+
+    .confirm-text{
+      color:rgba(255,255,255,.76);
+      font-size:13px;
+      line-height:1.65;
+      margin-bottom:14px;
+    }
+
+    .confirm-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .confirm-btn{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.09);
+      color:white;
+      border-radius:999px;
+      padding:10px 12px;
+      font-size:12px;
+      font-weight:760;
+      cursor:pointer;
+      backdrop-filter:blur(6px);
+      transition:.18s ease;
+    }
+
+    .confirm-btn:hover{background:rgba(255,255,255,.13)}
+
+    .confirm-btn.active.yes,
+    .confirm-btn.active.no{
+      background:rgba(255,255,255,.22);
+      border-color:rgba(255,255,255,.28);
+    }
+
+    .confirm-result{
+      display:none;
+      margin-top:13px;
+      border-radius:15px;
+      padding:13px;
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    .confirm-result.show{display:block}
+
+    .confirm-result.yes,
+    .confirm-result.no{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.13);
+      color:rgba(255,255,255,.86);
+    }
+
+    .behavior-line{
+      margin-top:17px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.14);
+      font-weight:720;
+      color:white;
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .list{
+      padding-left:18px;
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .list li{margin:6px 0}
+
+    .cta-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .cta-card{
+      display:block;
+      background:var(--card-2);
+      border:1px solid var(--stroke-soft);
+      border-radius:17px;
+      padding:16px;
+      min-height:104px;
+      transition:.18s ease;
+    }
+
+    .cta-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 20px rgba(24,33,50,.06);
       text-decoration:none;
     }
 
-    .faq{
-      max-width:580px;
-      margin:32px auto 0;
-      text-align:left;
-      padding:22px;
+    .cta-card strong{
+      display:block;
+      color:var(--text);
+      font-size:14px;
+      margin-bottom:6px;
+      letter-spacing:-.02em;
     }
 
-    .faq h2{
-      font-size:28px;
-      margin:0 0 18px;
-      letter-spacing:-0.02em;
-      color:#111827;
+    .cta-card span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:500;
+      line-height:1.55;
     }
 
     .faq-item{
-      padding:18px 0;
-      border-top:1px solid #eceff3;
+      margin-top:17px;
+      padding-top:16px;
+      border-top:1px solid var(--stroke-soft);
     }
 
     .faq-item:first-of-type{
-      border-top:none;
+      border-top:0;
       padding-top:0;
     }
 
-    .faq h3{
-      font-size:19px;
-      margin:0 0 8px;
-      color:#111827;
-      letter-spacing:-0.01em;
-    }
+    .faq-item p{font-size:13.8px}
 
-    .faq p{
-      font-size:16px;
-      color:#374151;
-      margin:0;
-    }
-
-    .footer{
-      margin-top:30px;
+    .back{
       text-align:center;
+      margin-top:26px;
+      font-size:12px;
     }
 
-    .footer a{
-      color:var(--link);
-      text-decoration:none;
-      font-weight:600;
-      cursor:pointer;
-    }
-
-    @media (max-width:768px){
-      .container{
-        padding:28px 18px 24px;
+    @media(max-width:520px){
+      .page{
+        margin:18px auto;
+        padding:28px 17px 32px;
       }
 
       h1{
         font-size:32px;
+        letter-spacing:-.04em;
       }
 
-      .sub{
-        font-size:16px;
-      }
+      h2{font-size:22px}
+      .subtitle{font-size:14.5px}
+      p{font-size:14px}
 
-      .form-card{
-        padding:18px 16px;
-      }
-
-      .form-row{
+      .field{
         grid-template-columns:1fr;
-        gap:8px;
+        gap:6px;
       }
 
       .results,
-      .decision-grid,
-      .feature-grid,
-      .next-step-grid{
+      .mini-grid,
+      .drawdown-numbers,
+      .cta-grid,
+      .confirm-actions{
         grid-template-columns:1fr;
-      }
-
-      .result-value{
-        font-size:24px;
-      }
-
-      .chart-title,
-      .text-card h2,
-      .decision-title{
-        font-size:22px;
-      }
-
-      .faq h2{
-        font-size:24px;
-      }
-
-      .scenario-table th,
-      .scenario-table td{
-        font-size:13px;
-        padding:10px 8px;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <div class="container">
+  <main class="page">
+    <header>
+      <div class="hero-kicker">DCA Calculator</div>
+      <h1>
+        A simple DCA plan<br>
+        you can keep
+      </h1>
+      <p class="subtitle">
+        Estimate growth, reduce timing anxiety, and see whether your contribution plan is simple enough to follow
+      </p>
+    </header>
 
-      <div class="hero">
-        <h1>DCA Calculator</h1>
-        <div class="sub">
-          Build a repeatable long-term investing habit — not to predict the market perfectly, but to judge whether a steady monthly plan is practical and worth following over time.
-        </div>
-        <div class="info">
-          Use this calculator to estimate long-term DCA growth with monthly contributions, realistic return assumptions, and ETF fees — then decide whether the plan makes sense in real life.
-        </div>
-      </div>
-
-      <div class="form-card">
-        <div class="form-row">
-          <label for="monthly">Monthly Investment ($)</label>
-          <input id="monthly" type="number" step="50" min="0" placeholder="500" />
-        </div>
-
-        <div class="form-row">
-          <label for="years">Years</label>
-          <input id="years" type="number" step="1" min="1" placeholder="20" />
-        </div>
-
-        <div class="form-row">
-          <label for="rate">Expected Annual Return (%)</label>
-          <input id="rate" type="number" step="0.1" min="0" placeholder="8" />
-        </div>
-
-        <div class="form-row">
-          <label for="fee">ETF Expense Ratio (%)</label>
-          <input id="fee" type="number" step="0.01" min="0" placeholder="0.03" />
-        </div>
-
-        <div class="buttons">
-          <button type="button" class="calculate" id="calculateBtn">Calculate</button>
-          <button type="button" class="example" id="exampleBtn">Try Example</button>
-          <button type="button" class="reset" id="resetBtn">Reset</button>
-        </div>
-
-        <div class="assumption-note">
-          Assumption: This projection uses fixed monthly investing, a fixed annual return, and a fixed ETF fee. Real market returns vary, markets fall, and this is not a guarantee — it is a planning tool.
-        </div>
-      </div>
-
-      <div class="results">
-        <div class="result-box">
-          <div class="result-label">Final Value</div>
-          <div class="result-value" id="final">$0.00</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Total Invested</div>
-          <div class="result-value" id="invested">$0.00</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Total Growth</div>
-          <div class="result-value" id="growth">$0.00</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Fee Drag</div>
-          <div class="result-value" id="feeDrag">$0.00</div>
-        </div>
-      </div>
-
-      <div class="decision-panel">
-        <div class="eyebrow">Quick Answer</div>
-        <div class="decision-title" id="decisionTitle">A practical long-term DCA plan</div>
-        <div class="decision-sub" id="decisionSub">
-          This plan is structurally sound — built on consistency, time, and the removal of timing pressure.
-        </div>
-
-        <div class="decision-summary" id="planVerdict">
-          <strong>Decision confirmation:</strong> This is a practical and repeatable long-term investing plan.
-        </div>
-
-        <div class="decision-grid">
-          <div class="decision-box">
-            <div class="decision-label">Plan Type</div>
-            <div class="decision-value" id="profileType">Long-Term Habit Builder</div>
-            <div class="decision-desc" id="profileDesc">
-              You are building a steady investing process designed to reduce hesitation and keep you moving through uncertainty.
-            </div>
-          </div>
-
-          <div class="decision-box">
-            <div class="decision-label">Net Return</div>
-            <div class="decision-value" id="netReturn">0.0%</div>
-            <div class="decision-desc" id="netReturnDesc">
-              Your expected annual return after subtracting the ETF expense ratio.
-            </div>
-          </div>
-
-          <div class="decision-box">
-            <div class="decision-label">Biggest Driver</div>
-            <div class="decision-value" id="biggestDriver">Consistency</div>
-            <div class="decision-desc" id="biggestDriverDesc">
-              DCA works best when you keep investing through normal ups and downs instead of reacting to them.
-            </div>
-          </div>
-
-          <div class="decision-box">
-            <div class="decision-label">Main Risk</div>
-            <div class="decision-value" id="mainRisk">Behavioral Risk</div>
-            <div class="decision-desc" id="mainRiskDesc">
-              The biggest risk is not market volatility itself. It is stopping the plan when markets become uncomfortable.
-            </div>
-          </div>
-        </div>
-
-        <div class="decision-summary" id="improveFirst">
-          <strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it during difficult markets.
-        </div>
-
-        <div class="decision-summary" id="decisionSummary">
-          For most long-term investors, a simple DCA plan is a strong default path — especially when the goal is to build a repeatable investing habit instead of trying to time the market.
-        </div>
-
-        <div class="decision-final" id="decisionFinal">
-          You do not need a perfect entry point — you need a plan you can continue.
-        </div>
-      </div>
-
-      <div class="section-card chart-wrap">
-        <div class="eyebrow">Projection</div>
-        <div class="chart-title">DCA Growth Over Time</div>
-        <div class="chart-sub">
-          A visual view of how regular investing and long-term compounding may build wealth over time.
-        </div>
-        <canvas id="growthChart" height="220"></canvas>
-        <div class="decision-line" id="decisionLine">
-          At this pace, time and compounding are becoming major drivers of your future wealth.
-        </div>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Risk Reality</div>
-        <h2>DCA does not remove losses — it helps you survive them</h2>
-        <p>
-          A DCA plan still goes through market declines. Your account value can fall, and the process can still feel uncomfortable. DCA is not risk-free — it is behavior-friendly.
-        </p>
-        <div class="callout" id="riskRealityText">
-          If a normal market decline would make you stop investing, the risk is not only volatility — it is whether the plan is simple enough for you to continue.
-        </div>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Scenario Thinking</div>
-        <h2>Think in ranges, not certainty</h2>
-        <p>
-          No one knows the exact return your plan will earn. A more rational approach is to test your plan across a range of outcomes instead of relying on one perfect forecast.
-        </p>
-
-        <table class="scenario-table">
-          <thead>
-            <tr>
-              <th>Scenario</th>
-              <th>Annual Return</th>
-              <th>Net Return</th>
-              <th>Ending Value</th>
-            </tr>
-          </thead>
-          <tbody id="scenarioBody">
-            <tr>
-              <td>Conservative</td>
-              <td>6.0%</td>
-              <td>5.97%</td>
-              <td>$0.00</td>
-            </tr>
-            <tr>
-              <td>Base Case</td>
-              <td>8.0%</td>
-              <td>7.97%</td>
-              <td>$0.00</td>
-            </tr>
-            <tr>
-              <td>Stronger Outcome</td>
-              <td>10.0%</td>
-              <td>9.97%</td>
-              <td>$0.00</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Cost Awareness</div>
-        <h2>Even small fees still matter</h2>
-
-        <div class="feature-grid">
-          <div class="feature-box">
-            <div class="feature-label">Gross Return</div>
-            <div class="feature-value" id="grossReturnBox">8.0%</div>
-            <div class="feature-desc">This is the return assumption before ETF fees are subtracted.</div>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-label">Expense Ratio</div>
-            <div class="feature-value" id="feeBox">0.03%</div>
-            <div class="feature-desc">Even small annual fees reduce how much of your return stays invested.</div>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-label">Net Return</div>
-            <div class="feature-value" id="netReturnBox">7.97%</div>
-            <div class="feature-desc">This is what your plan compounds at after the ETF fee is removed.</div>
-          </div>
-        </div>
-
-        <div class="callout" id="feeImpactText">
-          DCA reduces timing pressure, but low fees still matter because they affect how much of your long-term result keeps compounding.
-        </div>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Timing Anxiety</div>
-        <h2>You do not need to guess the best month to buy</h2>
-        <p>
-          The purpose of DCA is not to maximize perfect timing. It is to remove the pressure of deciding the “right” entry point every time you invest.
-        </p>
-        <div class="callout">
-          If the plan makes sense, the bigger risk is often waiting for clarity instead of building the habit.
-        </div>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Behavior Guard</div>
-        <h2>What may cause this plan to fail</h2>
-        <ul class="suggestion-list" id="behaviorList">
-          <li>Stopping contributions during market declines.</li>
-          <li>Changing the plan too often after short-term noise.</li>
-          <li>Expecting DCA to remove uncertainty or emotional discomfort.</li>
-        </ul>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Decision Explanation</div>
-        <h2>Why this plan is worth following</h2>
-        <p>
-          DCA is valuable because it turns investing into a repeatable process. It reduces hesitation, spreads decisions over time, and makes it easier to keep acting under uncertainty.
-        </p>
-        <p style="margin-top:12px;">
-          The strength of this plan comes from simplicity, realistic repetition, and the ability to continue through uncomfortable market periods.
-        </p>
-      </div>
-
-      <div class="section-card text-card">
-        <div class="eyebrow">Next Step</div>
-        <h2>What should you do next?</h2>
-        <p>
-          If your DCA plan looks reasonable, the next decision is what ETF path you want to use with that habit.
-        </p>
-
-        <div class="next-step-grid">
-          <div class="next-step-card">
-            <h3>Use VOO as the default path</h3>
-            <p>
-              If you want a simple long-term plan built around low-cost U.S. large-cap exposure, continue with the VOO Calculator.
-            </p>
-            <a href="/voo-calculator.html">Open VOO Calculator →</a>
-          </div>
-
-          <div class="next-step-card">
-            <h3>Compare a broader ETF plan</h3>
-            <p>
-              If you want to test a different ETF, compare fee levels, or model a broader portfolio path, continue with the ETF Calculator.
-            </p>
-            <a href="/etf-calculator.html">Open ETF Calculator →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-card faq">
-        <h2>DCA Calculator FAQ</h2>
-
-        <div class="faq-item">
-          <h3>What is dollar-cost averaging?</h3>
-          <p>Dollar-cost averaging means investing a fixed amount on a regular schedule, regardless of market price. It helps reduce emotional timing decisions.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Does DCA guarantee better returns?</h3>
-          <p>No. DCA does not guarantee better performance. Its main value is building discipline and reducing the pressure to invest all at once.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Why include ETF fees?</h3>
-          <p>Because even small annual fees reduce your net return, and over long periods that drag compounds against you.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>How is this different from the ETF Calculator?</h3>
-          <p>This page is specifically about the DCA process. The ETF Calculator is broader and designed for judging an overall ETF investing plan.</p>
-        </div>
-      </div>
-
-      <div class="footer">
-        <a href="https://etfcalculator.net">← Back to Home</a>
-      </div>
-
+    <div class="notice">
+      This calculator is not about finding the perfect entry point. It is about building a repeatable contribution habit you can keep through good and bad markets.
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <form id="calculatorForm">
+      <div class="form-grid">
+        <div class="field">
+          <label for="initial">Initial Investment ($)</label>
+          <input id="initial" type="number" value="5000" min="0" />
+        </div>
+
+        <div class="field">
+          <label for="monthly">Monthly Contribution ($)</label>
+          <input id="monthly" type="number" value="500" min="0" />
+        </div>
+
+        <div class="field">
+          <label for="years">Years</label>
+          <input id="years" type="number" value="20" min="1" />
+        </div>
+
+        <div class="field">
+          <label for="returnRate">Expected Annual Return (%)</label>
+          <input id="returnRate" type="number" value="8" step="0.1" />
+        </div>
+
+        <div class="field">
+          <label for="fee">ETF Expense Ratio (%)</label>
+          <input id="fee" type="number" value="0.10" step="0.01" />
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary" onclick="calculateDCA()">Calculate</button>
+        <button type="button" class="secondary" onclick="tryExample()">Try Example</button>
+        <button type="reset" class="secondary">Reset</button>
+      </div>
+    </form>
+
+    <div class="disclaimer">
+      Assumption: This calculator uses a fixed annual return, fixed fee, and monthly contribution. Real markets are volatile. This is not financial advice.
+    </div>
+
+    <div class="results">
+      <div class="result-card">
+        <span class="result-label">Invested</span>
+        <strong class="result-value" id="investedResult">$125,000</strong>
+      </div>
+      <div class="result-card">
+        <span class="result-label">Growth</span>
+        <strong class="result-value" id="growthResult">$145,000</strong>
+      </div>
+      <div class="result-card">
+        <span class="result-label">Final Value</span>
+        <strong class="result-value" id="finalResult">$270,000</strong>
+      </div>
+    </div>
+
+    <section>
+      <div class="kicker">Quick decision</div>
+      <h2>A practical DCA investing plan</h2>
+      <p>
+        This plan can work if the contribution amount is realistic, the ETF is simple enough to hold, and you can keep investing through market declines.
+      </p>
+
+      <div class="decision-box">
+        <strong>Decision confirmation:</strong>
+        DCA is useful because it turns investing from a timing decision into a repeatable habit.
+      </div>
+
+      <div class="mini-grid">
+        <div class="mini-card">
+          <strong>Less Timing Pressure</strong>
+          <span>DCA reduces the need to guess the perfect entry point.</span>
+        </div>
+        <div class="mini-card">
+          <strong>Contribution Habit</strong>
+          <span>The real edge is continuing when markets feel uncomfortable.</span>
+        </div>
+        <div class="mini-card">
+          <strong>Time + Compounding</strong>
+          <span>Small repeated contributions can become meaningful over long periods.</span>
+        </div>
+        <div class="mini-card">
+          <strong>Behavioral Fit</strong>
+          <span>The plan fails if the monthly amount is too hard to sustain.</span>
+        </div>
+      </div>
+
+      <p>
+        <strong>What to improve first:</strong> Choose a monthly contribution you can repeat. A smaller plan you keep is better than a larger plan you abandon.
+      </p>
+    </section>
+
+    <section class="deep-layer">
+      <div class="kicker">Deep layer</div>
+      <h2>Want to go deeper?</h2>
+      <p>
+        The quick answer is above. The deeper question is whether your DCA plan can survive volatility, inconsistency, and emotional pressure.
+      </p>
+
+      <details>
+        <summary>
+          <div>
+            DCA vs waiting for a better price
+            <span>Understand why waiting often feels safe but creates delay.</span>
+          </div>
+        </summary>
+        <div class="detail-body">
+          Waiting for a perfect entry point can feel rational, but it often turns into inaction. DCA creates a rule-based system so you do not have to make a new timing decision every month.
+        </div>
+      </details>
+
+      <details open>
+        <summary>
+          <div>
+            What happens during market declines
+            <span>Stress-test whether you can keep contributing when prices fall.</span>
+          </div>
+        </summary>
+        <div class="detail-body">
+          A decline is not just a number. It tests whether you can continue the contribution habit when your account value temporarily drops.
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <div>
+            Behavioral mistakes DCA investors make
+            <span>See why DCA fails when the rule is abandoned.</span>
+          </div>
+        </summary>
+        <div class="detail-body">
+          DCA does not work by magic. It works when the investor keeps the system alive. Stopping contributions during declines removes the main benefit.
+        </div>
+      </details>
+    </section>
+
+    <section>
+      <div class="kicker">Growth chart</div>
+      <h2>DCA Growth Over Time</h2>
+      <p>
+        A visual view of how your portfolio may grow if you keep contributing consistently.
+      </p>
+
+      <div class="chart-wrap">
+        <canvas id="growthChart" height="260"></canvas>
+      </div>
+
+      <p>
+        Over time, repeated contributions and compounding become the main drivers of your long-term outcome.
+      </p>
+    </section>
+
+    <div id="drawdown-reality" class="drawdown-panel">
+      <div class="drawdown-dark">
+        <div class="kicker">Drawdown reality</div>
+        <h2>What a real DCA decline feels like</h2>
+        <p>
+          If your portfolio reaches <strong id="drawdownBase">$270,000</strong>, a market decline can still feel painful even if you are investing gradually.
+        </p>
+
+        <div class="drawdown-control">
+          <label for="drawdownSlider">
+            Stress test decline
+            <strong id="drawdownPercent">-30%</strong>
+          </label>
+          <input id="drawdownSlider" type="range" min="10" max="60" value="30" step="5" oninput="updateDrawdown()" />
+        </div>
+
+        <div class="drawdown-numbers">
+          <div class="dark-stat">
+            <span>After decline</span>
+            <strong id="drawdownAfter">$189,000</strong>
+          </div>
+          <div class="dark-stat">
+            <span>Temporary loss</span>
+            <strong id="drawdownLoss">$81,000</strong>
+          </div>
+        </div>
+
+        <p>
+          This is not a prediction. It is a behavioral stress test. DCA lowers timing anxiety, but it does not remove market risk.
+        </p>
+
+        <div class="confirm-box">
+          <div class="confirm-title">Can you keep contributing after a 30% decline?</div>
+          <div class="confirm-text">
+            Answer this honestly. If the answer is no, lower the monthly amount before you start. The best DCA plan is the one you can repeat.
+          </div>
+
+          <div class="confirm-actions">
+            <button type="button" class="confirm-btn yes" onclick="confirmBehavior('yes')">
+              Yes, I can continue
+            </button>
+            <button type="button" class="confirm-btn no" onclick="confirmBehavior('no')">
+              No, reduce amount
+            </button>
+          </div>
+
+          <div id="confirmResult" class="confirm-result"></div>
+        </div>
+
+        <div class="behavior-line">
+          DCA does not fail because prices fall.<br>
+          It fails when the contribution habit stops.
+        </div>
+      </div>
+    </div>
+
+    <section id="discipline-impact">
+      <div class="kicker">Contribution discipline</div>
+      <h2>The habit matters more than the perfect month</h2>
+
+      <div class="mini-grid">
+        <div class="mini-card">
+          <strong id="monthlyResult">$500</strong>
+          <span>Monthly contribution</span>
+        </div>
+        <div class="mini-card">
+          <strong id="annualContribution">$6,000</strong>
+          <span>Annual contribution pace</span>
+        </div>
+        <div class="mini-card">
+          <strong id="netReturn">7.90%</strong>
+          <span>Approx. return after ETF fee</span>
+        </div>
+        <div class="mini-card">
+          <strong id="feeDrag">$0</strong>
+          <span>Estimated fee drag over this plan</span>
+        </div>
+      </div>
+
+      <p>
+        DCA works best when the amount is realistic. The goal is not to invest the maximum once. The goal is to build a contribution system you can keep.
+      </p>
+    </section>
+
+    <section>
+      <div class="kicker">Timing anxiety</div>
+      <h2>You do not need to win the entry point</h2>
+      <p>
+        Many investors delay because they are waiting for a better price. DCA replaces the question “Is now perfect?” with “Can I keep following this schedule?”
+      </p>
+      <div class="decision-box">
+        The bigger risk is often not buying at the wrong month — it is never starting a repeatable system.
+      </div>
+    </section>
+
+    <section id="behavior-risk">
+      <div class="kicker">Behavior guard</div>
+      <h2>What may cause this DCA plan to fail</h2>
+      <ul class="list">
+        <li>The monthly contribution is too high to sustain.</li>
+        <li>You stop investing when markets fall.</li>
+        <li>You switch plans every time the news changes.</li>
+        <li>You use DCA as an excuse to avoid choosing a simple ETF.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="kicker">Decision meaning</div>
+      <h2>Why this plan may be worth following</h2>
+      <p>
+        A strong DCA plan reduces timing pressure and turns investing into a repeatable process. It does not promise better returns every time, but it can make action easier.
+      </p>
+      <p>
+        The strength of DCA is behavioral: it helps you keep moving even when the market feels uncertain.
+      </p>
+    </section>
+
+    <section>
+      <div class="kicker">Next step</div>
+      <h2>What should you do next?</h2>
+      <p>
+        If this DCA plan looks realistic, the next step is to test the ETF itself or compare a focused VOO plan.
+      </p>
+
+      <div class="cta-grid">
+        <a class="cta-card" href="/etf-calculator.html">
+          <strong>Test the ETF plan</strong>
+          <span>Use the ETF Calculator to compare return, fees, and drawdown risk.</span>
+        </a>
+
+        <a class="cta-card" href="/voo-calculator.html">
+          <strong>Build a VOO-specific plan</strong>
+          <span>Use the VOO Calculator for a focused S&P 500 ETF plan.</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>DCA Calculator FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What does this DCA calculator estimate?</h3>
+        <p>
+          It estimates how a regular monthly contribution plan may grow over time using your initial investment, monthly contribution, expected return, expense ratio, and investment horizon.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is DCA better than lump-sum investing?</h3>
+        <p>
+          Not always. Lump-sum investing can perform better when markets rise quickly. DCA is often useful because it reduces timing anxiety and makes action easier.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why include drawdowns in a DCA calculator?</h3>
+        <p>
+          DCA does not eliminate market declines. Showing drawdowns helps you test whether you can keep contributing when your portfolio temporarily falls.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I choose a monthly DCA amount?</h3>
+        <p>
+          Choose an amount you can repeat without stress. A sustainable contribution plan is usually better than an aggressive plan you cannot maintain.
+        </p>
+      </div>
+    </section>
+
+    <div class="back">
+      <a href="/">← Back to Home</a>
+    </div>
+  </main>
 
   <script>
-    let chartInstance = null;
+    let growthChart;
+    let latestBalance = 0;
 
-    function formatMoney(num){
-      return "$" + Number(num).toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+    function money(value){
+      return value.toLocaleString("en-US", {
+        style:"currency",
+        currency:"USD",
+        maximumFractionDigits:0
       });
     }
 
-    function formatPercent(num){
-      return Number(num).toLocaleString(undefined, {
-        minimumFractionDigits: 1,
-        maximumFractionDigits: 2
-      }) + "%";
-    }
+    function calculateFutureValue(initial, monthly, years, annualReturn){
+      const monthlyReturn = Math.pow(1 + annualReturn, 1 / 12) - 1;
+      const months = years * 12;
+      let balance = initial;
 
-    function futureValueDCA(monthly, years, annualRate){
-      const months = Math.max(Math.round(years * 12), 0);
-      let balance = 0;
       for(let i = 1; i <= months; i++){
-        balance += monthly;
-        balance *= (1 + annualRate / 12);
+        balance = balance * (1 + monthlyReturn) + monthly;
       }
+
       return balance;
     }
 
-    function getProfileType(years, monthly){
-      if(years >= 15 && monthly >= 300){
-        return {
-          title: "Long-Term Habit Builder",
-          desc: "You are building a steady investing process designed to reduce hesitation and keep you moving through uncertainty."
-        };
+    function calculateDCA(){
+      const initial = Number(document.getElementById("initial").value) || 0;
+      const monthly = Number(document.getElementById("monthly").value) || 0;
+      const years = Number(document.getElementById("years").value) || 0;
+      const annualReturnPercent = Number(document.getElementById("returnRate").value) || 0;
+      const feePercent = Number(document.getElementById("fee").value) || 0;
+
+      const annualReturn = annualReturnPercent / 100;
+      const fee = feePercent / 100;
+      const netAnnualReturn = annualReturn - fee;
+      const monthlyReturn = Math.pow(1 + netAnnualReturn, 1 / 12) - 1;
+      const months = years * 12;
+
+      let balance = initial;
+      let invested = initial;
+
+      const labels = [0];
+      const valueData = [initial];
+      const contributionData = [initial];
+
+      for(let i = 1; i <= months; i++){
+        balance = balance * (1 + monthlyReturn) + monthly;
+        invested += monthly;
+
+        if(i % 12 === 0){
+          labels.push(i / 12);
+          valueData.push(Math.round(balance));
+          contributionData.push(Math.round(invested));
+        }
       }
-      if(years >= 10){
-        return {
-          title: "Steady DCA Investor",
-          desc: "This plan is built around regular investing and patience. Time still matters more than trying to guess better entry points."
-        };
-      }
-      return {
-        title: "Early-Stage Habit Builder",
-        desc: "At this stage, the plan depends more on keeping the habit alive than on fully developed long-term compounding."
-      };
+
+      const noFeeBalance = calculateFutureValue(initial, monthly, years, annualReturn);
+      const feeDrag = Math.max(0, noFeeBalance - balance);
+      const growth = balance - invested;
+
+      latestBalance = balance;
+
+      document.getElementById("investedResult").textContent = money(invested);
+      document.getElementById("growthResult").textContent = money(growth);
+      document.getElementById("finalResult").textContent = money(balance);
+
+      document.getElementById("drawdownBase").textContent = money(balance);
+
+      document.getElementById("monthlyResult").textContent = money(monthly);
+      document.getElementById("annualContribution").textContent = money(monthly * 12);
+      document.getElementById("netReturn").textContent = (netAnnualReturn * 100).toFixed(2) + "%";
+      document.getElementById("feeDrag").textContent = money(feeDrag);
+
+      updateDrawdown();
+      drawChart(labels, valueData, contributionData);
     }
 
-    function getBiggestDriver(years, growthShare){
-      if(years < 8){
-        return {
-          title: "Consistency",
-          desc: "At this stage, the value of DCA comes mostly from building and maintaining the investing habit."
-        };
-      }
-      if(years >= 15 && growthShare >= 45){
-        return {
-          title: "Time + Compounding",
-          desc: "The longer the horizon, the more your future result depends on compounding rather than fresh contributions alone."
-        };
-      }
-      return {
-        title: "Consistency",
-        desc: "DCA works best when you keep investing through normal ups and downs instead of reacting to them."
-      };
+    function updateDrawdown(){
+      const slider = document.getElementById("drawdownSlider");
+      const percent = Number(slider.value) || 30;
+      const decline = percent / 100;
+
+      document.getElementById("drawdownPercent").textContent = "-" + percent + "%";
+      document.getElementById("drawdownAfter").textContent = money(latestBalance * (1 - decline));
+      document.getElementById("drawdownLoss").textContent = money(latestBalance * decline);
     }
 
-    function getMainRisk(years, ratePercent, feePercent){
-      if(feePercent > 0.40){
-        return {
-          title: "Fee Drag",
-          desc: "Your ETF fee is high enough to take a noticeable amount away from long-term compounding."
-        };
+    function confirmBehavior(choice){
+      const yesBtn = document.querySelector(".confirm-btn.yes");
+      const noBtn = document.querySelector(".confirm-btn.no");
+      const result = document.getElementById("confirmResult");
+
+      yesBtn.classList.remove("active");
+      noBtn.classList.remove("active");
+      result.className = "confirm-result show";
+
+      if(choice === "yes"){
+        yesBtn.classList.add("active");
+        result.classList.add("yes");
+        result.innerHTML =
+          "<strong>Good.</strong> Your DCA plan may be behaviorally realistic. Your next job is not to predict the next decline — it is to keep the contribution habit alive when the chart looks uncomfortable.";
+      }else{
+        noBtn.classList.add("active");
+        result.classList.add("no");
+        result.innerHTML =
+          "<strong>Then reduce the amount before you start.</strong> A smaller contribution you can actually repeat is better than a larger DCA plan you abandon during the first real decline.";
       }
-      if(ratePercent >= 11){
-        return {
-          title: "Optimistic Assumptions",
-          desc: "Your expected return may be too aggressive. A good DCA plan should still make sense under more conservative assumptions."
-        };
-      }
-      return {
-        title: "Behavioral Risk",
-        desc: "The biggest risk is not market volatility itself. It is stopping the plan when markets become uncomfortable."
-      };
     }
 
-    function buildPlanVerdict(years, ratePercent, feePercent){
-      if(feePercent > 0.40){
-        return "This plan is workable, but the ETF fee is too high for an efficient long-term DCA plan.";
-      }
-      if(ratePercent >= 11){
-        return "This plan is reasonable, but your expected return assumption may be too optimistic.";
-      }
-      if(years < 5){
-        return "This can still be a valid start, but the time horizon is short for a long-term DCA plan to show its full strength.";
-      }
-      if(years >= 10){
-        return "This is a practical and repeatable long-term investing plan.";
-      }
-      return "This is a workable DCA plan, but consistency matters more than mature compounding at this stage.";
-    }
+    function drawChart(labels, valueData, contributionData){
+      const ctx = document.getElementById("growthChart").getContext("2d");
 
-    function buildImproveFirst(years, monthly, ratePercent, feePercent){
-      if(feePercent > 0.40){
-        return "Lower ETF fees. Cost still matters because it affects how much of your result keeps compounding over time.";
-      }
-      if(ratePercent >= 11){
-        return "Use a more conservative expected return so the plan still looks sensible under less optimistic conditions.";
-      }
-      if(monthly < 200){
-        return "Increase your monthly contribution if possible. At this stage, contribution size matters more than fine-tuning return assumptions.";
-      }
-      if(years < 8){
-        return "Extend your time horizon if your real goal is long-term compounding rather than just a shorter-term projection.";
-      }
-      return "Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
-    }
-
-    function buildDecisionTitle(years, ratePercent, feePercent){
-      if(feePercent > 0.40){
-        return "A workable DCA plan — but the fee level is too high";
-      }
-      if(ratePercent >= 11){
-        return "A workable DCA plan — but your assumptions may be too optimistic";
-      }
-      if(years >= 15){
-        return "A practical long-term DCA plan";
-      }
-      if(years >= 8){
-        return "A solid DCA plan built around patience";
-      }
-      return "A simple DCA plan that depends on discipline";
-    }
-
-    function buildDecisionSub(years){
-      if(years < 8){
-        return "This plan can still work, but at this stage consistency matters more than mature long-term compounding.";
-      }
-      return "This plan is structurally sound — built on consistency, time, and the removal of timing pressure.";
-    }
-
-    function buildDecisionSummary(ratePercent, feePercent){
-      if(feePercent > 0.40){
-        return "A simple DCA plan is still the right idea — but your current fee level is too high.";
-      }
-      if(ratePercent >= 11){
-        return "A simple DCA plan is still a strong path — but your return assumption should be more conservative.";
-      }
-      return "For most long-term investors, a simple DCA plan is a strong default path — especially when the goal is to build a repeatable investing habit instead of trying to time the market.";
-    }
-
-    function buildDecisionLine(years, growthShare){
-      if(years >= 15 && growthShare >= 45){
-        return "At this pace, time and compounding are becoming major drivers of your future wealth.";
-      }
-      if(years < 8){
-        return "At this stage, your result is still driven heavily by your steady contributions, which is why consistency matters.";
-      }
-      return "At this pace, time and compounding are becoming major drivers of your future wealth.";
-    }
-
-    function buildFeeImpactText(feePercent){
-      if(feePercent <= 0.10){
-        return "DCA reduces timing pressure, but low fees still matter because they affect how much of your long-term result keeps compounding.";
-      }
-      if(feePercent <= 0.30){
-        return "This fee level is still manageable, but it is no longer trivial over long holding periods.";
-      }
-      return "This fee level is high enough to materially reduce long-term compounding, especially over many years.";
-    }
-
-    function buildRiskRealityText(years){
-      if(years >= 10){
-        return "If a normal market decline would make you stop investing, the risk is not only volatility — it is whether the plan is simple enough for you to continue.";
-      }
-      return "Even with a shorter horizon, DCA still includes losses and uncertainty. A plan only works if you can continue through that reality.";
-    }
-
-    function buildBehaviorList(ratePercent, feePercent){
-      const items = [
-        "Stopping contributions during market declines.",
-        "Changing the plan too often after short-term noise.",
-        "Expecting DCA to remove uncertainty or emotional discomfort."
-      ];
-
-      if(feePercent > 0.40){
-        items.unshift("Ignoring fund costs that quietly compound against your result.");
+      if(growthChart){
+        growthChart.destroy();
       }
 
-      if(ratePercent >= 11){
-        items.push("Depending too much on optimistic return assumptions.");
-      }
-
-      return items;
-    }
-
-    function updateScenarioTable(monthly, years, feePercent){
-      const feeRate = feePercent / 100;
-      const scenarios = [
-        { name: "Conservative", gross: 6.0 },
-        { name: "Base Case", gross: 8.0 },
-        { name: "Stronger Outcome", gross: 10.0 }
-      ];
-
-      const tbody = document.getElementById("scenarioBody");
-      tbody.innerHTML = "";
-
-      scenarios.forEach(function(item){
-        const net = Math.max((item.gross / 100) - feeRate, 0);
-        const ending = futureValueDCA(monthly, years, net);
-
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${item.name}</td>
-          <td>${item.gross.toFixed(1)}%</td>
-          <td>${(net * 100).toFixed(2)}%</td>
-          <td>${formatMoney(ending)}</td>
-        `;
-        tbody.appendChild(row);
-      });
-    }
-
-    function drawChart(labels, balanceData, contributionData){
-      const canvas = document.getElementById("growthChart");
-      const ctx = canvas.getContext("2d");
-
-      if(chartInstance){
-        chartInstance.destroy();
-      }
-
-      chartInstance = new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: labels,
-          datasets: [
+      growthChart = new Chart(ctx, {
+        type:"line",
+        data:{
+          labels:labels,
+          datasets:[
             {
-              label: "Portfolio Value",
-              data: balanceData,
-              borderColor: "#2563eb",
-              backgroundColor: "rgba(37,99,235,0.08)",
-              tension: 0.32,
-              borderWidth: 3,
-              pointRadius: 0,
-              pointHoverRadius: 4,
-              fill: false
+              label:"Portfolio Value",
+              data:valueData,
+              borderWidth:2,
+              tension:.28,
+              pointRadius:0
             },
             {
-              label: "Total Invested",
-              data: contributionData,
-              borderColor: "#9ca3af",
-              backgroundColor: "rgba(156,163,175,0.08)",
-              tension: 0.25,
-              borderWidth: 2,
-              pointRadius: 0,
-              pointHoverRadius: 3,
-              fill: false
+              label:"Total Contributions",
+              data:contributionData,
+              borderWidth:1.6,
+              tension:.28,
+              pointRadius:0
             }
           ]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          plugins: {
-            legend: {
-              labels: {
-                color: "#374151",
-                boxWidth: 24
+        options:{
+          responsive:true,
+          maintainAspectRatio:false,
+          plugins:{
+            legend:{
+              display:true,
+              labels:{
+                boxWidth:10,
+                font:{size:10}
               }
             },
-            tooltip: {
-              callbacks: {
-                label: function(context){
-                  return context.dataset.label + ": " + formatMoney(context.raw);
+            tooltip:{
+              callbacks:{
+                label:function(context){
+                  return context.dataset.label + ": " + money(context.raw);
                 }
               }
             }
           },
-          scales: {
-            x: {
-              ticks: {
-                color: "#6b7280",
-                callback: function(value, index){
-                  const yearNumber = index + 1;
-                  return [1, 5, 10, 15, 20, 25, 30].includes(yearNumber) ? yearNumber : "";
-                },
-                maxRotation: 0,
-                autoSkip: false
+          scales:{
+            x:{
+              title:{
+                display:true,
+                text:"Years",
+                font:{size:10}
               },
-              title: {
-                display: true,
-                text: "Year",
-                color: "#6b7280",
-                font: { size: 12 }
-              },
-              grid: { display: false }
+              grid:{display:false},
+              ticks:{font:{size:10}}
             },
-            y: {
-              ticks: {
-                color: "#6b7280",
-                callback: function(value){
-                  return "$" + Number(value).toLocaleString();
+            y:{
+              ticks:{
+                font:{size:10},
+                callback:function(value){
+                  return "$" + value.toLocaleString();
                 }
-              },
-              grid: {
-                color: "rgba(0,0,0,0.05)"
               }
             }
           }
@@ -1189,194 +1136,21 @@
       });
     }
 
-    function calculate(){
-      const monthly = parseFloat(document.getElementById("monthly").value) || 0;
-      const years = parseFloat(document.getElementById("years").value) || 0;
-      const grossRatePercent = parseFloat(document.getElementById("rate").value) || 0;
-      const feePercent = parseFloat(document.getElementById("fee").value) || 0;
-
-      const grossRate = grossRatePercent / 100;
-      const feeRate = feePercent / 100;
-      const netAnnualRate = Math.max(grossRate - feeRate, 0);
-
-      const months = Math.max(Math.round(years * 12), 0);
-
-      let balance = 0;
-      let invested = 0;
-      let grossBalance = 0;
-
-      const labels = [];
-      const balanceData = [];
-      const contributionData = [];
-
-      for(let i = 1; i <= months; i++){
-        balance += monthly;
-        invested += monthly;
-        balance *= (1 + netAnnualRate / 12);
-
-        grossBalance += monthly;
-        grossBalance *= (1 + grossRate / 12);
-
-        if(i % 12 === 0){
-          labels.push("Year " + (i / 12));
-          balanceData.push(Number(balance.toFixed(2)));
-          contributionData.push(Number(invested.toFixed(2)));
-        }
-      }
-
-      const growth = balance - invested;
-      const feeDrag = Math.max(grossBalance - balance, 0);
-      const growthShare = balance > 0 ? (growth / balance) * 100 : 0;
-      const netReturnPercent = Math.max(grossRatePercent - feePercent, 0);
-
-      document.getElementById("final").textContent = formatMoney(balance);
-      document.getElementById("invested").textContent = formatMoney(invested);
-      document.getElementById("growth").textContent = formatMoney(growth);
-      document.getElementById("feeDrag").textContent = formatMoney(feeDrag);
-
-      const profile = getProfileType(years, monthly);
-      const biggestDriver = getBiggestDriver(years, growthShare);
-      const mainRisk = getMainRisk(years, grossRatePercent, feePercent);
-
-      document.getElementById("decisionTitle").textContent = buildDecisionTitle(years, grossRatePercent, feePercent);
-      document.getElementById("decisionSub").textContent = buildDecisionSub(years);
-
-      document.getElementById("profileType").textContent = profile.title;
-      document.getElementById("profileDesc").textContent = profile.desc;
-
-      document.getElementById("netReturn").textContent = formatPercent(netReturnPercent);
-      document.getElementById("netReturnDesc").textContent = "Your expected annual return after subtracting the ETF expense ratio.";
-
-      document.getElementById("biggestDriver").textContent = biggestDriver.title;
-      document.getElementById("biggestDriverDesc").textContent = biggestDriver.desc;
-
-      document.getElementById("mainRisk").textContent = mainRisk.title;
-      document.getElementById("mainRiskDesc").textContent = mainRisk.desc;
-
-      document.getElementById("planVerdict").innerHTML = "<strong>Decision confirmation:</strong> " + buildPlanVerdict(years, grossRatePercent, feePercent);
-      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> " + buildImproveFirst(years, monthly, grossRatePercent, feePercent);
-      document.getElementById("decisionSummary").textContent = buildDecisionSummary(grossRatePercent, feePercent);
-      document.getElementById("decisionFinal").textContent = "You do not need a perfect entry point — you need a plan you can continue.";
-      document.getElementById("decisionLine").textContent = buildDecisionLine(years, growthShare);
-
-      document.getElementById("grossReturnBox").textContent = formatPercent(grossRatePercent);
-      document.getElementById("feeBox").textContent = formatPercent(feePercent);
-      document.getElementById("netReturnBox").textContent = formatPercent(netReturnPercent);
-      document.getElementById("feeImpactText").textContent = buildFeeImpactText(feePercent);
-      document.getElementById("riskRealityText").textContent = buildRiskRealityText(years);
-
-      const behaviorList = document.getElementById("behaviorList");
-      const behaviorItems = buildBehaviorList(grossRatePercent, feePercent);
-      behaviorList.innerHTML = "";
-      behaviorItems.forEach(function(item){
-        const li = document.createElement("li");
-        li.textContent = item;
-        behaviorList.appendChild(li);
-      });
-
-      updateScenarioTable(monthly, years, feePercent);
-      drawChart(labels, balanceData, contributionData);
+    function tryExample(){
+      document.getElementById("initial").value = 5000;
+      document.getElementById("monthly").value = 500;
+      document.getElementById("years").value = 20;
+      document.getElementById("returnRate").value = 8;
+      document.getElementById("fee").value = 0.10;
+      document.getElementById("drawdownSlider").value = 30;
+      calculateDCA();
     }
 
-    function exampleData(){
-      document.getElementById("monthly").value = "500";
-      document.getElementById("years").value = "20";
-      document.getElementById("rate").value = "8";
-      document.getElementById("fee").value = "0.03";
-      calculate();
-    }
-
-    function resetCalc(){
-      document.getElementById("monthly").value = "";
-      document.getElementById("years").value = "";
-      document.getElementById("rate").value = "";
-      document.getElementById("fee").value = "";
-
-      document.getElementById("final").textContent = "$0.00";
-      document.getElementById("invested").textContent = "$0.00";
-      document.getElementById("growth").textContent = "$0.00";
-      document.getElementById("feeDrag").textContent = "$0.00";
-
-      document.getElementById("decisionTitle").textContent = "A practical long-term DCA plan";
-      document.getElementById("decisionSub").textContent = "This plan is structurally sound — built on consistency, time, and the removal of timing pressure.";
-
-      document.getElementById("profileType").textContent = "Long-Term Habit Builder";
-      document.getElementById("profileDesc").textContent = "You are building a steady investing process designed to reduce hesitation and keep you moving through uncertainty.";
-
-      document.getElementById("netReturn").textContent = "0.0%";
-      document.getElementById("netReturnDesc").textContent = "Your expected annual return after subtracting the ETF expense ratio.";
-
-      document.getElementById("biggestDriver").textContent = "Consistency";
-      document.getElementById("biggestDriverDesc").textContent = "DCA works best when you keep investing through normal ups and downs instead of reacting to them.";
-
-      document.getElementById("mainRisk").textContent = "Behavioral Risk";
-      document.getElementById("mainRiskDesc").textContent = "The biggest risk is not market volatility itself. It is stopping the plan when markets become uncomfortable.";
-
-      document.getElementById("planVerdict").innerHTML = "<strong>Decision confirmation:</strong> This is a practical and repeatable long-term investing plan.";
-      document.getElementById("improveFirst").innerHTML = "<strong>What to improve first:</strong> Stay consistent — your plan already works. The main risk is stopping it during difficult markets.";
-      document.getElementById("decisionSummary").textContent = "For most long-term investors, a simple DCA plan is a strong default path — especially when the goal is to build a repeatable investing habit instead of trying to time the market.";
-      document.getElementById("decisionFinal").textContent = "You do not need a perfect entry point — you need a plan you can continue.";
-      document.getElementById("decisionLine").textContent = "At this pace, time and compounding are becoming major drivers of your future wealth.";
-
-      document.getElementById("grossReturnBox").textContent = "8.0%";
-      document.getElementById("feeBox").textContent = "0.03%";
-      document.getElementById("netReturnBox").textContent = "7.97%";
-      document.getElementById("feeImpactText").textContent = "DCA reduces timing pressure, but low fees still matter because they affect how much of your long-term result keeps compounding.";
-      document.getElementById("riskRealityText").textContent = "If a normal market decline would make you stop investing, the risk is not only volatility — it is whether the plan is simple enough for you to continue.";
-
-      document.getElementById("behaviorList").innerHTML = `
-        <li>Stopping contributions during market declines.</li>
-        <li>Changing the plan too often after short-term noise.</li>
-        <li>Expecting DCA to remove uncertainty or emotional discomfort.</li>
-      `;
-
-      document.getElementById("scenarioBody").innerHTML = `
-        <tr>
-          <td>Conservative</td>
-          <td>6.0%</td>
-          <td>5.97%</td>
-          <td>$0.00</td>
-        </tr>
-        <tr>
-          <td>Base Case</td>
-          <td>8.0%</td>
-          <td>7.97%</td>
-          <td>$0.00</td>
-        </tr>
-        <tr>
-          <td>Stronger Outcome</td>
-          <td>10.0%</td>
-          <td>9.97%</td>
-          <td>$0.00</td>
-        </tr>
-      `;
-
-      if(chartInstance){
-        chartInstance.destroy();
-        chartInstance = null;
-      }
-
-      const canvas = document.getElementById("growthChart");
-      const ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    document.addEventListener("DOMContentLoaded", function(){
-      document.getElementById("calculateBtn").addEventListener("click", calculate);
-      document.getElementById("exampleBtn").addEventListener("click", exampleData);
-      document.getElementById("resetBtn").addEventListener("click", resetCalc);
-
-      const inputs = document.querySelectorAll("input");
-      inputs.forEach(function(input){
-        input.addEventListener("keydown", function(event){
-          if(event.key === "Enter"){
-            calculate();
-          }
-        });
-      });
-
-      exampleData();
+    document.getElementById("calculatorForm").addEventListener("reset", function(){
+      setTimeout(calculateDCA, 0);
     });
+
+    calculateDCA();
   </script>
 </body>
 </html>
