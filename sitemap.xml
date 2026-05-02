@@ -1,289 +1,352 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://etfcalculator.net/</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>1.0</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/voo-calculator.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.9</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/etf-calculator.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/compound-interest-calculator.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
- <url>
-  <loc>https://etfcalculator.net/dca-calculator.html</loc>
-  <lastmod>2026-03-27</lastmod>
-  <priority>0.9</priority>
-</url>
-  
-<url>
-<loc>https://etfcalculator.net/voo-vs-qqq.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/voo-vs-vti.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/voo-vs-schd.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/voo-vs-ivv.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/voo-vs-splg.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/voo-vs-vug.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/voo-vs-vgt.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/voo-vs-dia.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/voo-vs-schg.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/etf-comparisons.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.9</priority>
-</url>
-  
-<url>
-<loc>https://etfcalculator.net/voo-vs-vym.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-  
-<url>
-<loc>https://etfcalculator.net/voo-vs-schb.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-  
-<url>
-<loc>https://etfcalculator.net/voo-vs-ivv-vs-spy.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/best-sp500-etfs.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/best-etfs-for-long-term-investing.html</loc>
-<lastmod>2026-03-14</lastmod>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/schd-vs-vym.html</loc>
-</url>
-  
-<url>
-<loc>https://etfcalculator.net/spy-vs-vti.html</loc>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/vti-vs-qqq.html</loc>
-</url>
-
- <url>
- <loc>https://etfcalculator.net/qqq-vs-spy.html</loc>
-</url>
-
-<url>
-<loc>https://etfcalculator.net/ivv-vs-spy.html</loc>
-</url>
-
-<url>
-  <loc>https://etfcalculator.net/best-etfs-for-beginners.html</loc>
-</url>
-
-<url>
-  <loc>https://etfcalculator.net/vti-vs-schd.html</loc>
-</url>
-<url>
-  <loc>https://etfcalculator.net/voo-vs-spy.html</loc>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>1.0</priority>
+  </url>
 
   <url>
-  <loc>https://etfcalculator.net/vti-vs-vym.html</loc>
-</url>
- <url>
-  <loc>https://etfcalculator.net/thank-you.html</loc>
-</url> 
+    <loc>https://etfcalculator.net/which-etf-should-i-buy.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>1.0</priority>
+  </url>
 
   <url>
-  <loc>https://etfcalculator.net/qqq-vs-schd.html</loc>
-</url>
+    <loc>https://etfcalculator.net/etf-calculator.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.95</priority>
+  </url>
 
   <url>
-  <loc>https://etfcalculator.net/qqq-vs-vym.html</loc>
-   </url> 
+    <loc>https://etfcalculator.net/voo-calculator.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.95</priority>
+  </url>
 
   <url>
-  <loc>https://etfcalculator.net/qqq-vs-vug.html</loc>
-</url>
+    <loc>https://etfcalculator.net/dca-calculator.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.95</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/investment-principles.html</loc>
-  <lastmod>2026-04-05</lastmod>
-  <priority>0.8</priority>
-</url>
- 
-<url>
-  <loc>https://etfcalculator.net/which-etf-should-i-buy.html</loc>
-  <lastmod>2026-04-05</lastmod>
-  <priority>0.8</priority>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/compound-interest-calculator.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.85</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/vti-vs-dia.html</loc>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/etf-comparisons.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.95</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/spy-vs-dia.html</loc>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/best-etfs-for-beginners.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.9</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/qqq-vs-dia.html</loc>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/best-etfs-for-long-term-investing.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.9</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/vti-vs-ivv.html</loc>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/best-sp500-etfs.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.9</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/vti-vs-voom.html</loc>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/best-total-market-etfs.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.9</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/vti-vs-schb.html</loc>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/best-dividend-etfs.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.9</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/qqq-vs-vgt.html</loc>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/best-growth-etfs.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.9</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/voo-investment-guide.html</loc>
-  <lastmod>2026-04-17</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/voo-investment-guide.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.88</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/vti-investment-guide.html</loc>
-  <lastmod>2026-04-17</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/vti-investment-guide.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.88</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/qqq-investment-guide.html</loc>
-  <lastmod>2026-04-17</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/qqq-investment-guide.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.88</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/schd-investment-guide.html</loc>
-  <lastmod>2026-04-17</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/schd-investment-guide.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.88</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/best-dividend-etfs.html</loc>
-  <lastmod>2026-04-19</lastmod> 
-</url>
+  <url>
+    <loc>https://etfcalculator.net/dgro-investment-guide.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.84</priority>
+  </url>
 
- <url>
-  <loc>https://etfcalculator.net/best-growth-etfs.html</loc>
-  <lastmod>2026-04-22</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/how-to-build-etf-portfolio.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.88</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/dgro-investment-guide.html</loc>
-  <lastmod>2026-04-22</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/core-satellite-strategy.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.86</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/how-to-build-etf-portfolio.html</loc>
-  <lastmod>2026-04-22</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/barbell-etf-strategy.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.86</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/core-satellite-strategy.html</loc>
-  <lastmod>2026-04-22</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/allocation-examples.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.84</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/barbell-etf-strategy.html</loc>
-  <lastmod>2026-04-22</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/dca-strategy-guide.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.86</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/allocation-examples.html</loc>
-  <lastmod>2026-04-22</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/lump-sum-vs-dca.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.84</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/dca-strategy-guide.html</loc>
-  <lastmod>2026-04-22</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/when-to-buy-etfs.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.84</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/lump-sum-vs-dca.html</loc>
-  <lastmod>2026-04-22</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/market-cycles-explained.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.84</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/when-to-buy-etfs.html</loc>
-  <lastmod>2026-04-22</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/investment-principles.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.9</priority>
+  </url>
 
-<url>
-  <loc>https://etfcalculator.net/market-cycles-explained.html</loc>
-  <lastmod>2026-04-22</lastmod>
-</url>
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-spy.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.88</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-ivv.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.86</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-vti.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.86</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-qqq.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.86</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/qqq-vs-spy.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.84</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/schd-vs-vym.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.84</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/qqq-vs-schd.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/spy-vs-vti.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/vti-vs-qqq.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/vti-vs-schd.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-schd.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/ivv-vs-spy.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-splg.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-vug.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-vgt.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-dia.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-schg.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-vym.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-schb.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/voo-vs-ivv-vs-spy.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/vti-vs-vym.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/qqq-vs-vym.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/qqq-vs-vug.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/vti-vs-dia.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/spy-vs-dia.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/qqq-vs-dia.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/vti-vs-ivv.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/vti-vs-voom.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/vti-vs-schb.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/qqq-vs-vgt.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://etfcalculator.net/thank-you.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
