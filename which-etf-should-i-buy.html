@@ -438,14 +438,19 @@
       line-height:1.68;
     }
 
-    .dark-read{
-      background:linear-gradient(180deg,#233149 0%, #182132 100%);
-      color:#fff;
-      border:none;
-      box-shadow:0 22px 52px rgba(24,33,50,.18);
-      padding:36px 34px;
-    }
+   .dark-read{
+  background:linear-gradient(180deg,#233149 0%, #182132 100%);
+  color:#fff;
+  border:none;
 
+  /* ⭐ 核心改动 */
+  margin:24px auto;        /* 不贴边 */
+  max-width:820px;         /* 收窄 */
+  border-radius:20px;      /* 卡片感 */
+
+  box-shadow:0 22px 52px rgba(24,33,50,.18);
+  padding:28px 26px;       /* 稍微收一点 */
+}
     .dark-read .eyebrow{
       color:#9fb0c6;
     }
