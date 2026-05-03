@@ -43,19 +43,10 @@
       text-rendering:optimizeLegibility;
     }
 
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
+    a{color:inherit;text-decoration:none}
 
-    .page{
-      padding:16px 0 34px;
-    }
-
-    .wrap{
-      width:min(var(--max), calc(100% - 28px));
-      margin:0 auto;
-    }
+    .page{padding:16px 0 34px}
+    .wrap{width:min(var(--max), calc(100% - 28px));margin:0 auto}
 
     .section-card{
       background:var(--card);
@@ -96,10 +87,7 @@
       font-size:1rem;
     }
 
-    .hero{
-      text-align:center;
-      padding:44px 34px 28px;
-    }
+    .hero{text-align:center;padding:44px 34px 28px}
 
     .hero h1{
       margin:0 auto 14px;
@@ -146,26 +134,10 @@
       transition:.18s ease;
     }
 
-    .btn-primary{
-      background:var(--navy);
-      color:var(--white);
-      border-color:var(--navy);
-    }
-
-    .btn-primary:hover{
-      background:var(--navy-2);
-      border-color:var(--navy-2);
-    }
-
-    .btn-secondary{
-      background:var(--white);
-      color:var(--text);
-    }
-
-    .btn-secondary:hover{
-      background:#fdfefe;
-      border-color:#cad2dc;
-    }
+    .btn-primary{background:var(--navy);color:var(--white);border-color:var(--navy)}
+    .btn-primary:hover{background:var(--navy-2);border-color:var(--navy-2)}
+    .btn-secondary{background:var(--white);color:var(--text)}
+    .btn-secondary:hover{background:#fdfefe;border-color:#cad2dc}
 
     .micro-links{
       margin-top:16px;
@@ -179,23 +151,9 @@
 
     .micro-links a:hover{color:var(--navy)}
 
-    .grid-2{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .grid-4{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:16px;
-    }
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 
     .route-card,
     .hub-card,
@@ -289,11 +247,7 @@
       max-width:560px;
     }
 
-    .stack{
-      margin-top:18px;
-      display:grid;
-      gap:10px;
-    }
+    .stack{margin-top:18px;display:grid;gap:10px}
 
     .stack-item{
       background:var(--card-2);
@@ -302,52 +256,59 @@
       padding:14px 14px;
     }
 
-    .stack-item strong{
+    .stack-item strong{display:block;margin-bottom:4px;font-size:.97rem}
+    .stack-item span{color:var(--muted);font-size:.9rem}
+
+    .home-spine{
+      background:linear-gradient(180deg,#233149 0%, #182132 100%);
+      color:#fff;
+      border:none;
+      border-radius:22px;
+      max-width:900px;
+      margin:0 auto;
+      padding:28px 24px;
+      box-shadow:0 18px 42px rgba(24,33,50,.16);
+    }
+
+    .home-spine .eyebrow{color:#aebdd1}
+    .home-spine .section-head{margin-bottom:20px}
+    .home-spine .section-head h2{color:#fff}
+    .home-spine .section-head p{color:#c7d3e3}
+
+    .spine-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .spine-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:18px;
+      padding:16px 14px;
+    }
+
+    .spine-card strong{
       display:block;
-      margin-bottom:4px;
-      font-size:.97rem;
+      margin-bottom:8px;
+      color:#fff;
+      font-size:1rem;
+      line-height:1.18;
     }
 
-    .stack-item span{
-      color:var(--muted);
+    .spine-card p{
+      margin:0;
+      color:#c7d3e3;
+      font-size:.88rem;
+    }
+
+    .spine-card a{
+      display:inline-block;
+      margin-top:12px;
+      color:#fff;
       font-size:.9rem;
-    }
-
-    .hub-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:10px;
-      margin-bottom:10px;
-    }
-
-    .hub-tag,
-    .hub-role{
-      font-size:10px;
       font-weight:700;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--soft);
-    }
-
-    .hub-links,
-    .nav-links{
-      margin-top:14px;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-
-    .hub-links a,
-    .nav-links a{
-      color:var(--navy);
-      font-size:.94rem;
-      font-weight:650;
-    }
-
-    .hub-links a:hover,
-    .nav-links a:hover{
-      color:var(--navy-2);
     }
 
     .impact-strip{
@@ -372,16 +333,8 @@
       letter-spacing:-.02em;
     }
 
-    .impact-box span{
-      color:var(--muted);
-      font-size:.89rem;
-    }
-
-    .principle-card strong{
-      display:block;
-      margin-bottom:6px;
-      font-size:1rem;
-    }
+    .impact-box span{color:var(--muted);font-size:.89rem}
+    .principle-card strong{display:block;margin-bottom:6px;font-size:1rem}
 
     .platform-map-shell{
       display:grid;
@@ -491,71 +444,8 @@
       line-height:1.5;
     }
 
-    .home-spine{
-      background:linear-gradient(180deg,#233149 0%, #182132 100%);
-      color:#fff;
-      border:none;
-      box-shadow:0 22px 52px rgba(24,33,50,.16);
-    }
-
-    .home-spine .eyebrow{
-      color:#aebdd1;
-    }
-
-    .home-spine .section-head h2{
-      color:#fff;
-    }
-
-    .home-spine .section-head p{
-      color:#c7d3e3;
-    }
-
-    .spine-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .spine-card{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.13);
-      border-radius:20px;
-      padding:18px 16px;
-    }
-
-    .spine-card strong{
-      display:block;
-      margin-bottom:8px;
-      color:#fff;
-      font-size:1rem;
-      line-height:1.18;
-    }
-
-    .spine-card p{
-      margin:0;
-      color:#c7d3e3;
-      font-size:.9rem;
-    }
-
-    .spine-card a{
-      display:inline-block;
-      margin-top:12px;
-      color:#fff;
-      font-size:.9rem;
-      font-weight:700;
-    }
-
-    .feedback{
-      text-align:center;
-      padding:26px 24px;
-    }
-
-    .feedback p{
-      max-width:760px;
-      margin:0 auto;
-      color:var(--muted);
-    }
+    .feedback{text-align:center;padding:26px 24px}
+    .feedback p{max-width:760px;margin:0 auto;color:var(--muted)}
 
     .feedback-actions{
       margin-top:16px;
@@ -579,10 +469,7 @@
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
-      .barbell{
-        grid-template-columns:1fr;
-      }
-
+      .barbell,
       .platform-map-shell{
         grid-template-columns:1fr;
       }
@@ -595,23 +482,16 @@
     @media (max-width:760px){
       .page{padding:12px 0 28px}
       .wrap{width:min(var(--max), calc(100% - 18px))}
+
       .section-card{
         padding:24px 18px;
         border-radius:24px;
         margin:12px 0;
       }
 
-      .hero{
-        padding:34px 18px 24px;
-      }
-
-      .hero-actions{
-        flex-direction:column;
-      }
-
-      .btn{
-        width:100%;
-      }
+      .hero{padding:34px 18px 24px}
+      .hero-actions{flex-direction:column}
+      .btn{width:100%}
 
       .grid-2,
       .grid-3,
@@ -621,10 +501,7 @@
         grid-template-columns:1fr;
       }
 
-      .barbell-side{
-        padding:20px 18px;
-      }
-
+      .barbell-side,
       .route-card,
       .hub-card,
       .tool-card,
@@ -633,6 +510,12 @@
       .map-col,
       .platform-map-right{
         padding:18px 16px;
+      }
+
+      .home-spine{
+        max-width:100%;
+        padding:24px 18px;
+        border-radius:20px;
       }
     }
   </style>
@@ -768,144 +651,42 @@
         </div>
       </section>
 
-      <section class="section-card home-spine">
-        <div class="section-head">
-          <div class="eyebrow">Google-readable platform spine</div>
-          <h2>The full ETF decision system starts from one clear path.</h2>
-          <p>
-            This is the core structure of the site: start with a decision, understand the ETF structure,
-            compare realistic alternatives, then turn the decision into an investing plan.
-          </p>
-        </div>
-
-        <div class="spine-grid">
-          <div class="spine-card">
-            <strong>1. Decide</strong>
-            <p>Start from the core question instead of browsing randomly.</p>
-            <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
-          </div>
-
-          <div class="spine-card">
-            <strong>2. Understand structure</strong>
-            <p>Know whether you are choosing broad market, dividend, growth, or total market exposure.</p>
-            <a href="/best-sp500-etfs.html">Explore ETF structures →</a>
-          </div>
-
-          <div class="spine-card">
-            <strong>3. Compare</strong>
-            <p>Use comparison pages when the real question is between two ETF choices.</p>
-            <a href="/etf-comparisons.html">Open comparison hub →</a>
-          </div>
-
-          <div class="spine-card">
-            <strong>4. Act</strong>
-            <p>Use calculators to turn the idea into numbers and a plan you can follow.</p>
-            <a href="/etf-calculator.html">Build your ETF plan →</a>
-          </div>
-        </div>
-      </section>
-
       <section class="section-card">
-        <div class="section-head">
-          <div class="eyebrow">Decision routes</div>
-          <h2>A simple homepage. Clear hubs underneath.</h2>
-          <p>
-            Each hub groups one kind of investor problem. This helps users navigate clearly and helps Google understand the site structure.
-          </p>
-        </div>
+        <div class="home-spine">
+          <div class="section-head">
+            <div class="eyebrow">Decision spine</div>
+            <h2>The full ETF decision system starts from one clear path.</h2>
+            <p>
+              This is the core structure of the site: start with a decision, understand the ETF structure,
+              compare realistic alternatives, then turn the decision into an investing plan.
+            </p>
+          </div>
 
-        <div class="grid-3">
-
-          <div class="hub-card">
-            <div class="hub-top">
-              <span class="hub-tag">Hub 01</span>
-              <span class="hub-role">Start Here</span>
-            </div>
-            <h3>Start Here Hub</h3>
-            <p>For users trying to simplify the first ETF decision before they go deeper.</p>
-            <div class="hub-links">
+          <div class="spine-grid">
+            <div class="spine-card">
+              <strong>1. Decide</strong>
+              <p>Start from the core question instead of browsing randomly.</p>
               <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
-              <a href="/best-etfs-for-beginners.html">Best ETFs for beginners →</a>
-              <a href="/best-etfs-for-long-term-investing.html">Best ETFs for long-term investing →</a>
+            </div>
+
+            <div class="spine-card">
+              <strong>2. Understand structure</strong>
+              <p>Know whether you are choosing broad market, dividend, growth, or total market exposure.</p>
+              <a href="/best-sp500-etfs.html">Explore ETF structures →</a>
+            </div>
+
+            <div class="spine-card">
+              <strong>3. Compare</strong>
+              <p>Use comparison pages when the real question is between two ETF choices.</p>
+              <a href="/etf-comparisons.html">Open comparison hub →</a>
+            </div>
+
+            <div class="spine-card">
+              <strong>4. Act</strong>
+              <p>Use calculators to turn the idea into numbers and a plan you can follow.</p>
+              <a href="/etf-calculator.html">Build your ETF plan →</a>
             </div>
           </div>
-
-          <div class="hub-card">
-            <div class="hub-top">
-              <span class="hub-tag">Hub 02</span>
-              <span class="hub-role">Structures</span>
-            </div>
-            <h3>ETF Structure Hub</h3>
-            <p>For users comparing categories and trying to understand what kind of ETF structure fits them.</p>
-            <div class="hub-links">
-              <a href="/best-sp500-etfs.html">Best S&amp;P 500 ETFs →</a>
-              <a href="/best-total-market-etfs.html">Best total market ETFs →</a>
-              <a href="/best-dividend-etfs.html">Best dividend ETFs →</a>
-              <a href="/best-growth-etfs.html">Best growth ETFs →</a>
-            </div>
-          </div>
-
-          <div class="hub-card">
-            <div class="hub-top">
-              <span class="hub-tag">Hub 03</span>
-              <span class="hub-role">Guides</span>
-            </div>
-            <h3>ETF Guide Hub</h3>
-            <p>For users who already like an ETF and now want to understand how it behaves in real use.</p>
-            <div class="hub-links">
-              <a href="/voo-investment-guide.html">VOO investment guide →</a>
-              <a href="/vti-investment-guide.html">VTI investment guide →</a>
-              <a href="/qqq-investment-guide.html">QQQ investment guide →</a>
-              <a href="/schd-investment-guide.html">SCHD investment guide →</a>
-              <a href="/dgro-investment-guide.html">DGRO investment guide →</a>
-            </div>
-          </div>
-
-          <div class="hub-card">
-            <div class="hub-top">
-              <span class="hub-tag">Hub 04</span>
-              <span class="hub-role">Portfolio</span>
-            </div>
-            <h3>Portfolio System Hub</h3>
-            <p>For users who already chose an ETF and now need a structure they can keep following.</p>
-            <div class="hub-links">
-              <a href="/how-to-build-etf-portfolio.html">How to build an ETF portfolio →</a>
-              <a href="/core-satellite-strategy.html">Core + satellite strategy →</a>
-              <a href="/barbell-etf-strategy.html">Barbell ETF strategy →</a>
-              <a href="/allocation-examples.html">ETF allocation examples →</a>
-            </div>
-          </div>
-
-          <div class="hub-card">
-            <div class="hub-top">
-              <span class="hub-tag">Hub 05</span>
-              <span class="hub-role">Behavior</span>
-            </div>
-            <h3>Behavior &amp; Cycles Hub</h3>
-            <p>For users whose real challenge is not choosing, but staying invested through uncertainty.</p>
-            <div class="hub-links">
-              <a href="/dca-strategy-guide.html">DCA strategy guide →</a>
-              <a href="/lump-sum-vs-dca.html">Lump sum vs DCA →</a>
-              <a href="/when-to-buy-etfs.html">When to buy ETFs →</a>
-              <a href="/market-cycles-explained.html">Market cycles explained →</a>
-            </div>
-          </div>
-
-          <div class="hub-card">
-            <div class="hub-top">
-              <span class="hub-tag">Hub 06</span>
-              <span class="hub-role">Action</span>
-            </div>
-            <h3>Action Layer</h3>
-            <p>For users ready to turn a decision into numbers, contribution rhythm, and execution.</p>
-            <div class="hub-links">
-              <a href="/etf-calculator.html">ETF Calculator →</a>
-              <a href="/voo-calculator.html">VOO Calculator →</a>
-              <a href="/dca-calculator.html">DCA Calculator →</a>
-              <a href="/compound-interest-calculator.html">Compound Interest Calculator →</a>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -1060,7 +841,7 @@
           <div class="eyebrow">Full platform map</div>
           <h2>Every important path starts here.</h2>
           <p>
-            This visible map replaces the old repeated section. It gives users and Google a clear view of the full platform.
+            This single map combines the old hub section and platform map into one clear structure for users and Google.
           </p>
         </div>
 
