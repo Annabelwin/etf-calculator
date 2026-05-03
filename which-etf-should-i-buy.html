@@ -450,7 +450,7 @@
 .dark-read .eyebrow,
 .dark-read h2,
 .dark-read p{
-  max-width:900px;
+  max-width:100%;
 }
 
 .dark-read .eyebrow{
@@ -490,6 +490,11 @@
   text-wrap:balance;
 }
 
+    .dark-read-inner{
+  max-width:900px;
+  margin:0 auto;
+}
+    
 @media (max-width:640px){
   .dark-read{
     padding:24px 18px;
@@ -749,13 +754,15 @@
     </section>
 
     <section class="section-card dark-read">
-      <div class="eyebrow">Behavior guard</div>
-      <h2>The biggest risk is not choosing the wrong ETF. It is choosing one you cannot hold.</h2>
-      <p>
-        A slightly less “optimal” ETF you can hold for 20 years may beat a “perfect” ETF you abandon in 2 years.
-        This is why the first decision is not just about return. It is about structure, behavior, and staying power.
-      </p>
-    </section>
+  <div class="dark-read-inner">
+    <div class="eyebrow">Behavior guard</div>
+    <h2>The biggest risk is not choosing the wrong ETF. It is choosing one you cannot hold.</h2>
+    <p>
+      A slightly less “optimal” ETF you can hold for 20 years may beat a “perfect” ETF you abandon in 2 years.
+      This is why the first decision is not just about return. It is about structure, behavior, and staying power.
+    </p>
+  </div>
+</section>
 
     <section class="section-card">
       <div class="section-head">
