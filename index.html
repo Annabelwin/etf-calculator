@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>ETF Calculator | Build an investment plan you can actually follow</title>
-  <meta name="description" content="Build an investment plan you can actually follow. Start with the decision you need to make, compare ETFs with more clarity, and use focused tools to turn ideas into action." />
+  <meta name="description" content="Build an investment plan you can actually follow. Start with the ETF decision you need to make, compare ETFs with more clarity, and use focused tools to turn ideas into action." />
   <meta name="theme-color" content="#eef2f6" />
+  <link rel="canonical" href="https://etfcalculator.net/" />
 
   <style>
     :root{
@@ -30,6 +32,7 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       background:var(--bg);
@@ -347,13 +350,6 @@
       color:var(--navy-2);
     }
 
-    .hub-links .coming,
-    .nav-links .coming{
-      color:var(--soft);
-      font-size:.93rem;
-      font-weight:600;
-    }
-
     .impact-strip{
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
@@ -387,10 +383,9 @@
       font-size:1rem;
     }
 
-    /* PLATFORM MAP — redesigned rhythm */
     .platform-map-shell{
       display:grid;
-      grid-template-columns:1.5fr .86fr;
+      grid-template-columns:1.55fr .85fr;
       gap:18px;
       align-items:stretch;
       margin-top:6px;
@@ -468,13 +463,6 @@
 
     .map-links a:hover{color:var(--navy-2)}
 
-    .map-links .coming{
-      color:var(--soft);
-      font-size:.93rem;
-      font-weight:600;
-      line-height:1.45;
-    }
-
     .survive-group{
       margin-top:18px;
       padding-top:16px;
@@ -501,6 +489,61 @@
       color:var(--soft);
       font-size:.84rem;
       line-height:1.5;
+    }
+
+    .home-spine{
+      background:linear-gradient(180deg,#233149 0%, #182132 100%);
+      color:#fff;
+      border:none;
+      box-shadow:0 22px 52px rgba(24,33,50,.16);
+    }
+
+    .home-spine .eyebrow{
+      color:#aebdd1;
+    }
+
+    .home-spine .section-head h2{
+      color:#fff;
+    }
+
+    .home-spine .section-head p{
+      color:#c7d3e3;
+    }
+
+    .spine-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .spine-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:20px;
+      padding:18px 16px;
+    }
+
+    .spine-card strong{
+      display:block;
+      margin-bottom:8px;
+      color:#fff;
+      font-size:1rem;
+      line-height:1.18;
+    }
+
+    .spine-card p{
+      margin:0;
+      color:#c7d3e3;
+      font-size:.9rem;
+    }
+
+    .spine-card a{
+      display:inline-block;
+      margin-top:12px;
+      color:#fff;
+      font-size:.9rem;
+      font-weight:700;
     }
 
     .feedback{
@@ -531,7 +574,8 @@
 
     @media (max-width:1080px){
       .grid-4,
-      .impact-strip{
+      .impact-strip,
+      .spine-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
@@ -556,24 +600,31 @@
         border-radius:24px;
         margin:12px 0;
       }
+
       .hero{
         padding:34px 18px 24px;
       }
+
       .hero-actions{
         flex-direction:column;
       }
+
       .btn{
         width:100%;
       }
+
       .grid-2,
       .grid-3,
       .grid-4,
-      .impact-strip{
+      .impact-strip,
+      .spine-grid{
         grid-template-columns:1fr;
       }
+
       .barbell-side{
         padding:20px 18px;
       }
+
       .route-card,
       .hub-card,
       .tool-card,
@@ -610,8 +661,8 @@
         </div>
 
         <div class="micro-links">
-          <a href="/voo-calculator.html">Build a VOO plan</a>
-          <a href="/dca-calculator.html">Start with DCA</a>
+          <a href="/best-etfs-for-beginners.html">Beginner path</a>
+          <a href="/best-etfs-for-long-term-investing.html">Long-term ETF path</a>
           <a href="/investment-principles.html">See the principles behind the platform</a>
         </div>
       </section>
@@ -688,7 +739,7 @@
 
         <div class="grid-4">
           <a class="route-card" href="/which-etf-should-i-buy.html">
-            <span class="mini-label">Start here</span>
+            <span class="mini-label">Core entry</span>
             <h3>Which ETF should I buy?</h3>
             <p>Use the clearest starting path when you want a practical default decision first.</p>
             <span class="card-link">Start here →</span>
@@ -708,12 +759,49 @@
             <span class="card-link">See long-term choices →</span>
           </a>
 
-          <a class="route-card" href="/etf-comparisons.html">
-            <span class="mini-label">Compare</span>
-            <h3>ETF comparison hub</h3>
-            <p>Best for people who are already choosing between two specific ETFs.</p>
-            <span class="card-link">Compare ETFs →</span>
+          <a class="route-card" href="/investment-principles.html">
+            <span class="mini-label">Principles</span>
+            <h3>Investment principles</h3>
+            <p>Understand the thinking behind the platform: Bogle, Munger, Taleb, and Marks.</p>
+            <span class="card-link">See the framework →</span>
           </a>
+        </div>
+      </section>
+
+      <section class="section-card home-spine">
+        <div class="section-head">
+          <div class="eyebrow">Google-readable platform spine</div>
+          <h2>The full ETF decision system starts from one clear path.</h2>
+          <p>
+            This is the core structure of the site: start with a decision, understand the ETF structure,
+            compare realistic alternatives, then turn the decision into an investing plan.
+          </p>
+        </div>
+
+        <div class="spine-grid">
+          <div class="spine-card">
+            <strong>1. Decide</strong>
+            <p>Start from the core question instead of browsing randomly.</p>
+            <a href="/which-etf-should-i-buy.html">Which ETF should I buy? →</a>
+          </div>
+
+          <div class="spine-card">
+            <strong>2. Understand structure</strong>
+            <p>Know whether you are choosing broad market, dividend, growth, or total market exposure.</p>
+            <a href="/best-sp500-etfs.html">Explore ETF structures →</a>
+          </div>
+
+          <div class="spine-card">
+            <strong>3. Compare</strong>
+            <p>Use comparison pages when the real question is between two ETF choices.</p>
+            <a href="/etf-comparisons.html">Open comparison hub →</a>
+          </div>
+
+          <div class="spine-card">
+            <strong>4. Act</strong>
+            <p>Use calculators to turn the idea into numbers and a plan you can follow.</p>
+            <a href="/etf-calculator.html">Build your ETF plan →</a>
+          </div>
         </div>
       </section>
 
@@ -722,7 +810,7 @@
           <div class="eyebrow">Decision routes</div>
           <h2>A simple homepage. Clear hubs underneath.</h2>
           <p>
-            Each hub groups one kind of investor problem. That keeps the homepage clean while making the full platform easier to navigate as it grows.
+            Each hub groups one kind of investor problem. This helps users navigate clearly and helps Google understand the site structure.
           </p>
         </div>
 
@@ -769,6 +857,7 @@
               <a href="/vti-investment-guide.html">VTI investment guide →</a>
               <a href="/qqq-investment-guide.html">QQQ investment guide →</a>
               <a href="/schd-investment-guide.html">SCHD investment guide →</a>
+              <a href="/dgro-investment-guide.html">DGRO investment guide →</a>
             </div>
           </div>
 
@@ -780,10 +869,10 @@
             <h3>Portfolio System Hub</h3>
             <p>For users who already chose an ETF and now need a structure they can keep following.</p>
             <div class="hub-links">
-              <span class="coming">How to build ETF portfolio — coming next</span>
-              <span class="coming">Core + satellite strategy — coming next</span>
-              <span class="coming">Barbell ETF strategy — coming next</span>
-              <span class="coming">Allocation examples — coming next</span>
+              <a href="/how-to-build-etf-portfolio.html">How to build an ETF portfolio →</a>
+              <a href="/core-satellite-strategy.html">Core + satellite strategy →</a>
+              <a href="/barbell-etf-strategy.html">Barbell ETF strategy →</a>
+              <a href="/allocation-examples.html">ETF allocation examples →</a>
             </div>
           </div>
 
@@ -795,24 +884,25 @@
             <h3>Behavior &amp; Cycles Hub</h3>
             <p>For users whose real challenge is not choosing, but staying invested through uncertainty.</p>
             <div class="hub-links">
-              <span class="coming">DCA strategy guide — coming next</span>
-              <span class="coming">Lump sum vs DCA — coming next</span>
-              <span class="coming">When to buy ETFs — coming next</span>
-              <span class="coming">Market cycles explained — coming next</span>
+              <a href="/dca-strategy-guide.html">DCA strategy guide →</a>
+              <a href="/lump-sum-vs-dca.html">Lump sum vs DCA →</a>
+              <a href="/when-to-buy-etfs.html">When to buy ETFs →</a>
+              <a href="/market-cycles-explained.html">Market cycles explained →</a>
             </div>
           </div>
 
           <div class="hub-card">
             <div class="hub-top">
               <span class="hub-tag">Hub 06</span>
-              <span class="hub-role">Principles</span>
+              <span class="hub-role">Action</span>
             </div>
-            <h3>Principles Hub</h3>
-            <p>For users who want to understand the logic underneath the platform, not just the outputs.</p>
+            <h3>Action Layer</h3>
+            <p>For users ready to turn a decision into numbers, contribution rhythm, and execution.</p>
             <div class="hub-links">
-              <a href="/investment-principles.html">Investment principles →</a>
-              <a href="/best-etfs-for-long-term-investing.html">Long-term investing lens →</a>
-              <a href="/dca-calculator.html">Repeatable contribution plan →</a>
+              <a href="/etf-calculator.html">ETF Calculator →</a>
+              <a href="/voo-calculator.html">VOO Calculator →</a>
+              <a href="/dca-calculator.html">DCA Calculator →</a>
+              <a href="/compound-interest-calculator.html">Compound Interest Calculator →</a>
             </div>
           </div>
 
@@ -828,7 +918,7 @@
           </p>
         </div>
 
-        <div class="grid-3">
+        <div class="grid-4">
           <a class="tool-card" href="/etf-calculator.html">
             <span class="mini-label">Flagship tool</span>
             <h3>ETF Calculator</h3>
@@ -837,18 +927,70 @@
           </a>
 
           <a class="tool-card" href="/voo-calculator.html">
-            <span class="mini-label">Flagship tool</span>
+            <span class="mini-label">VOO tool</span>
             <h3>VOO Calculator</h3>
             <p>Explore what a simple VOO-based plan may look like over time and what discipline really means.</p>
             <span class="card-link">Build a VOO plan →</span>
           </a>
 
           <a class="tool-card" href="/dca-calculator.html">
-            <span class="mini-label">Flagship tool</span>
+            <span class="mini-label">Behavior tool</span>
             <h3>DCA Calculator</h3>
-            <p>Build a contribution rhythm you can actually keep following instead of trying to time every move.</p>
+            <p>Build a contribution rhythm you can keep following instead of trying to time every move.</p>
             <span class="card-link">Create a DCA schedule →</span>
           </a>
+
+          <a class="tool-card" href="/compound-interest-calculator.html">
+            <span class="mini-label">Compounding tool</span>
+            <h3>Compound Interest Calculator</h3>
+            <p>Understand how time, return, and repeated contributions shape long-term outcomes.</p>
+            <span class="card-link">Explore compounding →</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head">
+          <div class="eyebrow">Comparison system</div>
+          <h2>Compare ETF choices before you commit.</h2>
+          <p>
+            Use the comparison system when the real question is not “what is an ETF?” but “which ETF fits better?”
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <a class="nav-card" href="/voo-vs-spy.html">
+            <span class="mini-label">Closest alternatives</span>
+            <h3>VOO vs SPY</h3>
+            <p>Compare two of the most common S&amp;P 500 ETF choices.</p>
+            <span class="card-link">Compare →</span>
+          </a>
+
+          <a class="nav-card" href="/voo-vs-vti.html">
+            <span class="mini-label">Core vs broader</span>
+            <h3>VOO vs VTI</h3>
+            <p>Compare S&amp;P 500 exposure with total market exposure.</p>
+            <span class="card-link">Compare →</span>
+          </a>
+
+          <a class="nav-card" href="/voo-vs-qqq.html">
+            <span class="mini-label">Core vs growth</span>
+            <h3>VOO vs QQQ</h3>
+            <p>Compare a broad core with a more growth-heavy path.</p>
+            <span class="card-link">Compare →</span>
+          </a>
+
+          <a class="nav-card" href="/schd-vs-vym.html">
+            <span class="mini-label">Dividend choice</span>
+            <h3>SCHD vs VYM</h3>
+            <p>Compare dividend quality with broader dividend yield exposure.</p>
+            <span class="card-link">Compare →</span>
+          </a>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/etf-comparisons.html">Explore all comparisons →</a>
+          <a class="btn btn-secondary" href="/which-etf-should-i-buy.html">Need a starting ETF first? →</a>
         </div>
       </section>
 
@@ -915,10 +1057,10 @@
 
       <section class="section-card">
         <div class="section-head">
-          <div class="eyebrow">Platform map</div>
+          <div class="eyebrow">Full platform map</div>
           <h2>Every important path starts here.</h2>
           <p>
-            The homepage stays focused, but the full platform is still easy to navigate through grouped decision paths.
+            This visible map replaces the old repeated section. It gives users and Google a clear view of the full platform.
           </p>
         </div>
 
@@ -949,12 +1091,13 @@
                 <a href="/vti-investment-guide.html">VTI investment guide →</a>
                 <a href="/qqq-investment-guide.html">QQQ investment guide →</a>
                 <a href="/schd-investment-guide.html">SCHD investment guide →</a>
+                <a href="/dgro-investment-guide.html">DGRO investment guide →</a>
               </div>
             </div>
 
             <div class="map-col">
-              <span class="map-kicker">Act</span>
-              <h3>Compare &amp; Act</h3>
+              <span class="map-kicker">Compare &amp; Act</span>
+              <h3>Comparison and calculators</h3>
               <p>For choosing between options and turning decisions into plans.</p>
               <div class="map-links">
                 <a href="/etf-comparisons.html">ETF comparisons hub →</a>
@@ -983,20 +1126,20 @@
             <div class="survive-group">
               <h4>Portfolio system</h4>
               <div class="map-links">
-                <span class="coming">How to build ETF portfolio — coming next</span>
-                <span class="coming">Core + satellite strategy — coming next</span>
-                <span class="coming">Barbell ETF strategy — coming next</span>
-                <span class="coming">Allocation examples — coming next</span>
+                <a href="/how-to-build-etf-portfolio.html">How to build ETF portfolio →</a>
+                <a href="/core-satellite-strategy.html">Core + satellite strategy →</a>
+                <a href="/barbell-etf-strategy.html">Barbell ETF strategy →</a>
+                <a href="/allocation-examples.html">Allocation examples →</a>
               </div>
             </div>
 
             <div class="survive-group">
               <h4>Behavior &amp; cycles</h4>
               <div class="map-links">
-                <span class="coming">DCA strategy guide — coming next</span>
-                <span class="coming">Lump sum vs DCA — coming next</span>
-                <span class="coming">When to buy ETFs — coming next</span>
-                <span class="coming">Market cycles explained — coming next</span>
+                <a href="/dca-strategy-guide.html">DCA strategy guide →</a>
+                <a href="/lump-sum-vs-dca.html">Lump sum vs DCA →</a>
+                <a href="/when-to-buy-etfs.html">When to buy ETFs →</a>
+                <a href="/market-cycles-explained.html">Market cycles explained →</a>
               </div>
             </div>
 
@@ -1008,8 +1151,8 @@
             </div>
 
             <div class="platform-note">
-              The left side helps you start. The right side helps you keep going.
-              That is the full architecture the homepage is built around.
+              The left side helps users start. The right side helps them keep going.
+              This is the full architecture Google should see when it crawls the homepage.
             </div>
           </aside>
         </div>
@@ -1026,13 +1169,13 @@
         </div>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="/etf-calculator.html">Build your ETF plan →</a>
-          <a class="btn btn-secondary" href="/voo-calculator.html">Start with a VOO plan →</a>
+          <a class="btn btn-primary" href="/which-etf-should-i-buy.html">Start with the core decision →</a>
+          <a class="btn btn-secondary" href="/etf-calculator.html">Build your ETF plan →</a>
           <a class="btn btn-secondary" href="/dca-calculator.html">Build a DCA plan →</a>
         </div>
 
         <div class="micro-links">
-          <a href="/which-etf-should-i-buy.html">Need a simpler starting point first?</a>
+          <a href="/voo-calculator.html">Start with a VOO plan</a>
           <a href="/etf-comparisons.html">Still choosing between two ETFs?</a>
           <a href="/investment-principles.html">Want to see the full decision framework?</a>
         </div>
